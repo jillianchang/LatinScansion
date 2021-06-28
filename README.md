@@ -13,4 +13,5 @@ The engine is released under an Apache 2.0 license. Please see
 Authors
 -------
 
-Jillian Chang Kyle Gorman
+* Jillian Chang
+* Kyle Gorman
