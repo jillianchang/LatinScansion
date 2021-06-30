@@ -8,8 +8,8 @@ sigma_star = b.kBytes*; # Operates over all bytes.
 casefold = Optimize[CDRewrite[StringFile['casefold.tsv'], "", "", sigma_star]];
 
 # Removes all punctuation, except the em-dash, which is replaced with a space character.
-punctuation = "!" | "\"" | "'" | "(" | ")" | "\[" | "\"" |
-              "\]" | "," | "-" | "." | ":" | ";" | "?"; # RECHECK THIS
+punctuation = "!" | "\"" | "'" | "(" | ")" | "\[" |
+              "\]" | "," | "." | ":" | ";" | "?";
 remove_em_dash_end = Optimize[CDRewrite["---": "", "", "[EOS]", sigma_star]];
 remove_em_dash = Optimize[CDRewrite["---" : " ", "", "", sigma_star]];
 remove_punctuation = Optimize[CDRewrite[punctuation : "", "", "", sigma_star]];
@@ -17,38 +17,42 @@ remove_punctuation = Optimize[CDRewrite[punctuation : "", "", "", sigma_star]];
 export NORMALIZE = Optimize[remove_em_dash_end @ remove_em_dash @ remove_punctuation @ casefold];
 
 # Tests
-punctuation_1 = AssertEqual[
+test_punctuation_1 = AssertEqual[
     "gentis honōs: haerent īnfixī pectore vultūs" @ NORMALIZE, 
     "gentis honōs haerent īnfixī pectore vultūs"
 ];
 
-punctuation_2 = AssertEqual[
+test_punctuation_2 = AssertEqual[
     "verbaque, nec placidam membrīs dat cūra quiētem." @ NORMALIZE, 
     "verbaque nec placidam membrīs dat cūra quiētem"
 ];
 
-punctuation_3 = AssertEqual[
+test_punctuation_3 = AssertEqual[
     "et genus invīsum, et raptī Ganymēdis honōrēs)---" @ NORMALIZE, 
     "et genus invīsum et raptī ganymēdis honōrēs"
 ];
 
-punctuation_4 = AssertEqual[
+test_punctuation_4 = AssertEqual[
     "abstulit; ille habeat sēcum servetque sepulchrō.\"" @ NORMALIZE, 
     "abstulit ille habeat sēcum servetque sepulchrō"
 ];
-punctuation_5 = AssertEqual[
+test_punctuation_5 = AssertEqual[
     "Trōs\" ait \"Aenēā? Cessās? Neque enim ante dehīscent" @ NORMALIZE, 
     "trōs ait aenēā cessās neque enim ante dehīscent"
 ]; 
-punctuation_em_dash = AssertEqual[
+test_punctuation_6 = AssertEqual[
+    "\[nec super ipse tuā mōlīris laude labōrem,\]" @ NORMALIZE, 
+    "nec super ipse tuā mōlīris laude labōrem"
+]; 
+test_punctuation_em_dash = AssertEqual[
     "lītora---multum ille et terrīs jactātus et altō" @ NORMALIZE, 
     "lītora multum ille et terrīs jactātus et altō"
 ];
-casefold_1 = AssertEqual[
+test_casefold_1 = AssertEqual[
     "Albānīque patrēs, atque altae moenia Rōmae." @ NORMALIZE, 
     "albānīque patrēs atque altae moenia rōmae"
 ];
-casefold_2 = AssertEqual[
+test_casefold_2 = AssertEqual[
     "At pius Aenēās arcēs quibus altus Apollō" @ NORMALIZE, 
     "at pius aenēās arcēs quibus altus apollō"
 ];
