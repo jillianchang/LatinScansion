@@ -10,7 +10,9 @@ enabled, in which case the presence of ties results in a fatal error.
 """
 
 import argparse
+import fileinput
 import functools
+import logging
 
 from typing import Callable, Union
 
@@ -38,19 +40,28 @@ def main(args: argparse.Namespace) -> None:
         input_token_type=_prepare_token_type(args.input_token_type),
         output_token_type=_prepare_token_type(args.output_token_type),
     )
-    with open(args.input, "r") as source:
-        for line in source:
-            print(rewrite(line.rstrip()))
+    for line in fileinput.input(args.input if args.input else "-"):
+        line = line.rstrip()
+        try:
+            print(rewrite(line))
+        except Exception as err:
+            logging.error(
+                "Exception at %s (line %d): %s (%r)",
+                fileinput.filename(),
+                fileinput.lineno(),
+                err,
+                line,
+            )
+            exit(1)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level="INFO", format="%(levelname)s: %(message)s")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--input", required=True, help="path to input text file"
+        "--input", default="", help="path to input file (default: stdin)"
     )
-    parser.add_argument(
-        "--far", required=True, help="path to input FAR file"
-    )
+    parser.add_argument("--far", required=True, help="path to input FAR file")
     parser.add_argument(
         "--rules",
         required=True,
