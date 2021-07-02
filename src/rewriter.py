@@ -40,7 +40,7 @@ def main(args: argparse.Namespace) -> None:
         input_token_type=_prepare_token_type(args.input_token_type),
         output_token_type=_prepare_token_type(args.output_token_type),
     )
-    for line in fileinput.input(args.input if args.input else "-"):
+    for line in fileinput.input(args.input):
         line = line.rstrip()
         try:
             print(rewrite(line))
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     logging.basicConfig(level="INFO", format="%(levelname)s: %(message)s")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--input", default="", help="path to input file (default: stdin)"
+        "--input", default="-", help="path to input file (default: stdin)"
     )
     parser.add_argument("--far", required=True, help="path to input FAR file")
     parser.add_argument(
