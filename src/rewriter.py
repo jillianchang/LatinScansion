@@ -41,7 +41,7 @@ def main(args: argparse.Namespace) -> None:
         output_token_type=_prepare_token_type(args.output_token_type),
     )
     for line in fileinput.input(args.input):
-        line = line.rstrip()
+        line = pynini.escape(line.rstrip())
         try:
             print(rewrite(line))
         except Exception as err:
