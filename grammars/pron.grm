@@ -1,0 +1,19 @@
+# Converts normalized Latin lines to its broad phonetic transcription.
+
+graphemes = 
+    "a"| "b"| "c"| "d"| "e"| "f"| "g"|
+    "h"| "i"| "j"| "k"| "l"| "m"| "n"|
+    "o"| "p"| "q"| "r"| "s"| "t"| "u"|
+    "v"| "w"| "x"| "y"| "z"| "ā"| "ē"|
+    "ī"| "ō"| "ū";
+
+phonemes = 
+    "a"| "aː"| "ãː" | "b"| "d" | "ɛ"| "eː"| 
+    "ẽː"| "f"| "g"| "h"| "ɪ"| "iː"| "ĩː" |
+    "j"| "k" | "kw"| "kɥ"| "l"| "m"|
+    "n"| "ŋ"| "ɔ"| "oː"| "p"| "r"|
+    "s" | "t" | "u" | "ʊ" | "uː" | "ũː" | "u̯"
+    "w" | "z";
+
+sigma_star = (graphemes | phonemes)*;
+
