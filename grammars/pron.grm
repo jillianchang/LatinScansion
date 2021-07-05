@@ -1,6 +1,6 @@
 # Converts normalized Latin lines to its broad phonetic transcription.
 
-# Note: the Romans never used "v" or "j," but some secondary sources do
+# Note: the Romans never used "v" or "j," but some secondary sources do.
 graphemes = 
     "a" | "b" | "c" | "d" | "e" | "f" | "g" |
     "h" | "i" | "j" | "k" | "l" | "m" | "n" |
@@ -10,7 +10,7 @@ graphemes =
 
 phonemes = 
     "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" | 
-    "ẽː"| "f" | "g" | "h" | "i" | "iː" | "ĩː" |
+    "ẽː" | "f" | "g" | "h" | "i" | "iː" | "ĩː" |
     "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
     "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
     "u" | "uː" | "ũː" | "w" | "z";
