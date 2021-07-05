@@ -1,19 +1,18 @@
 # Converts normalized Latin lines to its broad phonetic transcription.
 
+# Note: the Romans never used "v" or "j," but some secondary sources do
 graphemes = 
-    "a"| "b"| "c"| "d"| "e"| "f"| "g"|
-    "h"| "i"| "j"| "k"| "l"| "m"| "n"|
-    "o"| "p"| "q"| "r"| "s"| "t"| "u"|
-    "v"| "w"| "x"| "y"| "z"| "ā"| "ē"|
-    "ī"| "ō"| "ū";
+    "a" | "b" | "c" | "d" | "e" | "f" | "g" |
+    "h" | "i" | "j" | "k" | "l" | "m" | "n" |
+    "o" | "p" | "q" | "r" | "s" | "t" | "u" |
+    "v" | "w" | "x" | "y" | "z" | "ā" | "ē" |
+    "ī" | "ō" | "ū";
 
 phonemes = 
-    "a"| "aː"| "ãː" | "b"| "d" | "ɛ"| "eː"| 
-    "ẽː"| "f"| "g"| "h"| "ɪ"| "iː"| "ĩː" |
-    "j"| "k" | "kw"| "kɥ"| "l"| "m"|
-    "n"| "ŋ"| "ɔ"| "oː"| "p"| "r"|
-    "s" | "t" | "u" | "ʊ" | "uː" | "ũː" | "u̯"
-    "w" | "z";
+    "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" | 
+    "ẽː"| "f" | "g" | "h" | "i" | "iː" | "ĩː" |
+    "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
+    "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
+    "u" | "uː" | "ũː" | "w" | "z";
 
 sigma_star = (graphemes | phonemes)*;
-
