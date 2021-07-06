@@ -1,5 +1,7 @@
 # Converts normalized Latin lines to its broad phonetic transcription.
 
+import 'byte.grm' as b;
+
 # Note: the Romans never used "v" or "j," but some secondary sources do.
 graphemes = 
     "a" | "b" | "c" | "d" | "e" | "f" | "g" |
@@ -16,3 +18,95 @@ phonemes =
     "u" | "uː" | "ũː" | "w" | "z";
 
 sigma_star = (graphemes | phonemes)*;
+
+qu_rule = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
+
+vowels_except_i = "a" | "e" | "o" | "u" | "ā" | "ē" | "ō" | "ū";
+intervocalic_i = Optimize[CDRewrite["i" : "jj", vowels_except_i, vowels_except_i, sigma_star]];
+
+digraphs = Optimize[CDRewrite[("ph" : "p") |
+                     ("ch" : "k") |
+                     ("th" : "t"), "", "", sigma_star]];
+
+rule1_transducer =
+    ("c" : "k") |
+    ("x" : "ks") |
+    ("v" : "w") |
+    ("bs" : "ps") |
+    ("y" : "u");
+
+rule1 = Optimize[CDRewrite[rule1_transducer, "", "", sigma_star]];
+
+ng_gn_rules = Optimize[CDRewrite[("ng" : "ŋ") | ("gn" : "ŋn"), "", "", sigma_star]];
+
+nasalized_m_n = Optimize[CDRewrite[("a" : "ãː") |
+                        ("e" : "ẽː") |
+                        ("i" : "ĩː") |
+                        ("o" : "õː") |
+                        ("u" : "ũː" ), "", ("m" | "n") (b.kSpace | "[EOS]"), sigma_star]];
+delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
+                        "", 
+                        (b.kSpace | "[EOS]"), sigma_star]];
+
+diphthongs = Optimize[CDRewrite[("ae" : "aj") | 
+                       ("oe" : "oj") |
+                       ("ei" : "ej") |
+                       ("eu" : "ew") |
+                       ("au" : "aw"), "", "", sigma_star]];
+
+
+macrons = Optimize[CDRewrite[("ā" : "aː") |
+                      ("ē" : "eː") |
+                      ("ī" : "iː") |
+                      ("ō" : "oː") |
+                      ("ü" : "uː") |
+                      ("ȳ" : "uː"), "", "", sigma_star]];
+
+# export PRON = Optimize[qu_rule @ intervocalic_i @digraphs
+#                      @rule1 @ng_gn_rules @nasalized_m_n
+#                      @delete_m_n @diphthongs @ macrons];
+export Q_AND_INTERVOCALIC_I = Optimize[qu_rule @ intervocalic_i];
+export NASALIZED = Optimize[nasalized_m_n @ delete_m_n];
+export MACRONS_DIPHTHONGS = Optimize[macrons @ diphthongs];
+
+# Tests.
+test_pron_1 = AssertEqual[
+    "quod" @ Q_AND_INTERVOCALIC_I, 
+    "kwod"
+]; # TEST PASSED.
+test_pron_2 = AssertEqual[
+    "quod quod" @ Q_AND_INTERVOCALIC_I, 
+    "kwod kwod"
+]; # TEST FAILED
+test_pron_3 = AssertEqual[
+    "quod peior" @ Q_AND_INTERVOCALIC_I, 
+    "kwod pejjor"
+]; # TEST FAILED. 
+test_pron_4 = AssertEqual[
+    "talentum" @ NASALIZED, 
+    "talentũː"
+]; # TEST FAILED: problems with the nasalized 'M' and 'N' set of rules.
+test_pron_5 = AssertEqual[
+    "haec" @ MACRONS_DIPHTHONGS, 
+    "hajc"
+]; # TEST PASSED.
+test_pron_6 = AssertEqual[
+    "haec haec" @ MACRONS_DIPHTHONGS, 
+    "hajc hajc"
+]; # TEST FAILED.
+
+
+# Uncertainty for quīcumque: either kwiːkuŋkwe or kwiːkũːkwe.
+# Uncertainty for tumidumque.
+
+# NOTES TO SELF:
+# q is [kw]
+# c is [k]
+# ae = /aj/ , oe = /oj/, ei = /ej/ , eu = /ew/, au = /aw/, ui depends on position
+# x is [ks]
+# y = \u\ and ȳ = \uː\
+# ng is [ŋ] and gn is [ŋn]
+# bs was pronounced [ps]
+# i between two vowels, which Pharr usually writes as j, is actually [jj]. u does not count (so apply qu rule first)
+# ph, th, and ch = [p, t, k]. 
+# Word-final m and n
