@@ -32,11 +32,11 @@ rule1_transducer =
     ("c" : "k") |
     ("x" : "ks") |
     ("v" : "w") |
-    ("bs" : "ps") |
-    ("bt" : "pt") |
     ("y" : "u");
 
 rule1 = Optimize[CDRewrite[rule1_transducer, "", "", sigma_star]];
+
+b_rule = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 eow = (b.kSpace | "[EOS]"); # End of word.
 nasalized_m_n = Optimize[CDRewrite[("a" : "ãː") |
@@ -48,7 +48,7 @@ delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
                         "", 
                         eow, sigma_star]];
 
-gu_rule = Optimize[CDRewrite["gu" : "gw", "n", "", sigma_star]];
+gu_glide = Optimize[CDRewrite["gu" : "gw", "n", "", sigma_star]];
 
 ng_gn_rules = Optimize[CDRewrite[("ng" : "ŋ") | ("gn" : "ŋn"), "", "", sigma_star]];
 
@@ -65,8 +65,8 @@ macrons = Optimize[CDRewrite[("ā" : "aː") |
                       ("ȳ" : "uː"), "", "", sigma_star]];
 
 export PRON = Optimize[qu_rule @ intervocalic_i @digraphs
-                      @rule1 @nasalized_m_n @delete_m_n 
-                      @gu_rule @ng_gn_rules @diphthongs @macrons];
+                      @rule1 @b_rule @nasalized_m_n @delete_m_n 
+                      @gu_glide @ng_gn_rules @diphthongs @macrons];
 # Tests.
 test_pron_1 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRON, 
