@@ -19,26 +19,43 @@ phonemes =
 
 sigma_star = (graphemes | phonemes | b.kSpace)*;
 
+bow = (b.kSpace | "[BOS]"); # Beginning of a word.
+eow = (b.kSpace | "[EOS]"); # End of a word.
+
+# These words form an "eu" dipthong, rather than the normal hiatus.                                
+eu_exceptions = Optimize[CDRewrite[("heus": "hews") |
+                                  ("ceu" : "kew") |
+                                  ("neu" : "new") |
+                                  ("seu" : "sew") |
+                                  ("ēheu" : "eːhew"), bow, eow, sigma_star]];
+
+# These words form an "ou" dipthong, rather than the normal hiatus.
+ou_exceptions = Optimize[CDRewrite[("boum": "bowũː") |
+                                  ("prout" : "prowt"), bow, eow, sigma_star]];
+
+# These words form an "ui" dipthong, rather than the normal hiatus. 
+ui_exceptions = Optimize[CDRewrite[("hui": "huj") |
+                                  ("huic" : "hujk") |
+                                  ("cui" : "kuj"), bow, eow, sigma_star]];
+
+# These words form an "ei" dipthong, rather than the normal hiatus. 
+ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
+                                  ("deinde" : "dẽːjde") |
+                                  ("deinceps" : "dẽːjkeps") |
+                                  ("ei" : "ej") |
+                                  ("hei" : "hej"), bow, eow, sigma_star]];
+
 qu_rule = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
 
 vowels_except_i = "a" | "e" | "o" | "u" | "ā" | "ē" | "ō" | "ū";
 intervocalic_i = Optimize[CDRewrite["i" : "jj", vowels_except_i, vowels_except_i, sigma_star]];
 
 digraphs = Optimize[CDRewrite[("ph" : "p") |
-                     ("ch" : "k") |
-                     ("th" : "t"), "", "", sigma_star]];
-
-rule1_transducer =
-    ("c" : "k") |
-    ("x" : "ks") |
-    ("v" : "w") |
-    ("y" : "u");
-
-rule1 = Optimize[CDRewrite[rule1_transducer, "", "", sigma_star]];
+                              ("ch" : "k") |
+                              ("th" : "t"), "", "", sigma_star]];
 
 b_rule = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
-eow = (b.kSpace | "[EOS]"); # End of word.
 nasalized_m_n = Optimize[CDRewrite[("a" : "ãː") |
                         ("e" : "ẽː") |
                         ("i" : "ĩː") |
@@ -56,6 +73,10 @@ diphthongs = Optimize[CDRewrite[("ae" : "aj") |
                                 ("oe" : "oj") |
                                 ("au" : "aw"), "", "", sigma_star]];
 
+rule1 = Optimize[CDRewrite[("c" : "k") |
+                           ("x" : "ks") |
+                           ("v" : "w") |
+                           ("y" : "u"), "", "", sigma_star]];
 
 macrons = Optimize[CDRewrite[("ā" : "aː") |
                       ("ē" : "eː") |
@@ -64,9 +85,10 @@ macrons = Optimize[CDRewrite[("ā" : "aː") |
                       ("ū" : "uː") |
                       ("ȳ" : "uː"), "", "", sigma_star]];
 
-export PRON = Optimize[qu_rule @ intervocalic_i @digraphs
-                      @rule1 @b_rule @nasalized_m_n @delete_m_n 
-                      @gu_glide @ng_gn_rules @diphthongs @macrons];
+export PRON = Optimize[eu_exceptions @ou_exceptions @ui_exceptions
+                       @ei_exceptions @qu_rule @ intervocalic_i @digraphs
+                       @b_rule @nasalized_m_n @delete_m_n 
+                       @gu_glide @ng_gn_rules @diphthongs @rule1 @macrons];
 # Tests.
 test_pron_1 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRON, 
@@ -98,6 +120,16 @@ test_pron_6 = AssertEqual[
     "supsiːdunt undaj tumidumkwe sub akse tonantiː"
 ]; # Testing for "bs."
 
+test_pron_7 = AssertEqual[
+    "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRON, 
+    "weːloːkẽː mneːsteus agit aːkriː reːmige pristĩː"
+]; # Testing to make sure "mnēstheus" does not glide
+
+test_pron_8 = AssertEqual[
+    "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRON, 
+    "ak prior hews inkwit juweneːs moːnstraːte meaːrũː"
+]; # Testing to make sure "heus" glides
+
 # Uncertainty for quīcumque: either kwiːkuŋkwe or kwiːkũːkwe.
 # Uncertainty for tumidumque.
 
@@ -113,5 +145,4 @@ test_pron_6 = AssertEqual[
 # ph, th, and ch = [p, t, k]. 
 # Word-final m and n
 
-# cui: [kuj]
-# Exceptions: ei and eu glides
+# the clitics -que, -ne and -ue as eow
