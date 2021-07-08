@@ -45,6 +45,11 @@ ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
                                   ("ei" : "ej") |
                                   ("hei" : "hej"), bow, eow, sigma_star]];
 
+# As a result of the change from Old Latin "quo" and "nguo" to
+# "guu" and "nguu," loss of the preceding "u" occured.
+u_loss = Optimize[CDRewrite[("nguu": "ngu") |
+                            ("quu" : "cu"), "", "", sigma_star]];
+
 qu_rule = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
 
 # When an "i" occurs intervocalically (between two vowels), 
@@ -54,7 +59,7 @@ intervocalic_i = Optimize[CDRewrite["i" : "jj", vowels_except_i,
                           vowels_except_i, sigma_star]];
 
 # The Romans wrote various Greek letters as digraphs: "ph," "th," and "ch."
-# Most likely, they were pronounced as [p, t, k], respectfully.
+# Most likely, they were pronounced as [p, t, k], respectively.
 digraphs = Optimize[CDRewrite[("ph" : "p") |
                               ("ch" : "k") |
                               ("th" : "t"), "", "", sigma_star]];
@@ -72,10 +77,12 @@ delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
                         "", 
                         eow, sigma_star]];
 
-# If "gu" proceeds "n," it is pronounced with a glide.
-gu_glide = Optimize[CDRewrite["gu" : "gw", "n", "", sigma_star]];
+# If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
+vowels = "a" | "e" | "i" | "o" | "u" | "ā" | "ē" | "ī" | "ō" | "ū";
+gu_glide = Optimize[CDRewrite["gu" : "gw", "n", vowels, sigma_star]];
 
-ng_gn_rules = Optimize[CDRewrite[("ng" : "ŋ") | ("gn" : "ŋn"), "", "", sigma_star]];
+ng_gn_rules = Optimize[CDRewrite[("ng" : "ŋ") |
+                                 ("gn" : "ŋn"), "", "", sigma_star]];
 
 diphthongs = Optimize[CDRewrite[("ae" : "aj") | 
                                 ("oe" : "oj") |
@@ -94,9 +101,11 @@ macrons = Optimize[CDRewrite[("ā" : "aː") |
                       ("ȳ" : "uː"), "", "", sigma_star]];
 
 rules = Optimize[eu_exceptions @ ou_exceptions @ ui_exceptions
-                       @ ei_exceptions @ qu_rule @ intervocalic_i @ digraphs
-                       @ b_rule @ nasalized_m_n @ delete_m_n 
-                       @ gu_glide @ ng_gn_rules @ diphthongs @ rule1 @ macrons];
+                @ ei_exceptions @u_loss @ qu_rule @ intervocalic_i
+                @ digraphs @ b_rule @ nasalized_m_n @ delete_m_n 
+                @ gu_glide @ ng_gn_rules @ diphthongs @ rule1 @ macrons];
+
+# Limits input to the graphemes and output to the phonemes.
 export PRON = graphemes* @ rules @ phonemes*;
 
 # Tests.
@@ -140,7 +149,19 @@ test_pron_8 = AssertEqual[
     "ak prior hews inkwit juweneːs moːnstraːte meaːrũː"
 ]; # Testing to make sure "heus" glides.
 
+test_pron_9 = AssertEqual[
+    "expediunt corpusque lavant frīgentis et unguunt" @ PRON, 
+    "ekspediunt korpuskwe lawant friːgentis et uŋunt"
+]; # Testing for "nguu."
+
+test_pron_10 = AssertEqual[
+    "prīmus equum phalerīs īnsignem victor habētō" @ PRON, 
+    "priːmus ekũː paleriːs iːnsiŋnẽː wiktor habeːtoː"
+]; # Testing for "quu."
+
 # TODO:
 # • Uncertainty for quīcumque: probably either kwiːkuŋkwe or kwiːkũːkwe.
 # • Same for tumidumque.
 # • The clitics -que, -ne and -ue should designate eow.
+# • When final m was followed by a plosive or nasal consonant, 
+#   it was assimilated to the following consonant.
