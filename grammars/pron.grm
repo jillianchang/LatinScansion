@@ -8,16 +8,16 @@ graphemes =
     "h" | "i" | "j" | "k" | "l" | "m" | "n" |
     "o" | "p" | "q" | "r" | "s" | "t" | "u" |
     "v" | "w" | "x" | "y" | "z" | "ā" | "ē" |
-    "ī" | "ō" | "ū";
+    "ī" | "ō" | "ū" | b.kSpace;
 
 phonemes = 
     "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" | 
     "ẽː" | "f" | "g" | "h" | "i" | "iː" | "ĩː" |
     "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
     "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
-    "u" | "uː" | "ũː" | "w" | "z";
+    "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
 
-sigma_star = (graphemes | phonemes | b.kSpace)*;
+sigma_star = (graphemes | phonemes)*;
 
 bow = (b.kSpace | "[BOS]"); # Beginning of a word.
 eow = (b.kSpace | "[EOS]"); # End of a word.
@@ -47,15 +47,22 @@ ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
 
 qu_rule = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
 
+# When an "i" occurs intervocalically (between two vowels), 
+# it is realized as a glide: [jj].
 vowels_except_i = "a" | "e" | "o" | "u" | "ā" | "ē" | "ō" | "ū";
-intervocalic_i = Optimize[CDRewrite["i" : "jj", vowels_except_i, vowels_except_i, sigma_star]];
+intervocalic_i = Optimize[CDRewrite["i" : "jj", vowels_except_i, 
+                          vowels_except_i, sigma_star]];
 
+# The Romans wrote various Greek letters as digraphs: "ph," "th," and "ch."
+# Most likely, they were pronounced as [p, t, k], respectfully.
 digraphs = Optimize[CDRewrite[("ph" : "p") |
                               ("ch" : "k") |
                               ("th" : "t"), "", "", sigma_star]];
 
+# "bs" was pronounced as [ps] and "bt" was pronounced as [pt].
 b_rule = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
+# Word-final "m" and "n" indicates vowel lengthening and nasalization.
 nasalized_m_n = Optimize[CDRewrite[("a" : "ãː") |
                         ("e" : "ẽː") |
                         ("i" : "ĩː") |
@@ -65,6 +72,7 @@ delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
                         "", 
                         eow, sigma_star]];
 
+# If "gu" proceeds "n," it is pronounced with a glide.
 gu_glide = Optimize[CDRewrite["gu" : "gw", "n", "", sigma_star]];
 
 ng_gn_rules = Optimize[CDRewrite[("ng" : "ŋ") | ("gn" : "ŋn"), "", "", sigma_star]];
@@ -85,10 +93,12 @@ macrons = Optimize[CDRewrite[("ā" : "aː") |
                       ("ū" : "uː") |
                       ("ȳ" : "uː"), "", "", sigma_star]];
 
-export PRON = Optimize[eu_exceptions @ou_exceptions @ui_exceptions
-                       @ei_exceptions @qu_rule @ intervocalic_i @digraphs
-                       @b_rule @nasalized_m_n @delete_m_n 
-                       @gu_glide @ng_gn_rules @diphthongs @rule1 @macrons];
+rules = Optimize[eu_exceptions @ ou_exceptions @ ui_exceptions
+                       @ ei_exceptions @ qu_rule @ intervocalic_i @ digraphs
+                       @ b_rule @ nasalized_m_n @ delete_m_n 
+                       @ gu_glide @ ng_gn_rules @ diphthongs @ rule1 @ macrons];
+export PRON = graphemes* @ rules @ phonemes*;
+
 # Tests.
 test_pron_1 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRON, 
@@ -123,26 +133,14 @@ test_pron_6 = AssertEqual[
 test_pron_7 = AssertEqual[
     "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRON, 
     "weːloːkẽː mneːsteus agit aːkriː reːmige pristĩː"
-]; # Testing to make sure "mnēstheus" does not glide
+]; # Testing to make sure "mnēstheus" does not glide.
 
 test_pron_8 = AssertEqual[
     "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRON, 
     "ak prior hews inkwit juweneːs moːnstraːte meaːrũː"
-]; # Testing to make sure "heus" glides
+]; # Testing to make sure "heus" glides.
 
-# Uncertainty for quīcumque: either kwiːkuŋkwe or kwiːkũːkwe.
-# Uncertainty for tumidumque.
-
-# NOTES TO SELF:
-# q is [kw]
-# c is [k]
-# ae = /aj/ , oe = /oj/, ei = /ej/ , eu = /ew/, au = /aw/, ui depends on position
-# x is [ks]
-# y = \u\ and ȳ = \uː\
-# ng is [ŋ] and gn is [ŋn]
-# bs was pronounced [ps]
-# i between two vowels, which Pharr usually writes as j, is actually [jj]. u does not count (so apply qu rule first)
-# ph, th, and ch = [p, t, k]. 
-# Word-final m and n
-
-# the clitics -que, -ne and -ue as eow
+# TODO:
+# • Uncertainty for quīcumque: probably either kwiːkuŋkwe or kwiːkũːkwe.
+# • Same for tumidumque.
+# • The clitics -que, -ne and -ue should designate eow.
