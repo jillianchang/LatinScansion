@@ -3,21 +3,21 @@
 import 'byte.grm' as b;
 
 # Note: the Romans never used "v" or "j," but some secondary sources do.
-graphemes = 
+grapheme = 
     "a" | "b" | "c" | "d" | "e" | "f" | "g" |
     "h" | "i" | "j" | "k" | "l" | "m" | "n" |
     "o" | "p" | "q" | "r" | "s" | "t" | "u" |
     "v" | "w" | "x" | "y" | "z" | "ā" | "ē" |
     "ī" | "ō" | "ū" | b.kSpace;
 
-phonemes = 
+phoneme = 
     "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" | 
     "ẽː" | "f" | "g" | "h" | "i" | "iː" | "ĩː" |
     "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
     "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
     "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
 
-sigma_star = (graphemes | phonemes)*;
+sigma_star = (grapheme | phoneme)*;
 
 bow = (b.kSpace | "[BOS]"); # Beginning of a word.
 eow = (b.kSpace | "[EOS]"); # End of a word.
@@ -26,33 +26,33 @@ vowels = "a" | "e" | "i" | "o" | "u" | "ā" | "ē" | "ī" | "ō" | "ū";
 
 # These words form an "eu" dipthong, rather than the normal hiatus.                                
 eu_exceptions = Optimize[CDRewrite[("heus": "hews") |
-                                  ("ceu" : "kew") |
-                                  ("neu" : "new") |
-                                  ("seu" : "sew") |
-                                  ("ēheu" : "eːhew"), bow, eow, sigma_star]];
+                                   ("ceu" : "kew") |
+                                   ("neu" : "new") |
+                                   ("seu" : "sew") |
+                                   ("ēheu" : "eːhew"), bow, eow, sigma_star]];
 
 # These words form an "ou" dipthong, rather than the normal hiatus.
 ou_exceptions = Optimize[CDRewrite[("boum": "bowũː") |
-                                  ("prout" : "prowt"), bow, eow, sigma_star]];
+                                   ("prout" : "prowt"), bow, eow, sigma_star]];
 
 # These words form an "ui" dipthong, rather than the normal hiatus. 
 ui_exceptions = Optimize[CDRewrite[("hui": "huj") |
-                                  ("huic" : "hujk") |
-                                  ("cui" : "kuj"), bow, eow, sigma_star]];
+                                   ("huic" : "hujk") |
+                                   ("cui" : "kuj"), bow, eow, sigma_star]];
 
 # These words form an "ei" dipthong, rather than the normal hiatus. 
 ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
-                                  ("deinde" : "dẽːjde") |
-                                  ("deinceps" : "dẽːjkeps") |
-                                  ("ei" : "ej") |
-                                  ("hei" : "hej"), bow, eow, sigma_star]];
+                                   ("deinde" : "dẽːjde") |
+                                   ("deinceps" : "dẽːjkeps") |
+                                   ("ei" : "ej") |
+                                   ("hei" : "hej"), bow, eow, sigma_star]];
 
 # As a result of the change from Old Latin "quo" and "nguo" to
 # "guu" and "nguu," loss of the preceding "u" occured.
 u_loss = Optimize[CDRewrite[("nguu": "ngu") |
                             ("quu" : "cu"), "", "", sigma_star]];
 
-qu_as_kw = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
+qu = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
 
 # When an "i" occurs intervocalically (between two vowels), 
 # it is realized as a glide: [jj].
@@ -67,51 +67,53 @@ digraphs = Optimize[CDRewrite[("ph" : "p") |
                               ("th" : "t"), "", "", sigma_star]];
 
 # "bs" was pronounced as [ps] and "bt" was pronounced as [pt].
-b_as_p = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
+b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 # Word-final "m" and "n" indicates vowel lengthening and nasalization.
-nasalized_m_n = Optimize[CDRewrite[("a" : "ãː") |
-                        ("e" : "ẽː") |
-                        ("i" : "ĩː") |
-                        ("o" : "õː") |
-                        ("u" : "ũː" ), "", ("m" | "n") eow, sigma_star]];
+nasalization = Optimize[CDRewrite[("a" : "ãː") |
+                                   ("e" : "ẽː") |
+                                   ("i" : "ĩː") |
+                                   ("o" : "õː") |
+                                   ("u" : "ũː" ), 
+                                   "", ("m" | "n") eow, sigma_star]];
 delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
-                        "", 
-                        eow, sigma_star]];
+                                "", 
+                                eow, sigma_star]];
+nasalization_and_elision = Optimize[nasalization @ delete_m_n];
 
 # If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
-gu_glide = Optimize[CDRewrite["gu" : "gw", "n", vowels, sigma_star]];
+ngu = Optimize[CDRewrite["gu" : "gw", "n", vowels, sigma_star]];
 
 unconditioned_rewrites = Optimize[CDRewrite[("c" : "k") |
-                           ("x" : "ks") |
-                           ("v" : "w") |
-                           ("y" : "u"), "", "", sigma_star]];
+                                            ("x" : "ks") |
+                                            ("v" : "w") |
+                                            ("y" : "u"), "", "", sigma_star]];
 
 # "n" is pronounced [ŋ] before velar sounds [k, g].
-n_rule = Optimize[CDRewrite["n" : "ŋ", "", "k" | "g", sigma_star]];
+nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "", 
+                                              "k" | "g", sigma_star]];
 
-gn_rule = Optimize[CDRewrite[("gn" : "ŋn"), "", "", sigma_star]];
+gn = Optimize[CDRewrite[("gn" : "ŋn"), "", "", sigma_star]];
 
-diphthongs = Optimize[CDRewrite[("ae" : "aj") | 
-                                ("oe" : "oj") |
-                                ("au" : "aw"), "", "", sigma_star]];
+diphthongization = Optimize[CDRewrite[("ae" : "aj") | 
+                                      ("oe" : "oj") |
+                                      ("au" : "aw"), "", "", sigma_star]];
 
-macrons = Optimize[CDRewrite[("ā" : "aː") |
-                      ("ē" : "eː") |
-                      ("ī" : "iː") |
-                      ("ō" : "oː") |
-                      ("ū" : "uː") |
-                      ("ȳ" : "uː"), "", "", sigma_star]];
+long_monophthongs = Optimize[CDRewrite[("ā" : "aː") |
+                                       ("ē" : "eː") |
+                                       ("ī" : "iː") |
+                                       ("ō" : "oː") |
+                                       ("ū" : "uː") |
+                                       ("ȳ" : "uː"), "", "", sigma_star]];
 
 rules = Optimize[eu_exceptions @ ou_exceptions @ ui_exceptions
-                @ ei_exceptions @ u_loss @ qu_as_kw
-                @ geminate_intervocalic_i @ digraphs @ b_as_p 
-                @ nasalized_m_n @ delete_m_n @ gu_glide 
-                @ unconditioned_rewrites @ n_rule @ gn_rule 
-                @ diphthongs @ macrons];
+                @ ei_exceptions @ u_loss @ qu @ geminate_intervocalic_i
+                @ digraphs @ b_devoicing @ nasalization_and_elision 
+                @ ngu @ unconditioned_rewrites @ nasal_place_assimilation 
+                @ gn @ diphthongization @ long_monophthongs];
 
 # Limits input to the graphemes and output to the phonemes.
-export PRON = graphemes* @ rules @ phonemes*;
+export PRON = grapheme* @ rules @ phoneme*;
 
 # Tests.
 test_pron_1 = AssertEqual[
@@ -169,4 +171,4 @@ test_pron_10 = AssertEqual[
 # • Same for tumidumque.
 # • The clitics -que, -ne and -ue should designate eow.
 # • When final m was followed by a plosive or nasal consonant, 
-#   it was assimilated to the following consonant (doesn't matter for metrics)
+#   it was assimilated to the following consonant (doesn't matter for metrics).
