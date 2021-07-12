@@ -1,8 +1,19 @@
 # Converts normalized Latin lines to its broad phonetic transcription.
+#
+# The inputs here are assumed to be those of:
+#
+# Pharr, Clyde. 1964. Vergil's Aeneid: Books I-IV. Revised edition. D.C. Heath
+# and Company.
+#
+# Most of the rules are documented in:
+#
+# Allen, W. Sidney. 1978. Vox Latina: A Guide to the Pronunciation of
+# Classical Latin. 2nd edition. Cambridge University Press.
 
 import 'byte.grm' as b;
 
-# Note: the Romans never used "v" or "j," but some secondary sources do.
+# We include j, v, and diaeresized vowels because these are
+# present in Pharr's text.
 grapheme =
     "a" | "b" | "c" | "d" | "e" | "f" | "g" |
     "h" | "i" | "j" | "k" | "l" | "m" | "n" |
@@ -24,6 +35,17 @@ bow = (b.kSpace | "[BOS]"); # Beginning of a word.
 eow = (b.kSpace | "[EOS]"); # End of a word.
 
 vowels = "a" | "e" | "i" | "o" | "u" | "ā" | "ē" | "ī" | "ō" | "ū";
+
+## Labiovlears and related matters.
+
+# As a result of the change from Old Latin "quo" and "nguo" to
+# "guu" and "nguu," loss of the preceding "u" occured.
+u_loss = Optimize[CDRewrite[("nguu": "ngu") |
+                            ("quu" : "ku"), "", "", sigma_star]];
+
+qu = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
+
+## Handling of vowels, glides, and diphthongs.
 
 # These words form an "eu" dipthong, rather than the normal hiatus.
 eu_exceptions = Optimize[CDRewrite[("heus": "hews") |
@@ -48,18 +70,33 @@ ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
                                    ("ei" : "ej") |
                                    ("hei" : "hej"), bow, eow, sigma_star]];
 
-# As a result of the change from Old Latin "quo" and "nguo" to
-# "guu" and "nguu," loss of the preceding "u" occured.
-u_loss = Optimize[CDRewrite[("nguu": "ngu") |
-                            ("quu" : "cu"), "", "", sigma_star]];
-
-qu = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
-
 # When an "i" occurs intervocalically (between two vowels),
 # it is realized as a glide: [jj].
 geminate_intervocalic_i = Optimize[CDRewrite["i" : "jj",
                                    vowels - ("i" | "ī"),
                                    vowels - ("i" | "ī"), sigma_star]];
+
+diphthongization = Optimize[CDRewrite[("ae" : "aj") |
+                                      ("oe" : "oj") |
+                                      ("au" : "aw"), "", "", sigma_star]];
+
+# Diaeresis, indicating hiatus, no longer needs to be marked
+# after diphthong formation.
+diaeresis = Optimize[CDRewrite[("ä" : "a") |
+                               ("ë" : "e") |
+                               ("ï" : "i") |
+                               ("ö" : "o") |
+                               ("ü" : "u"), "", "", sigma_star]];
+
+long_monophthongs = Optimize[CDRewrite[("ā" : "aː") |
+                                       ("ē" : "eː") |
+                                       ("ī" : "iː") |
+                                       ("ō" : "oː") |
+                                       ("ū" : "uː") |
+                                       ("ȳ" : "uː"), "", "", sigma_star]];
+
+
+## Consonantal matters.
 
 # The Romans wrote various Greek letters as digraphs: "ph," "ch," and "th."
 # Most likely, they were pronounced as [p, k, t], respectively.
@@ -90,99 +127,92 @@ unconditioned_rewrites = Optimize[CDRewrite[("c" : "k") |
                                             ("v" : "w") |
                                             ("y" : "u"), "", "", sigma_star]];
 
-# "n" is pronounced [ŋ] before velar sounds [k, g].
+# "n" is pronounced [ŋ] before velars [k, g].
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
 
 gn = Optimize[CDRewrite[("gn" : "ŋn"), "", "", sigma_star]];
 
-diphthongization = Optimize[CDRewrite[("ae" : "aj") |
-                                      ("oe" : "oj") |
-                                      ("au" : "aw"), "", "", sigma_star]];
+rules = Optimize[u_loss @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
+                 ei_exceptions @ geminate_intervocalic_i @ digraphs @ 
+                 diphthongization @ diaeresis @ long_monophthongs @
+                 b_devoicing @ nasalization_and_elision @ ngu @ 
+                 unconditioned_rewrites @ nasal_place_assimilation @ gn
+];
 
-# Diaeresis, indicating hiatus, no longer needs to be marked
-# after diphthong formation.
-diaeresis = Optimize[CDRewrite[("ä" : "a") |
-                               ("ë" : "e") |
-                               ("ï" : "i") |
-                               ("ö" : "o") |
-                               ("ü" : "u"), "", "", sigma_star]];
-
-long_monophthongs = Optimize[CDRewrite[("ā" : "aː") |
-                                       ("ē" : "eː") |
-                                       ("ī" : "iː") |
-                                       ("ō" : "oː") |
-                                       ("ū" : "uː") |
-                                       ("ȳ" : "uː"), "", "", sigma_star]];
-
-rules = Optimize[eu_exceptions @ ou_exceptions @ ui_exceptions
-                @ ei_exceptions @ u_loss @ qu @ geminate_intervocalic_i
-                @ digraphs @ b_devoicing @ nasalization_and_elision
-                @ ngu @ unconditioned_rewrites @ nasal_place_assimilation
-                @ gn @ diphthongization @ diaeresis @ long_monophthongs];
-
-# Limits input to the graphemes and output to the phonemes.
+# Constraints input to the graphemes and output to the phonemes.
 export PRON = grapheme* @ rules @ phoneme*;
 
-# Tests.
+## Tests.
+
+# Tests for macronized vowels, "ae" diphthong, "v," "x," and "c."
 test_pron_1 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRON,
     "gentis honoːs hajrent iːnfiksiː pektore wultuːs"
-]; # Testing for macronized vowels, "ae" diphthong, "v," "x," and "c."
+];
 
+# Tests for intervocalic "i," "qu," "th," and nasalized "m."
 test_pron_2 = AssertEqual[
     "heu quianam tantī cīnxērunt aethera nimbī" @ PRON,
     "heu kwianãː tantiː kiːŋkseːrunt ajtera nimbiː"
-]; # Testing for intervocalic "i," "qu," "th," and nasalized "m."
+];
 
+# Tests for "y."
 test_pron_3 = AssertEqual[
     "nec tēcum ausonium quīcumque est quaerere thybrim" @ PRON,
     "nek teːkũː awsoniũː kwiːkumkwe est kwajrere tubrĩː"
-]; # Testing for "y."
+];
 
+# Tests for "ng."
 test_pron_4 = AssertEqual[
     "dīxerat haec adytīs cum lūbricus anguis ab īmīs" @ PRON,
     "diːkserat hajk adutiːs kũː luːbrikus aŋgwis ab iːmiːs"
-]; # Testing for "ng."
+];
 
+# Tests for "gn."
 test_pron_5 = AssertEqual[
     "centaurō invehitur magnā scyllāque cloanthus" @ PRON,
     "kentawroː inwehitur maŋnaː skullaːkwe kloantus"
-]; # Testing for "gn."
+];
 
+# Tests for "bs".
 test_pron_6 = AssertEqual[
     "subsīdunt undae tumidumque sub axe tonantī" @ PRON,
     "supsiːdunt undaj tumidumkwe sub akse tonantiː"
-]; # Testing for "bs."
+]; 
 
+# Tests "mnēstheus" does not glide.
 test_pron_7 = AssertEqual[
     "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRON,
     "weːloːkẽː mneːsteus agit aːkriː reːmige pristĩː"
-]; # Testing to make sure "mnēstheus" does not glide.
+]; 
 
+# Tests "heus" glides.
 test_pron_8 = AssertEqual[
     "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRON,
     "ak prior hews iŋkwit juweneːs moːnstraːte meaːrũː"
-]; # Testing to make sure "heus" glides.
+]; 
 
+# Tests "nguu."
 test_pron_9 = AssertEqual[
     "expediunt corpusque lavant frīgentis et unguunt" @ PRON,
     "ekspediunt korpuskwe lawant friːgentis et uŋgunt"
-]; # Testing for "nguu."
+]; 
 
+# Tests "quu."
 test_pron_10 = AssertEqual[
     "prīmus equum phalerīs īnsignem victor habētō" @ PRON,
     "priːmus ekũː paleriːs iːnsiŋnẽː wiktor habeːtoː"
-]; # Testing for "quu."
+]; 
 
+# Tests the removal of the diaeresis.
 test_pron_11 = AssertEqual[
     "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
     "alma wenus prugiiː genuit simoentis ad undãː"
-]; # Testing for the removal of the diaeresis.
+]; 
 
 # TODO:
-# • Uncertainty for quīcumque: probably either kwiːkuŋkwe or kwiːkũːkwe.
-# • Same for tumidumque.
-# • The clitics -que, -ne and -ue should designate eow.
-# • When final m was followed by a plosive or nasal consonant,
-#   it was assimilated to the following consonant (doesn't matter for metrics).
+# * Uncertainty about quīcumque: either kwiːkuŋkwe or kwiːkũːkwe?
+# * The clitics -que, -ne and -ue should act like the end of a word.
+# * When final m was followed by a plosive or nasal consonant,
+#   it likely was assimilated to the following consonant.
