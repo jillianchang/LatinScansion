@@ -100,7 +100,8 @@ diphthongization = Optimize[CDRewrite[("ae" : "aj") |
                                       ("oe" : "oj") |
                                       ("au" : "aw"), "", "", sigma_star]];
 
-# The umlaut is removed in order to handle the hiatus of adjacent vowels.
+# Diaeresis, indicating hiatus, no longer needs to be marked
+# after diphthong formation.
 diaeresis = Optimize[CDRewrite[("ä" : "a") |
                                ("ë" : "e") |
                                ("ï" : "i") |
@@ -118,7 +119,7 @@ rules = Optimize[eu_exceptions @ ou_exceptions @ ui_exceptions
                 @ ei_exceptions @ u_loss @ qu @ geminate_intervocalic_i
                 @ digraphs @ b_devoicing @ nasalization_and_elision
                 @ ngu @ unconditioned_rewrites @ nasal_place_assimilation
-                @ gn @ diphthongization @diaeresis @ long_monophthongs];
+                @ gn @ diphthongization @ diaeresis @ long_monophthongs];
 
 # Limits input to the graphemes and output to the phonemes.
 export PRON = grapheme* @ rules @ phoneme*;
@@ -177,7 +178,7 @@ test_pron_10 = AssertEqual[
 test_pron_11 = AssertEqual[
     "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
     "alma wenus prugiiː genuit simoentis ad undãː"
-]; # Testing for diaeresis.
+]; # Testing for the removal of the diaeresis.
 
 # TODO:
 # • Uncertainty for quīcumque: probably either kwiːkuŋkwe or kwiːkũːkwe.
