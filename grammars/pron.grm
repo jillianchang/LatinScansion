@@ -1,147 +1,126 @@
 # Converts normalized Latin lines to its broad phonetic transcription.
 #
-# The inputs here are assumed to be those of:
-#
-# Pharr, Clyde. 1964. Vergil's Aeneid: Books I-IV. Revised edition. D.C. Heath
-# and Company.
-#
 # Most of the rules are documented in:
 #
 # Allen, W. Sidney. 1978. Vox Latina: A Guide to the Pronunciation of
 # Classical Latin. 2nd edition. Cambridge University Press.
 
 import 'byte.grm' as b;
+import 'inventory.grm' as i;
+import 'utility.grm' as u;
 
-# We include j, v, and diaeresized vowels because these are
-# present in Pharr's text.
-grapheme =
-    "a" | "b" | "c" | "d" | "e" | "f" | "g" |
-    "h" | "i" | "j" | "k" | "l" | "m" | "n" |
-    "o" | "p" | "q" | "r" | "s" | "t" | "u" |
-    "v" | "w" | "x" | "y" | "z" | "ā" | "ē" |
-    "ī" | "ō" | "ū" | "ȳ" | "ä" | "ë" | "ï" |
-    "ö" | "ü" | b.kSpace;
-
-phoneme =
-    "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" |
-    "ẽː" | "f" | "g" | "h" | "i" | "iː" | "ĩː" |
-    "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
-    "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
-    "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
-
-sigma_star = (grapheme | phoneme)*;
-
-bow = (b.kSpace | "[BOS]"); # Beginning of a word.
-eow = (b.kSpace | "[EOS]"); # End of a word.
-
-vowels = "a" | "e" | "i" | "o" | "u" | "ā" | "ē" | "ī" | "ō" | "ū";
-
-## Labiovlears and related matters.
+sigma_star = (i.GRAPHEME | i.PHONEME)*;
 
 # As a result of the change from Old Latin "quo" and "nguo" to
 # "guu" and "nguu," loss of the preceding "u" occured.
-u_loss = Optimize[CDRewrite[("nguu": "ngu") |
-                            ("quu" : "ku"), "", "", sigma_star]];
+u_loss = Optimize[u.Rewrite[("nguu": "ngu") | ("quu" : "ku"), sigma_star]];
 
-qu = Optimize[CDRewrite["qu" : "kw", "", "", sigma_star]];
+qu = Optimize[u.Rewrite["qu" : "kw", sigma_star]];
 
 ## Handling of vowels, glides, and diphthongs.
 
 # These words form an "eu" dipthong, rather than the normal hiatus.
-eu_exceptions = Optimize[CDRewrite[("heus": "hews") |
-                                   ("ceu" : "kew") |
-                                   ("neu" : "new") |
-                                   ("seu" : "sew") |
-                                   ("ēheu" : "eːhew"), bow, eow, sigma_star]];
+eu_exceptions = Optimize[u.RewriteWord[("heus": "hews") |
+                                       ("ceu" : "kew") |
+                                       ("neu" : "new") |
+                                       ("seu" : "sew") |
+                                       ("ēheu" : "eːhew"), sigma_star]];
 
 # These words form an "ou" dipthong, rather than the normal hiatus.
-ou_exceptions = Optimize[CDRewrite[("boum": "bowũː") |
-                                   ("prout" : "prowt"), bow, eow, sigma_star]];
+ou_exceptions = Optimize[u.RewriteWord[("boum": "bowũː") |
+                                       ("prout" : "prowt"),
+                                       sigma_star]];
 
 # These words form an "ui" dipthong, rather than the normal hiatus.
-ui_exceptions = Optimize[CDRewrite[("hui": "huj") |
-                                   ("huic" : "hujk") |
-                                   ("cui" : "kuj"), bow, eow, sigma_star]];
+ui_exceptions = Optimize[u.RewriteWord[("hui": "huj") |
+                                       ("huic" : "hujk") |
+                                       ("cui" : "kuj"),
+                                       sigma_star]];
 
 # These words form an "ei" dipthong, rather than the normal hiatus.
-ei_exceptions = Optimize[CDRewrite[("dein": "dẽːj") |
-                                   ("deinde" : "dẽːjde") |
-                                   ("deinceps" : "dẽːjkeps") |
-                                   ("ei" : "ej") |
-                                   ("hei" : "hej"), bow, eow, sigma_star]];
+ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
+                                       ("deinde" : "dẽːjde") |
+                                       ("deinceps" : "dẽːjkeps") |
+                                       ("ei" : "ej") |
+                                       ("hei" : "hej"),
+                                       sigma_star]];
 
 # When an "i" occurs intervocalically (between two vowels),
 # it is realized as a glide: [jj].
 geminate_intervocalic_i = Optimize[CDRewrite["i" : "jj",
-                                   vowels - ("i" | "ī"),
-                                   vowels - ("i" | "ī"), sigma_star]];
+                                             i.VOWEL, i.VOWEL, sigma_star]];
 
-diphthongization = Optimize[CDRewrite[("ae" : "aj") |
+diphthongization = Optimize[u.Rewrite[("ae" : "aj") |
                                       ("oe" : "oj") |
-                                      ("au" : "aw"), "", "", sigma_star]];
+                                      ("au" : "aw"),
+                                      sigma_star]];
 
 # Diaeresis, indicating hiatus, no longer needs to be marked
 # after diphthong formation.
-diaeresis = Optimize[CDRewrite[("ä" : "a") |
+diaeresis = Optimize[u.Rewrite[("ä" : "a") |
                                ("ë" : "e") |
                                ("ï" : "i") |
                                ("ö" : "o") |
-                               ("ü" : "u"), "", "", sigma_star]];
+                               ("ü" : "u"),
+                               sigma_star]];
 
-long_monophthongs = Optimize[CDRewrite[("ā" : "aː") |
+long_monophthongs = Optimize[u.Rewrite[("ā" : "aː") |
                                        ("ē" : "eː") |
                                        ("ī" : "iː") |
                                        ("ō" : "oː") |
                                        ("ū" : "uː") |
-                                       ("ȳ" : "uː"), "", "", sigma_star]];
-
+                                       ("ȳ" : "uː"),
+                                       sigma_star]];
 
 ## Consonantal matters.
 
 # The Romans wrote various Greek letters as digraphs: "ph," "ch," and "th."
 # Most likely, they were pronounced as [p, k, t], respectively.
-digraphs = Optimize[CDRewrite[("ph" : "p") |
+digraphs = Optimize[u.Rewrite[("ph" : "p") |
                               ("ch" : "k") |
-                              ("th" : "t"), "", "", sigma_star]];
+                              ("th" : "t"),
+                              sigma_star]];
 
 # "bs" was pronounced as [ps] and "bt" was pronounced as [pt].
 b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 # Word-final "m" and "n" indicates vowel lengthening and nasalization.
 nasalization = Optimize[CDRewrite[("a" : "ãː") |
-                                   ("e" : "ẽː") |
-                                   ("i" : "ĩː") |
-                                   ("o" : "õː") |
-                                   ("u" : "ũː" ),
-                                   "", ("m" | "n") eow, sigma_star]];
-delete_m_n = Optimize[CDRewrite[("m" | "n") : "",
-                                "",
-                                eow, sigma_star]];
-nasalization_and_elision = Optimize[nasalization @ delete_m_n];
+                                  ("e" : "ẽː") |
+                                  ("i" : "ĩː") |
+                                  ("o" : "õː") |
+                                  ("u" : "ũː" ),
+                                  "",
+                                  ("m" | "n") i.EOW,
+                                  sigma_star] @
+    CDRewrite[("m" | "n") : "", "", i.EOW, sigma_star]
+];
 
 # If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
-ngu = Optimize[CDRewrite["gu" : "gw", "n", vowels, sigma_star]];
+ngu = Optimize[CDRewrite["gu" : "gw", "n", i.VOWEL, sigma_star]];
 
-unconditioned_rewrites = Optimize[CDRewrite[("c" : "k") |
+unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
                                             ("x" : "ks") |
                                             ("v" : "w") |
-                                            ("y" : "u"), "", "", sigma_star]];
+                                            ("y" : "u"),
+                                            sigma_star]];
 
 # "n" is pronounced [ŋ] before velars [k, g].
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
 
-gn = Optimize[CDRewrite[("gn" : "ŋn"), "", "", sigma_star]];
+gn = Optimize[u.Rewrite[("gn" : "ŋn"), sigma_star]];
 
-rules = Optimize[u_loss @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
-                 ei_exceptions @ geminate_intervocalic_i @ digraphs @ 
-                 diphthongization @ diaeresis @ long_monophthongs @
-                 b_devoicing @ nasalization_and_elision @ ngu @ 
-                 unconditioned_rewrites @ nasal_place_assimilation @ gn
+rules = Optimize[
+    u_loss @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
+    ei_exceptions @ geminate_intervocalic_i @ digraphs @
+    diphthongization @ diaeresis @ long_monophthongs @
+    b_devoicing @ nasalization @ ngu @ unconditioned_rewrites @
+    nasal_place_assimilation @ gn
 ];
 
-# Constraints input to the graphemes and output to the phonemes.
-export PRON = grapheme* @ rules @ phoneme*;
+# Constrainss input to the graphemes and output to the phonemes.
+export PRON = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
 
 ## Tests.
 
@@ -179,37 +158,37 @@ test_pron_5 = AssertEqual[
 test_pron_6 = AssertEqual[
     "subsīdunt undae tumidumque sub axe tonantī" @ PRON,
     "supsiːdunt undaj tumidumkwe sub akse tonantiː"
-]; 
+];
 
 # Tests "mnēstheus" does not glide.
 test_pron_7 = AssertEqual[
     "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRON,
     "weːloːkẽː mneːsteus agit aːkriː reːmige pristĩː"
-]; 
+];
 
 # Tests "heus" glides.
 test_pron_8 = AssertEqual[
     "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRON,
     "ak prior hews iŋkwit juweneːs moːnstraːte meaːrũː"
-]; 
+];
 
 # Tests "nguu."
 test_pron_9 = AssertEqual[
     "expediunt corpusque lavant frīgentis et unguunt" @ PRON,
     "ekspediunt korpuskwe lawant friːgentis et uŋgunt"
-]; 
+];
 
 # Tests "quu."
 test_pron_10 = AssertEqual[
     "prīmus equum phalerīs īnsignem victor habētō" @ PRON,
     "priːmus ekũː paleriːs iːnsiŋnẽː wiktor habeːtoː"
-]; 
+];
 
 # Tests the removal of the diaeresis.
 test_pron_11 = AssertEqual[
     "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
     "alma wenus prugiiː genuit simoentis ad undãː"
-]; 
+];
 
 # TODO:
 # * Uncertainty about quīcumque: either kwiːkuŋkwe or kwiːkũːkwe?
