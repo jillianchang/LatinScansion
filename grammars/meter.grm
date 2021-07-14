@@ -1,0 +1,25 @@
+consonant =
+    "b" | "d" | "f" | "g" | "h" | "j" |
+    "k" | "kw" | "l" | "m" | "n" | "ŋ" |
+    "p" | "r" | "s" | "t" | "w" | "z";
+
+short_monophthong = "a" | "e" | "i" | "o" | "u";
+long_monophthong = "aː" | "ãː" | "eː" | "ẽː" | "iː" |
+                   "ĩː" | "oː" | "õː" | "uː" | "ũː";
+
+# Represents the diphthongs ae, oe, au, eu, ou, ui, and ei.
+diphthong = "aj" | "oj" | "aw" | "ew" | "ow" | "uj" | "ej" | "ẽːj";
+
+# Long vs. short syllables.
+longus = (consonant* short_monophthong consonant) |
+         (consonant* long_monophthong consonant*) |
+         (consonant* diphthong consonant*)
+         : "L"; #FIXME
+brevis = (consonant* short_monophthong) : "B";
+
+# Foot types.
+dactyl = longus brevis brevis;
+spondee = longus longus;
+trochee = longus brevis;
+
+hexameter = (dactyl | spondee){5} (spondee | trochee);
