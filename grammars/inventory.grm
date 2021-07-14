@@ -1,0 +1,33 @@
+# Inventory definitions.
+#
+# The graphemic inputs here are assumed to be those of:
+#
+# Pharr, Clyde. 1964. Vergil's Aeneid: Books I-IV. Revised edition. D.C. Heath
+# and Company.
+
+import 'byte.grm' as b;
+
+# We include j, v, and diaeresized vowels because these are
+# present in Pharr's text.
+export GRAPHEME =
+    "a" | "b" | "c" | "d" | "e" | "f" | "g" |
+    "h" | "i" | "j" | "k" | "l" | "m" | "n" |
+    "o" | "p" | "q" | "r" | "s" | "t" | "u" |
+    "v" | "w" | "x" | "y" | "z" | "ā" | "ē" |
+    "ī" | "ō" | "ū" | "ȳ" | "ä" | "ë" | "ï" |
+    "ö" | "ü" | b.kSpace;
+
+# Graphemic vowels, really.
+export VOWEL =
+    "a" | "e" | "i" | "o" | "u" | "ā" | "ē" | "ī" | "ō" | "ū" |
+    "ȳ" | "ä" | "ë" | "ï" | "ö" | "ü";
+
+export PHONEME =
+    "a" | "aː" | "ãː" | "b" | "d" | "e" | "eː" |
+    "ẽː" | "f" | "g" | "h" | "i" | "iː" | "ĩː" |
+    "j" | "k" | "kw" | "l" | "m" | "n" | "ŋ" |
+    "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
+    "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
+
+export BOW = (b.kSpace | "[BOS]"); # Beginning of a word.
+export EOW = (b.kSpace | "[EOS]"); # End of a word.
