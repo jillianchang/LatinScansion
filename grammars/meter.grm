@@ -1,25 +1,41 @@
-consonant =
-    "b" | "d" | "f" | "g" | "h" | "j" |
-    "k" | "kw" | "l" | "m" | "n" | "ŋ" |
-    "p" | "r" | "s" | "t" | "w" | "z";
+# Determines whether a syllable is long or short,
+# maps syllables onto feet, and defines the hexameter line.
 
-short_monophthong = "a" | "e" | "i" | "o" | "u";
-long_monophthong = "aː" | "ãː" | "eː" | "ẽː" | "iː" |
-                   "ĩː" | "oː" | "õː" | "uː" | "ũː";
+import 'inventory.grm' as i;
+import 'byte.grm' as b;
 
-# Represents the diphthongs ae, oe, au, eu, ou, ui, and ei.
-diphthong = "aj" | "oj" | "aw" | "ew" | "ow" | "uj" | "ej" | "ẽːj";
+sigma_star = b.kBytes*; # Is there a better sigma_star for this grammar?
 
-# Long vs. short syllables.
-longus = (consonant* short_monophthong consonant) |
-         (consonant* long_monophthong consonant*) |
-         (consonant* diphthong consonant*)
-         : "L"; #FIXME
-brevis = (consonant* short_monophthong) : "B";
+# Syllable parsing.
+long_nucleus = Optimize[CDRewrite[i.LONG_VOWEL : "–","", "", sigma_star]];
+
+short_nucleus = Optimize[CDRewrite[i.SHORT_VOWEL : "U", "", "", sigma_star]];
+
+complex_onset = Optimize[CDRewrite[i.CONSONANT_CLUSTER : "O", "",
+                             "–" | "U", sigma_star]];
+simple_onset = Optimize[CDRewrite[i.SINGLE_CONSONANT : "O", "", "", sigma_star]];
+
+coda = Optimize[CDRewrite[i.SINGLE_CONSONANT : "C", "", "", sigma_star]];
+
+export PARSE = Optimize[long_nucleus @ short_nucleus @ complex_onset
+                          @ simple_onset @ coda];
+
+# Long vs. short syllables. DO LATER.
+# heavy = (i.CONSONANT* i.SHORT_MONOPHTHONG i.CONSONANT) |
+#         (i.CONSONANT* i.LONG_MONOPHTHONG i.CONSONANT*) |
+#         (i.CONSONANT* i.DIPHTHONG i.CONSONANT*)
+#         : "L"; #FIXME
+# light = (i.CONSONANT* i.SHORT_MONOPHTHONG) : "B";
 
 # Foot types.
-dactyl = longus brevis brevis;
-spondee = longus longus;
-trochee = longus brevis;
+#dactyl = heavy light light;
+#spondee = heavy heavy;
+#trochee = heavy light;
 
-hexameter = (dactyl | spondee){5} (spondee | trochee);
+# export HEXAMETER = (dactyl | spondee){5} (spondee | trochee);
+
+# Tests heavy and light against various syllable types.
+test_parse_1 = AssertEqual[
+  "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris" @ PARSE,
+  "UCOU OUO–OU OUO– OUCOUC O– O–OUC UC –OUC"
+];

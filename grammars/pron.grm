@@ -119,7 +119,7 @@ rules = Optimize[
     nasal_place_assimilation @ gn
 ];
 
-# Constrainss input to the graphemes and output to the phonemes.
+# Constrains input to the graphemes and output to the phonemes.
 export PRON = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
 
 ## Tests.
