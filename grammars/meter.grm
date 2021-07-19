@@ -4,11 +4,11 @@
 import 'inventory.grm' as i;
 import 'byte.grm' as b;
 
-sigma_star = b.kBytes*; # Is there a better sigma_star for this grammar?
+sigma_star = (i.METER_SYMBOLS | i.PHONEME)*;
 
 # Syllable parsing.
-diphthong = Optimize[CDRewrite[("aj" | "oj" | "aw" | "ew" | "ow" | "uj" | "ej" : "UC") |
-                               ("ẽːj" : "–C"), "", "", sigma_star]];
+#diphthong = Optimize[CDRewrite[("aj" | "oj" | "aw" | "ew" | "ow" | "uj" | "ej" : "UC") |
+#                               ("ẽːj" : "–C"), "", "", sigma_star]];
 long_nucleus = Optimize[CDRewrite[i.LONG_VOWEL : "–","", "", sigma_star]];
 
 short_nucleus = Optimize[CDRewrite[i.SHORT_VOWEL : "U", "", "", sigma_star]];
@@ -18,7 +18,7 @@ onset = Optimize[CDRewrite[(i.CONSONANT_CLUSTER | i.SINGLE_CONSONANT) : "O", "",
 
 coda = Optimize[CDRewrite[i.SINGLE_CONSONANT+ : "C", "", "", sigma_star]];
 
-export SYLLABLE_PARSE = Optimize[diphthong @ long_nucleus @ short_nucleus @ onset @ coda];
+export SYLLABLE_PARSE = Optimize[long_nucleus @ short_nucleus @ onset @ coda];
 
 # Heavy vs. light syllables.
 heavy = ("O"?) ("U" "C" | "–" "C"?) : "L";
@@ -26,13 +26,12 @@ light = "O"? "U" : "B";
 export WEIGHT_PARSE = Optimize[(light | heavy)+ (" " (light | heavy))*];
 
 # Foot types.
-#dactyl = heavy light light;
-#spondee = heavy heavy;
-#trochee = heavy light;
+dactyl = heavy light light;
+spondee = heavy heavy;
+trochee = heavy light;
 
-# export HEXAMETER = (dactyl | spondee){5} (spondee | trochee);
+export HEXAMETER = (dactyl | spondee){5} (spondee | trochee);
 
-# Tests heavy and light against various syllable types.
 test_parse_1 = AssertEqual[
   "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris" @ SYLLABLE_PARSE,
   "UCOU OUO–OU OUO– OUCOUC O– O–OUC UC –OUC"
@@ -59,9 +58,43 @@ test_parse_6 = AssertEqual[
 ];
 test_parse_7 = AssertEqual[
   "hajret et interdũː gremioː fowet iːnskia diːdoː" @ SYLLABLE_PARSE,
-  "OUCOUC UC UCOUCO– OUOU– OUCUC –COUU O–O–"
+  "OUCOUC UC UCOUCO– OUOU– OUOUC –COUU O–O–"
 ];
 test_parse_8 = AssertEqual[
+  "kũː wenit awlajiːs jãː seː reːgiːna superbiːs" @ SYLLABLE_PARSE,
+  "O– OUOUC UCOUO–C O– O– O–O–OU OUOUCO–C"
+];
+
+# Tests heavy and light against various syllable types.
+test_weight_1 = AssertEqual[
+  "UCOU OUO–OU OUO– OUCOUC O– O–OUC UC –OUC" @ WEIGHT_PARSE,
+  "LB BLB BL LL L LB B LL"
+];
+test_weight_2 = AssertEqual[
+  "temperet aː lakrimiːs et jãː noks uːmida kajloː" @ WEIGHT_PARSE,
+  "OUCOUOUC – OUOUO–C UC O– OUC –OUOU OUCO–"
+];
+test_weight_3 = AssertEqual[
+  "ajraːtoːs jamkwe ekskiːsaː trabe firma kawaːwit" @ WEIGHT_PARSE,
+  "UCO–O–C OUCOU UCO–O– OUOU OUCOU OUO–OUC"
+];
+test_weight_4 = AssertEqual[
+  "juːdikiũː paridis spreːtajkwe injuːria formaj" @ WEIGHT_PARSE,
+  "O–OUOU– OUOUOUC O–OUCOU UCO–OUU OUCOUC"
+];
+test_weight_5 = AssertEqual[
+  "faːs awt ille sinit superiː reːŋnaːtor olumpiː" @ WEIGHT_PARSE,
+  "O–C UC UCOU OUOUC OUOUO– O–CO–OUC UOUCO–"
+];
+test_weight_6 = AssertEqual[
+  "tũː bitiaj dedit iŋkrepitaːns ille impiger hawsit" @ WEIGHT_PARSE,
+  "O– OUOUUC OUOUC UCOUOUO–C UCOU UCOUOUC OUCOUC"
+];
+test_weight_7 = AssertEqual[
+  "hajret et interdũː gremioː fowet iːnskia diːdoː" @ SYLLABLE_PARSE,
+  "OUCOUC UC UCOUCO– OUOU– OUOUC –COUU O–O–"
+];
+test_weight_8 = AssertEqual[
   "kũː wenit awlajiːs jãː seː reːgiːna superbiːs" @ SYLLABLE_PARSE,
   "O– OUOUC UCOUO–C O– O– O–O–OU OUOUCO–C"
 ];

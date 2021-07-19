@@ -29,14 +29,15 @@ export PHONEME =
     "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
     "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
 
-# Phonemic consonants. DELETE LATER.
-export CONSONANT =
-    "b" | "d" | "f" | "g" | "gw" | "h" | "j" |
-    "k" | "kw" | "l" | "m" | "n" | "ŋ" |
-    "p" | "r" | "s" | "t" | "w" | "z";
+export METER_SYMBOLS = "U" | # Short nucleus.
+                       "–" | # Long nucleus.
+                       "O" | # Onset.
+                       "C" | # Coda.
+                       "L" | # Longum.
+                       "B";  # Brevis.
 
 voiceless_stop = "p" | "t" | "k";
-voiced_stop = "b" | "d" | "ɡ";
+voiced_stop = "b" | "d" | "g";
 stop = voiceless_stop | voiced_stop;
 liquid = "l" | "r";
 other_consonants = "f" | "gw" | "h" | "j" | "kw" |
@@ -51,8 +52,6 @@ oral_vowel = "a" | "e" | "i" | "o" | "u";
 nasal_vowel = "ã" | "ẽ" | "ĩ" | "õ" | "ũ";
 export SHORT_VOWEL = oral_vowel | nasal_vowel;
 export LONG_VOWEL = SHORT_VOWEL "ː";
-export DIPHTHONG = "aj" | "oj" | "aw" | "ew" |
-                   "ow" | "uj" | "ej" | "ẽːj"; # Phonemic diphthongs.
 
 export BOW = (b.kSpace | "[BOS]"); # Beginning of a word.
 export EOW = (b.kSpace | "[EOS]"); # End of a word.
