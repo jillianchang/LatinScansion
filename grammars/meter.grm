@@ -11,14 +11,12 @@ long_nucleus = Optimize[CDRewrite[i.LONG_VOWEL : "–","", "", sigma_star]];
 
 short_nucleus = Optimize[CDRewrite[i.SHORT_VOWEL : "U", "", "", sigma_star]];
 
-complex_onset = Optimize[CDRewrite[i.CONSONANT_CLUSTER : "O", "",
+onset = Optimize[CDRewrite[(i.CONSONANT_CLUSTER | i.SINGLE_CONSONANT) : "O", "",
                              "–" | "U", sigma_star]];
-simple_onset = Optimize[CDRewrite[i.SINGLE_CONSONANT : "O", "", "", sigma_star]];
 
-coda = Optimize[CDRewrite[i.SINGLE_CONSONANT : "C", "", "", sigma_star]];
+coda = Optimize[CDRewrite[i.SINGLE_CONSONANT+ : "C", "", "", sigma_star]];
 
-export PARSE = Optimize[long_nucleus @ short_nucleus @ complex_onset
-                          @ simple_onset @ coda];
+export PARSE = Optimize[long_nucleus @ short_nucleus @ onset @ coda];
 
 # Long vs. short syllables. DO LATER.
 # heavy = (i.CONSONANT* i.SHORT_MONOPHTHONG i.CONSONANT) |
@@ -38,4 +36,24 @@ export PARSE = Optimize[long_nucleus @ short_nucleus @ complex_onset
 test_parse_1 = AssertEqual[
   "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris" @ PARSE,
   "UCOU OUO–OU OUO– OUCOUC O– O–OUC UC –OUC"
+];
+test_parse_2 = AssertEqual[
+  "temperet aː lakrimiːs et jãː noks uːmida kajloː" @ PARSE,
+  "OUCOUOUC – OUOUO–C UC O– OUC –OUOU OUCO–"
+];
+test_parse_3 = AssertEqual[
+  "ajraːtoːs jamkwe ekskiːsaː trabe firma kawaːwit" @ PARSE,
+  "UCO–O–C OUCOU UCO–O– OUOU OUCOU OUO–OUC"
+];
+test_parse_4 = AssertEqual[
+  "juːdikiũː paridis spreːtajkwe injuːria formaj" @ PARSE,
+  "O–OUOU– OUOUOUC O–OUCOU UCO–OUU OUCOUC"
+];
+test_parse_5 = AssertEqual[
+  "faːs awt ille sinit superiː reːŋnaːtor olumpiː" @ PARSE,
+  "O–C UC UCOU OUOUC OUOUO– O–CO–OUC UOUCO–"
+];
+test_parse_6 = AssertEqual[
+  "tũː bitiaj dedit iŋkrepitaːns ille impiger hawsit" @ PARSE,
+  "O– OUOUUC OUOUC UCOUOUO–C UCOU UCOUOUC OUCOUC"
 ];
