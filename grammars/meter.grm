@@ -1,27 +1,30 @@
-# Determines whether a syllable is long or short,
-# maps syllables onto feet, and defines the hexameter line.
+# Tags the elements of syllables as onsets, nuclei and codas.
+# Determines whether syllables are heavy or heavy.
+# Maps syllables onto feet: dactyl, spondee, or trochee.
+# Defines the hexameter line.
 
 import 'inventory.grm' as i;
 import 'byte.grm' as b;
+import 'utility.grm' as u;
 
 sigma_star = (i.METER_SYMBOLS | i.PHONEME)*;
 
 # Syllable parsing.
-long_nucleus = Optimize[CDRewrite[i.LONG_VOWEL : "–","", "", sigma_star]];
+long_nucleus = Optimize[u.Rewrite[i.LONG_VOWEL : "–", sigma_star]];
 
-short_nucleus = Optimize[CDRewrite[i.SHORT_VOWEL : "U", "", "", sigma_star]];
+short_nucleus = Optimize[u.Rewrite[i.SHORT_VOWEL : "U", sigma_star]];
 
 onset = Optimize[CDRewrite[(i.CONSONANT_CLUSTER | i.SINGLE_CONSONANT) : "O", "",
                              "–" | "U", sigma_star]];
 
-coda = Optimize[CDRewrite[i.SINGLE_CONSONANT+ : "C", "", "", sigma_star]];
+coda = Optimize[u.Rewrite[i.SINGLE_CONSONANT+ : "C", sigma_star]];
 
 export SYLLABLE_PARSE = Optimize[long_nucleus @ short_nucleus @ onset @ coda];
 
 # Heavy vs. light syllables.
 heavy = ("O"?) ("U" "C" | "–" "C"?) : "L";
 light = "O"? "U" : "B";
-export WEIGHT_PARSE = Optimize[(light | heavy)+ (" " (light | heavy)+)*];
+export WEIGHT_PARSE = Optimize[u.Join[((light | heavy)+), " "]];
 
 # Foot types.
 dactyl = ("L" " "?) ("B" " "?) ("B" " "?): "D";
@@ -29,7 +32,8 @@ spondee = ("L" " "?) ("L" " "?) : "S";
 trochee = ("L" " "?) ("B" " "?) : "T";
 export FOOT_TYPE = (dactyl | spondee | trochee)*;
 
-# export HEXAMETER = (dactyl | spondee){5} (spondee | trochee);
+export SCAN = Optimize[SYLLABLE_PARSE @ WEIGHT_PARSE @ FOOT_TYPE];
+hexameter = (dactyl | spondee){5} (spondee | trochee);
 
 test_parse_1 = AssertEqual[
   "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris" @ SYLLABLE_PARSE,
@@ -90,4 +94,26 @@ test_line_2 = AssertEqual[
 test_line_3 = AssertEqual[
   "LB BL LL BBL L LBB LL" @ FOOT_TYPE,
   "DSDSDS"
+];
+test_scan_1 = AssertEqual[
+  "muːsa mihiː kawsaːs memoraː kwoː nuːmine lajsoː" @ SCAN,
+  "DSDSDS"
+];
+
+# Complete foot mapping for "Ūrbs ān|tīquă fŭ|īt || (Tŷrĭ|ī tĕnŭ|ērĕ cŏl|ōnī)."
+test_line_5 = AssertEqual[
+  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ SYLLABLE_PARSE,
+  "UC UCO–OU OUUC OUOU– OUOU–OU OUO–O–"
+];
+test_line_6 = AssertEqual[
+  "UC UCO–OU OUUC OUOU– OUOU–OU OUO–O–" @ WEIGHT_PARSE,
+  "L LLB BL BBL BBLB BLL"
+];
+test_line_7 = AssertEqual[
+  "L LLB BL BBL BBLB BLL" @ FOOT_TYPE,
+  "SDDDDS"
+];
+test_scan_2 = AssertEqual[
+  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ SCAN,
+  "SDDDDS"
 ];

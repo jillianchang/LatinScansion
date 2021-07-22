@@ -1,5 +1,5 @@
 # Various utility functions.
-# 
+#
 # Please do not add any FST exports to this file.
 
 import 'inventory.grm' as i;
@@ -18,4 +18,9 @@ func RewriteWord[tau, sigma_star] {
 # Filters rule (cf. FSTP, p. 70) on closures of input and output vocabularies.
 func FilterRule[rule, input, output] {
     return input* @ rule @ output*;
+}
+
+# Joins together the argument FST, separated by a particular delimiter.
+func Join[arg, sep] {
+  return arg (sep arg)*;
 }
