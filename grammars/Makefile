@@ -11,4 +11,4 @@ utility.far: utility.grm inventory.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 clean:
-	rm -f inventory.far byte.far utility.far
+	rm -f *.far
