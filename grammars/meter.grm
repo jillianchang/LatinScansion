@@ -7,7 +7,7 @@ import 'inventory.grm' as i;
 import 'byte.grm' as b;
 import 'utility.grm' as u;
 
-sigma_star = (i.METER_SYMBOLS | i.PHONEME)*;
+sigma_star = (i.METER_SYMBOL | i.PHONEME)*;
 
 # Syllable parsing.
 long_nucleus = Optimize[u.Rewrite[i.LONG_VOWEL : "–", sigma_star]];
@@ -24,7 +24,7 @@ export SYLLABLE_PARSE = Optimize[long_nucleus @ short_nucleus @ onset @ coda];
 # Heavy vs. light syllables.
 heavy = ("O"?) ("U" "C" | "–" "C"?) : "L";
 light = "O"? "U" : "B";
-export WEIGHT_PARSE = Optimize[u.Join[((light | heavy)+), " "]];
+export WEIGHT_PARSE = Optimize[u.Join[(light | heavy)+, " "]];
 
 # Foot types.
 dactyl = ("L" " "?) ("B" " "?) ("B" " "?): "D";
@@ -32,8 +32,11 @@ spondee = ("L" " "?) ("L" " "?) : "S";
 trochee = ("L" " "?) ("B" " "?) : "T";
 export FOOT_TYPE = (dactyl | spondee | trochee)*;
 
-export SCAN = Optimize[SYLLABLE_PARSE @ WEIGHT_PARSE @ FOOT_TYPE];
-hexameter = (dactyl | spondee){5} (spondee | trochee);
+# Acceptor that acts as a filter on valid sequences of hexameter feet.
+hexameter = Optimize[Project[(dactyl | spondee){5} (spondee | trochee),
+                     'output']];
+
+export SCAN = Optimize[SYLLABLE_PARSE @ WEIGHT_PARSE @ FOOT_TYPE @ hexameter];
 
 test_parse_1 = AssertEqual[
   "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris" @ SYLLABLE_PARSE,
@@ -100,7 +103,7 @@ test_scan_1 = AssertEqual[
   "DSDSDS"
 ];
 
-# Complete foot mapping for "Ūrbs ān|tīquă fŭ|īt || (Tŷrĭ|ī tĕnŭ|ērĕ cŏl|ōnī)."
+# Complete foot mapping for "Urbs antīqua fuit (Tyriī tenuēre colōnī)."
 test_line_5 = AssertEqual[
   "urps antiːkwa fuit turiiː tenueːre koloːniː" @ SYLLABLE_PARSE,
   "UC UCO–OU OUUC OUOU– OUOU–OU OUO–O–"
@@ -113,7 +116,29 @@ test_line_7 = AssertEqual[
   "L LLB BL BBL BBLB BLL" @ FOOT_TYPE,
   "SDDDDS"
 ];
-test_scan_2 = AssertEqual[
+test_scan_2= AssertEqual[
   "urps antiːkwa fuit turiiː tenueːre koloːniː" @ SCAN,
   "SDDDDS"
+];
+
+# Complete foot mapping for "quidve dolēns rēgīna deum tot volvere cāsūs."
+test_line_8 = AssertEqual[
+  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ SYLLABLE_PARSE,
+  "OUCOU OUO–C O–O–OU OU– OUC OUCOUOU O–O–C"
+];
+test_line_9 = AssertEqual[
+  "OUCOU OUO–C O–O–OU OU– OUC OUCOUOU O–O–C" @ WEIGHT_PARSE,
+  "LB BL LLB BL L LBB LL"
+];
+test_line_10 = AssertEqual[
+  "LB BL LLB BL L LBB LL" @ FOOT_TYPE,
+  "DSDSDS"
+];
+test_scan_3 = AssertEqual[
+  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ SCAN,
+  "DSDSDS"
+];
+
+test_defective_1 = AssertNull[
+  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ SCAN
 ];
