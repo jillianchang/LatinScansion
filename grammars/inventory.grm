@@ -29,5 +29,32 @@ export PHONEME =
     "o" | "oː" | "õː" | "p" | "r" | "s" | "t" |
     "u" | "uː" | "ũː" | "w" | "z" | b.kSpace;
 
+export METER_SYMBOL = "U" | # Short nucleus.
+                      "–" | # Long nucleus.
+                      "O" | # Onset.
+                      "C" | # Coda.
+                      "L" | # Longum.
+                      "B" | # Brevis.
+                      "D" | # Dactyl.
+                      "S" | # Spondee.
+                      "T";  # Trochee.
+
+voiceless_stop = "p" | "t" | "k";
+voiced_stop = "b" | "d" | "g";
+stop = voiceless_stop | voiced_stop;
+liquid = "l" | "r";
+other_consonants = "f" | "gw" | "h" | "j" | "kw" |
+                   "m" | "n" | "ŋ" | "s" | "w" | "z";
+export SINGLE_CONSONANT = stop | liquid | other_consonants;
+
+multa_cum_liquida = (stop | "f") liquid;
+s_complex_onset = "s" (voiceless_stop "r"? | "pl" | "w");
+export CONSONANT_CLUSTER = multa_cum_liquida | s_complex_onset;
+
+oral_vowel = "a" | "e" | "i" | "o" | "u";
+nasal_vowel = "ã" | "ẽ" | "ĩ" | "õ" | "ũ";
+export SHORT_VOWEL = oral_vowel | nasal_vowel;
+export LONG_VOWEL = SHORT_VOWEL "ː";
+
 export BOW = (b.kSpace | "[BOS]"); # Beginning of a word.
 export EOW = (b.kSpace | "[EOS]"); # End of a word.
