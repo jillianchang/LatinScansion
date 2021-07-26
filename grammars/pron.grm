@@ -46,8 +46,8 @@ ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
                                        sigma_star]];
 
 # When an "i" occurs intervocalically (between two vowels),
-# it is realized as a glide: [jj].
-geminate_intervocalic_i = Optimize[CDRewrite["i" : "jj",
+# it is realized as a glide: [jj]. Pharr writes intervocalic "i" as "j."
+geminate_intervocalic_i = Optimize[CDRewrite["j" : "jj",
                                              i.VOWEL, i.VOWEL, sigma_star]];
 
 diphthongization = Optimize[u.Rewrite[("ae" : "aj") |
@@ -91,9 +91,9 @@ nasalization = Optimize[CDRewrite[("a" : "ãː") |
                                   ("o" : "õː") |
                                   ("u" : "ũː" ),
                                   "",
-                                  ("m" | "n") i.EOW,
+                                  ("m" | "n") "que"? i.EOW,
                                   sigma_star] @
-    CDRewrite[("m" | "n") : "", "", i.EOW, sigma_star]
+    CDRewrite[("m" | "n") : "", "", "que"? i.EOW, sigma_star]
 ];
 
 # If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
@@ -112,10 +112,10 @@ nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
 gn = Optimize[u.Rewrite[("gn" : "ŋn"), sigma_star]];
 
 rules = Optimize[
-    u_loss @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
+    u_loss @ nasalization @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
     ei_exceptions @ geminate_intervocalic_i @ digraphs @
     diphthongization @ diaeresis @ long_monophthongs @
-    b_devoicing @ nasalization @ ngu @ unconditioned_rewrites @
+    b_devoicing @ ngu @ unconditioned_rewrites @
     nasal_place_assimilation @ gn
 ];
 
@@ -139,7 +139,7 @@ test_pron_2 = AssertEqual[
 # Tests for "y."
 test_pron_3 = AssertEqual[
     "nec tēcum ausonium quīcumque est quaerere thybrim" @ PRON,
-    "nek teːkũː awsoniũː kwiːkumkwe est kwajrere tubrĩː"
+    "nek teːkũː awsoniũː kwiːkũːkwe est kwajrere tubrĩː"
 ];
 
 # Tests for "ng."
@@ -157,7 +157,7 @@ test_pron_5 = AssertEqual[
 # Tests for "bs".
 test_pron_6 = AssertEqual[
     "subsīdunt undae tumidumque sub axe tonantī" @ PRON,
-    "supsiːdunt undaj tumidumkwe sub akse tonantiː"
+    "supsiːdunt undaj tumidũːkwe sub akse tonantiː"
 ];
 
 # Tests "mnēstheus" does not glide.
@@ -189,9 +189,16 @@ test_pron_11 = AssertEqual[
     "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
     "alma wenus prugiiː genuit simoentis ad undãː"
 ];
+# Tests intervocalic "i".
+test_pron_12 = AssertEqual[
+    "hōc equidem occāsum trojae trīstīsque ruīnās" @ PRON,
+    "hoːk ekwidẽː okkaːsũː trojjaj triːstiːskwe ruiːnaːs"
+];
 
 # TODO:
 # * Uncertainty about quīcumque: either kwiːkuŋkwe or kwiːkũːkwe?
 # * The clitics -que, -ne and -ue should act like the end of a word.
+# * Words that just happen to end in -que shouldn't have the nasalization
+#   rule be applied to it.
 # * When final m was followed by a plosive or nasal consonant,
 #   it likely was assimilated to the following consonant.
