@@ -85,6 +85,7 @@ digraphs = Optimize[u.Rewrite[("ph" : "p") |
 b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 # Word-final "m" and "n" indicates vowel lengthening and nasalization.
+# TODO: This likely overapplies to stems that happen to end in -que.
 nasalization = Optimize[CDRewrite[("a" : "ãː") |
                                   ("e" : "ẽː") |
                                   ("i" : "ĩː") |
@@ -198,7 +199,5 @@ test_pron_12 = AssertEqual[
 # TODO:
 # * Uncertainty about quīcumque: either kwiːkuŋkwe or kwiːkũːkwe?
 # * The clitics -que, -ne and -ue should act like the end of a word.
-# * Words that just happen to end in -que shouldn't have the nasalization
-#   rule be applied to it.
 # * When final m was followed by a plosive or nasal consonant,
 #   it likely was assimilated to the following consonant.
