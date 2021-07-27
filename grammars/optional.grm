@@ -1,5 +1,5 @@
 # Implements sandhi phenomena, such as elision, resyllabification,
-# synezisis, hypermetric lengthening, etc.
+# diaeresis, synizesis, hypermetric lengthening, etc.
 
 import 'byte.grm' as b;
 import 'inventory.grm' as i;
@@ -10,36 +10,87 @@ sigma_star = (i.PROSODIC_SYMBOL | i.PHONEME)*;
 # A final syllable ending in a vowel or letter m is removed
 # before a word beginning with a vowel (or an h-).
 export ELISION = Optimize[
-    CDRewrite[u.Delete[i.PHONEMIC_VOWEL i.EOW], "", i.PHONEMIC_VOWEL,
-                       sigma_star, 'ltr', 'opt'] @
-    CDRewrite[u.Delete[i.PHONEMIC_VOWEL i.EOW "h"], "", i.PHONEMIC_VOWEL,
+    CDRewrite[u.Delete[i.PHONEMIC_VOWEL " " "h"?], "", "h"? i.PHONEMIC_VOWEL,
                        sigma_star, 'ltr', 'opt']
 ];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
+# TODO: orthographically annotate using "‿".
 export RESYLLABIFY = Optimize[
     CDRewrite[u.Insert[" "], "", i.CONSONANT " " i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
     CDRewrite[u.Delete[" "], " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
 ];
-# TODO: orthographically annotate using "‿".
+
+# The consonantization of i and u into their corresponding glides, [j] and [w].
+export SYNIZESIS = Optimize [
+    CDRewrite[("i" : "j") |
+              ("u": "w"), "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt']
+];
+
+# The vowels [i] and [u] are pronounced as separate syllables, instead of
+# the normal glides, [j] and [w].
+# export DIAERESIS = [];
 
 ## Resyllabification tests.
 
 # Jūnōnis ob īram.
-test_without_resyllabify_1= AssertEqual["juːnoːnis ob iːrãː" @ RESYLLABIFY, "juːnoːnis ob iːrãː"];
-test_with_resyllabify_1 = AssertEqual["juːnoːnis ob iːrãː" @ RESYLLABIFY, "juːnoːni so biːrãː"];
+test_without_resyllabify_1= AssertEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː" @ RESYLLABIFY,
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː"
+];
+test_with_resyllabify_1 = AssertEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː" @ RESYLLABIFY,
+    "wiː superũː sajwaj memorẽː juːnoːni so biːrãː"
+];
 
 # conderet urbem.
-test_without_resyllabify_2 = AssertEqual["konderet urbẽː" @ RESYLLABIFY, "konderet urbẽː"];
-test_with_resyllabify_2 = AssertEqual["konderet urbẽː" @ RESYLLABIFY, "kondere turbẽː"];
+test_without_resyllabify_2 = AssertEqual[
+    "multa kwokwe et belloː passus dũː konderet urbẽː" @ RESYLLABIFY,
+    "multa kwokwe et belloː passus dũː konderet urbẽː"
+];
+test_with_resyllabify_2 = AssertEqual[
+    "multa kwokwe et belloː passus dũː konderet urbẽː" @ RESYLLABIFY,
+    "multa kwokwe et belloː passus dũː kondere turbẽː"
+];
 
 ## Elision tests.
 
-test_without_elision_1= AssertEqual["atkwe hominũː" @ ELISION, "atkwe hominũː"];
-test_with_elision_1 = AssertEqual["atkwe hominũː" @ ELISION, "atkwominũː"];
+test_without_elision_1 = AssertEqual[
+    "ajole namkwe tibiː diːwũː pater atkwe hominũː reːks" @ ELISION,
+    "ajole namkwe tibiː diːwũː pater atkwe hominũː reːks"
+];
+test_with_elision_1 = AssertEqual[
+    "ajole namkwe tibiː diːwũː pater atkwe hominũː reːks" @ ELISION,
+    "ajole namkwe tibiː diːwũː pater atkwominũː reːks"
+];
 
-test_without_elision_2= AssertEqual["tantajne animiːs" @ ELISION, "tantajne animiːs"];
-test_with_elision_2 = AssertEqual["tantajne animiːs" @ ELISION, "tantajnanimiːs"];
+test_without_elision_2= AssertEqual[
+    "impulerit tantajne animiːs kajlestibus iːraj" @ ELISION,
+    "impulerit tantajne animiːs kajlestibus iːraj"
+];
+test_with_elision_2 = AssertEqual[
+    "impulerit tantajne animiːs kajlestibus iːraj" @ ELISION,
+    "impulerit tantajnanimiːs kajlestibus iːraj"
+];
 
-test_without_elision_3= AssertEqual["multũː ille" @ ELISION, "multũː ille"];
-test_with_elision_3 = AssertEqual["multũː ille" @ ELISION, "multille"];
+test_without_elision_3= AssertEqual[
+    "liːtora multũː ille et terriːs jaktaːtus et altoː" @ ELISION,
+    "liːtora multũː ille et terriːs jaktaːtus et altoː"
+];
+test_with_elision_3 = AssertEqual[
+    "liːtora multũː ille et terriːs jaktaːtus et altoː" @ ELISION,
+    "liːtora multille et terriːs jaktaːtus et altoː"
+];
+
+## Synizesis tests.
+test_without_synizesis_1= AssertEqual[
+    "iːtaliãː faːtoː profugus laːwiːniakwe weːnit" @ SYNIZESIS,
+    "iːtaliãː faːtoː profugus laːwiːniakwe weːnit"
+];
+test_with_synizesis_1 = AssertEqual[
+    "iːtaliãː faːtoː profugus laːwiːniakwe weːnit" @ SYNIZESIS,
+    "iːtaliãː faːtoː profugus laːwiːnjakwe weːnit"
+];
+
+# TODOs:
+# * Silent "h"s: "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur"
