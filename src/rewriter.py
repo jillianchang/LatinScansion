@@ -56,7 +56,6 @@ def main(args: argparse.Namespace) -> None:
                 err,
                 line,
             )
-            exit(1)
 
 
 if __name__ == "__main__":
