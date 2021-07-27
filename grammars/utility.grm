@@ -24,3 +24,13 @@ func FilterRule[rule, input, output] {
 func Join[arg, sep] {
   return arg (sep arg)*;
 }
+
+# Deletes the passed string.
+func Delete[tau] {
+    return tau : "";
+}
+
+# Inserts the passed string.
+func Insert[tau] {
+    return "" : tau;
+}
