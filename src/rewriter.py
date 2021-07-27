@@ -41,7 +41,11 @@ def main(args: argparse.Namespace) -> None:
         output_token_type=_prepare_token_type(args.output_token_type),
     )
     for line in fileinput.input(args.input):
-        line = pynini.escape(line.rstrip())
+        line = line.rstrip()
+        # If we're using a string-based input token type, we want to escape
+        # specialized tokens.
+        if args.input_token_type in ["byte", "utf8"]:
+            line = pynini.escape(line)
         try:
             print(rewrite(line))
         except Exception as err:
