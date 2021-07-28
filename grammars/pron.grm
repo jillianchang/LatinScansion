@@ -195,6 +195,10 @@ test_pron_12 = AssertEqual[
     "hōc equidem occāsum trojae trīstīsque ruīnās" @ PRON,
     "hoːk ekwidẽː okkaːsũː trojjaj triːstiːskwe ruiːnaːs"
 ];
+test_pron_13 = AssertEqual[
+    "arma virumque canō trojae quī prīmus ab ōris" @ PRON,
+    "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris"
+];
 
 # TODO:
 # * Uncertainty about quīcumque: either kwiːkuŋkwe or kwiːkũːkwe?

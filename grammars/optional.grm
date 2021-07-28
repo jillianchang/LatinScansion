@@ -22,14 +22,19 @@ export RESYLLABIFY = Optimize[
 ];
 
 # The consonantization of i and u into their corresponding glides, [j] and [w].
-export SYNIZESIS = Optimize [
+export SYNIZESIS = Optimize[
     CDRewrite[("i" : "j") |
-              ("u": "w"), "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt']
+              ("u" : "w"), "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # The vowels [i] and [u] are pronounced as separate syllables, instead of
 # the normal glides, [j] and [w].
-# export DIAERESIS = [];
+# TODO: include [j] glide?
+export DIAERESIS = Optimize[
+    CDRewrite[("w" : "u"), "k" | "g", "", sigma_star, 'ltr', 'opt']
+];
+
+export OPTIONAL = Optimize[ELISION @ RESYLLABIFY @ SYNIZESIS @ DIAERESIS];
 
 ## Resyllabification tests.
 
@@ -90,6 +95,16 @@ test_without_synizesis_1= AssertEqual[
 test_with_synizesis_1 = AssertEqual[
     "iːtaliãː faːtoː profugus laːwiːniakwe weːnit" @ SYNIZESIS,
     "iːtaliãː faːtoː profugus laːwiːnjakwe weːnit"
+];
+
+## Diaeresis tests.
+test_without_diaeresis_1= AssertEqual[
+    "relaŋgwit" @ DIAERESIS,
+    "relaŋgwit"
+];
+test_with_diaeresis_1 = AssertEqual[
+    "relaŋgwit" @ DIAERESIS,
+    "relaŋguit"
 ];
 
 # TODOs:
