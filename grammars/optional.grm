@@ -107,5 +107,23 @@ test_with_diaeresis_1 = AssertEqual[
     "relaŋguit"
 ];
 
+## Combined OPTIONAL tests.
+
+# Resyllabification and elision.
+test_without_optional_3 = AssertEqual[
+    "oːstia diːwes opũː studiiːskwe asperrima belliː" @ OPTIONAL,
+    "oːstia diːwes opũː studiiːskwe asperrima belliː"
+];
+test_with_optional_3 = AssertEqual[
+    "oːstia diːwes opũː studiiːskwe asperrima belliː" @ OPTIONAL,
+    "oːstia diːwe sopũː studiiːskwasperrima belliː"
+];
+
 # TODOs:
 # * Silent "h"s: "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur"
+# * Hypermeter: when a period has an extra syllable ending in a vowel
+#   or m which is elided into the first word of the following period (1.448)
+# * Diastole: a usually short syllable is long.
+#   The second syllables of mihi, tibi, sibi, ubi, and ibi are often lengthened in poetry.
+#   He also lengthens other syllables not usually lengthened
+#   (qui teneant, nam inculta videt, hominesne feraene)
