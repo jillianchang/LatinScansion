@@ -1,0 +1,53 @@
+Tests pronounciation output against poetic license rules and hexameter rules.
+
+import 'optional.grm' as opt;
+import 'meter.grm' as meter;
+
+export FINAL_SCAN = Optimize[opt.OPTIONAL @ meter.SCAN];
+
+# Tests resyllabification.
+final_scan_1 = AssertEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː" @ FINAL_SCAN,
+    "wiː superũː sajwaj memorẽː juːnoːni so biːrãː"
+];
+# Tests elision for words starting wih "h" and resyllabification.
+final_scan_2 = AssertEqual[
+    "ajole namkwe tibiː diːwũː pater atkwe hominũː reːks" @ FINAL_SCAN,
+    "ajole nãːkwe tibiː diːwũː pate ratkwominũː reːks"
+];
+# Tests elision for words ending in a vowel and resyllabification.
+final_scan_3 = AssertEqual[
+    "impulerit tantajne animiːs kajlestibus iːraj" @ FINAL_SCAN,
+    "impulerit tantajnanimiːs kajlestibu siːraj"
+];
+# Tests elision that occurs twice in a line and resyllabification.
+final_scan_3 = AssertEqual[
+    "liːtora multũː ille et terriːs jaktaːtus et altoː" @ FINAL_SCAN,
+    "liːtora multillet terriːs jaktaːtu se taltoː"
+];
+# Tests synizesis.
+final_scan_4 = AssertEqual[
+    "iːtaliãː faːtoː profugus laːwiːniakwe weːnit" @ FINAL_SCAN,
+    "iːtaliãː faːtoː profugus laːwiːnjakwe weːnit"
+];
+# Tests diastole and resyllabification.
+final_scan_5 = AssertEqual[
+    "iːnferretkwe deos latio genus unde latiːnũː" @ FINAL_SCAN,
+    "iːnferretkwe deos latioː genu sunde latiːnũː"
+];
+# Tests elision and resyllabification.
+final_scan_6 = AssertEqual[
+    "oːstia diːwes opũː studiiːskwe asperrima belliː" @ FINAL_SCAN,
+    "oːstia diːwe sopũː studiiːskwasperrima belliː"
+];
+# Tests elision, and h deletion + synizesis.
+final_scan_7 = AssertEqual[
+    "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur" @ FINAL_SCAN,
+    "eurad seː zepurumkwe wokat dejŋk taːlia faːtur"
+];
+
+# Tests h deletion + resyllabification, and another resyllabification.
+final_scan_8 = AssertEqual[
+    "hiːk kurrus fuit hok reːŋnũː dea gentibus esse" @ OPTIONAL,
+    "hiːk kurrus fui tok reːŋnũː dea gentibu sesse"
+];
