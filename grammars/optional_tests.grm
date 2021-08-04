@@ -1,0 +1,11 @@
+Tests pronounciation output against poetic license rules and hexameter rules.
+
+import 'optional.grm' as opt;
+import 'meter.grm' as meter;
+
+export FINAL_SCAN = Optimize[opt.OPTIONAL @ meter.SCAN];
+
+final_scan_1 = AssertEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː" @ FINAL_SCAN,
+    "wiː superũː sajwaj memorẽː juːnoːni so biːrãː"
+]

@@ -7,11 +7,15 @@ import 'utility.grm' as u;
 
 sigma_star = (i.PROSODIC_SYMBOL | i.PHONEME)*;
 
-# A final syllable ending in a vowel or letter m is removed
+export H_DELETION = Optimize[
+    CDRewrite[u.Delete["h"], "", "", sigma_star, 'ltr', 'opt']
+];
+
+# A final syllable ending in a vowel or diphthong is removed
 # before a word beginning with a vowel (or an h-).
 export ELISION = Optimize[
-    CDRewrite[u.Delete[i.PHONEMIC_VOWEL " " "h"?], "", "h"? i.PHONEMIC_VOWEL,
-                       sigma_star, 'ltr', 'opt']
+    CDRewrite[u.Delete[(i.PHONEMIC_VOWEL | "oj" | "aj" "aw") " " "h"?],
+                        "", "h"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
@@ -21,10 +25,13 @@ export RESYLLABIFY = Optimize[
     CDRewrite[u.Delete[" "], " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
 ];
 
-# The consonantization of i and u into their corresponding glides, [j] and [w].
 export SYNIZESIS = Optimize[
+    # The consonantization of i and u into their corresponding glides, [j] and [w].
     CDRewrite[("i" : "j") |
-              ("u" : "w"), "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt']
+              ("u" : "w"), "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt'] @
+    # A hiatus becomes a diphthong.
+    CDRewrite[("i" : "j") |
+              ("u" : "w"), i.SHORT_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
 # The vowels [i] and [u] are pronounced as separate syllables, instead of
@@ -34,7 +41,16 @@ export DIAERESIS = Optimize[
     CDRewrite[("w" : "u"), "k" | "g", "", sigma_star, 'ltr', 'opt']
 ];
 
-export OPTIONAL = Optimize[ELISION @ RESYLLABIFY @ SYNIZESIS @ DIAERESIS];
+# The lengthening of a usually short syllable.
+export DIASTOLE = Optimize[
+    CDRewrite[("a" : "aː") |
+              ("e" : "eː") |
+              ("i" : "iː") |
+              ("o" : "oː") |
+              ("u" : "uː"), "", "", sigma_star, 'ltr', 'opt']
+];
+
+export OPTIONAL = Optimize[H_DELETION @ ELISION @ RESYLLABIFY @ SYNIZESIS @ DIAERESIS];
 
 ## Resyllabification tests.
 
@@ -107,23 +123,54 @@ test_with_diaeresis_1 = AssertEqual[
     "relaŋguit"
 ];
 
+## Diastole tests.
+
+test_without_diastole_1= AssertEqual[
+    "iːnferretkwe deos latio genus unde latiːnũː" @ DIASTOLE,
+    "iːnferretkwe deos latio genus unde latiːnũː"
+];
+test_with_diastole_1 = AssertEqual[
+    "iːnferretkwe deos latio genus unde latiːnũː" @ DIASTOLE,
+    "iːnferretkwe deos latioː genus unde latiːnũː"
+];
+
 ## Combined OPTIONAL tests.
 
 # Resyllabification and elision.
-test_without_optional_3 = AssertEqual[
+test_without_optional_1 = AssertEqual[
     "oːstia diːwes opũː studiiːskwe asperrima belliː" @ OPTIONAL,
     "oːstia diːwes opũː studiiːskwe asperrima belliː"
 ];
-test_with_optional_3 = AssertEqual[
+test_with_optional_1 = AssertEqual[
     "oːstia diːwes opũː studiiːskwe asperrima belliː" @ OPTIONAL,
     "oːstia diːwe sopũː studiiːskwasperrima belliː"
 ];
 
+# H deletion and synizesis.
+test_without_optional_2 = AssertEqual[
+    "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur" @ OPTIONAL,
+    "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur"
+];
+test_with_optional_2 = AssertEqual[
+    "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur" @ OPTIONAL,
+    "eurũː ad seː zepurumkwe wokat dejŋk taːlia faːtur"
+];
+
+# H deletion and resyllabification.
+test_without_optional_3 = AssertEqual[
+    "hiːk kurrus fuit hok reːŋnũː dea gentibus esse" @ OPTIONAL,
+    "hiːk kurrus fuit hok reːŋnũː dea gentibus esse"
+];
+test_with_optional_3 = AssertEqual[
+    "hiːk kurrus fuit hok reːŋnũː dea gentibus esse" @ OPTIONAL,
+    "hiːk kurrus fui tok reːŋnũː dea gentibu sesse"
+];
+
 # TODOs:
-# * Silent "h"s: "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur"
 # * Hypermeter: when a period has an extra syllable ending in a vowel
-#   or m which is elided into the first word of the following period (1.448)
+#   or m which is elided into the first word of the following period, often with -que words.
+#   (1.448 ajrea kuj gradibus surgeːbant liːmina neksajkwe)
 # * Diastole: a usually short syllable is long.
 #   The second syllables of mihi, tibi, sibi, ubi, and ibi are often lengthened in poetry.
 #   He also lengthens other syllables not usually lengthened
-#   (qui teneant, nam inculta videt, hominesne feraene)
+# * Systole
