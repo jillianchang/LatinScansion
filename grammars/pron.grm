@@ -19,25 +19,25 @@ qu = Optimize[u.Rewrite["qu" : "kw", sigma_star]];
 
 ## Handling of vowels, glides, and diphthongs.
 
-# These words form an "eu" dipthong, rather than the normal hiatus.
+# These words form an "eu" diphthong, rather than the normal hiatus.
 eu_exceptions = Optimize[u.RewriteWord[("heus": "hews") |
                                        ("ceu" : "kew") |
                                        ("neu" : "new") |
                                        ("seu" : "sew") |
                                        ("ēheu" : "eːhew"), sigma_star]];
 
-# These words form an "ou" dipthong, rather than the normal hiatus.
+# These words form an "ou" diphthong, rather than the normal hiatus.
 ou_exceptions = Optimize[u.RewriteWord[("boum": "bowũː") |
                                        ("prout" : "prowt"),
                                        sigma_star]];
 
-# These words form an "ui" dipthong, rather than the normal hiatus.
+# These words form an "ui" diphthong, rather than the normal hiatus.
 ui_exceptions = Optimize[u.RewriteWord[("hui": "huj") |
                                        ("huic" : "hujk") |
                                        ("cui" : "kuj"),
                                        sigma_star]];
 
-# These words form an "ei" dipthong, rather than the normal hiatus.
+# These words form an "ei" diphthong, rather than the normal hiatus.
 ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
                                        ("deinde" : "dẽːjde") |
                                        ("deinceps" : "dẽːjkeps") |
@@ -113,10 +113,10 @@ nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
 gn = Optimize[u.Rewrite[("gn" : "ŋn"), sigma_star]];
 
 rules = Optimize[
-    u_loss @ nasalization @ qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
-    ei_exceptions @ geminate_intervocalic_i @ digraphs @
-    diphthongization @ diaeresis @ long_monophthongs @
-    b_devoicing @ ngu @ unconditioned_rewrites @
+    geminate_intervocalic_i @ u_loss @ nasalization @
+    qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
+    ei_exceptions @ digraphs @ diphthongization @ diaeresis @
+    long_monophthongs @ b_devoicing @ ngu @ unconditioned_rewrites @
     nasal_place_assimilation @ gn
 ];
 
@@ -190,7 +190,8 @@ test_pron_11 = AssertEqual[
     "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
     "alma wenus prugiiː genuit simoentis ad undãː"
 ];
-# Tests intervocalic "i".
+
+## Tests intervocalic "i".
 test_pron_12 = AssertEqual[
     "hōc equidem occāsum trojae trīstīsque ruīnās" @ PRON,
     "hoːk ekwidẽː okkaːsũː trojjaj triːstiːskwe ruiːnaːs"
@@ -198,6 +199,10 @@ test_pron_12 = AssertEqual[
 test_pron_13 = AssertEqual[
     "arma virumque canō trojae quī prīmus ab ōris" @ PRON,
     "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris"
+];
+test_pron_14 = AssertEqual[
+    "prīma quod ad trojam prō cāris gesserat argīs" @ PRON,
+    "priːma kwod ad trojjãː proː kaːris gesserat argiːs"
 ];
 
 # TODO:

@@ -19,8 +19,12 @@ muta_cum_liquida = ((i.STOP | "f") i.LIQUID) - ("tl" | "dl");
 s_cluster = "s" ((i.VOICELESS_STOP i.LIQUID?) - "tl");
 labiovelar = ("k" | "g" | "s") "w";
 
-onset = Optimize[CDRewrite[(muta_cum_liquida | s_cluster | labiovelar |
-                           i.CONSONANT) : "O", "", i.NUCLEUS, sigma_star]];
+onset = Optimize[
+  # "s" consonant clusters are onsets at the beginning of words.
+  CDRewrite[s_cluster : "O", i.BOW, i.NUCLEUS, sigma_star] @
+  CDRewrite[(muta_cum_liquida | labiovelar |
+            i.CONSONANT) : "O", "", i.NUCLEUS, sigma_star]
+];
 
 coda = Optimize[u.Rewrite[i.CONSONANT+ : "C", sigma_star]];
 
@@ -86,7 +90,7 @@ test_weight_1 = AssertEqual["OU U" @ WEIGHT, "B B"];
 # Heavy by nature.
 test_weight_2 = AssertEqual["O-C O- -C -" @ WEIGHT, "L L L L"];
 # Heavy by position.
-test_weight_3 = AssertEqual["O-C OUC -C UC" @ WEIGHT, "L L L L"]; 
+test_weight_3 = AssertEqual["O-C OUC -C UC" @ WEIGHT, "L L L L"];
 
 # Complete foot mapping for "Mūsa, mihī causās memorā, quō nūmine laesō."
 test_line_1 = AssertEqual[
@@ -142,11 +146,16 @@ test_scan_3 = AssertEqual[
   "DSDSDS"
 ];
 
+# Testing that word initial sC (s consonant) is an onset but a medial sC splits into coda onset.
+test_sc_1 = AssertEqual[
+  "impulerit tantajnanimiːs kajlestibu siːraj" @ SYLLABLE,
+  "UCOUOUOUC OUCOUCOUOUO-C OUCOUCOUOU O-OUC"
+];
+
 ## Meter testing for optional rules.
 meter_syllable_1 = AssertEqual[
   "oːstia diːwe sopũː studiiːskwasperrima belliː" @ SYLLABLE,
   "-COUU O-OU OUO- OUOU-COUCOUCOUOU OUCO-"
-];
 
 # Tests a defective line.
 test_defective_1 = AssertNull[
