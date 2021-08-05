@@ -14,24 +14,24 @@ export H_DELETION = Optimize[
 # A final syllable ending in a vowel, letter m, or diphthong is removed
 # before a word beginning with a vowel (or an h-).
 export ELISION = Optimize[
-    CDRewrite[u.Delete[(i.PHONEMIC_VOWEL | "oj" | "aj" "aw") " " "h"?] <100>,
-                        "", "h"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
+    CDRewrite[u.Delete[(i.PHONEMIC_VOWEL | "oj" | "aj" | "aw") " "] <50>,
+                        "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
 # TODO: orthographically annotate using "‿".
 export RESYLLABIFY = Optimize[
-    CDRewrite[u.Insert[" "] <10>, "", i.CONSONANT " " i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[u.Delete[" "] <10>, " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
+    CDRewrite[u.Insert[" "] <5>, "", i.CONSONANT " " i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
+    CDRewrite[u.Delete[" "] <5>, " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
 ];
 
 export SYNIZESIS = Optimize[
     # The consonantization of i and u into their corresponding glides, [j] and [w].
     CDRewrite[(("i" : "j") |
-              ("u" : "w")) <500>, "", i.SHORT_VOWEL, sigma_star, 'ltr', 'opt'] @
+              ("u" : "w")) <500>, "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
     # A hiatus becomes a diphthong.
     CDRewrite[(("i" : "j") |
-              ("u" : "w")) <500>, i.SHORT_VOWEL, "", sigma_star, 'ltr', 'opt']
+              ("u" : "w")) <500>, i.PHONEMIC_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
 # The vowels [i] and [u] are pronounced as separate syllables, instead of
@@ -50,7 +50,8 @@ export DIASTOLE = Optimize[
               ("u" : "uː")) <1000>, "", "", sigma_star, 'ltr', 'opt']
 ];
 
-export OPTIONAL = Optimize[H_DELETION @ ELISION @ RESYLLABIFY @ SYNIZESIS @ DIAERESIS];
+export OPTIONAL = Optimize[H_DELETION @ RESYLLABIFY @ ELISION @
+                           SYNIZESIS @ DIAERESIS @ DIASTOLE];
 
 # TODOs:
 # * Hypermeter: when a period has an extra syllable ending in a vowel

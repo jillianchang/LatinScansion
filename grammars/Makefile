@@ -1,4 +1,4 @@
-final_scan.far: final_scan.grm optional.far meter.far
+final_scan.far: final_scan.grm optional.far meter.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 optional.far: optional.grm byte.far inventory.far utility.far
@@ -17,4 +17,4 @@ meter.far: meter.grm inventory.far byte.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 clean:
-	rm -f optional.far meter.far byte.far inventory.far utility.far
+	rm -f optional.far meter.far utility.far byte.far inventory.far
