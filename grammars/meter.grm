@@ -48,7 +48,7 @@ export FEET = (dactyl | spondee | trochee)*;
 # Filters footing to valid hexameter patterns.
 hexameter = Optimize[Project[(dactyl | spondee){5} (spondee | trochee),
                      'output']];
-export SCAN = Optimize[SYLLABLE @ WEIGHT @ FEET @ hexameter];
+export METER = Optimize[SYLLABLE @ WEIGHT @ FEET @ hexameter];
 
 ## Tests syllable parsing.
 test_syllable_1 = AssertEqual[
@@ -106,7 +106,7 @@ test_line_3 = AssertEqual[
   "DSDSDS"
 ];
 test_scan_1 = AssertEqual[
-  "muːsa mihiː kawsaːs memoraː kwoː nuːmine lajsoː" @ SCAN,
+  "muːsa mihiː kawsaːs memoraː kwoː nuːmine lajsoː" @ METER,
   "DSDSDS"
 ];
 
@@ -124,7 +124,7 @@ test_line_7 = AssertEqual[
   "SDDDDS"
 ];
 test_scan_2= AssertEqual[
-  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ SCAN,
+  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ METER,
   "SDDDDS"
 ];
 
@@ -142,7 +142,7 @@ test_line_10 = AssertEqual[
   "DSDSDS"
 ];
 test_scan_3 = AssertEqual[
-  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ SCAN,
+  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ METER,
   "DSDSDS"
 ];
 
@@ -160,5 +160,5 @@ meter_syllable_1 = AssertEqual[
 
 # Tests a defective line.
 test_defective_1 = AssertNull[
-  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ SCAN
+  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ METER
 ];
