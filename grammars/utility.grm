@@ -34,8 +34,3 @@ func Delete[tau] {
 func Insert[tau] {
     return "" : tau;
 }
-
-func AssertInputEqual[input, rule, expected] {
-     applied = input @ rule;
-     return AssertEqual[Project[applied, 'input'], expected];
-}
