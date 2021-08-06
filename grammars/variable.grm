@@ -1,4 +1,4 @@
-# Implements sandhi phenomena, such as elision, resyllabification,
+# Implements variable sandhi phenomena, such as elision, resyllabification,
 # diaeresis, synizesis, hypermetric lengthening, etc.
 
 import 'byte.grm' as b;
@@ -27,30 +27,29 @@ resyllabification = Optimize[
               " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
 ];
 
+# High vowels may strengthen to their corresponding glides when adjacent to
+# another vowel.
 synizesis = Optimize[
-    # The consonantization of i and u into their corresponding glides, [j] and [w].
     CDRewrite[(("i" : "j") | ("u" : "w")) <500>,
                 "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    # A hiatus becomes a diphthong.
     CDRewrite[(("i" : "j") | ("u" : "w")) <500>,
                 i.PHONEMIC_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
-# The vowels [i] and [u] are pronounced as separate syllables, instead of
-# the normal glides, [j] and [w].
+# Glides may lenite to their corresponding vowels in labiovelars.
 # TODO: include [j] glide?
 diaeresis = Optimize[
     CDRewrite[("w" : "u") <500>, "k" | "g", "", sigma_star, 'ltr', 'opt']
 ];
 
-# The lengthening of a usually short syllable.
+# Lengthening of a usually short syllable.
 diastole = Optimize[
     CDRewrite[(("a" : "aː") | ("e" : "eː") | ("i" : "iː") |
               ("o" : "oː") | ("u" : "uː")) <1000>,
               "", "", sigma_star, 'ltr', 'opt']
 ];
 
-export OPTIONAL = Optimize[h_deletion @ resyllabification @ elision @
+export VARIABLE = Optimize[h_deletion @ resyllabification @ elision @
                            synizesis @ diaeresis @ diastole];
 
 # TODOs:
