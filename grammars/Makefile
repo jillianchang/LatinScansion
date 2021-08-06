@@ -1,4 +1,12 @@
-optional.far: optional.grm byte.far inventory.far utility.far
+all: normalize.far pron.far variable.far
+
+normalize.far: normalize.grm byte.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+pron.far: pron.grm byte.far inventory.far utility.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+variable.far: variable.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 byte.far: byte.grm 
