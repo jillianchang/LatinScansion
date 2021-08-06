@@ -1,0 +1,61 @@
+# Tests pronounciation output against poetic license rules and hexameter rules.
+
+import 'optional.grm' as opt;
+import 'meter.grm' as meter;
+import 'utility.grm' as u;
+
+export FINAL_SCAN = Optimize[opt.OPTIONAL @ meter.SCAN];
+
+# Tests resyllabification.
+final_scan_1 = AssertEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː" @ FINAL_SCAN,
+    "DSDSDS"
+];
+# Tests elision for words starting wih "h" and resyllabification.
+final_scan_2 = AssertEqual[
+    "ajole namkwe tibiː diːwũː pater atkwe hominũː reːks" @ FINAL_SCAN,
+    "DDSDDS"
+];
+# Tests elision for words ending in a vowel and resyllabification.
+final_scan_3 = AssertEqual[
+    "impulerit tantajne animiːs kajlestibus iːraj" @ FINAL_SCAN,
+    "DSDSDS"
+];
+# Tests elision that occurs twice in a line and resyllabification.
+final_scan_4 = AssertEqual[
+    "liːtora multũː ille et terriːs jaktaːtus et altoː" @ FINAL_SCAN,
+    "DSSSDS"
+];
+# Tests synizesis.
+final_scan_5 = AssertEqual[
+    "iːtaliãː faːtoː profugus laːwiːniakwe weːnit" @ FINAL_SCAN,
+    "DSDSDS"
+];
+# Tests diastole and resyllabification.
+final_scan_6 = AssertEqual[
+    "iːnferretkwe deos latio genus unde latiːnũː" @ FINAL_SCAN,
+    "SDDDDS"
+];
+# Tests elision and resyllabification.
+final_scan_7 = AssertEqual[
+    "oːstia diːwes opũː studiiːskwe asperrima belliː" @ FINAL_SCAN,
+    "DDDSDS"
+];
+# Tests elision, and h deletion + synizesis.
+final_scan_8 = AssertEqual[
+    "eurũː ad seː zepurumkwe wokat dehiŋk taːlia faːtur" @ FINAL_SCAN,
+    "SDDSDS"
+];
+
+# Tests h deletion + resyllabification, and another resyllabification.
+final_scan_9 = AssertEqual[
+    "hiːk kurrus fuit hok reːŋnũː dea gentibus esse" @ FINAL_SCAN,
+    "SDSDDT"
+];
+
+## Tests final pronounciation outputs.
+final_pron_1 = u.AssertInputEqual[
+    "wiː superũː sajwaj memorẽː juːnoːnis ob iːrãː",
+    FINAL_SCAN,
+    "wiː superũː sajwaj memorẽː juːnoːni so biːrãː"
+];
