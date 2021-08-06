@@ -27,6 +27,7 @@ oral_vowel = "a" | "e" | "i" | "o" | "u";
 nasal_vowel = "ã" | "ẽ" | "ĩ" | "õ" | "ũ";
 export SHORT_VOWEL = Optimize[oral_vowel | nasal_vowel];
 export LONG_VOWEL = SHORT_VOWEL "ː";
+export PHONEMIC_VOWEL = SHORT_VOWEL | LONG_VOWEL;
 
 # Phonemic consonants.
 export VOICELESS_STOP = Optimize["p" | "t" | "k"];

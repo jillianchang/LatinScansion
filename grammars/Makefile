@@ -1,14 +1,20 @@
-meter.far: meter.grm inventory.far byte.far utility.far
+final_scan.far: final_scan.grm optional.far meter.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
-inventory.far: inventory.grm byte.far
+optional.far: optional.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 byte.far: byte.grm 
 	thraxcompiler --input_grammar=$< --output_far=$@
 
+inventory.far: inventory.grm byte.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
 utility.far: utility.grm inventory.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
+meter.far: meter.grm inventory.far byte.far utility.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
 clean:
-	rm -f *.far
+	rm -f optional.far meter.far utility.far byte.far inventory.far

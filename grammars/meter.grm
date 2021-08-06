@@ -152,6 +152,12 @@ test_sc_1 = AssertEqual[
   "UCOUOUOUC OUCOUCOUOUO-C OUCOUCOUOU O-OUC"
 ];
 
+## Meter testing for optional rules.
+meter_syllable_1 = AssertEqual[
+  "oːstia diːwe sopũː studiiːskwasperrima belliː" @ SYLLABLE,
+  "-COUU O-OU OUO- OUOU-COUCOUCOUOU OUCO-"
+];
+
 # Tests a defective line.
 test_defective_1 = AssertNull[
   "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ SCAN
