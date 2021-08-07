@@ -17,9 +17,11 @@ def scan_line(
     variable_rule: pynini.Fst,
     meter_rule: pynini.Fst,
     text: str,
-    line_number: Optional[int] = None,
+    line_number: int = -1,
 ) -> scansion_pb2.Line:
     """Scans a single line of poetry.
+
+    Note that 
 
     Args:
       normalize_rule: the normalization rule.
@@ -27,6 +29,7 @@ def scan_line(
       variable_rule: the rule for introducing pronunciation variation.
       meter_rule: the rule for constraining pronunciation variation to scan.
       text: the input text.
+      line_number: an optional line number (defaulting to -1).
 
     Returns:
       A populated Line message.
