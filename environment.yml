@@ -4,6 +4,7 @@ channels:
  - conda-forge
 dependencies:
  - make=4.2.1
+ - protobuf=3.17.2
  - pynini=2.1.4
  - python=3.8.10
  - thrax=1.3.6
