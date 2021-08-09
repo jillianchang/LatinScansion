@@ -20,8 +20,8 @@ s_cluster = "s" ((i.VOICELESS_STOP i.LIQUID?) - "tl");
 labiovelar = ("k" | "g" | "s") "w";
 
 onset = Optimize[
-  # "s" consonant clusters are onsets at the beginning of words.
-  CDRewrite[s_cluster : "O", i.BOW, i.NUCLEUS, sigma_star] @
+  # "s" consonant clusters, "ks", and "mn" are onsets at the beginning of words.
+  CDRewrite[(s_cluster | "ks" | "mn") : "O", i.BOW, i.NUCLEUS, sigma_star] @
   CDRewrite[(muta_cum_liquida | labiovelar |
             i.CONSONANT) : "O", "", i.NUCLEUS, sigma_star]
 ];
@@ -82,6 +82,23 @@ test_syllable_7 = AssertEqual[
 test_syllable_8 = AssertEqual[
   "kũː wenit awlajiːs jãː seː reːgiːna superbiːs" @ SYLLABLE,
   "O- OUOUC UCOUO-C O- O- O-O-OU OUOUCO-C"
+];
+# Testing that word initial sC (s consonant) is an onset but a medial sC splits into coda onset.
+test_sc_1 = AssertEqual[
+  "impulerit tantajnanimiːs kajlestibu siːraj" @ SYLLABLE,
+  "UCOUOUOUC OUCOUCOUOUO-C OUCOUCOUOU O-OUC"
+];
+
+# Testing that word initial ks is an onset.
+test_ks_1 = AssertEqual[
+  "paːbula gustaːssent trojjaj ksantũːkwe bibissent" @ SYLLABLE,
+  "O-OUOU OUCO-COUC OUCOUC OUCO-OU OUOUCOUC"
+];
+
+# Testing that medial ks splits into coda onset.
+test_ks_2 = AssertEqual[
+  "uːnius ob noksãː et furiaːs ajjaːkis oiːleiː" @ SYLLABLE,
+  "-OUUC UC OUCO- UC OUOU-C UCO-OUC U-OU-"
 ];
 
 ## Tests weight.
@@ -144,12 +161,6 @@ test_line_10 = AssertEqual[
 test_scan_3 = AssertEqual[
   "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ METER,
   "DSDSDS"
-];
-
-# Testing that word initial sC (s consonant) is an onset but a medial sC splits into coda onset.
-test_sc_1 = AssertEqual[
-  "impulerit tantajnanimiːs kajlestibu siːraj" @ SYLLABLE,
-  "UCOUOUOUC OUCOUCOUOUO-C OUCOUCOUOU O-OUC"
 ];
 
 ## Meter testing for optional rules.
