@@ -10,10 +10,11 @@ package LatinScansion;  // Not used in Python.
 
 message Line {
   optional int32 line_number = 1;
-  optional string text = 2;  // Text before normalization.
-  optional string norm = 3;  // Text after normalization.
-  optional string pron = 4;  // IPA pronunciation.
+  optional string text = 2;                       // Text before normalization.
+  optional string norm = 3;                       // Text after normalization.
+  optional string pron = 4;                       // IPA pronunciation.
   optional bool defective = 5 [default = false];
+  optional string comment = 6;                    // Optional notes.
   // TODO(kbg): Enrich this to actually cover the prosodic hierarchy of
   // syllables and feet.
 }
