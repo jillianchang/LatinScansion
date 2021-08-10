@@ -30,6 +30,17 @@ conda activate scansion
 
 This step needs to be repeated each time you start a new shell.
 
+Compilation
+-----------
+
+Good-ole `make` is used for compiling grammars and other assets. The following
+command builds all the necessary assets.
+
+```bash
+make -j -C grammars
+make -C src
+```
+
 Authors
 -------
 

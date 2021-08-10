@@ -1,6 +1,6 @@
 all: all.far
 
-all.far: all.grm meter.far normalize.far pron.far variable.far
+all.far: all.grm meter.far normalize.far pronounce.far variable.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 meter.far: meter.grm byte.far inventory.far utility.far
@@ -9,7 +9,7 @@ meter.far: meter.grm byte.far inventory.far utility.far
 normalize.far: normalize.grm byte.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
-pron.far: pron.grm byte.far inventory.far utility.far
+pronounce.far: pronounce.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 variable.far: variable.grm byte.far inventory.far utility.far
@@ -25,4 +25,4 @@ utility.far: utility.grm inventory.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 clean:
-	rm -f byte.far inventory.far meter.far normalize.far pron.far variable.far utility.far
+	rm -f byte.far inventory.far meter.far normalize.far pronounce.far variable.far utility.far

@@ -2,10 +2,10 @@
 
 import 'meter.grm' as m;
 import 'normalize.grm' as n;
-import 'pron.grm' as p;
+import 'pronounce.grm' as p;
 import 'variable.grm' as v;
 
 export METER = m.METER;
 export NORMALIZE = n.NORMALIZE;
-export PRON = p.PRON;
+export PRONOUNCE = p.PRONOUNCE;
 export VARIABLE = v.VARIABLE;
