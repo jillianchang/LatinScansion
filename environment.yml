@@ -1,4 +1,4 @@
-name: LatinScansion
+name: scansion
 channels:
  - defaults
  - conda-forge
