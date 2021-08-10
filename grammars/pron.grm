@@ -110,6 +110,9 @@ unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
 
+# Word initial "gn" was likely pronounced "n".
+initial_gn = Optimize[CDRewrite["gn" : "n", i.BOW, "", sigma_star]];
+
 gn = Optimize[u.Rewrite[("gn" : "ŋn"), sigma_star]];
 
 rules = Optimize[
@@ -117,7 +120,7 @@ rules = Optimize[
     qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
     ei_exceptions @ digraphs @ diphthongization @ diaeresis @
     long_monophthongs @ b_devoicing @ ngu @ unconditioned_rewrites @
-    nasal_place_assimilation @ gn
+    nasal_place_assimilation @ initial_gn @ gn
 ];
 
 # Constrains input to the graphemes and output to the phonemes.
@@ -203,6 +206,12 @@ test_pron_13 = AssertEqual[
 test_pron_14 = AssertEqual[
     "prīma quod ad trojam prō cāris gesserat argīs" @ PRON,
     "priːma kwod ad trojjãː proː kaːris gesserat argiːs"
+];
+
+# Tests word initial "gn."
+test_pron_15 = AssertEqual[
+    "plācēmus ventōs et gnōsia rēgna petāmus" @ PRON,
+    "plaːkeːmus wentoːs et noːsia reːŋna petaːmus"
 ];
 
 # TODO:

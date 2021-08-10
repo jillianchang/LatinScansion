@@ -20,8 +20,10 @@ s_cluster = "s" ((i.VOICELESS_STOP i.LIQUID?) - "tl");
 labiovelar = ("k" | "g" | "s") "w";
 
 onset = Optimize[
-  # "s" consonant clusters, "ks", and "mn" are onsets at the beginning of words.
-  CDRewrite[(s_cluster | "ks" | "mn") : "O", i.BOW, i.NUCLEUS, sigma_star] @
+  # "s" consonant clusters are onsets at the beginning of words.
+  # "x" and "mn" onsets are found only in Greek names.
+  CDRewrite[(s_cluster | "ks" | "mn") : "O",
+            i.BOW, i.NUCLEUS, sigma_star] @
   CDRewrite[(muta_cum_liquida | labiovelar |
             i.CONSONANT) : "O", "", i.NUCLEUS, sigma_star]
 ];

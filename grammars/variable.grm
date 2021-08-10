@@ -30,9 +30,9 @@ resyllabification = Optimize[
 # High vowels may strengthen to their corresponding glides when adjacent to
 # another vowel.
 synizesis = Optimize[
-    CDRewrite[((("i" | "iː") : "j") | ("u" : "w")) <1000>,
+    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <1000>,
                 "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[((("i" | "iː") : "j") | ("u" : "w")) <1000>,
+    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <1000>,
                 i.PHONEMIC_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
