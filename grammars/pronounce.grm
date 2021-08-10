@@ -124,87 +124,87 @@ rules = Optimize[
 ];
 
 # Constrains input to the graphemes and output to the phonemes.
-export PRON = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
+export PRONOUNCE = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
 
 ## Tests.
 
 # Tests for macronized vowels, "ae" diphthong, "v," "x," and "c."
 test_pron_1 = AssertEqual[
-    "gentis honōs haerent īnfixī pectore vultūs" @ PRON,
+    "gentis honōs haerent īnfixī pectore vultūs" @ PRONOUNCE,
     "gentis honoːs hajrent iːnfiksiː pektore wultuːs"
 ];
 
 # Tests for intervocalic "i," "qu," "th," and nasalized "m."
 test_pron_2 = AssertEqual[
-    "heu quianam tantī cīnxērunt aethera nimbī" @ PRON,
+    "heu quianam tantī cīnxērunt aethera nimbī" @ PRONOUNCE,
     "heu kwianãː tantiː kiːŋkseːrunt ajtera nimbiː"
 ];
 
 # Tests for "y."
 test_pron_3 = AssertEqual[
-    "nec tēcum ausonium quīcumque est quaerere thybrim" @ PRON,
+    "nec tēcum ausonium quīcumque est quaerere thybrim" @ PRONOUNCE,
     "nek teːkũː awsoniũː kwiːkũːkwe est kwajrere tubrĩː"
 ];
 
 # Tests for "ng."
 test_pron_4 = AssertEqual[
-    "dīxerat haec adytīs cum lūbricus anguis ab īmīs" @ PRON,
+    "dīxerat haec adytīs cum lūbricus anguis ab īmīs" @ PRONOUNCE,
     "diːkserat hajk adutiːs kũː luːbrikus aŋgwis ab iːmiːs"
 ];
 
 # Tests for "gn."
 test_pron_5 = AssertEqual[
-    "centaurō invehitur magnā scyllāque cloanthus" @ PRON,
+    "centaurō invehitur magnā scyllāque cloanthus" @ PRONOUNCE,
     "kentawroː inwehitur maŋnaː skullaːkwe kloantus"
 ];
 
 # Tests for "bs".
 test_pron_6 = AssertEqual[
-    "subsīdunt undae tumidumque sub axe tonantī" @ PRON,
+    "subsīdunt undae tumidumque sub axe tonantī" @ PRONOUNCE,
     "supsiːdunt undaj tumidũːkwe sub akse tonantiː"
 ];
 
 # Tests "mnēstheus" does not glide.
 test_pron_7 = AssertEqual[
-    "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRON,
+    "vēlōcem mnēstheus agit ācrī rēmige pristim" @ PRONOUNCE,
     "weːloːkẽː mneːsteus agit aːkriː reːmige pristĩː"
 ];
 
 # Tests "heus" glides.
 test_pron_8 = AssertEqual[
-    "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRON,
+    "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRONOUNCE,
     "ak prior hews iŋkwit juweneːs moːnstraːte meaːrũː"
 ];
 
 # Tests "nguu."
 test_pron_9 = AssertEqual[
-    "expediunt corpusque lavant frīgentis et unguunt" @ PRON,
+    "expediunt corpusque lavant frīgentis et unguunt" @ PRONOUNCE,
     "ekspediunt korpuskwe lawant friːgentis et uŋgunt"
 ];
 
 # Tests "quu."
 test_pron_10 = AssertEqual[
-    "prīmus equum phalerīs īnsignem victor habētō" @ PRON,
+    "prīmus equum phalerīs īnsignem victor habētō" @ PRONOUNCE,
     "priːmus ekũː paleriːs iːnsiŋnẽː wiktor habeːtoː"
 ];
 
 # Tests the removal of the diaeresis.
 test_pron_11 = AssertEqual[
-    "alma venus phrygiī genuit simoëntis ad undam" @ PRON,
+    "alma venus phrygiī genuit simoëntis ad undam" @ PRONOUNCE,
     "alma wenus prugiiː genuit simoentis ad undãː"
 ];
 
 ## Tests intervocalic "i".
 test_pron_12 = AssertEqual[
-    "hōc equidem occāsum trojae trīstīsque ruīnās" @ PRON,
+    "hōc equidem occāsum trojae trīstīsque ruīnās" @ PRONOUNCE,
     "hoːk ekwidẽː okkaːsũː trojjaj triːstiːskwe ruiːnaːs"
 ];
 test_pron_13 = AssertEqual[
-    "arma virumque canō trojae quī prīmus ab ōris" @ PRON,
+    "arma virumque canō trojae quī prīmus ab ōris" @ PRONOUNCE,
     "arma wirũːkwe kanoː trojjaj kwiː priːmus ab oːris"
 ];
 test_pron_14 = AssertEqual[
-    "prīma quod ad trojam prō cāris gesserat argīs" @ PRON,
+    "prīma quod ad trojam prō cāris gesserat argīs" @ PRONOUNCE,
     "priːma kwod ad trojjãː proː kaːris gesserat argiːs"
 ];
 
