@@ -110,17 +110,18 @@ unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
 
-# Word initial "gn" was likely pronounced "n".
-initial_gn = Optimize[CDRewrite["gn" : "n", i.BOW, "", sigma_star]];
-
-gn = Optimize[u.Rewrite[("gn" : "ŋn"), sigma_star]];
+# Initial "gn" was likely pronounced [g], elsewhere [ŋn].
+gn = Optimize[
+    CDRewrite["gn" : "n", i.BOW, "", sigma_star] @
+    u.Rewrite[("gn" : "ŋn"), sigma_star]
+];
 
 rules = Optimize[
     geminate_intervocalic_i @ u_loss @ nasalization @
     qu @ eu_exceptions @ ou_exceptions @ ui_exceptions @
     ei_exceptions @ digraphs @ diphthongization @ diaeresis @
     long_monophthongs @ b_devoicing @ ngu @ unconditioned_rewrites @
-    nasal_place_assimilation @ initial_gn @ gn
+    nasal_place_assimilation @ gn
 ];
 
 # Constrains input to the graphemes and output to the phonemes.
