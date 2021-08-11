@@ -15,10 +15,7 @@ pronounce.far: pronounce.grm byte.far inventory.far utility.far
 variable.far: variable.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
-byte.far: byte.grm 
-	thraxcompiler --input_grammar=$< --output_far=$@
-
-inventory.far: inventory.grm byte.far
+byte.far: byte.grm
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 utility.far: utility.grm inventory.far
