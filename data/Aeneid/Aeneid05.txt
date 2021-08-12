@@ -86,7 +86,7 @@ septem ingēns gȳrōs, septēna volūmina trāxit
 amplexus placidē tumulum lāpsusque per ārās,
 caeruleae cui terga notae, maculōsus et aurō
 squāmam incendēbat fulgor, ceu nūbibus arcus
-mīlle jacit variōs adversō sōle cōlōres.
+mīlle jacit variōs adversō sōle colōrēs.
 Obstipuit vīsū Aenēās. Ille agmine longō
 tandem inter paterās et lēvia pōcula serpēns
 lībāvitque dapēs rūrsusque innoxius īmō
@@ -101,7 +101,7 @@ Nec nōn et sociī, quae cuique est cōpia, laetī
 dona ferunt, onerant ārās mactantque juvencōs;
 ordine aēna locant aliī, fūsīque per herbam
 subjiciunt veribus prūnās et vīscera torrent.
-Exspectātā diēs aderat nōnamque serēnā
+Exspectāta diēs aderat nōnamque serēnā
 Aurōram Phaethontis equī jam lūce vehēbant,
 fāmaque fīnitimōs et clārī nōmen Acestae
 excierat: laetō complerant lītora coetū
@@ -458,7 +458,7 @@ nunc dextrā ingemināns ictūs, nunc ille sinistrā.
 Nec mora, nec requiēs: quam multā grandine nimbī
 culminibus crepitant, sīc dēnsīs ictibus hērōs
 crēber utrāque manū pulsat versatque Darēta.
-Tum pater Aenēās prōceEdere longius īrās
+Tum pater Aenēās prōcēdere longius īrās
 et saevīre animīs Entellum haud passus acerbīs,
 sed fīnem imposuit pugnae, fessumque Darēta
 ēripuit mulcēns dictīs ac tālia fātur:
@@ -484,7 +484,7 @@ Ille super tālīs effundit pectore vōcēs:
 persolvō; hīc victor caestūs artemque repōnō."
 Prōtinus Aenēās celerī certāre sagittā
 invītat quī forte velint, et praemia dīcit,
-ingentīqūe manū mālum dē nāve Serestī
+ingentīque manū mālum dē nāve Serestī
 ērigit et volucrem trājectō in fūne columbam,
 quō tendant ferrum, mālō suspendit ab altō.
 Convēnēre virī dējectamque aerea sortem
@@ -624,7 +624,7 @@ ac sīc Dardanidum mediam sē mātribus īnfert.
 trāxerit ad lētum patriae sub moenibus! Ō gēns
 īnfēlīx, cui tē exitiō Fortūna reservat?
 Septima post Trojae exscidium jam vertitur aestās,
-eum freta, cum terrās omnīs, tot inhospita saxa
+cum freta, cum terrās omnīs, tot inhospita saxa
 sīderaque ēmēnsae ferimur, dum per mare magnum
 Ītaliam sequimur fugientem, et volvimur undīs.
 Hīc Erycis fīnēs frāternī, atque hospes Acestēs:
@@ -809,7 +809,7 @@ in mare sē Xanthus, Pēlīdae tunc ego fortī
 congressum Aenēān nec dīs nec vīribus aequīs
 nūbe cavā rapuī, cuperem cum vertere ab īmō
 strūcta meīs manibus perjūrae moenia Trojae.
-Nunc quoquē mens eadem perstat mihi; pelle timōrēs.
+Nunc quoque mēns eadem perstat mihi; pelle timōrēs.
 Tūtus, quōs optās, portūs accēdet Avernī.
 Ūnus erit tantum āmissum quem gurgite quaerēs;
 ūnum prō multīs dabitur caput."

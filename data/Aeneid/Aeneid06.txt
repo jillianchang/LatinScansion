@@ -193,7 +193,7 @@ et viridī sēdēre solō. Tum maximus hērōs
 māternās agnōscit avīs laetusque precātur:
 "Este ducēs, Ō, sī qua via est, cursumque per aurās
 dērigite in lūcōs ubi pinguem dīves opācat
-rāmus humum. Tūque, Ō, dubiīs ne dēfice rēbus,
+rāmus humum. Tūque, Ō, dubiīs nē dēfice rēbus,
 dīva parēns." Sīc effātus vestīgia pressit
 observāns quae signa ferant, quō tendere pergant.
 Pascentēs illae tantum prōdīre volandō
@@ -458,7 +458,7 @@ vēnerat exstinctam ferrōque extrēma secūtam?
 Fūneris heu tibi causa fuī? Per sīdera jūrō,
 per superōs et sī qua fidēs tellūre sub īmā est,
 invītus, rēgīna, tuō dē lītore cessī.
-Sed mē jussa deum, quae nunc hās īrē per umbrās,
+Sed mē jussa deum, quae nunc hās īre per umbrās,
 per loca senta sitū cōgunt noctemque profundam,
 imperiīs ēgēre suīs; nec crēdere quīvī
 hunc tantum tibi mē discessū ferre dolōrem.
@@ -483,7 +483,7 @@ Dardanidae, quōs ille omnīs longō ordine cernēns
 ingemuit, Glaucumque Medontaque Thersilochumque,
 trīs Antēnoridas Cererīque sacrum Polyphoetēn,
 Īdaeumque etiam currūs, etiam arma tenentem.
-Circumstant animae dextrā laevaAque frequentēs
+Circumstant animae dextrā laevāque frequentēs
 nec vīdisse semel satis est; juvat ūsque morāri,
 et cōnferre gradum et veniendī discere causās.
 At Danaum procerēs Agamemnoniaeque phalanges
@@ -492,7 +492,7 @@ ingentī trepidāre metū; pars vertere terga,
 ceu quondam petiēre ratēs, pars tollere vōcem
 exiguam, inceptus clāmor frūstrātur hiantīs.
 Atque hīc Prīamiden laniātum corpore tōtō
-Dēiphobum vīdit, et lacerum crūdēliter ōra,
+Dēiphobum vīdit, lacerum crūdēliter ōra,
 ōra manūsque ambās, populaītaque tempora raptīs
 auribus et truncās inhonestō vulnere nārīs.
 Vix adeō agnōvit pavitantem et dīra tegentem
@@ -709,7 +709,7 @@ flōribus īnsīdunt varīis et candida circum
 līlia funduntur, strepit omnis murmure campus.
 Horrēscit vīsū subitō causāsque requīrit
 īnscius Aenēās, quae sint ea flūmina porrō,
-quīve vīrī tantō complērint agmine rīpās.
+quīve virī tantō complērint agmine rīpās.
 Tum pater Anchīsēs: "Animae, quibus altera fātō
 corpora dēbentur, Lēthaeī ad flūminis undam
 secūrōs laticēs et longa oblīvia pōtant.
