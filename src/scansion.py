@@ -34,10 +34,11 @@ def scan_line(
     Returns:
       A populated Line message.
     """
-    line = scansion_pb2.Line(line_number=line_number, text=text.strip())
+    line = scansion_pb2.Line(line_number=line_number, text=text)
     # Applies normalization.
     try:
-        line.norm = rewrite.top_rewrite(line.text, normalize_rule)
+        # We need escapes for normalization since Pharr uses [ and ].
+        line.norm = rewrite.top_rewrite(pynini.escape(line.text), normalize_rule)
     except rewrite.Error:
         logging.error(
             "Rewrite failure during normalization (line %d): %r",
