@@ -17,14 +17,13 @@ def main(args: argparse.Namespace) -> None:
         far = stack.enter_context(pynini.Far(args.far, "r"))
         source = stack.enter_context(open(args.input, "r"))
         sink = stack.enter_context(open(args.output, "w"))
+        lines = [line.rstrip() for line in lines]
         scanned = scansion.scan_document(
-            # TODO(kbg): I don't love this `readlines` approach, which would
-            # be painful for huge documents.
             far["NORMALIZE"],
             far["PRONOUNCE"],
             far["VARIABLE"],
             far["METER"],
-            source.readlines(),
+            lines,
             args.name if args.name else os.path.normpath(args.input),
         )
         text_format.PrintMessage(scanned, sink, as_utf8=True)
