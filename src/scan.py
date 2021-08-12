@@ -17,7 +17,7 @@ def main(args: argparse.Namespace) -> None:
         far = stack.enter_context(pynini.Far(args.far, "r"))
         source = stack.enter_context(open(args.input, "r"))
         sink = stack.enter_context(open(args.output, "w"))
-        lines = [line.rstrip() for line in lines]
+        lines = [line.rstrip() for line in source]
         scanned = scansion.scan_document(
             far["NORMALIZE"],
             far["PRONOUNCE"],
