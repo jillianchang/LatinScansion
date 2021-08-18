@@ -84,7 +84,7 @@ digraphs = Optimize[u.Rewrite[("ph" : "p") |
 # "bs" was pronounced as [ps] and "bt" was pronounced as [pt].
 b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
-# Word-final "m" and "n" indicates vowel lengthening and nasalization.
+# Word-final "m" indicates vowel lengthening and nasalization.
 # TODO: This likely overapplies to stems that happen to end in -que.
 nasalization = Optimize[CDRewrite[("a" : "ãː") |
                                   ("e" : "ẽː") |
@@ -92,9 +92,9 @@ nasalization = Optimize[CDRewrite[("a" : "ãː") |
                                   ("o" : "õː") |
                                   ("u" : "ũː" ),
                                   "",
-                                  ("m" | "n") "que"? i.EOW,
+                                  "m" "que"? i.EOW,
                                   sigma_star] @
-    CDRewrite[("m" | "n") : "", "", "que"? i.EOW, sigma_star]
+    CDRewrite["m" : "", "", "que"? i.EOW, sigma_star]
 ];
 
 # If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
@@ -219,6 +219,12 @@ test_pron_15 = AssertEqual[
 test_pron_16 = AssertEqual[
     "aeoliam venit hīc vastō rēx aeolus antrō" @ PRONOUNCE,
     "ajjoliãː wenit hiːk wastoː reːks ajjolus antroː"
+];
+
+# Tests that word final "n" does not nasalize.
+test_pron_17 = AssertEqual[
+    "hīc tamen ille urbem patavī sēdēsque locāvit" @ PRONOUNCE,
+    "hiːk tamen ille urbẽː patawiː seːdeːskwe lokaːwit"
 ];
 
 # TODO:
