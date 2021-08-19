@@ -50,7 +50,7 @@ diastole = Optimize[
 ];
 
 export VARIABLE = Optimize[h_deletion @ resyllabification @ elision @
-                           synizesis @ diaeresis @ diastole];
+                           synizesis @ diaeresis];
 
 # TODOs:
 # * Hypermeter: when a period has an extra syllable ending in a vowel
