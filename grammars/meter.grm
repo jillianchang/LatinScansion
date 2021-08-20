@@ -16,7 +16,7 @@ long_nucleus = Optimize[u.Rewrite[i.LONG_VOWEL : "-", sigma_star]];
 short_nucleus = Optimize[u.Rewrite[i.SHORT_VOWEL : "U", sigma_star]];
 
 muta_cum_liquida = ((i.STOP | "f") i.LIQUID) - ("tl" | "dl");
-s_cluster = "s" ((i.VOICELESS_STOP i.LIQUID?) - "tl");
+s_cluster = "s" ((i.VOICELESS_STOP (i.LIQUID | "w")?) - "tl");
 labiovelar = ("k" | "g" | "s") "w";
 
 onset = Optimize[
@@ -25,7 +25,7 @@ onset = Optimize[
   CDRewrite[(s_cluster | "ks" | "mn" | "pt") : "O",
             i.BOW, i.NUCLEUS, sigma_star] @
   CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
-            "", i.NUCLEUS, sigma_star, 'rtl', 'opt']
+            "", i.NUCLEUS, sigma_star, 'rtl', 'obl']
 ];
 
 coda = Optimize[u.Rewrite[i.CONSONANT+ : "C", sigma_star]];
@@ -176,6 +176,17 @@ test_line_10 = AssertEqual[
 test_scan_3 = AssertEqual[
   "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ METER,
   "DSDSDS"
+];
+
+# Testing Aeneid 2 failures. Inputs are the pronounciations after
+# variable rules have been applied.
+test_syllable_2_219 = AssertEqual[
+  "bis mediampleksiː bis kolloː skwaːmea kirkũː" @ SYLLABLE,
+  "OUC OUOUUCOUCO- OUC OUCO- O-OUU OUCO-"
+];
+test_syllable_2_278 = AssertEqual[
+  "skwaːlentẽː barbet koŋkreːtoːs saŋgwine kriːniːs" @ SYLLABLE,
+  "O-OUCO- OUCOUC OUCO-O-C OUCOUOU O-O-C"
 ];
 
 # Tests a defective line.
