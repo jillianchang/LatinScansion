@@ -24,6 +24,7 @@ onset = Optimize[
   # "x", "mn", and "phth" onsets are found word-initially in Greek names.
   CDRewrite[(s_cluster | "ks" | "mn" | "pt") : "O",
             i.BOW, i.NUCLEUS, sigma_star] @
+  # This allows for both syllable parses of muta cum liquida clusters.
   CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
             "", i.NUCLEUS, sigma_star, 'rtl', 'obl']
 ];
