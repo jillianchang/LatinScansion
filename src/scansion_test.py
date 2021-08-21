@@ -43,6 +43,22 @@ class ScansionTest(unittest.TestCase):
         self.assertEqual(line.norm, "hic cursus fuit")
         self.assertTrue(line.defective)
 
+    # Tests that the grammar does not unnecessarily apply resyllabification.
+    def test_aen_1_26(self):
+        text = "exciderant animō; manet altā mente repostum"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "ekskiderant animoː mane taltaː mente repostũː"
+        )
+
+    # Tests that the grammar does not unnecessarily apply elision.
+    def test_aen_1_26(self):
+        text = "Ipsa Jovis rapidum jaculāta ē nūbibus ignem"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "ipsa jowis rapidũː jakulaːteː nuːbibu siŋnẽː"
+        )
+
     def test_aen_1_247(self):
         text = "Hīc tamen ille urbem Patavī sēdēsque locāvit"
         line = self.scan_line(text)
@@ -117,23 +133,59 @@ class ScansionTest(unittest.TestCase):
         )
 
     # Elision.
-    @unittest.skip("Currently failing")
     def test_aen_2_219(self):
         text = "bis medium amplexī, bis collō squāmea circum"
         line = self.scan_line(text)
         self.assertEqual(
-            line.pron, "bis mediãːpleksiː bis kolloː skwaːmea kircũː"
+            line.pron, "bis mediampleksiː bis kolloː skwaːmea kirkũː"
         )
 
     # Elision.
-    @unittest.skip("Currently failing")
     def test_aen_2_278(self):
         text = "squālentem barbam et concrētōs sanguine crīnīs"
         line = self.scan_line(text)
         self.assertEqual(
-            line.pron, "skwaːlentẽː barbet konkreːtoːs saŋgwine kriːniːs"
+            line.pron, "skwaːlentẽː barbet koŋkreːtoːs saŋgwine kriːniːs"
         )
 
+    # Defective line – first syllable is short.
+    def test_aen_2_506(self):
+        text = "procubuēre tenent danaī quā dēficit ignis"
+        line = self.scan_line(text)
+        self.assertTrue(line.defective)
+
+    @unittest.skip("Requires diastole")
+    def test_aen_2_675(self):
+        text = "haerebat parvumque patrī tendēbat iūlum"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "hajrebat parwumkwe patriː tendeːba tiuːlũː"
+        )
+
+    @unittest.skip("Requires diastole")
+    def test_aen_2_744(self):
+        text = "vēnimus hīc demum collēctīs omnibus ūna"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "weːnimu siːk demũː kolleːktiːs omnibu suːna"
+        )
+
+    # "Trōia" is technically diastole, but Pharr takes
+    # care of that as he did not rewrite the intervocalic "i" as "j".
+    def test_aen_2_764(self):
+        text = "praedam adservābant hūc undique trōia gaza"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "prajdadserwaːbant huːk undikwe troːia gazza"
+        )
+    
+    # Synizesis.
+    def test_aen_3_161(self):
+        text = "Mūtandae sēdēs. Nōn haec tibi lītora suāsit"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit"
+        )
 
 if __name__ == "__main__":
     logging.disable("CRITICAL")
