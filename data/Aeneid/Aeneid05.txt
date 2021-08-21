@@ -28,7 +28,7 @@ jamdūdum et frūstrā cernō tē tendere contrā.
 Flecte viam vēlīs. An sit mihi grātior ūlla,
 quōve magis fessās optem dēmittere nāvīs,
 quam quae Dardanium tellūs mihi servat Acesten
-patris Anchīsae gremiō complectitur ossa?"
+et patris Anchīsae gremiō complectitur ossa?"
 Haec ubi dicta, petunt portūs, et vēla secundī
 intendunt Zephyrī; fertur cita gurgite classis,
 et tandem laetī nōtae advertuntur harēnae.
@@ -98,13 +98,13 @@ totque suēs, totidem nigrantīs terga juvencōs,
 vīnaque fundēbat paterīs animamque vocābat
 Anchīsae magnī mānīsque Acheronte remissōs.
 Nec nōn et sociī, quae cuique est cōpia, laetī
-dona ferunt, onerant ārās mactantque juvencōs;
+dōna ferunt, onerant ārās mactantque juvencōs;
 ordine aēna locant aliī, fūsīque per herbam
 subjiciunt veribus prūnās et vīscera torrent.
 Exspectāta diēs aderat nōnamque serēnā
 Aurōram Phaethontis equī jam lūce vehēbant,
 fāmaque fīnitimōs et clārī nōmen Acestae
-excierat: laetō complerant lītora coetū
+excierat: laetō complērant lītora coetū
 vīsūrī Aeneadās, pars et certāre parātī.
 Mūnera principiō ante oculōs circōque locantur
 in mediō, sacrī tripodes viridēsque corōnae
@@ -133,7 +133,7 @@ Tum loca sorte legunt ipsīque in puppibus aurō
 ductōrēs longē effulgent ostrōque decōrī;
 cētera pōpuleā vēlātur fronde juventūs
 nūdātōsque umerōs oleō perfūsa nitēscit.
-Cōnsīdunt trānstrīs, intentaque brachia rēmīs;
+Cōnsīdunt trānstrīs, intentaque bracchia rēmīs;
 intentī exspectant signum, exsultantiaque haurit
 corda pavor pulsāns laudumque arrēcta cupīdō.
 Inde ubi clāra dedit sonitum tuba, fīnibus omnēs,
@@ -171,7 +171,7 @@ rādit iter laevum interior subitōque priōrem
 praeterit et mētīs tenet aequora tūta relictīs.
 Tum vērō exarsit juvenī dolor ossibus ingēns
 nec lacrimīs caruēre genae, sēgnemque Menoetēn
-oblitus decorisque suī sociumque salūtis
+oblītus decorisque suī sociumque salūtis
 in mare praecipitem puppī dēturbat ab altā;
 ipse gubernāclō rēctor subit, ipse magister
 hortāturque virōs clāvumque ad lītora torquet.
@@ -210,9 +210,9 @@ expediunt frāctōsque legunt in gurgite rēmōs.
 At laetus Mnēstheus successūque ācrior ipsō
 agmine rēmōrum celerī ventīsque vocātīs
 prōna petit maria et pelagō dēcurrit apertō.
-Quālis spēlunca subitō commōta columba,
+Quālis spēluncā subitō commōta columba,
 cui domus et dulcēs latebrōsō in pūmice nīdī,
-fertur in ana volāns plausumque exterrita pennīs
+fertur in arva volāns plausumque exterrita pennīs
 dat tectō ingentem, mox āere lāpsa quiētō
 rādit iter liquidum, celerīs neque commovet ālās:
 sīc Mnēstheus, sīc ipsa fugā secat ultima Pristis
@@ -251,7 +251,7 @@ victōrī chlamydem aurātam, quam plūrima circum
 purpura Maeandrō duplicī Meliboea cucurrit,
 intextusque puer frondōsā rēgius Īdā
 vēlōcīs jaculō cervōs cursūque fatīgat
-ācer, anhēlanti similis, quem praepes ab Īdā
+ācer, anhēlantī similis, quem praepes ab Īdā
 sublīmem pedibus rapuit Jovis armiger uncīs:
 longaevī palmās nēquīquam ad sīdera tendunt
 custōdēs, saevitque canum lātrātus in aurās.
@@ -261,7 +261,7 @@ lōrīcam, quam Dēmoleō dētrāxerat ipse
 victor apud rapidum Simoënta sub Īliō altō,
 dōnat habēre, virō decus et tūtāmen in armīs.
 Vix illam famulī Phēgeus Sagarisque ferēbant
-multiplice, cōnixī umerīs; indūtus at ōlim
+multiplicem cōnixī umerīs; indūtus at ōlim
 Dēmoleos cursū pālantes Trōas agēbat.
 Tertia dōna facit geminōs ex aere lebētas,
 cymbiaque argentō perfecta atque aspera signīs.
@@ -294,7 +294,7 @@ Undique conveniunt Teucrī mixtīque Sicānī,
 Nīsus et Euryalus prīmī,
 Euryalus formā īnsignis viridīque juventā,
 Nīsus amōre piō puerī; quōs deinde secūtus
-rēgius ēgregiā Priamī de stirpe Diōrēs;
+rēgius ēgregiā Priamī dē stirpe Diōrēs;
 hunc Salius simul et Patrōn, quōrum alter Acarnān,
 alter ab Arcadiō Tegeaeae sanguine gentis:
 tum duo Trīnacriī juvenēs, Helymus Panopēsque,
@@ -303,12 +303,12 @@ multī praetereā, quōs fāma obscūra recondit.
 Aenēās quibus in mediīs sīc deinde locūtus:
 "Accipite haec animīs laetāsque advertite mentēs.
 Nēmō ex hōc numerō mihi nōn dōnātus abībit.
-Gnōsīa bina dabō lēvātō lūcida ferrō
+Gnōsia bina dabō lēvātō lūcida ferrō
 spīcula caelātamque argentō ferre bipennem;
 omnibus hīc erit ūnus honōs. Trēs praemia prīmī
 accipient flāvāque caput nectentur olīvā.
 Prīmus equum phalerīs īnsignem victor habētō;
-alter Amazōniam pharetram plēnamque sagittīs
+alter Amāzoniam pharetram plēnamque sagittīs
 Thrēiciīs, lātō quam circum amplectitur aurō
 balteus et teretī subnectit fībula gemmā;
 tertius Argolicā hāc galeā contentus abītō."
@@ -339,7 +339,7 @@ prīma tenet, plausūque volat fremitūque secundō.
 Post Helymus subit et nunc tertia palma Diōrēs.
 Hīc tōtum caveae cōnsessum ingentis et ōra
 prīma patrum magnīs Salius clāmōribus implet,
-ēreptumque dolō reddi sibi poscit honōrem.
+ēreptumque dolō reddī sibi poscit honōrem.
 Tūtātur favor Euryalum, lacrimaeque decōrae,
 grātior et pulchrō veniēns in corpore virtūs.
 Adjuvat et magnā prōclāmat vōce Diōrēs,
@@ -361,7 +361,7 @@ Neptūnī sacrō Danaīs dē poste refīxum.
 Hōc juvenem ēgregium praestantī mūnere dōnat.
 Post, ubi cōnfectī cursūs et dōna perēgit:
 "Nunc, sī cui virtūs animusque in pectore praesēns,
-adsit, et ēvinctīs attollat brachia palmīs."
+adsit, et ēvīnctīs attollat bracchia palmīs."
 Sīc ait, et geminum pugnae prōpōnit honōrem,
 victōrī vēlātum aurō vittīsque juvencum,
 ēnsem atque īnsignem galeam sōlācia victō.
@@ -374,7 +374,7 @@ Bebryciā veniēns Amycī dē gente ferēbat,
 perculit et fulvā moribundum extendit harēnā.
 Tālis prīma Darēs caput altum in proelia tollit,
 ostenditque umerōs lātōs alternaque jactat
-brachia prōtendēns et verberat ictibus aurās.
+bracchia prōtendēns et verberat ictibus aurās.
 Quaeritur huic alius; nec quisquam ex agmine tantō
 audet adīre virum manibusque indūcere caestūs.
 Ergō alacris cūnctōsque putāns excēdere palmā
@@ -400,7 +400,7 @@ haud equidem pretiō inductus pulchrōque juvencō
 vēnissem, nec dōna moror." Sīc deinde locūtus
 in medium geminōs immānī pondere caestūs
 prōjēcit, quibus ācer Eryx in proelia suētus
-ferre manum dūrōque intendere brachia tergō.
+ferre manum dūrōque intendere bracchia tergō.
 Obstipuēre animī: tantōrum ingentia septem
 terga boum plumbō īnsūtō ferrōque rigēbant.
 Ante omnīs stupet ipse Darēs longēque recūsat,
@@ -490,7 +490,7 @@ quō tendant ferrum, mālō suspendit ab altō.
 Convēnēre virī dējectamque aerea sortem
 accēpit galea; et prīmus clāmōre secundō
 Hyrtacidae ante omnīs exit locus Hippocoöntis;
-quem modo nāvāli Mnēstheus certāmine victor
+quem modo nāvālī Mnēstheus certāmine victor
 cōnsequitur, viridī Mnēstheus ēvīnctus olīvā.
 Tertius Eurytiōn, tuus, Ō clārissime, frāter,
 Pandare, quī quondam jussus cōnfundere foedus
@@ -583,7 +583,7 @@ convertēre viās īnfēstaque tēla tulēre.
 Inde aliōs ineunt, cursūs aliōsque recursūs
 adversī spatiīs, alternōsque orbibus orbīs
 impediunt pugnaeque cient simulācra sub armīs;
-et nunc terga fugā nudant, nunc spīcula vertunt
+et nunc terga fugā nūdant, nunc spīcula vertunt
 īnfēnsī, factā pariter nunc pāce feruntur.
 Ut quondam Crētā fertur Labyrinthus in altā
 parietibus textum caecīs iter ancipitemque
@@ -755,7 +755,7 @@ exiguī numerō, sed bellō vīvida virtūs.
 Intereā Aenēās urbem dēsignat arātrō
 sortīturque domōs; hoc Īlium et haec loca Trojam
 esse jubet. Gaudet rēgnō Trojānus Acestēs
-indīcitque forum et patribus dat jura vocātīs.
+indīcitque forum et patribus dat jūra vocātīs.
 Tum vīcīna astrīs Erycīnō in vertice sēdēs
 fundātur Venerī Īdaliae, tumulōque sacerdōs
 ac lūcus lātē sacer additur Anchīsēō.
@@ -763,7 +763,7 @@ Jamque diēs epulāta novem gēns omnis, et ārīs
 factus honōs: placidī strāvērunt aequora ventī
 crēber et aspīrāns rūrsus vocat Auster in altum.
 Exoritur prōcurva ingēns per lītora flētus;
-complexī intēr se noctemque diemque morantur.
+complexī inter sē noctemque diemque morantur.
 Ipsae jam mātrēs, ipsī, quibus aspera quondam
 vīsa maris faciēs et non tolerābile nūmen,
 īre volunt, omnemque fugae perferre labōrem.
@@ -821,9 +821,9 @@ subsīdunt undae, tumidumque sub axe tonantī
 sternitur aequor aquīs, fugiunt vastō aethere nimbī.
 Tum variae comitum faciēs, immānia cētē,
 et senior Glaucī chorus, Īnōusque Palaemōn
-Tritōnesque citī Phorcīque exercitus omnis;
+Trītōnesque citī Phorcīque exercitus omnis;
 laeva tenent Thetis et Melitē Panopēaque virgō,
-Nisaeē Spīōque, Thalīaque, Cymodocēque.
+Nīsaeē Spīōque, Thalīaque, Cȳmodocēque.
 Hīc patris Aenēae suspēnsam blanda vicissim
 gaudia pertemptant mentem: jubet ōcius omnīs
 attollī mālōs, intendī bracchia vēlīs.
@@ -844,7 +844,7 @@ Phorbantī similis funditque hās ōre loquēlās:
 aequātae spīrant aurae, datur hōra quiētī.
 Pōne caput fessōsque oculōs fūrāre labōrī.
 Ipse ego paulisper prō tē tua mūnera inībō."
-Cui vix attollēns Palinūrūs lumina fātur:
+Cui vix attollēns Palinūrus lūmina fātur:
 "Mēne salis placidī vultum flūctūsque quiētōs
 ignōrāre jubēs? Mēne huic cōnfīdere mōnstrō?
 Aenēān crēdam (quid enim) fallācibus aurīs
@@ -853,7 +853,7 @@ Tālia dicta dabat, clāvumque adfīxus et haerēns
 nūsquam āmittēbat oculōsque sub astra tenēbat.
 Ecce deus rāmum Lēthaeō rōre madentem,
 vīque sopōrātum Stygiā super utraque quassat
-tempora, cūnctantique natantia lūmina solvit.
+tempora, cūnctantīque natantia lūmina solvit.
 Vix prīmōs inopīna quiēs laxāverat artūs,
 et superincumbēns cum puppis parte revulsā
 cumque gubernāclō liquidās prōjēcit in undās
