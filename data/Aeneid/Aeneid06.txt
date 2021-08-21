@@ -279,7 +279,7 @@ tum cōnsanguineus Lētī Sopor, et mala mentis
 Gaudia, mortiferumque adversō in līmine Bellum,
 ferreīque Eumenidum thalamī et Discordia dēmēns
 vīpereum crīnem vittīs innexa cruentīs.
-In mediō rāmōs annōsaque brachia pandit
+In mediō rāmōs annōsaque bracchia pandit
 ulmus opāca, ingēns, quam sēdem Somnia vulgō
 vāna tenēre ferunt, foliīsque sub omnibus haerent.
 Multaque praetereā variārum mōnstra ferārum,
@@ -375,7 +375,7 @@ Tū Stygiās inhumātus aquās amnemque sevērum
 Eumenidum aspiciēs, rīpamve injussus adībis?
 Dēsine fāta deum flectī spērāre precandō.
 Sed cape dicta memor, dūrī sōlācia cāsūs.
-Nam tua fīnitimi, longē lātēque per urbēs
+Nam tua fīnitimī, longē lātēque per urbēs
 prōdigiīs āctī caelestibus, ossa piābunt
 et statuent tumulum, et tumulō sollemnia mittent,
 aeternumque locus Palinūrī nōmen habēbit."
@@ -527,11 +527,11 @@ scīlicet id magnum spērāns fore mūnus amantī,
 et fāmam exstinguī veterum sīc posse malōrum.
 Quid moror? Inrumpunt thalamō, comes additur ūnā
 hortātor scelerum Aeolidēs. Dī, tālia Grajīs
-īnstaurāte, piō sī pōenas ore reposcō.
+īnstaurāte, piō sī poenās ōre reposcō.
 Sed tē quī vīvum cāsūs, age fāre vicissim,
 attulerint. Pelagīne venīs errōribus āctus
 an monitū dīvum? An quae tē fortūna fatīgat,
-ut trīstīs sine sole domos, loca turbida, adires?'
+ut trīstīs sine sōle domōs, loca turbida, adīrēs?'
 Hāc vice sermōnum roseīs Aurōra quadrīgīs
 jam medium aetheriō cursū trājēcerat axem;
 et fors omne datum traherent per tālia tempus,
@@ -656,7 +656,7 @@ pascere equōs, eadem sequitur tellūre repostōs.
 Cōnspicit, ecce, aliōs dextrā laevāque per herbam
 vēscentīs, laetumque chorō paeāna canentīs
 inter odōrātum laurī nemus, unde supernē
-plūrimus Ēridani per silvam volvitur amnis.
+plūrimus Ēridanī per silvam volvitur amnis.
 Hīc manus ob patriam pugnandō vulnera passī,
 quīque sacerdōtēs castī, dum vīta manēbat,
 quīque piī vātēs et Phoebō digna locūtī,
@@ -680,7 +680,7 @@ At pater Anchīsēs penitus convalle virentī
 inclūsās animās superumque ad lūmen itūrās
 lūstrābat studiō recolēns, omnemque suōrum
 forte recēnsēbat numerum cārōsque nepōtēs
-fātaque fortunāsque virum mōrēsque manūsque.
+fātaque fortūnāsque virum mōrēsque manūsque.
 Isque ubi tendentem adversum per grāmina vīdit
 Aenēān, alacris palmās utrāsque tetendit,
 effūsaeque genīs lacrimae et vōx excidit ōre:
@@ -697,7 +697,7 @@ saepius occurrēns haec līmina tendere adēgit;
 stant sale Tyrrhēnō classēs. Dā jungere dextram,
 dā, genitor, tēque amplexū nē subtrahe nostrō."
 Sīc memorāns largō flētū simul ōra rigābat.
-Ter cōnātus ibī collō dare brachia circum;
+Ter cōnātus ibī collō dare bracchia circum;
 ter frūstrā comprēnsa manūs effūgit imāgō,
 pār levibus ventīs volucrīque simillima somnō.
 Intereā videt Aenēās in valle reductā
@@ -712,9 +712,9 @@ Horrēscit vīsū subitō causāsque requīrit
 quīve virī tantō complērint agmine rīpās.
 Tum pater Anchīsēs: "Animae, quibus altera fātō
 corpora dēbentur, Lēthaeī ad flūminis undam
-secūrōs laticēs et longa oblīvia pōtant.
+sēcūrōs laticēs et longa oblīvia pōtant.
 Hās equidem memorāre tibi atque ostendere cōram,
-jamprīdem hanc prōlem cupiō ēnumerare meōrum,
+jamprīdem hanc prōlem cupiō ēnumerāre meōrum,
 quō magis Ītaliā mēcum laetēre repertā."
 "Ō pater, anne aliquās ad caelum hinc īre putandum est
 sublīmīs animās iterumque ad tarda revertī
@@ -774,7 +774,7 @@ Hī tibi Nōmentum et Gabiōs urbemque Fidēnam,
 hī Collātīnās impōnent montibus arcēs,
 Pōmetiōs Castrumque Inuī Bōlamque Coramque.
 Haec tum nōmina erunt, nunc sunt sine nōmine terrae.
-"Quīn et avō comitem sēsē Mavōrtius addet
+"Quīn et avō comitem sēsē Māvortius addet
 Rōmulus, Assaracī quem sanguinis Īlia māter
 ēdūcet. Viden, ut geminae stant vertice cristae
 et pater ipse suō superum jam signat honōre?
@@ -898,4 +898,4 @@ Hīs ibi tum nātum Anchīsēs ūnāque Sibyllam
 prōsequitur dictīs portāque ēmittit eburnā;
 ille viam secat ad nāvīs sōciosque revīsit.
 Tum sē ad Cajētae rēctō fert lītore portum.
-Ancora dē prōra jacitur; stant lītore puppēs.
+Ancora dē prōrā jacitur; stant lītore puppēs.
