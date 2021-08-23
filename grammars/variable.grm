@@ -43,6 +43,7 @@ diaeresis = Optimize[
 ];
 
 # Lengthening of a usually short syllable.
+# NB: this is not currently part of the exported VARIABLE cascade.
 diastole = Optimize[
     CDRewrite[(("a" : "aː") | ("e" : "eː") | ("i" : "iː") |
               ("o" : "oː") | ("u" : "uː")) <10000>,
