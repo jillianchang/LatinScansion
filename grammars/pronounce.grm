@@ -116,12 +116,18 @@ gn = Optimize[
     u.Rewrite[("gn" : "ŋn"), sigma_star]
 ];
 
+# Intervocalic "z"s geminate.
+geminate_intervocalic_z = Optimize[
+    CDRewrite["z" : "zz", i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star]
+];
+
 rules = Optimize[
     u_loss @ nasalization @ qu @ eu_exceptions @
     ou_exceptions @ ui_exceptions @ ei_exceptions @
     digraphs @ diphthongization @ diaeresis @ long_monophthongs @
     b_devoicing @ ngu @ unconditioned_rewrites @
-    geminate_intervocalic_i @ nasal_place_assimilation @ gn
+    geminate_intervocalic_i @ nasal_place_assimilation @ gn @
+    geminate_intervocalic_z
 ];
 
 # Constrains input to the graphemes and output to the phonemes.
@@ -225,6 +231,12 @@ test_pron_16 = AssertEqual[
 test_pron_17 = AssertEqual[
     "hīc tamen ille urbem patavī sēdēsque locāvit" @ PRONOUNCE,
     "hiːk tamen ille urbẽː patawiː seːdeːskwe lokaːwit"
+];
+
+# Tests intervocalic "z".
+test_pron_18 = AssertEqual[
+    "praedam adservābant hūc undique trōia gaza" @ PRONOUNCE,
+    "prajdãː adserwaːbant huːk undikwe troːia gazza"
 ];
 
 # TODO:
