@@ -1,5 +1,5 @@
 # Tags the elements of syllables as onsets, nuclei and codas.
-# Determines whether syllables are heavy or heavy.
+# Determines whether syllables are light or heavy.
 # Maps syllables onto feet: dactyl, spondee, or trochee.
 # Defines the hexameter line.
 
@@ -21,8 +21,8 @@ labiovelar = ("k" | "g" | "s") "w";
 
 onset = Optimize[
   # "s" consonant clusters are onsets at the beginning of words.
-  # "x", "mn", and "phth" onsets are found word-initially in Greek names.
-  CDRewrite[(s_cluster | "ks" | "mn" | "pt") : "O",
+  # "x", "mn", "phth", and "tm" onsets are found word-initially in Greek names.
+  CDRewrite[(s_cluster | "ks" | "mn" | "pt" | "tm") : "O",
             i.BOW, i.NUCLEUS, sigma_star] @
   # This allows for both syllable parses of muta cum liquida clusters.
   CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
@@ -85,6 +85,10 @@ test_syllable_7 = AssertEqual[
 test_syllable_8 = AssertEqual[
   "kũː wenit awlajiːs jãː seː reːgiːna superbiːs" @ SYLLABLE,
   "O- OUOUC UCOUO-C O- O- O-O-OU OUOUCO-C"
+];
+test_syllable_9 = AssertEqual[
+  "fit beroeː tmariiː konjuːŋks loŋgajwa dorukliː" @ SYLLABLE,
+  "OUC OUOU- OUOU- OUCO-C OUCOUCOU OUOUCO-"
 ];
 
 # Testing that word initial sC (s consonant) is an onset but a medial sC splits into coda onset.
