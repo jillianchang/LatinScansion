@@ -44,6 +44,15 @@ qu = Optimize[u.Rewrite["qu" : "kw", sigma_star]];
 # If "gu" proceeds "n" and precedes a vowel, it is pronounced as a labiovelar.
 ngu = Optimize[CDRewrite["gu" : "gw", "n", i.VOWEL, sigma_star]];
 
+# These words form an "ei" diphthong, rather than the normal hiatus.
+ei_exceptions = Optimize[u.RewriteWord[("dein" : "dẽːj") |
+                                       ("deinde" : "dẽːjde") |
+                                       ("deinceps" : "dẽːjkeps") |
+                                       ("ei" : "ej") |
+                                       ("hei" : "hej"),
+                                       sigma_star]
+];
+
 # These words form an "eu" diphthong, rather than the normal hiatus.
 eu_exceptions = Optimize[u.RewriteWord[("heus": "hews") |
                                        ("ceu" : "kew") |
@@ -52,25 +61,22 @@ eu_exceptions = Optimize[u.RewriteWord[("heus": "hews") |
                                        ("ēheu" : "eːhew"), sigma_star]
 ];
 
+# These two words form the same diphthong as <oe>, despite their spelling.
+oi_exceptions = Optimize[u.RewriteWord[("proin" : "projn") |
+                                       ("proinde" : "projnde"),
+                                       sigma_star]
+];
+
 # These words form an "ou" diphthong, rather than the normal hiatus.
-ou_exceptions = Optimize[u.RewriteWord[("boum": "bowũː") |
+ou_exceptions = Optimize[u.RewriteWord[("boum" : "bowũː") |
                                        ("prout" : "prowt"),
                                        sigma_star]
 ];
 
 # These words form an "ui" diphthong, rather than the normal hiatus.
-ui_exceptions = Optimize[u.RewriteWord[("hui": "huj") |
+ui_exceptions = Optimize[u.RewriteWord[("hui" : "huj") |
                                        ("huic" : "hujk") |
                                        ("cui" : "kuj"),
-                                       sigma_star]
-];
-
-# These words form an "ei" diphthong, rather than the normal hiatus.
-ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
-                                       ("deinde" : "dẽːjde") |
-                                       ("deinceps" : "dẽːjkeps") |
-                                       ("ei" : "ej") |
-                                       ("hei" : "hej"),
                                        sigma_star]
 ];
 
@@ -141,7 +147,7 @@ rules = Optimize[
     # Rules for labiovelars.
     u_loss @ qu @ ngu @ gn
     # Vowel rules.
-    eu_exceptions @ ou_exceptions @ ui_exceptions @ ei_exceptions @
+    ei_exceptions @ eu_exceptions @ oi_exceptions @ ou_exceptions @ ui_exceptions @
     diphthongization @ diaeresis @
     # Gemination.
     geminates @ 
