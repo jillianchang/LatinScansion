@@ -85,19 +85,18 @@ digraphs = Optimize[u.Rewrite[("ph" : "p") |
 b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 # Word-final "m" indicates vowel lengthening and nasalization.
-# TODO: This likely overapplies to stems that happen to end in -que.
-nasalization = Optimize[CDRewrite[("a" : "ãː") |
-                                  ("e" : "ẽː") |
-                                  ("i" : "ĩː") |
-                                  ("o" : "õː") |
-                                  ("u" : "ũː" ),
-                                  "",
-                                  "m" "que"? i.EOW,
-                                  sigma_star] @
-    CDRewrite["m" : "", "", "que"? i.EOW, sigma_star]
-];
+# Internal /nf, ns/ also undergoes nasalization
+nasal_pairs = Optimize[("a" : "ãː") |
+                       ("e" : "ẽː") |
+                       ("i" : "ĩː") |
+                       ("o" : "õː") |
+                       ("u" : "ũː" )];
+nasalization = Optimize[
+    # TODO: This likely overapplies to stems that happen to end in -que.
+    CDRewrite[nasal_pairs u.Delete["m"], "", "que"? i.EOW, sigma_star] @
+    CDRewrite[nasal_pairs u.Delete["n"], "", "f" | "s", sigma_star]];
 
-# If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
+# If "gu" proceeds "n" and precedes a vowel, it is pronounced as a labiovelar.
 ngu = Optimize[CDRewrite["gu" : "gw", "n", i.VOWEL, sigma_star]];
 
 unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
@@ -110,13 +109,13 @@ unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
 
-# Initial "gn" was likely pronounced [g], elsewhere [ŋn].
+# Initial "gn" was likely pronounced [n], elsewhere [ŋn].
 gn = Optimize[
     CDRewrite["gn" : "n", i.BOW, "", sigma_star] @
     u.Rewrite[("gn" : "ŋn"), sigma_star]
 ];
 
-# Intervocalic "z"s geminate.
+# Intervocalic "z"s are geminate.
 geminate_intervocalic_z = Optimize[
     CDRewrite["z" : "zz", i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star]
 ];
