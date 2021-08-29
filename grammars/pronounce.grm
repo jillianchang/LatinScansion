@@ -11,31 +11,59 @@ import 'utility.grm' as u;
 
 sigma_star = (i.GRAPHEME | i.PHONEME)*;
 
+long_monophthongs = Optimize[u.Rewrite[("ā" : "aː") |
+                                       ("ē" : "eː") |
+                                       ("ī" : "iː") |
+                                       ("ō" : "oː") |
+                                       ("ū" : "uː") |
+                                       ("ȳ" : "uː"),
+                                       sigma_star]
+];
+
+# The Romans wrote various Greek letters as digraphs: "ph," "ch," and "th."
+# Most likely, they were pronounced as [p, k, t], respectively.
+digraphs = Optimize[u.Rewrite[("ph" : "p") |
+                              ("ch" : "k") |
+                              ("th" : "t"),
+                              sigma_star]
+];
+
+unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
+                                            ("x" : "ks") |
+                                            ("v" : "w") |
+                                            ("y" : "u"),
+                                            sigma_star]
+];
+
 # As a result of the change from Old Latin "quo" and "nguo" to
 # "guu" and "nguu," loss of the preceding "u" occured.
 u_loss = Optimize[u.Rewrite[("nguu": "ngu") | ("quu" : "ku"), sigma_star]];
 
 qu = Optimize[u.Rewrite["qu" : "kw", sigma_star]];
 
-## Handling of vowels, glides, and diphthongs.
+# If "gu" proceeds "n" and precedes a vowel, it is pronounced as a labiovelar.
+ngu = Optimize[CDRewrite["gu" : "gw", "n", i.VOWEL, sigma_star]];
 
 # These words form an "eu" diphthong, rather than the normal hiatus.
 eu_exceptions = Optimize[u.RewriteWord[("heus": "hews") |
                                        ("ceu" : "kew") |
                                        ("neu" : "new") |
                                        ("seu" : "sew") |
-                                       ("ēheu" : "eːhew"), sigma_star]];
+                                       ("ēheu" : "eːhew"), sigma_star]
+];
 
 # These words form an "ou" diphthong, rather than the normal hiatus.
 ou_exceptions = Optimize[u.RewriteWord[("boum": "bowũː") |
                                        ("prout" : "prowt"),
-                                       sigma_star]];
+                                       sigma_star]
+];
 
 # These words form an "ui" diphthong, rather than the normal hiatus.
 ui_exceptions = Optimize[u.RewriteWord[("hui": "huj") |
                                        ("huic" : "hujk") |
                                        ("cui" : "kuj"),
-                                       sigma_star]];
+                                       sigma_star]
+];
 
 # These words form an "ei" diphthong, rather than the normal hiatus.
 ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
@@ -43,17 +71,14 @@ ei_exceptions = Optimize[u.RewriteWord[("dein": "dẽːj") |
                                        ("deinceps" : "dẽːjkeps") |
                                        ("ei" : "ej") |
                                        ("hei" : "hej"),
-                                       sigma_star]];
-
-# When an "i" occurs intervocalically (between two vowels),
-# it is realized as a glide: [jj]. Pharr writes intervocalic "i" as "j."
-geminate_intervocalic_i = Optimize[CDRewrite["j" : "jj",
-                                             i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star]];
+                                       sigma_star]
+];
 
 diphthongization = Optimize[u.Rewrite[("ae" : "aj") |
                                       ("oe" : "oj") |
                                       ("au" : "aw"),
-                                      sigma_star]];
+                                      sigma_star]
+];
 
 # Diaeresis, indicating hiatus, no longer needs to be marked
 # after diphthong formation.
@@ -62,53 +87,44 @@ diaeresis = Optimize[u.Rewrite[("ä" : "a") |
                                ("ï" : "i") |
                                ("ö" : "o") |
                                ("ü" : "u"),
-                               sigma_star]];
-
-long_monophthongs = Optimize[u.Rewrite[("ā" : "aː") |
-                                       ("ē" : "eː") |
-                                       ("ī" : "iː") |
-                                       ("ō" : "oː") |
-                                       ("ū" : "uː") |
-                                       ("ȳ" : "uː"),
-                                       sigma_star]];
-
-## Consonantal matters.
-
-# The Romans wrote various Greek letters as digraphs: "ph," "ch," and "th."
-# Most likely, they were pronounced as [p, k, t], respectively.
-digraphs = Optimize[u.Rewrite[("ph" : "p") |
-                              ("ch" : "k") |
-                              ("th" : "t"),
-                              sigma_star]];
-
-# "bs" was pronounced as [ps] and "bt" was pronounced as [pt].
-b_devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
-
-# Word-final "m" indicates vowel lengthening and nasalization.
-# TODO: This likely overapplies to stems that happen to end in -que.
-nasalization = Optimize[CDRewrite[("a" : "ãː") |
-                                  ("e" : "ẽː") |
-                                  ("i" : "ĩː") |
-                                  ("o" : "õː") |
-                                  ("u" : "ũː" ),
-                                  "",
-                                  "m" "que"? i.EOW,
-                                  sigma_star] @
-    CDRewrite["m" : "", "", "que"? i.EOW, sigma_star]
+                               sigma_star]
 ];
 
-# If "gu" proceeds "n" and precedes a vowel, it is pronounced with a glide.
-ngu = Optimize[CDRewrite["gu" : "gw", "n", i.VOWEL, sigma_star]];
+# Intervocalic <z> and <i> (which Pharr has as <j> sometimes) are geminate.
+geminates = Optimize[CDRewrite[("j" : "jj") |
+                               ("z" : "zz"),
+                               i.PHONEMIC_VOWEL,
+                               i.PHONEMIC_VOWEL,
+                               sigma_star]
+];
 
-unconditioned_rewrites = Optimize[u.Rewrite[("c" : "k") |
-                                            ("x" : "ks") |
-                                            ("v" : "w") |
-                                            ("y" : "u"),
-                                            sigma_star]];
+# Word-final (optional proclitic) <m> indicates lengthening and nasalization.
+# TODO: This likely overapplies to stems that just happen to end in <que>.
+final_nasalization = Optimize[CDRewrite[("am" : "ãː") |
+                                        ("em" : "ẽː") |
+                                        ("im" : "ĩː") |
+                                        ("om" : "õː") |
+                                        ("um" : "ũː"),
+                                        "",
+                                        "kwe"? i.EOW,
+                                        sigma_star]
+];
 
-# "n" is pronounced [ŋ] before velars [k, g].
+# Word-internal <n> followed by <f, s> indicates lengthening and nasalization.
+# Note that Pharr already writes the preceding vowels as long monophthongs.
+internal_nasalization = Optimize[CDRewrite[("ān" : "ãː") |
+                                           ("ēn" : "ẽː") |
+                                           ("īn" : "ĩː") |
+                                           ("ōn" : "õː") |
+                                           ("ūn" : "ũː"),
+                                           "",
+                                           "f" | "s",
+                                           sigma_star]
+];
+
 nasal_place_assimilation = Optimize[CDRewrite["n" : "ŋ", "",
                                               "k" | "g", sigma_star]];
+
 
 # Initial "gn" was likely pronounced [g], elsewhere [ŋn].
 gn = Optimize[
@@ -116,33 +132,38 @@ gn = Optimize[
     u.Rewrite[("gn" : "ŋn"), sigma_star]
 ];
 
-# Intervocalic "z"s geminate.
-geminate_intervocalic_z = Optimize[
-    CDRewrite["z" : "zz", i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star]
-];
+devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
+
 
 rules = Optimize[
-    u_loss @ nasalization @ qu @ eu_exceptions @
-    ou_exceptions @ ui_exceptions @ ei_exceptions @
-    digraphs @ diphthongization @ diaeresis @ long_monophthongs @
-    b_devoicing @ ngu @ unconditioned_rewrites @
-    geminate_intervocalic_i @ nasal_place_assimilation @ gn @
-    geminate_intervocalic_z
-];
+    # Basic g2p rules.
+    long_monophthongs @ digraphs @ unconditioned_rewrites @
+    # Rules for labiovelars.
+    u_loss @ qu @ ngu @ gn
+    # Vowel rules.
+    eu_exceptions @ ou_exceptions @ ui_exceptions @ ei_exceptions @
+    diphthongization @ diaeresis @
+    # Gemination.
+    geminates @ 
+    # Nasal rules.
+    final_nasalization @ internal_nasalization @ nasal_place_assimilation @ gn @
+    # Other.
+    devoicing
+]; 
 
 # Constrains input to the graphemes and output to the phonemes.
 export PRONOUNCE = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
 
 ## Tests.
 
-# Tests for macronized vowels, "ae" diphthong, "v," "x," and "c."
-test_pron_1 = AssertEqual[
+# Tests for macronized vowels, "ae" diphthong, "v," "x," "c".
+test_pron_01 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRONOUNCE,
     "gentis honoːs hajrent iːnfiksiː pektore wultuːs"
 ];
 
 # Tests for intervocalic "i," "qu," "th," and nasalized "m."
-test_pron_2 = AssertEqual[
+test_pron_02 = AssertEqual[
     "heu quianam tantī cīnxērunt aethera nimbī" @ PRONOUNCE,
     "heu kwianãː tantiː kiːŋkseːrunt ajtera nimbiː"
 ];

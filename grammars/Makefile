@@ -18,6 +18,9 @@ variable.far: variable.grm byte.far inventory.far utility.far
 byte.far: byte.grm
 	thraxcompiler --input_grammar=$< --output_far=$@
 
+inventory.far: inventory.grm byte.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
 utility.far: utility.grm inventory.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
