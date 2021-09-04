@@ -54,6 +54,12 @@ export STRIKETHROUGH = Optimize[
     "e̶ː̶ ̶" | "i̶ː̶ ̶" | "o̶ː̶ ̶" | "u̶ː̶ ̶" | "o̶j̶ ̶" |
     "a̶j̶ ̶" | "a̶w̶ ̶" | "h̶"];
 
+export UMLAUT = Optimize["ü" | "ï"];
+
+export MARKUPS = Optimize[
+    STRIKETHROUGH | UMLAUT | "‿" | "͡"
+];
+
 # Prosodic symbols.
 export NUCLEUS = Optimize["U" |  # Short nucleus.
                           "-"];  # Long nucleus.
