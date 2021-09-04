@@ -36,10 +36,12 @@ synizesis = Optimize[
                 i.PHONEMIC_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
-# Glides may lenite to their corresponding vowels in labiovelars.
-# TODO: include [j] glide?
+# Glides may lenite to their corresponding vowels. 
 diaeresis = Optimize[
-    CDRewrite[("w" : "u") <1000>, "k" | "g", "", sigma_star, 'ltr', 'opt']
+    CDRewrite[("w" : "u") <1000>,
+              "k" | "g", "", sigma_star, 'ltr', 'opt'] @
+    CDRewrite[("jj" : "i") <1000>,
+              i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # Lengthening of a usually short syllable.
