@@ -49,7 +49,8 @@ ei_exceptions = Optimize[u.RewriteWord[("dein" : "dẽːj") |
                                        ("deinde" : "dẽːjde") |
                                        ("deinceps" : "dẽːjkeps") |
                                        ("ei" : "ej") |
-                                       ("hei" : "hej"),
+                                       ("hei" : "hej") |
+                                       ("heia" : "heja"),
                                        sigma_star]
 ];
 
