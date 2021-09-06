@@ -154,7 +154,7 @@ class ScansionTest(unittest.TestCase):
         line = self.scan_line(text)
         self.assertTrue(line.defective)
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_2_675(self):
         text = "haerebat parvumque patrī tendēbat iūlum"
         line = self.scan_line(text)
@@ -162,7 +162,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "hajrebat parwumkwe patriː tendeːba tiuːlũː"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_2_744(self):
         text = "vēnimus hīc demum collēctīs omnibus ūna"
         line = self.scan_line(text)
@@ -207,7 +207,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "doːna dehiŋk awroː grawiak sektoː elepantoː"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_3_517(self):
         text = "armātumque aurō circumspicit Ōriōna"
         line = self.scan_line(text)
@@ -215,7 +215,6 @@ class ScansionTest(unittest.TestCase):
             line.pron, "armaːtũːkwe awroː kirkumspiki toːriːoːna"
         )
 
-    # Not sure how to scan.
     def test_aen_3_567(self):
         text = "ter spūmam ēlīsam et rōrantia vīdimus astra."
         line = self.scan_line(text)
@@ -223,7 +222,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "ter spuːmeːliːset roːrantia wiːdimu sastra"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_4_146(self):
         text = "Crētesque Dryopesque fremunt pictīque Agathyrsī:"
         line = self.scan_line(text)
@@ -259,7 +258,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "hejjage rumpe moraːs wariet muːtaːbile semper"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_4_617(self):
         text = "auxilium implōret videatque indigna suorum"
         line = self.scan_line(text)
@@ -267,7 +266,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "awksiliimploːret wideatkwindiŋna suoːrũː"
         )
 
-    @unittest.skip("bijugoː defies conventional pronounciation rulea in that the intervocalic j is not geminate")
+    @unittest.skip("bijugoː defies conventional pronounciation rules in that the intervocalic j is not geminate.")
     def test_aen_5_144(self):
         text = "Nōn tam praecipitēs bijugō certāmine campum"
         line = self.scan_line(text)
@@ -275,7 +274,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_5_306(self):
         text = "Gnōsia bina dabō lēvātō lūcida ferrō"
         line = self.scan_line(text)
@@ -284,13 +283,13 @@ class ScansionTest(unittest.TestCase):
         )
 
     def test_aen_5_352(self):
-        text = "dat Saliō villīs onerōsum atque unguibus aureiːs."
+        text = "dat Saliō villīs onerōsum atque unguibus aureīs."
         line = self.scan_line(text)
         self.assertEqual(
             line.pron, "dat salioː williːs oneroːsatkwuŋgwibu sawrejs"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_5_520(self):
         text = "qui tamen āeriās tēlum contorsit in aurās"
         line = self.scan_line(text)
@@ -298,7 +297,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "kwiː tame naːeriaːs teːlũː kontorsi ti nawraːs"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_5_687(self):
         text = '"Juppiter omnipotēns, si nōndum exōsus ad ūnum'
         line = self.scan_line(text)
@@ -329,7 +328,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "eːwadneːŋkwet paːsipaeːn hiːs laːodamiːa"
         )
 
-    @unittest.skip("Requires systole")
+    @unittest.skip("Requires systole.")
     def test_aen_6_507(self):
         text = "Nōmen et arma locum servant; tē, amīce, nequīvī"
         line = self.scan_line(text)
@@ -337,7 +336,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "noːme ne tarma lokũː serwant te amiːke nekwiːwiː"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_6_637(self):
         text = "Hīs demum exāctīs, perfectō mūnere dīvae,"
         line = self.scan_line(text)
@@ -345,7 +344,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "hiːs deːmeksaːktiːs perfektoː muːnere diːwaj"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_6_695(self):
         text = 'Ille autem: "Tua me, genitor, tua trīstis imāgō'
         line = self.scan_line(text)
