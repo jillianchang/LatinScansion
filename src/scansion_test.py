@@ -154,7 +154,7 @@ class ScansionTest(unittest.TestCase):
         line = self.scan_line(text)
         self.assertTrue(line.defective)
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_2_675(self):
         text = "haerebat parvumque patrī tendēbat iūlum"
         line = self.scan_line(text)
@@ -162,7 +162,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "hajrebat parwumkwe patriː tendeːba tiuːlũː"
         )
 
-    @unittest.skip("Requires diastole")
+    @unittest.skip("Requires diastole.")
     def test_aen_2_744(self):
         text = "vēnimus hīc demum collēctīs omnibus ūna"
         line = self.scan_line(text)
@@ -170,21 +170,186 @@ class ScansionTest(unittest.TestCase):
             line.pron, "weːnimu siːk demũː kolleːktiːs omnibu suːna"
         )
 
-    # "Trōia" is technically diastole, but Pharr takes
-    # care of that as he did not rewrite the intervocalic "i" as "j".
+
     def test_aen_2_764(self):
-        text = "praedam adservābant hūc undique trōia gaza"
+        text = "praedam adservābant hūc undique trōja gaza"
         line = self.scan_line(text)
         self.assertEqual(
             line.pron, "prajdadserwaːbant huːk undikwe troːia gazza"
         )
     
+    def test_aen_3_158(self):
+        text = "īdem ventūrōs tollēmus in astra nepōtēs"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "iːdẽː wentuːroːs tolleːmu si nastra nepoːteːs"
+        )
+
     # Synizesis.
     def test_aen_3_161(self):
         text = "Mūtandae sēdēs. Nōn haec tibi lītora suāsit"
         line = self.scan_line(text)
         self.assertEqual(
             line.pron, "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit"
+        )
+
+    def test_aen_3_365(self):
+        text = "sōla novum dictūque nefās Harpyja Celaenō"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "soːla nowũː diktuːkwe nefaːs harpujja kelajnoː"
+        )
+
+    def test_aen_3_464(self):
+        text = "dōna dehinc aurō gravia ac sectō elephantō"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "doːna dehiŋk awroː grawiak sektoː elepantoː"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_3_517(self):
+        text = "armātumque aurō circumspicit Ōriōna"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "armaːtũːkwe awroː kirkumspiki toːriːoːna"
+        )
+
+    def test_aen_3_567(self):
+        text = "ter spūmam ēlīsam et rōrantia vīdimus astra."
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "ter spuːmeːliːset roːrantia wiːdimu sastra"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_4_146(self):
+        text = "Crētesque Dryopesque fremunt pictīque Agathyrsī:"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "kreːteskweː druopeskwe fremunt piktiːkwe agatursiː"
+        )
+
+    def test_aen_4_302(self):
+        text = "Thyjas, ubi audītō stimulant trietērica Bacchō"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "tujja subawdiːtoː stimulant trieteːrika bakkoː"
+        )
+
+    def test_aen_4_324(self):
+        text = "(hoc sōlum nōmen quoniam dē conjuge restat)?"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "hok soːlũː noːmen kwoniãː deː konjuge restat"
+        )
+
+    def test_aen_4_369(self):
+        text = "Num flētū ingemuit nostrō? Num lūmina flexit?"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "nũː fleːtiŋgemuit nostroː nũː luːmina fleksit"
+        )
+
+    def test_aen_4_569(self):
+        text = "Heja age, rumpe morās. Varium et mūtābile semper"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "hejjage rumpe moraːs wariet muːtaːbile semper"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_4_617(self):
+        text = "auxilium implōret videatque indigna suorum"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "awksiliimploːret wideatkwindiŋna suoːrũː"
+        )
+
+    @unittest.skip("bijugoː defies conventional pronounciation rules in that the intervocalic j is not geminate.")
+    def test_aen_5_144(self):
+        text = "Nōn tam praecipitēs bijugō certāmine campum"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_5_306(self):
+        text = "Gnōsia bina dabō lēvātō lūcida ferrō"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "ŋnoːsia biːna daboː leːwaːtoː luːkida ferroː"
+        )
+
+    def test_aen_5_352(self):
+        text = "dat Saliō villīs onerōsum atque unguibus aureīs."
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "dat salioː williːs oneroːsatkwuŋgwibu sawrejs"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_5_520(self):
+        text = "qui tamen āeriās tēlum contorsit in aurās"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "kwiː tame naːeriaːs teːlũː kontorsi ti nawraːs"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_5_687(self):
+        text = '"Juppiter omnipotēns, si nōndum exōsus ad ūnum'
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "juppite romnipoteːns siː noːndeksoːsu sa duːnũː"
+        )
+    
+    def test_aen_5_870(self):
+        text = '"Ō nimium caelō et pelagō cōnfīse serēnō'
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "oː nimiũː kajlet pelagoː koːnfiːse sereːnoː"
+        )
+
+    @unittest.skip("Requires synizesis, but Cj is not a valid onset.")
+    def test_aen_6_412(self):
+        text = "dēturbat, laxatque forōs; simul accipit alveō"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "deːturbat laksatkwe foroːs simu lakkipi talwjoː"
+        )
+
+    @unittest.skip("Requires synizesis and diastole.")
+    def test_aen_6_447(self):
+        text = "Euadnēnque et Pāsiphaēn; hīs Lāodamīa"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "eːwadneːŋkwet paːsipaeːn hiːs laːodamiːa"
+        )
+
+    @unittest.skip("Requires systole.")
+    def test_aen_6_507(self):
+        text = "Nōmen et arma locum servant; tē, amīce, nequīvī"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "noːme ne tarma lokũː serwant te amiːke nekwiːwiː"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_6_637(self):
+        text = "Hīs demum exāctīs, perfectō mūnere dīvae,"
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "hiːs deːmeksaːktiːs perfektoː muːnere diːwaj"
+        )
+
+    @unittest.skip("Requires diastole.")
+    def test_aen_6_695(self):
+        text = 'Ille autem: "Tua me, genitor, tua trīstis imāgō'
+        line = self.scan_line(text)
+        self.assertEqual(
+            line.pron, "illawtẽː tua meː genitor tua triːsti simaːgoː"
         )
 
 if __name__ == "__main__":
