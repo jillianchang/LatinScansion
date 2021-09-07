@@ -19,9 +19,9 @@ delete_strikethrough_undertie = Optimize[u.Rewrite[u.Delete[i.STRIKETHROUGH | "�
 # Removes the ligature tie and rewrites "i" or "u" to "j" or "w," respectively.
 synizesis_cleanup = Optimize[
   CDRewrite[(("i" | "iː") : "j") | (("u" | "uː") : "w"), "͡", "", sigma_star] @
-  CDRewrite[(("i" | "iː") : "j") | (("u" | "uː") : "w"), "", "͡", sigma_star] @
-  u.Rewrite[u.Delete["͡"], sigma_star]
-];
+   CDRewrite[(("i" | "iː") : "j") | (("u" | "uː") : "w"), "", "͡", sigma_star] @
+   u.Rewrite[u.Delete["͡"], sigma_star]
+ ];
 
 ## Syllable parsing.
 
@@ -243,3 +243,27 @@ test_diaeresis_1 = AssertEqual[
   "troːïa" @ SYLLABLE,
   "O-UU"
 ];
+test_markup_1 = AssertEqual[
+  "troːas rellikwiaːs danaü̶m̶ ̶atkwe̶ ̶immiːtis‿akilliː" @ METER,
+  "SDDSDS"
+];
+test_markup_4 = AssertEqual[
+  "doːna kareːre doliːs danaüm siːk noːtus‿ulikseːs" @ METER,
+  "DDDSDS"
+];
+test_markup_5 = AssertEqual[
+  "wellitur‿h̶ujk aːtroː liːkuntur saŋgwine guttaj" @ METER,
+  "DSSSDS"
+];
+# test_markup_6 = AssertEqual[
+#  "koːnuːbi͡iːs arwiːskwe nowiːs operaːta juwentuːs" @ METER,
+#  "SSDDDS"
+#];
+test_markup_7 = AssertEqual[
+  "aːreːbant herba̶j̶ ̶et wiːktũː seges‿ajgra negaːbat" @ METER,
+  "SSSDDS"
+];
+#test_markup_8 = AssertEqual[
+#  "ku͡ikwe lokiː leːgeːs dedimus‿koːnuːbia nostra" @ METER,
+#  "DSDSDT"
+#];
