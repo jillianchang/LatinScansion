@@ -8,7 +8,11 @@ import 'utility.grm' as u;
 sigma_star = (i.PROSODIC_SYMBOL | i.PHONEME | i.MARKUPS)*;
 
 h_deletion = Optimize[
-    CDRewrite[("h" : "h̶") <1>, "", "", sigma_star, 'ltr', 'opt']
+    # Delete medial "h" to permit additional variable rules, if needed (such as synizesis).
+    CDRewrite[u.Delete["h"] <1>,
+              i.PHONEME - b.kSpace, i.PHONEME - b.kSpace, sigma_star] @
+    CDRewrite[("h" : "h̶") <1>,
+              "", "", sigma_star]
 ];
 
 # A final syllable ending in a vowel, letter m, or diphthong is removed
@@ -27,38 +31,45 @@ elision = Optimize[CDRewrite[(("a " : "a̶ ̶") |
                             ("eː " : "e̶ː̶ ̶") |
                             ("iː " : "i̶ː̶ ̶") |
                             ("oː " : "o̶ː̶ ̶") |
-                            ("uː " : "u̶ː̶ ̶")) <100>
-                            , "", "h̶"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']];
+                            ("uː " : "u̶ː̶ ̶") |
+                            ("üm " : "ü̶m̶ ̶") |
+                            ("oj " : "o̶j̶ ̶") |
+                            ("aj " : "a̶j̶ ̶") |
+                            ("aw " : "a̶w̶ ̶"))
+                            , "", "h̶"? i.PHONEMIC_VOWEL, sigma_star]];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
 resyllabification = Optimize[
-    CDRewrite[(" " : "‿") <10>,
-              i.CONSONANT, "h̶"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
+    CDRewrite[(" " : "‿"),
+              i.CONSONANT, "h̶"? i.PHONEMIC_VOWEL, sigma_star]
 ];
 
 # High vowels may strengthen to their corresponding glides when adjacent to
 # another vowel.
 synizesis = Optimize[
-    CDRewrite[u.Insert["͡"] <1000>,
-              ("i" | "iː" | "u" | "uː") , i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[u.Insert["͡"] <1000>,
-                i.PHONEMIC_VOWEL, ("i" | "iː" | "u" | "uː"), sigma_star, 'ltr', 'opt']
+    CDRewrite[u.Insert["͡"],
+              ("i" | "iː" | "u" | "uː") , i.PHONEMIC_VOWEL, sigma_star] @
+    CDRewrite[u.Insert["͡"],
+             i.PHONEMIC_VOWEL, ("i" | "iː" | "u" | "uː"), sigma_star]
 ];
 
 # Glides may lenite to their corresponding vowels. 
 diaeresis = Optimize[
-    CDRewrite[("w" : "ü") <1000>,
-              "k" | "g", "", sigma_star, 'ltr', 'opt'] @
-    CDRewrite[("jj" : "ï") <1000>,
-              i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
+    CDRewrite[("w" : "ü"),
+              "k" | "g", "", sigma_star] @
+    # "aw" diphthongs preceding final m may lenite.
+    CDRewrite[("w" : "ü"),
+              "", "m", sigma_star] @
+    CDRewrite[("jj" : "ï"),
+              i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star]
 ];
 
 # Lengthening of a usually short syllable.
 # NB: this is not currently part of the exported VARIABLE cascade.
 diastole = Optimize[
     CDRewrite[(("a" : "aː") | ("e" : "eː") | ("i" : "iː") |
-              ("o" : "oː") | ("u" : "uː")) <10000>,
-              "", "", sigma_star, 'ltr', 'opt']
+              ("o" : "oː") | ("u" : "uː")),
+              "", "", sigma_star]
 ];
 
 export VARIABLE = Optimize[h_deletion @ resyllabification @ elision @
@@ -102,12 +113,58 @@ test_synizesis_2 = AssertEqual[
 
 # Tests synizesis of "j."
 test_synizesis_3 = AssertEqual[
-    "aureiːs" @ synizesis,
-    "aure͡iːs"
+    "awreiːs" @ synizesis,
+    "awre͡iːs"
 ];
 
 # Tests diaeresis of intervocalic "j."
 test_diaeresis_1 = AssertEqual[
     "troːjja" @ diaeresis,
     "troːïa"
+];
+
+## Tests for scansion failures.
+test_fail_1 = AssertEqual[
+    "nekdũː etiãː kawsaj iːraːrũː sajwiːkwe doloːreːs" @ elision,
+    "nekdũ̶ː̶ ̶etiãː kawsa̶j̶ ̶iːraːrũː sajwiːkwe doloːreːs"
+];
+test_fail_2 = AssertEqual[
+    "troːas rellikwiaːs danawm atkwe immiːtis akilliː" @ diaeresis @ elision @ resyllabification,
+    "troːas rellikwiaːs danaü̶m̶ ̶atkwe̶ ̶immiːtis‿akilliː"
+];
+test_fail_3 = AssertEqual[
+    "eurũː ad seː zepurũːkwe wokat dehiŋk taːlia faːtur" @ elision @ h_deletion @ synizesis,
+    "e͡urũ̶ː̶ ̶ad seː zepurũːkwe wokat de͡iŋk taːlia faːtur"
+];
+test_fail_4 = AssertEqual[
+    "illiː seː prajdaj akkiŋgunt dapibuskwe futuːriːs" @ elision,
+    "illiː seː prajda̶j̶ ̶akkiŋgunt dapibuskwe futuːriːs"
+];
+test_fail_5 = AssertEqual[
+    "terga suũː piŋgwiːs kentũː kũː maːtribus aŋnoːs" @ resyllabification,
+    "terga suũː piŋgwiːs kentũː kũː maːtribus‿aŋnoːs"
+];
+test_fail_6 = AssertEqual[
+    "kũː subitoː ajneːaːs koŋkursuː akkeːdere maŋnoː" @ elision,
+    "kũː subito̶ː̶ ̶ajneːaːs koŋkursu̶ː̶ ̶akkeːdere maŋnoː"
+];
+test_fail_7 = AssertEqual[
+    "doːna kareːre doliːs danawm siːk noːtus ulikseːs" @ diaeresis @ resyllabification,
+    "doːna kareːre doliːs danaüm siːk noːtus‿ulikseːs"
+];
+test_fail_8 = AssertEqual[
+    "wellitur hujk aːtroː liːkuntur saŋgwine guttaj" @ h_deletion @ resyllabification,
+    "wellitur‿h̶ujk aːtroː liːkuntur saŋgwine guttaj"
+];
+test_fail_9 = AssertEqual[
+    "koːnuːbiiːs arwiːskwe nowiːs operaːta juwentuːs" @ synizesis,
+    "koːnuːbi͡iːs arwiːskwe nowiːs operaːta juwentuːs"
+];
+test_fail_10 = AssertEqual[
+    "aːreːbant herbaj et wiːktũː seges ajgra negaːbat" @ elision @ resyllabification,
+    "aːreːbant herba̶j̶ ̶et wiːktũː seges‿ajgra negaːbat"
+];
+test_fail_11 = AssertEqual[
+    "kuikwe lokiː leːgeːs dedimus koːnuːbia nostra" @ synizesis @ resyllabification,
+    "ku͡ikwe lokiː leːgeːs dedimus‿koːnuːbia nostra"
 ];
