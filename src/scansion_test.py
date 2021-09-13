@@ -266,7 +266,7 @@ class ScansionTest(unittest.TestCase):
             line.pron, "awksiliimploːret wideatkwindiŋna suoːrũː"
         )
 
-    @unittest.skip("bijugoː defies conventional pronounciation rules in that the intervocalic j is not geminate.")
+    @unittest.skip("bijugoː defies conventional pronounciation rules in that the intervocalic j is not geminate; perhaps j-gemination is not triggered in derived environments.")
     def test_aen_5_144(self):
         text = "Nōn tam praecipitēs bijugō certāmine campum"
         line = self.scan_line(text)

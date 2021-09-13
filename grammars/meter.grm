@@ -15,18 +15,34 @@ long_nucleus = Optimize[u.Rewrite[i.LONG_VOWEL : "-", sigma_star]];
 
 short_nucleus = Optimize[u.Rewrite[i.SHORT_VOWEL : "U", sigma_star]];
 
-muta_cum_liquida = ((i.STOP | "f") i.LIQUID) - ("tl" | "dl");
-s_cluster = "s" ((i.VOICELESS_STOP (i.LIQUID | "w")?) - "tl");
+obstruent = i.STOP | "f";
+muta_cum_liquida = (obstruent i.LIQUID) - ("tl" | "dl");
 labiovelar = ("k" | "g" | "s") "w";
-
+s_cluster = "s" (labiovelar | ((i.VOICELESS_STOP i.LIQUID?) - "tl"));
 onset = Optimize[
-  # "s" consonant clusters are onsets at the beginning of words.
-  # "x", "mn", and "phth" onsets are found word-initially in Greek names.
-  CDRewrite[(s_cluster | "ks" | "mn" | "pt") : "O",
-            i.BOW, i.NUCLEUS, sigma_star] @
-  # This allows for both syllable parses of muta cum liquida clusters.
+  # Initial onsets are a somewhat richer set than medial ones.
+  # "s" consonant onsets are permitted at the beginning of words, and "x",
+  # "mn", and "phth" word-initial onsets are also found names from Greek.
+  CDRewrite[(s_cluster | "ks" | "mn" | "pt" | labiovelar | muta_cum_liquida |
+             i.CONSONANT) : "O",
+            i.BOW,
+            i.NUCLEUS,
+            sigma_star] @
+  # Mandatorily splits medial "tl" and "dl" clusters into coda/onset.
+  CDRewrite["l" : "O", "t" | "d", i.NUCLEUS, sigma_star] @
+  # Optionally (and with non-zero cost) splits other muta cum liquida clusters
+  # into coda/onset. Note that this does not need to mention the prohibition
+  # on "tl" and "dl" because such clusters were already mandatorily split by
+  # the previous rule.
+  CDRewrite[i.LIQUID : "O" <1>, obstruent, i.NUCLEUS, sigma_star, 'rtl', 'opt'] @
+  # Mandatorily parses remaining muta cum liquida clusters, labiovelars, and
+  # single consonants as onsets.
   CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
-            "", i.NUCLEUS, sigma_star, 'rtl', 'obl']
+            "",
+            i.NUCLEUS,
+            sigma_star,
+            'rtl',
+            'obl']
 ];
 
 coda = Optimize[u.Rewrite[i.CONSONANT+ : "C", sigma_star]];
@@ -103,18 +119,6 @@ test_ks_1 = AssertEqual[
 test_ks_2 = AssertEqual[
   "uːnius ob noksãː et furiaːs ajjaːkis oiːleiː" @ SYLLABLE,
   "-OUUC UC OUCO- UC OUOU-C UCO-OUC U-OU-"
-];
-
-# Testing the multivariable muta cum liquida behavior. MCL'S
-# are normally parsed as onsets, but can also split into onset coda
-# as per poetic license.
-test_without_split_1 = AssertEqual[
-  "kekropidaj jussiː miserũː septeːna kwotanniːs" @ SYLLABLE,
-  "OUOUOUOUC OUCO- OUOUO- OUCO-OU OUOUCO-C"
-];
-test_with_split_1 = AssertEqual[
-  "kekropidaj jussiː miserũː septeːna kwotanniːs" @ SYLLABLE,
-  "OUCOUOUOUC OUCO- OUOUO- OUCO-OU OUOUCO-C"
 ];
 
 ## Tests weight.
