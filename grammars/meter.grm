@@ -34,7 +34,12 @@ onset = Optimize[
   # into coda/onset. Note that this does not need to mention the prohibition
   # on "tl" and "dl" because such clusters were already mandatorily split by
   # the previous rule.
-  CDRewrite[i.LIQUID : "O" <1>, obstruent, i.NUCLEUS, sigma_star, 'rtl', 'opt'] @
+  CDRewrite[i.LIQUID : "O" <1>,
+            obstruent,
+            i.NUCLEUS,
+            sigma_star,
+            'rtl',
+            'opt'] @
   # Mandatorily parses remaining muta cum liquida clusters, labiovelars, and
   # single consonants as onsets.
   CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
@@ -103,7 +108,8 @@ test_syllable_8 = AssertEqual[
   "O- OUOUC UCOUO-C O- O- O-O-OU OUOUCO-C"
 ];
 
-# Testing that word initial sC (s consonant) is an onset but a medial sC splits into coda onset.
+# Testing that word initial sC (s consonant) is an onset but a medial sC splits
+# into coda onset.
 test_sc_1 = AssertEqual[
   "impulerit tantajnanimiːs kajlestibu siːraj" @ SYLLABLE,
   "UCOUOUOUC OUCOUCOUOUO-C OUCOUCOUOU O-OUC"
