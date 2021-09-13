@@ -1,0 +1,10 @@
+# Defines feet types.
+
+export DACTYL = ("L" " "?) ("B" " "?) ("B" " "?): "D";
+export SPONDEE = ("L" " "?) ("L" " "?) : "S";
+export TROCHEE = ("L" " "?) ("B" " "?) : "T";
+# TODO: enrich as needed.
+export FOOT = (DACTYL | SPONDEE | TROCHEE)*;
+
+test_1 = AssertEqual["L LLB BL BBL BBLB BLL" @ FOOT, "SDDDDS"];
+test_2 = AssertEqual["LB BL LLB BL L LBB LL" @ FOOT, "DSDSDS"];

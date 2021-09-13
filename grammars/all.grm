@@ -1,11 +1,17 @@
 # Combines all the grammars we care about.
 
+import 'foot.grm' as f;
 import 'meter.grm' as m;
 import 'normalize.grm' as n;
 import 'pronounce.grm' as p;
+import 'syllable.grm' as s;
 import 'variable.grm' as v;
+import 'weight.grm' as w;
 
+export FOOT = f.FOOT;
 export METER = m.METER;
 export NORMALIZE = n.NORMALIZE;
 export PRONOUNCE = p.PRONOUNCE;
+export SYLLABLE = s.SYLLABLE;
 export VARIABLE = v.VARIABLE;
+export WEIGHT = w.WEIGHT;
