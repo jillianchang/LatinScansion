@@ -8,15 +8,42 @@ syntax = "proto2";
 
 package LatinScansion;  // Not used in Python.
 
+message Syllable {
+  optional string onset = 1;
+
+  required string nucleus = 2;
+
+  optional string coda = 3;
+
+  enum Weight {
+    LIGHT = 0;
+    HEAVY = 1;
+  }
+  optional Weight weight = 4;
+}
+
+message Foot {
+  repeated Syllable syllable = 1;
+
+  enum Type {
+    DACTYL = 0;
+    SPONDEE = 1;
+    TROCHEE = 2;
+    // TODO: enrich as needed.
+  }
+  optional Type type = 2;
+}
+
 message Line {
   optional int32 line_number = 1;
   optional string text = 2;                       // Text before normalization.
   optional string norm = 3;                       // Text after normalization.
   optional string pron = 4;                       // IPA pronunciation.
-  optional bool defective = 5 [default = false];
-  optional string comment = 6;                    // Optional notes.
-  // TODO(kbg): Enrich this to actually cover the prosodic hierarchy of
-  // syllables and feet.
+
+  repeated Foot foot = 5;
+
+  optional bool defective = 6 [default = false];
+  optional string comment = 7;                    // Optional notes.
 }
 
 // A document is just a series of lines with optional name metadata.
