@@ -49,7 +49,8 @@ ei_exceptions = Optimize[u.RewriteWord[("dein" : "dẽːj") |
                                        ("deinde" : "dẽːjde") |
                                        ("deinceps" : "dẽːjkeps") |
                                        ("ei" : "ej") |
-                                       ("hei" : "hej"),
+                                       ("hei" : "hej") |
+                                       ("heia" : "heja"),
                                        sigma_star]
 ];
 
@@ -81,14 +82,10 @@ ui_exceptions = Optimize[u.RewriteWord[("hui" : "huj") |
 ];
 
 ae_diphthonization = Optimize[u.Rewrite["ae": "aj", sigma_star]];
-oe_diphthonization = Optimize[u.Rewrite["oe" : "oj", sigma_star]];
-au_diphthonization = Optimize[u.Rewrite["au" : "aw", sigma_star]];
 
-diphthongization = Optimize[u.Rewrite[("ae" : "aj") |
-                                      ("oe" : "oj") |
-                                      ("au" : "aw"),
-                                      sigma_star]
-];
+oe_diphthonization = Optimize[u.Rewrite["oe" : "oj", sigma_star]];
+
+au_diphthonization = Optimize[u.Rewrite["au" : "aw", sigma_star]];
 
 # Diaeresis, indicating hiatus, no longer needs to be marked
 # after diphthong formation.

@@ -11,7 +11,7 @@ h_deletion = Optimize[
     # Delete medial "h" to permit additional variable rules, if needed (such as synizesis).
     CDRewrite[u.Delete["h"] <1>,
               i.PHONEME - b.kSpace, i.PHONEME - b.kSpace, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[("h" : "h̶") <1>,
+    CDRewrite[("h" : "h̶" <1>),
               "", "", sigma_star, 'ltr', 'opt']
 ];
 

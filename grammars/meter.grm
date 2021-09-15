@@ -199,7 +199,7 @@ test_scan_3 = AssertEqual[
   "DSDSDS"
 ];
 
-# Testing Aeneid 2 failures. Inputs are the pronounciations after
+# Testing Aeneid failures. Inputs are the pronounciations after
 # variable rules have been applied.
 test_syllable_2_219 = AssertEqual[
   "bis mediampleksiː bis kolloː skwaːmea kirkũː" @ SYLLABLE,
@@ -208,6 +208,34 @@ test_syllable_2_219 = AssertEqual[
 test_syllable_2_278 = AssertEqual[
   "skwaːlentẽː barbet koŋkreːtoːs saŋgwine kriːniːs" @ SYLLABLE,
   "O-OUCO- OUCOUC OUCO-O-C OUCOUOU O-O-C"
+];
+test_meter_3_161 = AssertEqual[
+  "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit" @ METER,
+  "SSSDDS"
+];
+test_meter_3_567 = AssertEqual[
+  "ter spuːmeːlisa met roːrantia wiːdimu sastra" @ METER,
+  "SDSDDT"
+];
+test_meter_4_302 = AssertEqual[
+  "tujja subawdiːtoː stimulant trieteːrika bakkoː" @ METER,
+  "DSDDDS"
+];
+test_meter_4_369 = AssertEqual[
+  "nũː fleːtiŋgemuit nostroː nũː luːmina fleksit" @ METER,
+  "SDSSDS"
+];
+test_meter_4_617 = AssertEqual[
+  "awksiliimploːret wideatkwindiŋna suoːrũː" @ METER,
+  "DSDSDS"
+];
+test_meter_5_144 = AssertEqual[
+  "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː" @ METER,
+  "SDDSDS"
+];
+test_meter_6_447 = AssertEqual[
+  "ewwadneːŋkwet paːsipaeːn hiːs laːodamiːa" @ METER,
+  "SSDSDT"
 ];
 
 # Tests a defective line.
