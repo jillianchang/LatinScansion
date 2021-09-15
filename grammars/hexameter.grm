@@ -7,10 +7,12 @@ import 'utility.grm' as u;
 import 'weight.grm' as w;
 
 # Filters footing to valid hexameter patterns.
-hexameter = Optimize[
+export HEXAMETER = Optimize[
     Project[(f.DACTYL | f.SPONDEE){5} (f.SPONDEE | f.TROCHEE), 'output']
 ];
-export METER = Optimize[s.SYLLABLE @ w.WEIGHT @ f.FOOT @ hexameter];
+
+# For testing only.
+meter = Optimize[s.SYLLABLE @ w.WEIGHT @ f.FOOT @ HEXAMETER];
 
 # Complete foot mapping for "Mūsa, mihī causās memorā, quō nūmine laesō."
 test_1_syllable = AssertEqual[
@@ -22,10 +24,6 @@ test_1_weight = AssertEqual[
   "LB BL LL BBL L LBB LL"
 ];
 test_1_foot = AssertEqual["LB BL LL BBL L LBB LL" @ f.FOOT, "DSDSDS"];
-test_1_meter = AssertEqual[
-  "muːsa mihiː kawsaːs memoraː kwoː nuːmine lajsoː" @ METER,
-  "DSDSDS"
-];
 
 # Complete foot mapping for "Urbs antīqua fuit (Tyriī tenuēre colōnī)."
 test_2_syllable = AssertEqual[
@@ -37,10 +35,6 @@ test_2_weight = AssertEqual[
   "L LLB BL BBL BBLB BLL"
 ];
 test_2_foot = AssertEqual["L LLB BL BBL BBLB BLL" @ f.FOOT, "SDDDDS"];
-test_2_meter = AssertEqual[
-  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ METER,
-  "SDDDDS"
-];
 
 # Complete foot mapping for "quidve dolēns rēgīna deum tot volvere cāsūs."
 test_3_syllable = AssertEqual[
@@ -52,14 +46,10 @@ test_3_weight = AssertEqual[
   "LB BL LLB BL L LBB LL"
 ];
 test_3_foot = AssertEqual["LB BL LLB BL L LBB LL" @ f.FOOT, "DSDSDS"];
-test_3_meter = AssertEqual[
-  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ METER,
-  "DSDSDS"
-];
 
 # Tests a defective line.
 test_defective_1 = AssertNull[
-  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ METER
+  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ meter
 ];
 
 # Testing Aeneid failures. Inputs are the pronounciations after
@@ -73,30 +63,30 @@ test_syllable_2_278 = AssertEqual[
   "O-OUCO- OUCOUC OUCO-O-C OUCOUOU O-O-C"
 ];
 test_meter_3_161 = AssertEqual[
-  "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit" @ METER,
+  "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit" @ meter,
   "SSSDDS"
 ];
 test_meter_3_567 = AssertEqual[
-  "ter spuːmeːlisa met roːrantia wiːdimu sastra" @ METER,
+  "ter spuːmeːlisa met roːrantia wiːdimu sastra" @ meter,
   "SDSDDT"
 ];
 test_meter_4_302 = AssertEqual[
-  "tujja subawdiːtoː stimulant trieteːrika bakkoː" @ METER,
+  "tujja subawdiːtoː stimulant trieteːrika bakkoː" @ meter,
   "DSDDDS"
 ];
 test_meter_4_369 = AssertEqual[
-  "nũː fleːtiŋgemuit nostroː nũː luːmina fleksit" @ METER,
+  "nũː fleːtiŋgemuit nostroː nũː luːmina fleksit" @ meter,
   "SDSSDS"
 ];
 test_meter_4_617 = AssertEqual[
-  "awksiliimploːret wideatkwindiŋna suoːrũː" @ METER,
+  "awksiliimploːret wideatkwindiŋna suoːrũː" @ meter,
   "DSDSDS"
 ];
 test_meter_5_144 = AssertEqual[
-  "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː" @ METER,
+  "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː" @ meter,
   "SDDSDS"
 ];
 test_meter_6_447 = AssertEqual[
-  "ewwadneːŋkwet paːsipaeːn hiːs laːodamiːa" @ METER,
+  "ewwadneːŋkwet paːsipaeːn hiːs laːodamiːa" @ meter,
   "SSDSDT"
 ];

@@ -16,8 +16,8 @@ message Syllable {
   optional string coda = 3;
 
   enum Weight {
-    LIGHT = 0;
-    HEAVY = 1;
+    BREVIS = 0;
+    LONGUS = 1;
   }
   optional Weight weight = 4;
 }

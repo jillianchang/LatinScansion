@@ -3,7 +3,7 @@
 import functools
 import logging
 
-from typing import Iterable, Optional
+from typing import Iterable, List, Optional, Tuple
 
 import pynini
 from pynini.lib import rewrite
@@ -15,19 +15,23 @@ def scan_line(
     normalize_rule: pynini.Fst,
     pronounce_rule: pynini.Fst,
     variable_rule: pynini.Fst,
-    meter_rule: pynini.Fst,
+    syllable_rule: pynini.Fst,
+    weight_rule: pynini.Fst,
+    foot_rule: pynini.Fst,
+    hexameter_rule: pynini.Fst,
     text: str,
-    line_number: int = -1,
+    line_number: int = 0,
 ) -> scansion_pb2.Line:
     """Scans a single line of poetry.
-
-    Note that 
 
     Args:
       normalize_rule: the normalization rule.
       pronounce_rule: the pronunciation rule.
       variable_rule: the rule for introducing pronunciation variation.
-      meter_rule: the rule for constraining pronunciation variation to scan.
+      syllable_rule: the syllabification rule.
+      weight_rule: the weight rule.
+      foot_rule: the foot rule.
+      hexameter_rule: the hexameter rule.
       text: the input text.
       line_number: an optional line number (defaulting to -1).
 
@@ -35,38 +39,34 @@ def scan_line(
       A populated Line message.
     """
     line = scansion_pb2.Line(line_number=line_number, text=text)
-    # Applies normalization.
+    # TODO: this is ugly but can be substantially redone, eventually.
     try:
         # We need escapes for normalization since Pharr uses [ and ].
-        line.norm = rewrite.top_rewrite(pynini.escape(line.text), normalize_rule)
+        line.norm = rewrite.top_rewrite(
+            pynini.escape(line.text), normalize_rule
+        )
     except rewrite.Error:
-        logging.error(
-            "Rewrite failure during normalization (line %d): %r",
-            line_number,
-            line.text,
+        logging.error("Rewrite failure (line %d)", line.line_number)
+        return line
+    # Computes variant pronunciation candidates.
+    pronounce_lattice = line.norm @ pronounce_rule @ variable_rule
+    pronounce_lattice.project("output")
+    # Filters with meter information.
+    meter_lattice = (
+        pronounce_lattice
+        @ syllable_rule
+        @ weight_rule
+        @ foot_rule
+        @ hexameter_rule
+    )
+    # Bails out if no hexameter parse is found.
+    if meter_lattice.start() == pynini.NO_STATE_ID:
+        line.defective = True
+        logging.warning(
+            "Defective line (line %d): %r", line.line_number, line.norm
         )
         return line
-    # Applies pronunciation.
-    try:
-        pron_before_variable = rewrite.top_rewrite(line.norm, pronounce_rule)
-        # The output tape contains possible variable pronunciations.
-        lattice = rewrite.rewrite_lattice(pron_before_variable, variable_rule)
-        # By intersecting the output tape with the meter rule, we eliminate
-        # variable pronunciations that don't scan.
-        lattice @= meter_rule
-        # If no such variable pronunciations exist, we have a defective line,
-        # or a deficiency in the variable rule grammar.
-        if lattice.start() == pynini.NO_STATE_ID:
-            line.defective = True
-            logging.warning(
-                "Defective line (line %d): %r", line_number, line.norm
-            )
-            return line
-        # TODO(kbg): by grabbing the string before projecting we can also get
-        # a list of the feet ('D', 'S', and 'T').
-        line.pron = pynini.shortestpath(lattice).project("input").string()
-    except rewrite.Error:
-        logging.error("Rewrite failure during pronunciation: %r", line.norm)
+    line.pron = pynini.shortestpath(meter_lattice).project("input").string()
     return line
 
 
@@ -74,7 +74,10 @@ def scan_document(
     normalize_rule: pynini.Fst,
     pronounce_rule: pynini.Fst,
     variable_rule: pynini.Fst,
-    meter_rule: pynini.Fst,
+    syllable_rule: pynini.Fst,
+    weight_rule: pynini.Fst,
+    foot_rule: pynini.Fst,
+    hexameter_rule: pynini.Fst,
     lines: Iterable[str],
     name: Optional[str] = None,
 ) -> scansion_pb2.Document:
@@ -94,7 +97,14 @@ def scan_document(
     document = scansion_pb2.Document(name=name)
     # This binds the rule nmes ahead of time.
     curried = functools.partial(
-        scan_line, normalize_rule, pronounce_rule, variable_rule, meter_rule
+        scan_line,
+        normalize_rule,
+        pronounce_rule,
+        variable_rule,
+        syllable_rule,
+        weight_rule,
+        foot_rule,
+        hexameter_rule,
     )
     scanned_lines = 0
     defective_lines = 0
