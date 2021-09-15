@@ -14,14 +14,16 @@ short_nucleus = Optimize[u.Rewrite[i.SHORT_VOWEL : "U", sigma_star]];
 
 obstruent = i.STOP | "f";
 muta_cum_liquida = (obstruent i.LIQUID) - ("tl" | "dl");
-labiovelar = ("k" | "g" | "s") "w";
-s_cluster = "s" (labiovelar | ((i.VOICELESS_STOP i.LIQUID?) - "tl"));
 onset = Optimize[
-  # Initial onsets are a somewhat richer set than medial ones.
-  # "s" consonant onsets are permitted at the beginning of words, and "x",
-  # "mn", and "phth" word-initial onsets are also found names from Greek.
-  CDRewrite[(s_cluster | "ks" | "mn" | "pt" | labiovelar | muta_cum_liquida |
-             i.CONSONANT) : "O",
+  CDRewrite[(
+            # Greek names may have word-initial onsets not otherwise found in
+            # Latin.
+            "ks" | "mn" | "pt" | "tm" |
+            # Initial s-clusters.
+            ("s" (((i.VOICELESS_STOP? i.LIQUID?) - "tl") | "k"? "w"?)) |
+            # Other stuff.
+            "kw" | "gw" | muta_cum_liquida | i.CONSONANT
+            ) : "O",
             i.BOW,
             i.NUCLEUS,
             sigma_star] @
@@ -39,7 +41,7 @@ onset = Optimize[
             'opt'] @
   # Mandatorily parses remaining muta cum liquida clusters, labiovelars, and
   # single consonants as onsets.
-  CDRewrite[(muta_cum_liquida | labiovelar | i.CONSONANT) : "O",
+  CDRewrite[(muta_cum_liquida | "kw" | "gw" | "sw" | i.CONSONANT) : "O",
             "",
             i.NUCLEUS,
             sigma_star,
