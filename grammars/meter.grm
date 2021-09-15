@@ -19,9 +19,9 @@ delete_strikethrough_undertie = Optimize[u.Rewrite[u.Delete[i.STRIKETHROUGH | "�
 # Removes the ligature tie and rewrites "i" or "u" to "j" or "w," respectively.
 synizesis_cleanup = Optimize[
   CDRewrite[(("i" | "iː") : "j") |
-            (("u" | "uː") : "w"), i.PHONEMIC_VOWEL "͡", "", sigma_star] @
-  CDRewrite[(("i" | "iː") : "j") |
             (("u" | "uː") : "w"), "", "͡" i.PHONEMIC_VOWEL, sigma_star] @
+  CDRewrite[(("i" | "iː") : "j") |
+            (("u" | "uː") : "w"), i.PHONEMIC_VOWEL "͡", "", sigma_star] @
    u.Rewrite[u.Delete["͡"], sigma_star]
  ];
 
@@ -272,4 +272,8 @@ test_markup_8 = AssertEqual[
 test_markup_9 = AssertEqual[
   "awt pelagoː danaü̶m̶ ̶iːnsidiaːs suspektakwe doːna" @ METER,
   "DDDSDT"
+];
+test_markup_10 = AssertEqual[
+  "floːribus‿iːnsiːdunt wariː͡is et kandida kirkũː" @ METER,
+  "DSSSDS"
 ];
