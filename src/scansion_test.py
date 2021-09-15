@@ -170,14 +170,13 @@ class ScansionTest(unittest.TestCase):
             line.pron, "weːnimu siːk demũː kolleːktiːs omnibu suːna"
         )
 
-
     def test_aen_2_764(self):
         text = "praedam adservābant hūc undique trōja gaza"
         line = self.scan_line(text)
         self.assertEqual(
             line.pron, "prajdadserwaːbant huːk undikwe troːia gazza"
         )
-    
+
     def test_aen_3_158(self):
         text = "īdem ventūrōs tollēmus in astra nepōtēs"
         line = self.scan_line(text)
@@ -211,9 +210,7 @@ class ScansionTest(unittest.TestCase):
     def test_aen_3_517(self):
         text = "armātumque aurō circumspicit Ōriōna"
         line = self.scan_line(text)
-        self.assertEqual(
-            line.pron, "armaːtũːkwe awroː kirkumspiki toːriːoːna"
-        )
+        self.assertEqual(line.pron, "armaːtũːkwe awroː kirkumspiki toːriːoːna")
 
     def test_aen_3_567(self):
         text = "ter spūmam ēlīsam et rōrantia vīdimus astra."
@@ -262,11 +259,13 @@ class ScansionTest(unittest.TestCase):
     def test_aen_4_617(self):
         text = "auxilium implōret videatque indigna suorum"
         line = self.scan_line(text)
-        self.assertEqual(
-            line.pron, "awksiliimploːret wideatkwindiŋna suoːrũː"
-        )
+        self.assertEqual(line.pron, "awksiliimploːret wideatkwindiŋna suoːrũː")
 
-    @unittest.skip("bijugoː defies conventional pronounciation rules in that the intervocalic j is not geminate.")
+    @unittest.skip(
+        "bijugoː defies conventional pronounciation rules in that the "
+        "intervocalic j is not geminate; perhaps j-gemination is not "
+        "triggered in derived environments."
+    )
     def test_aen_5_144(self):
         text = "Nōn tam praecipitēs bijugō certāmine campum"
         line = self.scan_line(text)
@@ -304,7 +303,7 @@ class ScansionTest(unittest.TestCase):
         self.assertEqual(
             line.pron, "juppite romnipoteːns siː noːndeksoːsu sa duːnũː"
         )
-    
+
     def test_aen_5_870(self):
         text = '"Ō nimium caelō et pelagō cōnfīse serēnō'
         line = self.scan_line(text)
@@ -324,9 +323,7 @@ class ScansionTest(unittest.TestCase):
     def test_aen_6_447(self):
         text = "Euadnēnque et Pāsiphaēn; hīs Lāodamīa"
         line = self.scan_line(text)
-        self.assertEqual(
-            line.pron, "eːwadneːŋkwet paːsipaeːn hiːs laːodamiːa"
-        )
+        self.assertEqual(line.pron, "eːwadneːŋkwet paːsipaeːn hiːs laːodamiːa")
 
     @unittest.skip("Requires systole.")
     def test_aen_6_507(self):
@@ -351,6 +348,7 @@ class ScansionTest(unittest.TestCase):
         self.assertEqual(
             line.pron, "illawtẽː tua meː genitor tua triːsti simaːgoː"
         )
+
 
 if __name__ == "__main__":
     logging.disable("CRITICAL")

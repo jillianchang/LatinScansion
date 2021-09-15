@@ -8,55 +8,45 @@ import 'utility.grm' as u;
 sigma_star = (i.PROSODIC_SYMBOL | i.PHONEME)*;
 
 h_deletion = Optimize[
-    CDRewrite[u.Delete["h"] <1>, "", "", sigma_star, 'ltr', 'opt']
+    CDRewrite[u.Delete["h"] <10>, "", "", sigma_star, 'ltr', 'opt']
 ];
 
 # A final syllable ending in a vowel, letter m, or diphthong is removed
 # before a word beginning with a vowel (or an h-).
 elision = Optimize[
-    CDRewrite[u.Delete[(i.PHONEMIC_VOWEL | "oj" | "aj" | "aw") " "] <100>,
+    CDRewrite[u.Delete[(i.PHONEMIC_VOWEL | "oj" | "aj" | "aw") " "] <1000>,
                         "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
 # TODO: orthographically annotate using "‿".
 resyllabification = Optimize[
-    CDRewrite[u.Insert[" "] <10>,
+    CDRewrite[u.Insert[" "] <100>,
               "", i.CONSONANT " " i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[u.Delete[" "] <10>,
+    CDRewrite[u.Delete[" "] <100>,
               " " i.CONSONANT, i.PHONEMIC_VOWEL, sigma_star]
 ];
 
 # High vowels may strengthen to their corresponding glides when adjacent to
 # another vowel.
 synizesis = Optimize[
-    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <1000>,
+    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <10000>,
                 "", i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <1000>,
+    CDRewrite[((("i" | "iː") : "j") | (("u" | "uː") : "w")) <10000>,
                 i.PHONEMIC_VOWEL, "", sigma_star, 'ltr', 'opt']
 ];
 
 # Glides may lenite to their corresponding vowels. 
 diaeresis = Optimize[
-    CDRewrite[("w" : "u") <1000>,
+    CDRewrite[("w" : "u") <10000>,
               "k" | "g", "", sigma_star, 'ltr', 'opt'] @
-    CDRewrite[("jj" : "i") <1000>,
+    CDRewrite[("jj" : "i") <10000>,
               i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
-];
-
-# Lengthening of a usually short syllable.
-# NB: this is not currently part of the exported VARIABLE cascade.
-diastole = Optimize[
-    CDRewrite[(("a" : "aː") | ("e" : "eː") | ("i" : "iː") |
-              ("o" : "oː") | ("u" : "uː")) <10000>,
-              "", "", sigma_star, 'ltr', 'opt']
 ];
 
 export VARIABLE = Optimize[h_deletion @ resyllabification @ elision @
                            synizesis @ diaeresis];
 
-# TODOs:
-# * Hypermeter: when a period has an extra syllable ending in a vowel
-#   or m which is elided into the first word of the following period, often with -que words.
-#   (1.448 ajrea kuj gradibus surgeːbant liːmina neksajkwe)
-# * Systole
+# Not currently handled:
+# * Systole and diastole
+# * Hypermeter: elision into the following line.
