@@ -21,7 +21,7 @@ def scan_line(
 ) -> scansion_pb2.Line:
     """Scans a single line of poetry.
 
-    Note that 
+    Note that
 
     Args:
       normalize_rule: the normalization rule.
@@ -38,7 +38,9 @@ def scan_line(
     # Applies normalization.
     try:
         # We need escapes for normalization since Pharr uses [ and ].
-        line.norm = rewrite.top_rewrite(pynini.escape(line.text), normalize_rule)
+        line.norm = rewrite.top_rewrite(
+            pynini.escape(line.text), normalize_rule
+        )
     except rewrite.Error:
         logging.error(
             "Rewrite failure during normalization (line %d): %r",
