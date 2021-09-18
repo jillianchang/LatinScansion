@@ -19,7 +19,10 @@ class ScansionTest(unittest.TestCase):
                 far["NORMALIZE"],
                 far["PRONOUNCE"],
                 far["VARIABLE"],
-                far["METER"],
+                far["SYLLABLE"],
+                far["WEIGHT"],
+                far["FOOT"],
+                far["HEXAMETER"],
             )
 
     # Tests all features of the first line's markup.
