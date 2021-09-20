@@ -34,20 +34,27 @@ message Foot {
   optional Type type = 2;
 }
 
-message Line {
-  optional int32 line_number = 1;
-  optional string text = 2;                       // Text before normalization.
-  optional string norm = 3;                       // Text after normalization.
-  optional string pron = 4;                       // IPA pronunciation.
+message Verse {
+  optional int32 verse_number = 1;
+  // Text before normalization.
+  optional string text = 2;
+  // Text after normalization.
+  optional string norm = 3;
+  // IPA pronunciation before poetic variation is introduced.
+  optional string raw_pron = 4;
+  // IPA pronunciation after poetic variation is introduced.
+  optional string var_pron = 5;
 
-  repeated Foot foot = 5;
+  repeated Foot foot = 6;
 
-  optional bool defective = 6 [default = false];
-  optional string comment = 7;                    // Optional notes.
+  // Is the verse defective? (If so, 
+  optional bool defective = 7 [default = false];
+  // Optional notes.
+  optional string comment = 8;
 }
 
-// A document is just a series of lines with optional name metadata.
+// A document is just a series of verses with optional name metadata.
 message Document {
   optional string name = 1;
-  repeated Line line = 2;
+  repeated Verse verse = 2;
 }
