@@ -11,6 +11,16 @@ from pynini.lib import rewrite
 import scansion_pb2  # type: ignore
 
 
+def _forward(fst1: pynini.FstLike, fst2: pynini.FstLike) -> pynini.Fst:
+    # TODO: docs?
+    return fst1 @ pynini.project(fst2, "input")
+
+
+def _backward(fst1: pynini.FstLike, fst2: pynini.FstLike) -> pynini.Fst:
+    # TODO: docs?
+    return pynini.shortestpath(pynini.project(fst1, "output") @ fst2)
+
+
 def scan_verse(
     normalize_rule: pynini.Fst,
     pronounce_rule: pynini.Fst,
@@ -53,27 +63,34 @@ def scan_verse(
     except rewrite.Error:
         logging.error("Rewrite failure (verse %d)", verse.verse_number)
         return verse
-    # Computes variant pronunciation candidates.
-    try:
-        pron_lattice = rewrite.rewrite_lattice(verse.raw_pron, variable_rule)
-    except rewrite.Error:
-        logging.error("Rewrite failure (verse %d)", verse.verse_number)
-        return verse
-    # Filters with meter information.
-    pron_lattice @= syllable_rule
-    pron_lattice @= weight_rule
-    pron_lattice @= foot_rule
-    pron_lattice @= hexameter_rule
-    # Bails out if no hexameter parse is found.
-    if pron_lattice.start() == pynini.NO_STATE_ID:
+    var_lattice = _forward(verse.raw_pron, variable_rule)
+    syllable_lattice = _forward(var_lattice, syllable_rule)
+    weight_lattice = _forward(syllable_lattice, weight_rule)
+    foot_lattice = _forward(weight_lattice, foot_rule)
+    # Filters out any non-hexameter parses.
+    foot_lattice @= hexameter_rule
+    if foot_lattice.start() == pynini.NO_STATE_ID:
         verse.defective = True
         logging.warning(
             "Defective verse (verse %d): %r", verse.verse_number, verse.norm
         )
         return verse
-    verse.var_pron = (
-        pynini.shortestpath(pron_lattice).project("input").string()
-    )
+    # Work backwards to obtain intermediate structure.
+    weight_lattice = _backward(weight_lattice, foot_lattice)
+    syllable_lattice = _backward(syllable_lattice, weight_lattice)
+    var_lattice = _backward(var_lattice, syllable_lattice)
+    """
+    verse.var_pron = pynini.shortestpath(var_lattice).string()
+    # Encodes variable structure.
+    verse.var_pron = var_lattice.string()
+    # TODO: Encodes feet structure.
+    paths = weight_lattice.paths()
+    print(zip(paths.ilabels(), paths.olabels()))
+    foot_lattice = pynini.shortestpath(foot_lattice)
+    for foot_code in foot_lattice.string():
+        foot = verse.foot.add()
+        foot.type = ord(foot_code)
+    """
     return verse
 
 

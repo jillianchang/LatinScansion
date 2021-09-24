@@ -15,9 +15,11 @@ message Syllable {
 
   optional string coda = 3;
 
+  // The encodings are the ASCII decimals here, so that one can use `chr` and
+  // `ord` to map in either direction.
   enum Weight {
-    BREVIS = 0;
-    LONGUS = 1;
+    BREVIS = 66;
+    LONGUS = 76;
   }
   optional Weight weight = 4;
 }
@@ -25,10 +27,12 @@ message Syllable {
 message Foot {
   repeated Syllable syllable = 1;
 
+  // The encodings are the ASCII decimals here, so that one can use `chr` and
+  // `ord` to map in either direction.
   enum Type {
-    DACTYL = 0;
-    SPONDEE = 1;
-    TROCHEE = 2;
+    DACTYL = 68;
+    SPONDEE = 83;
+    TROCHEE = 84;
     // TODO: enrich as needed.
   }
   optional Type type = 2;
