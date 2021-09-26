@@ -28,7 +28,6 @@ def main(args: argparse.Namespace) -> None:
             lines,
             args.name if args.name else os.path.normpath(args.input),
         )
-        print(sink)
         text_format.PrintMessage(document, sink, as_utf8=True)
 
 

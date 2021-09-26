@@ -95,7 +95,6 @@ def scan_verse(
     """
     verse = scansion_pb2.Verse(verse_number=verse_number, text=text)
     try:
-        # TODO: check that the normalization rule is functional.
         verse.norm = rewrite.top_rewrite(
             # We need escapes for normalization since Pharr uses [ and ].
             pynini.escape(verse.text),
@@ -105,7 +104,6 @@ def scan_verse(
         logging.error("Rewrite failure (verse %d)", verse.verse_number)
         return verse
     try:
-        # TODO: check that the pronounce rule is functional.
         verse.raw_pron = rewrite.top_rewrite(verse.norm, pronounce_rule)
     except rewrite.Error:
         logging.error("Rewrite failure (verse %d)", verse.verse_number)
