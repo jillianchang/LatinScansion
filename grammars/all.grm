@@ -15,3 +15,10 @@ export PRONOUNCE = p.PRONOUNCE;
 export SYLLABLE = s.SYLLABLE;
 export VARIABLE = v.VARIABLE;
 export WEIGHT = w.WEIGHT;
+
+# Tests the full cascade.
+test = AssertEqual[
+  "lītora---multum ille et terrīs jactātus et altō"
+   @ NORMALIZE @ PRONOUNCE @ VARIABLE @ SYLLABLE @ WEIGHT @ FOOT @ HEXAMETER,
+   "DSSSDS"
+];
