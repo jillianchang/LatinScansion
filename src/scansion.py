@@ -11,13 +11,6 @@ from pynini.lib import rewrite
 import scansion_pb2  # type: ignore
 
 
-# FIXME remove when done.
-def _pprint(fst: pynini.Fst) -> None:
-    for (istring, ostring, weight) in fst.paths().items():
-        print(f"{istring}\t->\t{ostring}\t({weight})")
-    print()
-
-
 def _chunk(fst: pynini.Fst) -> List[Tuple[str, str]]:
     """Chunks a string transducer into tuples.
 
