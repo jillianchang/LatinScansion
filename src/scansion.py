@@ -11,14 +11,61 @@ from pynini.lib import rewrite
 import scansion_pb2  # type: ignore
 
 
-def _forward(fst1: pynini.FstLike, fst2: pynini.FstLike) -> pynini.Fst:
-    # TODO: docs?
-    return fst1 @ pynini.project(fst2, "input")
+# FIXME remove when done.
+def _pprint(fst: pynini.Fst) -> None:
+    for (istring, ostring, weight) in fst.paths().items():
+        print(f"{istring}\t->\t{ostring}\t({weight})")
+    print()
 
 
-def _backward(fst1: pynini.FstLike, fst2: pynini.FstLike) -> pynini.Fst:
-    # TODO: docs?
-    return pynini.shortestpath(pynini.project(fst1, "output") @ fst2)
+def _chunk(fst: pynini.Fst) -> List[Tuple[str, str]]:
+    """Chunks a string transducer into tuples.
+
+    This function is given a string transducer of the form:
+
+        il1 il2 il3 il4 il5 il6
+        ol1 eps eps ol2 eps ol3
+
+    And returns the list:
+
+        [(il1 il2 il3, ol1), (il4 il5, ol2), (il6, ol3)]
+
+    It thus recovers the "many-to-one" alignment.
+
+    Args:
+       fst: a string transducer containing the alignment.
+
+    Returns:
+      A list of string, char tuples.
+    """
+    # Input epsilon-normalization and removal forces a sensible alignment.
+    fst = pynini.epsnormalize(fst).rmepsilon()
+    assert (
+        fst.properties(pynini.STRING, True) == pynini.STRING
+    ), "FST is not a string automaton"
+    alignment: List[Tuple[str, str]] = []
+    state = 0
+    arc = fst.arcs(state).value()
+    assert arc.ilabel, f"Input label leaving state {state} contains epsilon"
+    ilabels = bytearray([arc.ilabel])
+    assert arc.olabel, f"Output label leaving state {state} contains epsilon"
+    olabel = arc.olabel
+    for state in range(1, fst.num_states() - 1):
+        arc = fst.arcs(state).value()
+        assert (
+            arc.ilabel
+        ), f"Input label leaving state {state} contains epsilon"
+        # A non-epsilon olabel signals a new chunk.
+        if arc.olabel:
+            alignment.append((ilabels.decode("utf8"), chr(olabel)))
+            ilabels.clear()
+            olabel = arc.olabel
+        ilabels.append(arc.ilabel)
+    assert (
+        ilabels
+    ), f"Input label leaving penultimate state {state}  contains epsilon"
+    alignment.append((ilabels.decode("utf8"), chr(olabel)))
+    return alignment
 
 
 def scan_verse(
@@ -27,7 +74,6 @@ def scan_verse(
     variable_rule: pynini.Fst,
     syllable_rule: pynini.Fst,
     weight_rule: pynini.Fst,
-    foot_rule: pynini.Fst,
     hexameter_rule: pynini.Fst,
     text: str,
     verse_number: int = 0,
@@ -40,7 +86,6 @@ def scan_verse(
       variable_rule: the rule for introducing pronunciation variation.
       syllable_rule: the syllabification rule.
       weight_rule: the weight rule.
-      foot_rule: the foot rule.
       hexameter_rule: the hexameter rule.
       text: the input text.
       verse_number: an optional verse number (defaulting to -1).
@@ -49,48 +94,82 @@ def scan_verse(
       A populated Verse message.
     """
     verse = scansion_pb2.Verse(verse_number=verse_number, text=text)
-    # TODO: this is ugly but can be substantially redone, eventually.
     try:
-        # We need escapes for normalization since Pharr uses [ and ].
+        # TODO: check that the normalization rule is functional.
         verse.norm = rewrite.top_rewrite(
-            pynini.escape(verse.text), normalize_rule
+            # We need escapes for normalization since Pharr uses [ and ].
+            pynini.escape(verse.text),
+            normalize_rule,
         )
     except rewrite.Error:
         logging.error("Rewrite failure (verse %d)", verse.verse_number)
         return verse
     try:
+        # TODO: check that the pronounce rule is functional.
         verse.raw_pron = rewrite.top_rewrite(verse.norm, pronounce_rule)
     except rewrite.Error:
         logging.error("Rewrite failure (verse %d)", verse.verse_number)
         return verse
-    var_lattice = _forward(verse.raw_pron, variable_rule)
-    syllable_lattice = _forward(var_lattice, syllable_rule)
-    weight_lattice = _forward(syllable_lattice, weight_rule)
-    foot_lattice = _forward(weight_lattice, foot_rule)
-    # Filters out any non-hexameter parses.
-    foot_lattice @= hexameter_rule
-    if foot_lattice.start() == pynini.NO_STATE_ID:
+    var = verse.raw_pron @ variable_rule
+    syllable = pynini.project(var, "output") @ syllable_rule
+    weight = pynini.project(syllable, "output") @ weight_rule
+    foot = pynini.project(weight, "output") @ hexameter_rule
+    if foot.start() == pynini.NO_STATE_ID:
         verse.defective = True
         logging.warning(
             "Defective verse (verse %d): %r", verse.verse_number, verse.norm
         )
         return verse
-    # Work backwards to obtain intermediate structure.
-    weight_lattice = _backward(weight_lattice, foot_lattice)
-    syllable_lattice = _backward(syllable_lattice, weight_lattice)
-    var_lattice = _backward(var_lattice, syllable_lattice)
-    """
-    verse.var_pron = pynini.shortestpath(var_lattice).string()
-    # Encodes variable structure.
-    verse.var_pron = var_lattice.string()
-    # TODO: Encodes feet structure.
-    paths = weight_lattice.paths()
-    print(zip(paths.ilabels(), paths.olabels()))
-    foot_lattice = pynini.shortestpath(foot_lattice)
-    for foot_code in foot_lattice.string():
-        foot = verse.foot.add()
-        foot.type = ord(foot_code)
-    """
+    # Works backwards to obtain intermediate structure.
+    foot = pynini.arcmap(pynini.shortestpath(foot), map_type="rmweight")
+    weight = pynini.shortestpath(weight @ pynini.project(foot, "input"))
+    syllable = pynini.shortestpath(syllable @ pynini.project(weight, "input"))
+    # Writes structure to message.
+    verse.var_pron = pynini.project(syllable, "input").string()
+    foot_chunks = _chunk(foot)
+    weight_chunks = _chunk(weight)
+    syllable_chunks = _chunk(syllable)
+    # These help us preserve the multi-alignment.
+    weight_chunk_idx = 0
+    syllable_chunk_idx = 0
+    for weight_codes, foot_code in foot_chunks:
+        # The foot type enum uses the ASCII decimals; see scansion.proto.
+        foot = verse.foot.add(type=ord(foot_code))
+        for weight_code in weight_codes:
+            syllable_codes, exp_weight_code = weight_chunks[weight_chunk_idx]
+            assert (
+                weight_code == exp_weight_code
+            ), f"Weight code mismatch: {weight_code!r} != {exp_weight_code!r}"
+            weight_chunk_idx += 1
+            # Skips over whitespace between words.
+            if weight_code.isspace():
+                # We also advance one step in the syllable chunking or this
+                # will become misaligned.
+                syllable_chunk_idx += 1
+                continue
+            syllable = foot.syllable.add(weight=ord(weight_code))
+            for syllable_code in syllable_codes:
+                var_codes, exp_syllable_code = syllable_chunks[
+                    syllable_chunk_idx
+                ]
+                assert syllable_code == exp_syllable_code, (
+                    "Syllable code mismatch: "
+                    f"{syllable_code!r} != {exp_syllable_code!r}"
+                )
+                syllable_chunk_idx += 1
+                # Skips over whitespace between words.
+                if syllable_code.isspace():
+                    continue
+                if syllable_code == "O":
+                    syllable.onset = var_codes
+                elif syllable_code in ("-", "U"):
+                    syllable.nucleus = var_codes
+                elif syllable_code == "C":
+                    syllable.coda = var_codes
+                else:
+                    raise AssertionError(
+                        f"Unknown syllable code: {syllable_code}"
+                    )
     return verse
 
 
@@ -100,7 +179,6 @@ def scan_document(
     variable_rule: pynini.Fst,
     syllable_rule: pynini.Fst,
     weight_rule: pynini.Fst,
-    foot_rule: pynini.Fst,
     hexameter_rule: pynini.Fst,
     verses: Iterable[str],
     name: Optional[str] = None,
@@ -127,7 +205,6 @@ def scan_document(
         variable_rule,
         syllable_rule,
         weight_rule,
-        foot_rule,
         hexameter_rule,
     )
     scanned_verses = 0
