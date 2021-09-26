@@ -24,7 +24,6 @@ def main(args: argparse.Namespace) -> None:
             far["VARIABLE"],
             far["SYLLABLE"],
             far["WEIGHT"],
-            far["FOOT"],
             far["HEXAMETER"],
             lines,
             args.name if args.name else os.path.normpath(args.input),
