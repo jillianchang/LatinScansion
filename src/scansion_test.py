@@ -21,7 +21,6 @@ class ScansionTest(unittest.TestCase):
                 far["VARIABLE"],
                 far["SYLLABLE"],
                 far["WEIGHT"],
-                far["FOOT"],
                 far["HEXAMETER"],
             )
 

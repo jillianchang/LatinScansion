@@ -8,11 +8,11 @@ import 'weight.grm' as w;
 
 # Filters footing to valid hexameter patterns.
 export HEXAMETER = Optimize[
-    Project[(f.DACTYL | f.SPONDEE){5} (f.SPONDEE | f.TROCHEE), 'output']
+  f.FOOT @ Project[(f.DACTYL | f.SPONDEE){5} (f.SPONDEE | f.TROCHEE), 'output']
 ];
 
 # For testing only.
-meter = Optimize[s.SYLLABLE @ w.WEIGHT @ f.FOOT @ HEXAMETER];
+meter = Optimize[s.SYLLABLE @ w.WEIGHT @ HEXAMETER];
 
 # Complete foot mapping for "Mūsa, mihī causās memorā, quō nūmine laesō."
 test_1_syllable = AssertEqual[

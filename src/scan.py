@@ -18,18 +18,17 @@ def main(args: argparse.Namespace) -> None:
         source = stack.enter_context(open(args.input, "r"))
         sink = stack.enter_context(open(args.output, "w"))
         lines = [line.rstrip() for line in source]
-        scanned = scansion.scan_document(
+        document = scansion.scan_document(
             far["NORMALIZE"],
             far["PRONOUNCE"],
             far["VARIABLE"],
             far["SYLLABLE"],
             far["WEIGHT"],
-            far["FOOT"],
             far["HEXAMETER"],
             lines,
             args.name if args.name else os.path.normpath(args.input),
         )
-        text_format.PrintMessage(scanned, sink, as_utf8=True)
+        text_format.PrintMessage(document, sink, as_utf8=True)
 
 
 if __name__ == "__main__":
