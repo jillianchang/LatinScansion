@@ -21,9 +21,9 @@ test_1_syllable = AssertEqual[
 ];
 test_1_weight = AssertEqual[
   "O-OU OUO- OUCO-C OUOUO- O- O-OUOU OUCO-" @ w.WEIGHT,
-  "LB BL LL BBL L LBB LL"
+  "HL LH HH LLH H HLL HH"
 ];
-test_1_foot = AssertEqual["LB BL LL BBL L LBB LL" @ f.FOOT, "DSDSDS"];
+test_1_foot = AssertEqual["HL LH HH LLH H HLL HH" @ f.FOOT, "DSDSDS"];
 
 # Complete foot mapping for "Urbs antīqua fuit (Tyriī tenuēre colōnī)."
 test_2_syllable = AssertEqual[
@@ -32,9 +32,9 @@ test_2_syllable = AssertEqual[
 ];
 test_2_weight = AssertEqual[
   "UC UCO-OU OUUC OUOU- OUOU-OU OUO-O-" @ w.WEIGHT,
-  "L LLB BL BBL BBLB BLL"
+  "H HHL LH LLH LLHL LHH"
 ];
-test_2_foot = AssertEqual["L LLB BL BBL BBLB BLL" @ f.FOOT, "SDDDDS"];
+testH2Hfoot = AssertEqual["H HHL LH LLH LLHL LHH" @ f.FOOT, "SDDDDS"];
 
 # Complete foot mapping for "quidve dolēns rēgīna deum tot volvere cāsūs."
 test_3_syllable = AssertEqual[
@@ -43,9 +43,9 @@ test_3_syllable = AssertEqual[
 ];
 test_3_weight = AssertEqual[
   "OUCOU OUO-C O-O-OU OU- OUC OUCOUOU O-O-C" @ w.WEIGHT,
-  "LB BL LLB BL L LBB LL"
+  "HL LH HHL LH H HLL HH"
 ];
-test_3_foot = AssertEqual["LB BL LLB BL L LBB LL" @ f.FOOT, "DSDSDS"];
+testL3Lfoot = AssertEqual["HL LH HHL LH H HLL HH" @ f.FOOT, "DSDSDS"];
 
 # Tests a defective line.
 test_defective_1 = AssertNull[
