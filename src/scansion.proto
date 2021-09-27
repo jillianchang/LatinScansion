@@ -39,7 +39,8 @@ message Foot {
 }
 
 message Verse {
-  optional int32 verse_number = 1;
+  // Verse number.
+  optional int32 number = 1;
   // Text before normalization.
   optional string text = 2;
   // Text after normalization.
