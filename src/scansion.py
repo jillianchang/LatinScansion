@@ -69,7 +69,7 @@ def scan_verse(
     weight_rule: pynini.Fst,
     hexameter_rule: pynini.Fst,
     text: str,
-    verse_number: int = 0,
+    number: int = 0,
 ) -> scansion_pb2.Verse:
     """Scans a single verse of poetry.
 
@@ -81,12 +81,12 @@ def scan_verse(
       weight_rule: the weight rule.
       hexameter_rule: the hexameter rule.
       text: the input text.
-      verse_number: an optional verse number (defaulting to -1).
+      number: an optional verse number (defaulting to -1).
 
     Returns:
       A populated Verse message.
     """
-    verse = scansion_pb2.Verse(verse_number=verse_number, text=text)
+    verse = scansion_pb2.Verse(number=number, text=text)
     try:
         verse.norm = rewrite.top_rewrite(
             # We need escapes for normalization since Pharr uses [ and ].
@@ -94,12 +94,12 @@ def scan_verse(
             normalize_rule,
         )
     except rewrite.Error:
-        logging.error("Rewrite failure (verse %d)", verse.verse_number)
+        logging.error("Rewrite failure (verse %d)", verse.number)
         return verse
     try:
         verse.raw_pron = rewrite.top_rewrite(verse.norm, pronounce_rule)
     except rewrite.Error:
-        logging.error("Rewrite failure (verse %d)", verse.verse_number)
+        logging.error("Rewrite failure (verse %d)", verse.number)
         return verse
     var = verse.raw_pron @ variable_rule
     syllable = pynini.project(var, "output") @ syllable_rule
@@ -108,7 +108,7 @@ def scan_verse(
     if foot.start() == pynini.NO_STATE_ID:
         verse.defective = True
         logging.warning(
-            "Defective verse (verse %d): %r", verse.verse_number, verse.norm
+            "Defective verse (verse %d): %r", verse.number, verse.norm
         )
         return verse
     # Works backwards to obtain intermediate structure.
@@ -200,11 +200,11 @@ def scan_document(
     )
     scanned_verses = 0
     defective_verses = 0
-    for verse_number, verse in enumerate(verses, 1):
+    for number, verse in enumerate(verses, 1):
         # TODO(kbg): the `append` method copies the message to avoid circular
         # references. Would we improve performance using the `add` method and
         # passing the empty message to be mutated?
-        scanned = curried(verse, verse_number)
+        scanned = curried(verse, number)
         document.verse.append(scanned)
         if scanned.defective:
             defective_verses += 1

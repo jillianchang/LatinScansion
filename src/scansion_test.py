@@ -28,7 +28,7 @@ class ScansionTest(unittest.TestCase):
     def test_aen_1_1(self):
         text = "Arma virumque canō, Trojae quī prīmus ab ōris"
         verse = self.scan_verse(text, 1)
-        self.assertEqual(verse.verse_number, 1)
+        self.assertEqual(verse.number, 1)
         self.assertEqual(verse.text, text)
         self.assertEqual(
             verse.norm, "arma virumque canō trojae quī prīmus ab ōris"
