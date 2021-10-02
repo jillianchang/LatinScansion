@@ -28,7 +28,7 @@ environment.
 conda activate scansion
 ```
 
-This step needs to be repeated each time you start a new shell.
+This second step needs to be repeated each time you start a new shell.
 
 Compilation
 -----------
