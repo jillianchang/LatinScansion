@@ -44,6 +44,6 @@ make -C src
 Authors
 -------
 
--   Jillian Chang
+-   [Jillian Chang](jillianchang15@gmail.com)
 -   [Kyle Gorman](kgorman@gc.cuny.edu)
 
