@@ -1,22 +1,21 @@
 #!/usr/bin/env python
-"""Command-line scansion driver."""
+"""Scans a text document, outputting a Document textproto."""
 
 import argparse
 import contextlib
 import logging
 import os.path
 
-from google.protobuf import text_format  # type: ignore
 import pynini
 
 import scansion
+import textproto
 
 
 def main(args: argparse.Namespace) -> None:
     with contextlib.ExitStack() as stack:
         far = stack.enter_context(pynini.Far(args.far, "r"))
         source = stack.enter_context(open(args.input, "r"))
-        sink = stack.enter_context(open(args.output, "w"))
         lines = [line.rstrip() for line in source]
         document = scansion.scan_document(
             far["NORMALIZE"],
@@ -28,7 +27,7 @@ def main(args: argparse.Namespace) -> None:
             lines,
             args.name if args.name else os.path.normpath(args.input),
         )
-        text_format.PrintMessage(document, sink, as_utf8=True)
+        textproto.write_document(document, args.output)
 
 
 if __name__ == "__main__":
