@@ -48,7 +48,7 @@ make -C latin_scansion/lib
 3.  Install the Python library:
 
 ```
-python setup.py install
+pip install -e .
 ```
 
 Command-line tools
@@ -62,7 +62,7 @@ Installation produces two command-line tools:
     representation of document's scansion. Sample usage:
 
 ```
-latin_scan --far grammars/all.far --name "Aeneid, book 1" data/Aeneid/Aeneid01.txt data/Aeneid/Aeneid01.textproto
+latin_scan --far grammars/all.far data/Aeneid/Aeneid01.txt data/Aeneid/Aeneid01.textproto
 ```
 
 -   [`latin_validate`](latin_scansion/cli/validate.py) validates (and
@@ -70,6 +70,13 @@ latin_scan --far grammars/all.far --name "Aeneid, book 1" data/Aeneid/Aeneid01.t
 
 ```
 latin_validate data/Aeneid/Aeneid01.textproto
+```
+
+Testing
+-------
+
+```
+pytest tests
 ```
 
 Authors

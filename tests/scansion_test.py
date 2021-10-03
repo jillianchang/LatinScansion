@@ -6,16 +6,16 @@ import unittest
 
 import pynini
 
-import scansion
+import latin_scansion
 
 
 class ScansionTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        with pynini.Far("../../grammars/all.far", "r") as far:
+        with pynini.Far("grammars/all.far", "r") as far:
             cls.scan_verse = functools.partial(
-                scansion.scan_verse,
+                latin_scansion.scan_verse,
                 far["NORMALIZE"],
                 far["PRONOUNCE"],
                 far["VARIABLE"],
