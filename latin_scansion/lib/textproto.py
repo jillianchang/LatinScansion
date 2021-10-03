@@ -3,7 +3,7 @@
 
 from google.protobuf import text_format  # type: ignore
 
-import scansion_pb2  # type: ignore
+from latin_scansion.lib import scansion_pb2  # type: ignore
 
 
 # TODO(kbg): Add read and write functions for Verse messages, if needed.

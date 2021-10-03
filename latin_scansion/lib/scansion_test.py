@@ -13,7 +13,7 @@ class ScansionTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        with pynini.Far("../grammars/all.far", "r") as far:
+        with pynini.Far("../../grammars/all.far", "r") as far:
             cls.scan_verse = functools.partial(
                 scansion.scan_verse,
                 far["NORMALIZE"],
