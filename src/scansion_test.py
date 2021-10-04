@@ -61,7 +61,7 @@ class ScansionTest(unittest.TestCase):
             verse.foot[5].type, scansion_pb2.Foot.SPONDEE
         )
 
-        # Tests syllable structures.
+        # Tests syllable weights. 
         self.assertEqual(
             verse.foot[0].syllable[0].weight, scansion_pb2.Syllable.HEAVY
         )
@@ -112,6 +112,107 @@ class ScansionTest(unittest.TestCase):
         )
         self.assertEqual(
             verse.foot[5].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+        )
+
+        # Tests subsyllabic units.
+        self.assertEqual(
+            verse.foot[0].syllable[0].nucleus, 'a'
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[0].coda, 'r'
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[1].onset, 'm'
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[1].nucleus, 'a'
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[2].onset, 'w'
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[2].nucleus, 'i'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[0].onset, 'r'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[0].nucleus, 'ũː'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[1].onset, 'kw'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[1].nucleus, 'e'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[2].onset, 'k'
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[2].nucleus, 'a'
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[0].onset, 'n'
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[0].nucleus, 'oː'
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[1].onset, 'tr'
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[1].nucleus, 'o'
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[1].coda, 'j'
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[0].onset, 'j'
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[0].nucleus, 'a'
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[0].coda, 'j'
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[1].onset, 'kw'
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[1].nucleus, 'iː'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[0].onset, 'pr'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[0].nucleus, 'iː'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[1].onset, 'm'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[1].nucleus, 'u'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[2].onset, 's'
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[2].nucleus, 'a'
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[0].onset, 'b'
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[0].nucleus, 'oː'
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[1].onset, 'r'
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[1].nucleus, 'i'
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[1].coda, 's'
         )
 
     # Scans verse 1.534, which is clearly defective (and in this case, it's
