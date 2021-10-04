@@ -51,7 +51,7 @@ jobs:
           name: Build all assets and run pytest
           working_directory: ~/project
           command: |
-              conda env create -f environment.yml
+              conda env create --quiet --file environment.yml
               source ~/.bashrc
               conda activate scansion
               make -j -C grammars
