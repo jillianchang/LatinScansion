@@ -33,6 +33,9 @@ jobs:
           name: black
           working_directory: ~/project
           command: black --line-length=79 --check latin_scansion setup.py tests
+  build-python-3.9: &template
+    docker:
+      - image: python:3.9
   test-python-3.8: &template
     docker:
       - image: continuumio/miniconda3
