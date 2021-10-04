@@ -1,0 +1,43 @@
+version: 2
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build-python-3.8
+      - build-python-3.9
+
+jobs:
+  build-python-3.8: &template
+    docker:
+      - image: python:3.8
+    steps:
+      - checkout
+      - run:
+          name: Build source distribution and install package from it
+          working_directory: ~/project/
+          # Ensure we can build a source distribution that can correctly install.
+          # "python setup.py sdist" creates dist/latin_scansion-x.y.z.tar.gz
+          command: |
+              pip install --progress-bar off --upgrade pip setuptools
+              python setup.py sdist
+              pip install dist/`ls dist/ | grep .tar.gz`
+      - run:
+          name: Install the full development requirements
+          working_directory: ~/project/
+          command: pip install --progress-bar off -r requirements.txt
+      - run:
+          name: Show installed Python packages
+          command: pip list
+      - run:
+          name: flake8
+          working_directory: ~/project
+          command: flake8 latin_scansion setup.py tests
+      - run: 
+          name: black
+          working_directory: ~/project
+          command: black --line-length=79 --check latin_scansion setup.py tests
+  build-python-3.9:
+    <<: *template
+    docker:
+      - image: python:3.9
