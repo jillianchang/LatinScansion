@@ -2,6 +2,7 @@
 
 [![Supported Python
 versions](https://img.shields.io/pypi/pyversions/wikipron.svg)](https://pypi.org/project/wikipron)
+[![CircleCI](https://circleci.com/gh/CUNY-CL/wikipron/tree/master.svg?style=svg)](https://circleci.com/gh/CUNY-CL/wikipron/tree/master)
 
 This library uses finite-state grammars to automate Latin scansion, with an
 initial focus on the dactylic hexameters of Virgil.
