@@ -33,10 +33,11 @@ jobs:
           name: black
           working_directory: ~/project
           command: black --line-length=79 --check latin_scansion setup.py tests
-  build-python-3.9: &template
+  build-python3.9:
+    <<: *template
     docker:
       - image: python:3.9
-  test-python-3.8: &template
+  test:
     docker:
       - image: continuumio/miniconda3
     steps:
@@ -48,7 +49,7 @@ jobs:
               conda env create -f environment.yml
               source 
       - run:
-          name: pytest
+          name: Build all assets and run pytest
           working_directory: ~/project
           command: |
               source ~/.bashrc
@@ -57,7 +58,3 @@ jobs:
               make -C latin_scansion/lib
               pip install -e .
               pytest -v tests
-  test-python-3.9:
-    <<: *template
-    docker:
-      - image: python:3.9
