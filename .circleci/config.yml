@@ -46,7 +46,7 @@ jobs:
             source 
       - run:
           name: pytest
-            command: |
+          command: |
               source ~/.bashrc
               conda activate scansion
               make -j -C grammars
