@@ -23,6 +23,10 @@ jobs:
               python setup.py sdist
               pip install dist/`ls dist/ | grep .tar.gz`
       - run:
+          name: Install the full development requirements
+          working_directory: ~/project/
+          command: pip install --progress-bar off -r requirements.txt
+      - run:
           name: Show installed Python packages
           command: pip list
       - run:
@@ -33,7 +37,7 @@ jobs:
           name: black
           working_directory: ~/project
           command: black --line-length=79 --check latin_scansion setup.py tests
-  build-python3.9:
+  build-python-3.9:
     <<: *template
     docker:
       - image: python:3.9
