@@ -6,6 +6,7 @@ workflows:
     jobs:
       - build-python-3.8
       - build-python-3.9
+      - test-python-3.8
 
 jobs:
   build-python-3.8: &template
@@ -41,24 +42,24 @@ jobs:
     <<: *template
     docker:
       - image: python:3.9
-#  test:
-#    docker:
-#      - image: continuumio/miniconda3
-#    steps:
-#      - checkout
-#      - run:
-#          name: Install dependencies
-#          working_directory: ~/project
-#          command: |
-#              conda env create -f environment.yml
-#              source 
-#      - run:
-#          name: Build all assets and run pytest
-#          working_directory: ~/project
-#          command: |
-#              source ~/.bashrc
-#              conda activate scansion
-#              make -j -C grammars
-#              make -C latin_scansion/lib
-#              pip install -e .
-#              pytest -v tests
+  test-python-3.8:
+    docker:
+      - image: continuumio/miniconda3
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          working_directory: ~/project
+          command: |
+              conda env create -f environment.yml
+              source 
+      - run:
+          name: Build all assets and run pytest
+          working_directory: ~/project
+          command: |
+              source ~/.bashrc
+              conda activate scansion
+              make -j -C grammars
+              make -C latin_scansion/lib
+              pip install -e .
+              pytest -v tests
