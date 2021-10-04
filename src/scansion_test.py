@@ -7,6 +7,7 @@ import unittest
 import pynini
 
 import scansion
+import scansion_pb2
 
 
 class ScansionTest(unittest.TestCase):
@@ -38,6 +39,79 @@ class ScansionTest(unittest.TestCase):
         )
         self.assertEqual(
             verse.var_pron, "arma wirũːkwe kanoː trojjaj kwiː priːmu sa boːris"
+        )
+
+        # Tests foot structures.
+        self.assertEqual(
+            verse.foot[0].type, scansion_pb2.Foot.DACTYL
+        )
+        self.assertEqual(
+            verse.foot[1].type, scansion_pb2.Foot.DACTYL
+        )
+        self.assertEqual(
+            verse.foot[2].type, scansion_pb2.Foot.SPONDEE
+        )
+        self.assertEqual(
+            verse.foot[3].type, scansion_pb2.Foot.SPONDEE
+        )
+        self.assertEqual(
+            verse.foot[4].type, scansion_pb2.Foot.DACTYL
+        )
+        self.assertEqual(
+            verse.foot[5].type, scansion_pb2.Foot.SPONDEE
+        )
+
+        # Tests syllable structures.
+        self.assertEqual(
+            verse.foot[0].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[0].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[1].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[3].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[4].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+        )
+        self.assertEqual(
+            verse.foot[2].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+        )
+        self.assertEqual(
+            verse.foot[5].syllable[1].weight, scansion_pb2.Syllable.HEAVY
         )
 
     # Scans verse 1.534, which is clearly defective (and in this case, it's
