@@ -7,7 +7,6 @@ import unittest
 import pynini
 
 import latin_scansion
-from src import scansion_pb2
 
 class ScansionTest(unittest.TestCase):
     @classmethod
@@ -41,75 +40,75 @@ class ScansionTest(unittest.TestCase):
         )
                 # Tests foot structures.
         self.assertEqual(
-            verse.foot[0].type, scansion_pb2.Foot.DACTYL
+            verse.foot[0].type, latin_scansion.Foot.DACTYL
         )
         self.assertEqual(
-            verse.foot[1].type, scansion_pb2.Foot.DACTYL
+            verse.foot[1].type, latin_scansion.Foot.DACTYL
         )
         self.assertEqual(
-            verse.foot[2].type, scansion_pb2.Foot.SPONDEE
+            verse.foot[2].type, latin_scansion.Foot.SPONDEE
         )
         self.assertEqual(
-            verse.foot[3].type, scansion_pb2.Foot.SPONDEE
+            verse.foot[3].type, latin_scansion.Foot.SPONDEE
         )
         self.assertEqual(
-            verse.foot[4].type, scansion_pb2.Foot.DACTYL
+            verse.foot[4].type, latin_scansion.Foot.DACTYL
         )
         self.assertEqual(
-            verse.foot[5].type, scansion_pb2.Foot.SPONDEE
+            verse.foot[5].type, latin_scansion.Foot.SPONDEE
         )
 
         # Tests syllable weights. 
         self.assertEqual(
-            verse.foot[0].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[0].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[0].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[0].syllable[1].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[0].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[0].syllable[2].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[1].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[1].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[1].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[1].syllable[1].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[1].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[1].syllable[2].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[2].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[2].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[2].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[2].syllable[1].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[3].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[3].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[3].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[3].syllable[1].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[4].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[4].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[4].syllable[1].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[4].syllable[1].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[4].syllable[2].weight, scansion_pb2.Syllable.LIGHT
+            verse.foot[4].syllable[2].weight, latin_scansion.Syllable.LIGHT
         )
         self.assertEqual(
-            verse.foot[2].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[2].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[5].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[5].syllable[1].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[5].syllable[0].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[5].syllable[0].weight, latin_scansion.Syllable.HEAVY
         )
         self.assertEqual(
-            verse.foot[5].syllable[1].weight, scansion_pb2.Syllable.HEAVY
+            verse.foot[5].syllable[1].weight, latin_scansion.Syllable.HEAVY
         )
 
         # Tests subsyllabic units.
