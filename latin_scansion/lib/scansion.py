@@ -8,7 +8,7 @@ from typing import Iterable, List, Optional, Tuple
 import pynini
 from pynini.lib import rewrite
 
-import scansion_pb2  # type: ignore
+from latin_scansion.lib import scansion_pb2  # type: ignore
 
 
 def _chunk(fst: pynini.Fst) -> List[Tuple[str, str]]:
