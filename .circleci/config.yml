@@ -48,15 +48,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          working_directory: ~/project
-          command: |
-              conda env create -f environment.yml
-              source 
-      - run:
           name: Build all assets and run pytest
           working_directory: ~/project
           command: |
+              conda env create -f environment.yml
               source ~/.bashrc
               conda activate scansion
               make -j -C grammars
