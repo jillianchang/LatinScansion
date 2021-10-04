@@ -26,7 +26,7 @@ def _chunk(fst: pynini.Fst) -> List[Tuple[str, str]]:
     It thus recovers the "many-to-one" alignment.
 
     Args:
-       fst: a string transducer containing the alignment.
+      fst: a string transducer containing the alignment.
 
     Returns:
       A list of string, char tuples.
