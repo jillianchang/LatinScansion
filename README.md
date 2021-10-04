@@ -30,15 +30,15 @@ This second step needs to be repeated each time you start a new shell.
 
 1.  Compile the grammar assets:
 
-    make -j -C grammars
+        make -j -C grammars
 
 2.  Generate the textproto library:
 
-    make -C latin_scansion/lib
+        make -C latin_scansion/lib
 
 3.  Install the Python library:
 
-    pip install -e .
+        pip install -e .
 
 ## Command-line tools
 
@@ -49,12 +49,12 @@ Installation produces two command-line tools:
     [textproto](https://medium.com/@nathantnorth/protocol-buffers-text-format-14e0584f70a5)
     representation of document's scansion. Sample usage:
 
-    latin_scan --far grammars/all.far data/Aeneid/Aeneid01.txt data/Aeneid/Aeneid01.textproto
+        latin_scan --far grammars/all.far data/Aeneid/Aeneid01.txt data/Aeneid/Aeneid01.textproto
 
 -   [`latin_validate`](latin_scansion/cli/validate.py) validates (and
     optionally, canonicalizes) a textproto document scansion. Sample usage:
 
-    latin_validate data/Aeneid/Aeneid01.textproto
+        latin_validate data/Aeneid/Aeneid01.textproto
 
 ## Testing
 
