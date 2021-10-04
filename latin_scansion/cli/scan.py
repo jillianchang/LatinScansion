@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Scans a text document, outputting a Document textproto."""
 
 import argparse
@@ -8,11 +7,22 @@ import os.path
 
 import pynini
 
-import scansion
-import textproto
+from latin_scansion import scansion
+from latin_scansion import textproto
 
 
-def main(args: argparse.Namespace) -> None:
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("input", help="path for input text document")
+    parser.add_argument("output", help="path for output textproto document")
+    parser.add_argument("--far", required=True, help="path to grammar FAR")
+    parser.add_argument("--name", help="optional name field")
+    return parser.parse_args()
+
+
+def main() -> None:
+    logging.basicConfig(format="%(levelname)s: %(message)s", level="INFO")
+    args = _parse_args()
     with contextlib.ExitStack() as stack:
         far = stack.enter_context(pynini.Far(args.far, "r"))
         source = stack.enter_context(open(args.input, "r"))
@@ -28,13 +38,3 @@ def main(args: argparse.Namespace) -> None:
             args.name if args.name else os.path.normpath(args.input),
         )
         textproto.write_document(document, args.output)
-
-
-if __name__ == "__main__":
-    logging.basicConfig(format="%(levelname)s: %(message)s", level="INFO")
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", help="path for input text document")
-    parser.add_argument("output", help="path for output textproto document")
-    parser.add_argument("--far", required=True, help="path to grammar FAR")
-    parser.add_argument("--name", help="optional name field")
-    main(parser.parse_args())
