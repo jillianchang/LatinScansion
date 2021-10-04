@@ -7,14 +7,20 @@ sigma_star = b.kBytes*; # Operates over all bytes.
 # Converts all uppercase letters to lowercase.
 casefold = Optimize[CDRewrite[StringFile['casefold.tsv'], "", "", sigma_star]];
 
-# Removes all punctuation, except the em-dash, which is replaced with a space character.
+# Removes all punctuation, except the em-dash, which is replaced with a space
+# character.
 punctuation = "!" | "\"" | "'" | "(" | ")" | "\[" |
               "\]" | "," | "." | ":" | ";" | "?";
 remove_em_dash_end = Optimize[CDRewrite["---": "", "", "[EOS]", sigma_star]];
 remove_em_dash = Optimize[CDRewrite["---" : " ", "", "", sigma_star]];
 remove_punctuation = Optimize[CDRewrite[punctuation : "", "", "", sigma_star]];
 
-export NORMALIZE = Optimize[remove_em_dash_end @ remove_em_dash @ remove_punctuation @ casefold];
+export NORMALIZE = Optimize[
+    remove_em_dash_end @ 
+    remove_em_dash @
+    remove_punctuation @
+    casefold
+];
 
 # Tests
 test_punctuation_1 = AssertEqual[

@@ -54,8 +54,8 @@ export NUCLEUS = Optimize["U" |  # Short nucleus.
 export SYLLABLE = Optimize[NUCLEUS |
                            "O" |  # Onset.
                            "C"];  # Coda.
-export WEIGHT = Optimize["L" |  # Longum.
-                         "B"];  # Brevis.
+export WEIGHT = Optimize["L" |  # Light.
+                         "H"];  # Heavy.
 export FOOT = Optimize["D" |  # Dactyl.
                        "S" |  # Spondee.
                        "T"];  # Trochee.

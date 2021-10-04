@@ -1,0 +1,14 @@
+# Determines the weights of syllables.
+
+import 'utility.grm' as u;
+
+heavy = ("O"?) ("U" "C" | "-" "C"?) : "H";
+light = "O"? "U" : "L";
+export WEIGHT = Optimize[u.Join[(light | heavy)+, " "]];
+
+# Light syllable.
+test_weight_1 = AssertEqual["OU U" @ WEIGHT, "L L"];
+# Heavy by nature.
+test_weight_2 = AssertEqual["O-C O- -C -" @ WEIGHT, "H H H H"];
+# Heavy by position.
+test_weight_3 = AssertEqual["O-C OUC -C UC" @ WEIGHT, "H H H H"];

@@ -1,0 +1,65 @@
+// Messages for Latin scansion.
+//
+// The intension is that these messages be used to record the scansion data so
+// that the logic for finite-state grammar application can be separated from 
+// the logic for quantitative analysis or visual display.
+
+syntax = "proto2";
+
+package LatinScansion;  // Not used in Python.
+
+message Syllable {
+  optional string onset = 1;
+
+  required string nucleus = 2;
+
+  optional string coda = 3;
+
+  // The encodings are the ASCII decimals here, so that one can use `chr` and
+  // `ord` to map in either direction.
+  enum Weight {
+    HEAVY = 72;
+    LIGHT = 76;
+  }
+  optional Weight weight = 4;
+}
+
+message Foot {
+  repeated Syllable syllable = 1;
+
+  // The encodings are the ASCII decimals here, so that one can use `chr` and
+  // `ord` to map in either direction.
+  enum Type {
+    DACTYL = 68;
+    SPONDEE = 83;
+    TROCHEE = 84;
+    // TODO: enrich as needed.
+  }
+  optional Type type = 2;
+}
+
+message Verse {
+  // Verse number.
+  optional int32 number = 1;
+  // Text before normalization.
+  optional string text = 2;
+  // Text after normalization.
+  optional string norm = 3;
+  // IPA pronunciation before poetic variation is introduced.
+  optional string raw_pron = 4;
+  // IPA pronunciation after poetic variation is introduced.
+  optional string var_pron = 5;
+
+  repeated Foot foot = 6;
+
+  // Is the verse defective? (If so, 
+  optional bool defective = 7 [default = false];
+  // Optional notes.
+  optional string comment = 8;
+}
+
+// A document is just a series of verses with optional name metadata.
+message Document {
+  optional string name = 1;
+  repeated Verse verse = 2;
+}

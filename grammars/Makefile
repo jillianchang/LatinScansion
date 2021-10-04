@@ -1,9 +1,20 @@
 all: all.far
 
-all.far: all.grm meter.far normalize.far pronounce.far variable.far
+all.far: all.grm hexameter.far normalize.far pronounce.far syllable.far \
+	     variable.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
-meter.far: meter.grm byte.far inventory.far utility.far
+byte.far: byte.grm
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+inventory.far: inventory.grm byte.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+foot.far: foot.grm
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+hexameter.far: hexameter.grm byte.far foot.far syllable.far utility.far \
+	           weight.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 normalize.far: normalize.grm byte.far
@@ -12,14 +23,18 @@ normalize.far: normalize.grm byte.far
 pronounce.far: pronounce.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
-variable.far: variable.grm byte.far inventory.far utility.far
-	thraxcompiler --input_grammar=$< --output_far=$@
-
-byte.far: byte.grm
+syllable.far: syllable.grm byte.far inventory.far utility.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
 utility.far: utility.grm inventory.far
 	thraxcompiler --input_grammar=$< --output_far=$@
 
+variable.far: variable.grm byte.far inventory.far utility.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
+weight.far: weight.grm utility.far
+	thraxcompiler --input_grammar=$< --output_far=$@
+
 clean:
-	rm -f byte.far inventory.far meter.far normalize.far pronounce.far variable.far utility.far
+	$(RM) byte.far inventory.far foot.far hexameter.far normalize.far \
+	      pronounce.far syllable.far utility.far variable.far weight.far
