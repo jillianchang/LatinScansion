@@ -3,8 +3,7 @@
 import argparse
 import logging
 
-
-from latin_scansion import textproto
+import latin_scansion
 
 
 def _parse_args() -> argparse.Namespace:
@@ -23,13 +22,13 @@ def _parse_args() -> argparse.Namespace:
 def main() -> None:
     logging.basicConfig(format="%(levelname)s: %(message)s", level="INFO")
     args = _parse_args()
-    for path in args.textproto:
+    for textproto in args.textproto:
         try:
-            document = textproto.read_document(path)
-            logging.info("Successfully validated %s", path)
+            document = latin_scansion.read_document(textproto)
+            logging.info("Successfully validated %s", textproto)
             if args.canonicalize:
-                logging.info("Canonicalizing contents of %s", path)
-                textproto.write_document(document, path)
+                logging.info("Canonicalizing contents of %s", textproto)
+                latin_scansion.write_document(document, textproto)
         # TODO(kbg): Can I make this more explicit?
         except Exception as err:
-            logging.info("Validation of %s failed: %s", path, err)
+            logging.info("Validation of %s failed: %s", textproto, err)
