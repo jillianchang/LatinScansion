@@ -26,15 +26,15 @@ jobs:
       - run:
           name: Installs requirements
           working_directory: ~/project/
-          command: pip install --progress-bar off -r requirements.txt
+          command: pip install --progress-bar off --requirement requirements.txt 
       - run:
           name: Runs flake8 check
           working_directory: ~/project
-          command: flake8 latin_scansion setup.py tests
-      - run: 
+          command: flake8 --exclude latin_scansion/lib/scansion_pb2.py latin_scansion setup.py tests
+      - run:
           name: Runs black check
           working_directory: ~/project
-          command: black --line-length=79 --check latin_scansion setup.py tests
+          command: black --line-length 79 --check --exclude latin_scansion/lib/scansion_pb2.py latin_scansion setup.py tests
   build-python-3.9:
     <<: *template
     docker:
@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Builds from source
+          name: Builds from source and runs tests
           working_directory: ~/project
           command: |
               conda env create --quiet --file environment.yml
@@ -57,12 +57,21 @@ jobs:
       - run:
           name: Runs pytest
           working_directory: ~/project
-          command: pytest -v tests
+          command: |
+              source ~/.bashrc
+              conda activate scansion
+              pytest -v tests
       - run:
-          name: Runs latin_scan
+          name: Runs latin_scan --help
           working_directory: ~/project
-          command: latin_scan --help
+          command: |
+              source ~/.bashrc
+              conda activate scansion
+              latin_scan --help
       - run:
-          name: Runs latin_validate
+          name: Runs latin_validate --help
           working_directory: ~/project
-          command: latin_validate --help
+          command: |
+              source ~/.bashrc
+              conda activate scansion
+              latin_validate --help
