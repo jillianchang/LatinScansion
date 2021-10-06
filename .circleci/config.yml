@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build source distribution and install package from it
+          name: Builds source distribution
           working_directory: ~/project/
           # Ensure we can build a source distribution that can correctly install.
           # "python setup.py sdist" creates dist/latin_scansion-x.y.z.tar.gz
@@ -24,18 +24,15 @@ jobs:
               python setup.py sdist
               pip install dist/`ls dist/ | grep .tar.gz`
       - run:
-          name: Install the full development requirements
+          name: Installs requirements
           working_directory: ~/project/
           command: pip install --progress-bar off -r requirements.txt
       - run:
-          name: Show installed Python packages
-          command: pip list
-      - run:
-          name: flake8
+          name: Runs flake8 check
           working_directory: ~/project
           command: flake8 latin_scansion setup.py tests
       - run: 
-          name: black
+          name: Runs black check
           working_directory: ~/project
           command: black --line-length=79 --check latin_scansion setup.py tests
   build-python-3.9:
@@ -48,7 +45,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build all assets and run pytest
+          name: Builds from source
           working_directory: ~/project
           command: |
               conda env create --quiet --file environment.yml
@@ -56,5 +53,16 @@ jobs:
               conda activate scansion
               make -j -C grammars
               make -C latin_scansion/lib
-              pip install -e .
-              pytest -v tests
+              pip install --editable .
+      - run:
+          name: Runs pytest
+          working_directory: ~/project
+          command: pytest -v tests
+      - run:
+          name: Runs latin_scan
+          working_directory: ~/project
+          command: latin_scan --help
+      - run:
+          name: Runs latin_validate
+          working_directory: ~/project
+          command: latin_validate --help
