@@ -21,7 +21,6 @@ jobs:
           # "python setup.py sdist" creates dist/latin_scansion-x.y.z.tar.gz
           command: |
               pip install --progress-bar off --upgrade pip setuptools
-
               python setup.py sdist
               pip install dist/`ls dist/ | grep .tar.gz`
       - run:
@@ -59,17 +58,20 @@ jobs:
           name: Runs pytest
           working_directory: ~/project
           command: |
+              source ~/.bashrc
               conda activate scansion
               pytest -v tests
       - run:
           name: Runs latin_scan --help
           working_directory: ~/project
           command: |
+              source ~/.bashrc
               conda activate scansion
               latin_scan --help
       - run:
           name: Runs latin_validate --help
           working_directory: ~/project
           command: |
+              source ~/.bashrc
               conda activate scansion
               latin_validate --help
