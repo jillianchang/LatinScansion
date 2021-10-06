@@ -7,8 +7,7 @@ import os.path
 
 import pynini
 
-from latin_scansion import scansion
-from latin_scansion import textproto
+import latin_scansion
 
 
 def _parse_args() -> argparse.Namespace:
@@ -27,7 +26,7 @@ def main() -> None:
         far = stack.enter_context(pynini.Far(args.far, "r"))
         source = stack.enter_context(open(args.input, "r"))
         lines = [line.rstrip() for line in source]
-        document = scansion.scan_document(
+        document = latin_scansion.scan_document(
             far["NORMALIZE"],
             far["PRONOUNCE"],
             far["VARIABLE"],
@@ -37,4 +36,4 @@ def main() -> None:
             lines,
             args.name if args.name else os.path.normpath(args.input),
         )
-        textproto.write_document(document, args.output)
+        latin_scansion.write_document(document, args.output)
