@@ -31,10 +31,9 @@ jobs:
       - run:
           name: Runs flake8 check
           working_directory: ~/project
-          command: |
-              flake8 \
-                  --exclude latin_scansion/lib/scansion_pb2.py \
-                  latin_scansion setup.py tests
+          command: flake8 \
+                       --exclude latin_scansion/lib/scansion_pb2.py \
+                       latin_scansion setup.py tests
       - run:
           name: Runs black check
           working_directory: ~/project
