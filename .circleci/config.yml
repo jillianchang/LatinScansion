@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Builds from source
+          name: Builds from source and runs tests
           working_directory: ~/project
           command: |
               conda env create --quiet --file environment.yml
@@ -57,12 +57,9 @@ jobs:
       - run:
           name: Runs pytest
           working_directory: ~/project
-          command: pytest -v tests
-      - run:
-          name: Runs latin_scan
-          working_directory: ~/project
-          command: latin_scan --help
-      - run:
-          name: Runs latin_validate
-          working_directory: ~/project
-          command: latin_validate --help
+          command: |
+              conda activate scansion
+              pytest -v tests
+      #- run
+      #        latin_scan --help
+      #        latin_validate --help
