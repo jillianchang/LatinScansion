@@ -1,0 +1,92 @@
+# Defines the hexameter line.
+
+import 'byte.grm' as b;
+import 'foot.grm' as f;
+import 'syllable.grm' as s;
+import 'utility.grm' as u;
+import 'weight.grm' as w;
+
+# Filters footing to valid hexameter patterns.
+export HEXAMETER = Optimize[
+  f.FOOT @ Project[(f.DACTYL | f.SPONDEE){5} (f.SPONDEE | f.TROCHEE), 'output']
+];
+
+# For testing only.
+meter = Optimize[s.SYLLABLE @ w.WEIGHT @ HEXAMETER];
+
+# Complete foot mapping for "Mūsa, mihī causās memorā, quō nūmine laesō."
+test_1_syllable = AssertEqual[
+  "muːsa mihiː kawsaːs memoraː kwoː nuːmine lajsoː" @ s.SYLLABLE,
+  "O-OU OUO- OUCO-C OUOUO- O- O-OUOU OUCO-"
+];
+test_1_weight = AssertEqual[
+  "O-OU OUO- OUCO-C OUOUO- O- O-OUOU OUCO-" @ w.WEIGHT,
+  "HL LH HH LLH H HLL HH"
+];
+test_1_foot = AssertEqual["HL LH HH LLH H HLL HH" @ f.FOOT, "DSDSDS"];
+
+# Complete foot mapping for "Urbs antīqua fuit (Tyriī tenuēre colōnī)."
+test_2_syllable = AssertEqual[
+  "urps antiːkwa fuit turiiː tenueːre koloːniː" @ s.SYLLABLE,
+  "UC UCO-OU OUUC OUOU- OUOU-OU OUO-O-"
+];
+test_2_weight = AssertEqual[
+  "UC UCO-OU OUUC OUOU- OUOU-OU OUO-O-" @ w.WEIGHT,
+  "H HHL LH LLH LLHL LHH"
+];
+testH2Hfoot = AssertEqual["H HHL LH LLH LLHL LHH" @ f.FOOT, "SDDDDS"];
+
+# Complete foot mapping for "quidve dolēns rēgīna deum tot volvere cāsūs."
+test_3_syllable = AssertEqual[
+  "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs" @ s.SYLLABLE,
+  "OUCOU OUO-C O-O-OU OU- OUC OUCOUOU O-O-C"
+];
+test_3_weight = AssertEqual[
+  "OUCOU OUO-C O-O-OU OU- OUC OUCOUOU O-O-C" @ w.WEIGHT,
+  "HL LH HHL LH H HLL HH"
+];
+testL3Lfoot = AssertEqual["HL LH HHL LH H HLL HH" @ f.FOOT, "DSDSDS"];
+
+# Tests a defective line.
+test_defective_1 = AssertNull[
+  "kũː siːk uːnanimãː adlokwitur male saːna soroːrẽː" @ meter
+];
+
+# Testing Aeneid failures. Inputs are the pronounciations after
+# variable rules have been applied.
+test_syllable_2_219 = AssertEqual[
+  "bis mediampleksiː bis kolloː skwaːmea kirkũː" @ s.SYLLABLE,
+  "OUC OUOUUCOUCO- OUC OUCO- O-OUU OUCO-"
+];
+test_syllable_2_278 = AssertEqual[
+  "skwaːlentẽː barbet koŋkreːtoːs saŋgwine kriːniːs" @ s.SYLLABLE,
+  "O-OUCO- OUCOUC OUCO-O-C OUCOUOU O-O-C"
+];
+test_meter_3_161 = AssertEqual[
+  "muːtandaj seːdeːs noːn hajk tibi liːtora swaːsit" @ meter,
+  "SSSDDS"
+];
+test_meter_3_567 = AssertEqual[
+  "ter spuːmeːlisa met roːrantia wiːdimu sastra" @ meter,
+  "SDSDDT"
+];
+test_meter_4_302 = AssertEqual[
+  "tujja subawdiːtoː stimulant trieteːrika bakkoː" @ meter,
+  "DSDDDS"
+];
+test_meter_4_369 = AssertEqual[
+  "nũː fleːtiŋgemuit nostroː nũː luːmina fleksit" @ meter,
+  "SDSSDS"
+];
+test_meter_4_617 = AssertEqual[
+  "awksiliimploːret wideatkwindiŋna suoːrũː" @ meter,
+  "DSDSDS"
+];
+test_meter_5_144 = AssertEqual[
+  "noːn tãː prajkipiteːs bijugoː kertaːmine kampũː" @ meter,
+  "SDDSDS"
+];
+test_meter_6_447 = AssertEqual[
+  "ewwadneːŋkwet paːsipaeːn hiːs laːodamiːa" @ meter,
+  "SSDSDT"
+];

@@ -9,9 +9,9 @@ sigma_star = (i.PROSODIC_SYMBOL | i.PHONEME | i.MARKUPS)*;
 
 h_deletion = Optimize[
     # Delete medial "h" to permit additional variable rules, if needed (such as synizesis).
-    CDRewrite[u.Delete["h"] <1>,
+    CDRewrite[u.Delete["h"] <10>,
               i.PHONEME - b.kSpace, i.PHONEME - b.kSpace, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[("h" : "h̶" <1>),
+    CDRewrite[("h" : "h̶" <10>),
               "", "", sigma_star, 'ltr', 'opt']
 ];
 
@@ -35,25 +35,25 @@ elision = Optimize[CDRewrite[(("a " : "a̶ ̶") |
                             ("üm " : "ü̶m̶ ̶") |
                             ("oj " : "o̶j̶ ̶") |
                             ("aj " : "a̶j̶ ̶") |
-                            ("aw " : "a̶w̶ ̶")) <100>
+                            ("aw " : "a̶w̶ ̶")) <1000>
                             , "", "h̶"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']];
 
 # Word-final consonant reattaches to the following word with an initial vowel.
 resyllabification = Optimize[
-    CDRewrite[(" " : "‿") <10>,
+    CDRewrite[(" " : "‿") <100>,
               i.CONSONANT, "h̶"? i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
 # High vowels may strengthen to their corresponding glides when adjacent to
 # another vowel.
 synizesis = Optimize[
-    CDRewrite[u.Insert["͡"] <1000>,
+    CDRewrite[u.Insert["͡"] <10000>,
               ("i" | "iː" | "u" | "uː") , i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt'] @
-    CDRewrite[u.Insert["͡"] <1000>,
+    CDRewrite[u.Insert["͡"] <10000>,
              i.PHONEMIC_VOWEL, ("i" | "iː" | "u" | "uː"), sigma_star, 'ltr', 'opt']
 ];
 
-# Glides may lenite to their corresponding vowels. 
+# Glides may lenite to their corresponding vowels.
 diaeresis = Optimize[
     CDRewrite[("w" : "ü") <1000>,
               "k" | "g", "", sigma_star, 'ltr', 'opt'] @
@@ -64,13 +64,9 @@ diaeresis = Optimize[
               i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];
 
-# Lengthening of a usually short syllable.
-# NB: this is not currently part of the exported VARIABLE cascade.
-diastole = Optimize[
-    CDRewrite[(("a" : "aː") | ("e" : "eː") | ("i" : "iː") |
-              ("o" : "oː") | ("u" : "uː")),
-              "", "", sigma_star]
-];
-
 export VARIABLE = Optimize[h_deletion @ resyllabification @
                            synizesis @ diaeresis @ elision];
+
+# Not currently handled:
+# * Systole and diastole
+# * Hypermeter: elision into the following line.

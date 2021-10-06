@@ -144,7 +144,8 @@ devoicing = Optimize[CDRewrite["b" : "p", "", "s" | "t", sigma_star]];
 
 rules = Optimize[
     # Diphthong exceptions.
-    ei_exceptions @ eu_exceptions @ oi_exceptions @ ou_exceptions @ ui_exceptions @
+    ei_exceptions @ eu_exceptions @ oi_exceptions @ ou_exceptions @ 
+    ui_exceptions @
     # Basic g2p rules.
     long_monophthongs @ digraphs @ unconditioned_rewrites @
     # Rules for labiovelars.
@@ -154,10 +155,11 @@ rules = Optimize[
     # Gemination.
     geminates @ 
     # Nasal rules.
-    final_nasalization @ internal_nasalization @ nasal_place_assimilation @ gn @
+    final_nasalization @ internal_nasalization @ nasal_place_assimilation @
+    gn @
     # Other.
     devoicing
-]; 
+];
 
 # Constrains input to the graphemes and output to the phonemes.
 export PRONOUNCE = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
