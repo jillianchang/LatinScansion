@@ -59,7 +59,7 @@ Installation produces two command-line tools:
 
 ## Testing
 
-Execute:
+Run:
 
     pytest tests
 
