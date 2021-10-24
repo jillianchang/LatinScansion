@@ -1,8 +1,8 @@
 # 🏛️ Latin scansion engine 🏛️
 
 [![Supported Python
-versions](https://img.shields.io/pypi/pyversions/wikipron.svg)](https://pypi.org/project/wikipron)
-[![CircleCI](https://circleci.com/gh/CUNY-CL/wikipron/tree/master.svg?style=svg)](https://circleci.com/gh/CUNY-CL/wikipron/tree/master)
+versions](https://img.shields.io/pypi/pyversions/latin_scansion.svg)](https://pypi.org/project/latin_scansion)
+[![CircleCI](https://circleci.com/gh/CUNY-CL/latin_scansion/tree/master.svg?style=svg)](https://circleci.com/gh/CUNY-CL/latin_scansion/tree/master)
 
 This library uses finite-state grammars to automate Latin scansion, with an
 initial focus on the dactylic hexameters of Virgil.
