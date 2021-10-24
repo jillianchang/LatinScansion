@@ -37,8 +37,8 @@ def main():
         install_requires=["protobuf>=3.17.2"],
         entry_points={
             "console_scripts": [
-                "latin_scan = latin_scansion.cli.scan:main",
-                "latin_validate = latin_scansion.cli.validate:main",
+                "latin_scan = latin_scansion.scan:main",
+                "latin_validate = latin_scansion.validate:main",
             ]
         },
         classifiers=[
