@@ -30,11 +30,11 @@ jobs:
       - run:
           name: Runs flake8 check
           working_directory: ~/project
-          command: flake8 --exclude latin_scansion/lib/scansion_pb2.py latin_scansion setup.py tests
+          command: flake8 --exclude latin_scansion/scansion_pb2.py latin_scansion setup.py tests
       - run:
           name: Runs black check
           working_directory: ~/project
-          command: black --line-length 79 --check --exclude latin_scansion/lib/scansion_pb2.py latin_scansion setup.py tests
+          command: black --line-length 79 --check --exclude latin_scansion/scansion_pb2.py latin_scansion setup.py tests
   build-python-3.9:
     <<: *template
     docker:
@@ -52,7 +52,7 @@ jobs:
               source ~/.bashrc
               conda activate scansion
               make -j -C grammars
-              make -C latin_scansion/lib
+              make -C latin_scansion
               pip install --editable .
       - run:
           name: Runs pytest

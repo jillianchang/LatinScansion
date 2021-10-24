@@ -5,4 +5,3 @@ __pycache__/
 *.egg-info/
 *.log
 *.far
-*_pb2.py
