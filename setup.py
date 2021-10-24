@@ -16,7 +16,7 @@ def main():
         version=_VERSION,
         author="Jillian Chang, Kyle Gorman",
         author_email="kylebgorman@gmail.com",
-        description="Automatd Latin scansion",
+        description="Automated Latin scansion",
         long_description=_LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
         url="https://github.com/CUNY-CL/latin_scansion",
