@@ -35,7 +35,7 @@ This second step needs to be repeated each time you start a new shell.
 
 2.  Generate the textproto library:
 
-        make -C latin_scansion/lib
+        make -C latin_scansion
 
 3.  Install the Python library:
 
