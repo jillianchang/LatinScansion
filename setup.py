@@ -2,7 +2,7 @@ import os
 import setuptools
 
 
-_VERSION = "0.1.0"
+_VERSION = "0.1.1"
 
 _THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
