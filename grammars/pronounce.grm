@@ -150,13 +150,13 @@ rules = Optimize[
     long_monophthongs @ digraphs @ unconditioned_rewrites @
     # Rules for labiovelars.
     u_loss @ qu @ ngu @ gn @
+    # Nasal rules.
+    final_nasalization @ internal_nasalization @ nasal_place_assimilation @
+    gn @
     # Vowel rules.
     ae_diphthonization @ oe_diphthonization @ au_diphthonization @ diaeresis @
     # Gemination.
     geminates @ 
-    # Nasal rules.
-    final_nasalization @ internal_nasalization @ nasal_place_assimilation @
-    gn @
     # Other.
     devoicing
 ];
@@ -270,10 +270,10 @@ test_pron_18 = AssertEqual[
     "prajdãː adserwaːbant huːk undikwe troːia gazza"
 ];
 
-# Tests "au" diphthongization.
+# Tests that nasalization occurs before au diphthonization.
 test_pron_19 = AssertEqual[
     "aut pelagō danaum īnsidiās suspectaque dōna" @ PRONOUNCE,
-    "awt pelagoː danawm iːnsidiaːs suspektakwe doːna"
+    "awt pelagoː danaũː iːnsidiaːs suspektakwe doːna"
 ];
 
 # TODO:
