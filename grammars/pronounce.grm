@@ -146,13 +146,13 @@ rules = Optimize[
     # Diphthong exceptions.
     ei_exceptions @ eu_exceptions @ oi_exceptions @ ou_exceptions @ 
     ui_exceptions @
+    internal_nasalization @
     # Basic g2p rules.
     long_monophthongs @ digraphs @ unconditioned_rewrites @
     # Rules for labiovelars.
     u_loss @ qu @ ngu @ gn @
     # Nasal rules.
-    final_nasalization @ internal_nasalization @ nasal_place_assimilation @
-    gn @
+    final_nasalization @ nasal_place_assimilation @
     # Vowel rules.
     ae_diphthonization @ oe_diphthonization @ au_diphthonization @ diaeresis @
     # Gemination.
@@ -169,7 +169,7 @@ export PRONOUNCE = Optimize[u.FilterRule[rules, i.GRAPHEME, i.PHONEME]];
 # Tests for macronized vowels, "ae" diphthong, "v," "x," "c".
 test_pron_01 = AssertEqual[
     "gentis honōs haerent īnfixī pectore vultūs" @ PRONOUNCE,
-    "gentis honoːs hajrent iːnfiksiː pektore wultuːs"
+    "gentis honoːs hajrent ĩːfiksiː pektore wultuːs"
 ];
 
 # Tests for intervocalic "i," "qu," "th," and nasalized "m."
@@ -211,7 +211,7 @@ test_pron_7 = AssertEqual[
 # Tests "heus" glides.
 test_pron_8 = AssertEqual[
     "ac prior heus inquit juvenēs mōnstrāte meārum" @ PRONOUNCE,
-    "ak prior hews iŋkwit juweneːs moːnstraːte meaːrũː"
+    "ak prior hews iŋkwit juweneːs mõːstraːte meaːrũː"
 ];
 
 # Tests "nguu."
@@ -223,7 +223,7 @@ test_pron_9 = AssertEqual[
 # Tests "quu."
 test_pron_10 = AssertEqual[
     "prīmus equum phalerīs īnsignem victor habētō" @ PRONOUNCE,
-    "priːmus ekũː paleriːs iːnsiŋnẽː wiktor habeːtoː"
+    "priːmus ekũː paleriːs ĩːsiŋnẽː wiktor habeːtoː"
 ];
 
 # Tests the removal of the diaeresis.
@@ -273,7 +273,7 @@ test_pron_18 = AssertEqual[
 # Tests that nasalization occurs before au diphthonization.
 test_pron_19 = AssertEqual[
     "aut pelagō danaum īnsidiās suspectaque dōna" @ PRONOUNCE,
-    "awt pelagoː danaũː iːnsidiaːs suspektakwe doːna"
+    "awt pelagoː danaũː ĩːsidiaːs suspektakwe doːna"
 ];
 
 # TODO:
