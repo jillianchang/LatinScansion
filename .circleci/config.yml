@@ -4,10 +4,10 @@ workflows:
   version: 2
   test:
     jobs:
+      - build-python-3.7
       - build-python-3.8
       - build-python-3.9
-      - test-python-3.8
-
+      - test-python
 jobs:
   build-python-3.8: &template
     docker:
@@ -39,7 +39,7 @@ jobs:
     <<: *template
     docker:
       - image: python:3.9
-  test-python-3.8:
+  test-python:
     docker:
       - image: continuumio/miniconda3
     steps:
