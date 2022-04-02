@@ -14824,6 +14824,7 @@ verse {
   norm: "nōn tam praecipitēs bijugō certāmine campum"
   raw_pron: "noːn tãː prajkipiteːs bijjugoː kertaːmine kampũː"
   defective: true
+  comment: "intervocalic j is not geminate"
 }
 verse {
   number: 145
@@ -30221,6 +30222,7 @@ verse {
   norm: "nīsus et euryalus prīmī"
   raw_pron: "niːsus et eurualus priːmiː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 295
@@ -32962,6 +32964,7 @@ verse {
   norm: "tertius euryalus"
   raw_pron: "tertius eurualus"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 323
@@ -43211,6 +43214,7 @@ verse {
   norm: "et magnōs membrōrum artūs magna ossa lacertōsque"
   raw_pron: "et maŋnoːs membroːrũː artuːs maŋna ossa lakertoːskwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 423
@@ -53180,6 +53184,7 @@ verse {
   norm: "qui tamen āeriās tēlum contorsit in aurās"
   raw_pron: "kwi tamen aːeriaːs teːlũː kontorsit in awraːs"
   defective: true
+  comment: "diastole needed: kwiː"
 }
 verse {
   number: 521
@@ -58651,6 +58656,7 @@ verse {
   norm: "fertur equīs"
   raw_pron: "fertur ekwiːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 575
@@ -66651,6 +66657,7 @@ verse {
   norm: "haec effāta"
   raw_pron: "hajk effaːta"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 654
@@ -70067,6 +70074,7 @@ verse {
   norm: "juppiter omnipotēns si nōndum exōsus ad ūnum"
   raw_pron: "juppiter omnipoteːns si noːndũː eksoːsus ad uːnũː"
   defective: true
+  comment: "diastole needed: siː"
 }
 verse {
   number: 688
@@ -76762,6 +76770,7 @@ verse {
   norm: "rōbora nāvigiīs aptant rēmōsque rudentīsque"
   raw_pron: "roːbora naːwigiiːs aptant reːmoːskwe rudentiːskwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 754
@@ -80718,6 +80727,7 @@ verse {
   norm: "in rēgnīs hoc ausa tuīs"
   raw_pron: "in reːŋniːs hok awsa tuiːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 793
@@ -83003,6 +83013,7 @@ verse {
   norm: "ūnum prō multīs dabitur caput"
   raw_pron: "uːnũː proː multiːs dabitur kaput"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 816

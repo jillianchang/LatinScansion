@@ -1,4 +1,4 @@
-name: "Aen. 3"
+name: "data/Aeneid/Aeneid03.txt"
 verse {
   number: 1
   text: "Postquam rēs Asiae Priamīque ēvertere gentem"
@@ -8924,8 +8924,110 @@ verse {
   number: 87
   text: "Pergama, relliquiās Danaum atque immītis Achillī."
   norm: "pergama relliquiās danaum atque immītis achillī"
-  raw_pron: "pergama rellikwiaːs danawm atkwe immiːtis akilliː"
-  defective: true
+  raw_pron: "pergama rellikwiaːs danaũː atkwe immiːtis akilliː"
+  var_pron: "pergama rellikwiaːs danaatkwimmiːti sakilliː"
+  foot {
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      coda: "r"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "g"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "m"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "e"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "a"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      coda: "m"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "s"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "i"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 88
@@ -9259,6 +9361,7 @@ verse {
   norm: "līminaque laurusque deī tōtusque movērī"
   raw_pron: "liːminakwe lawruskwe deiː toːtuskwe moweːriː"
   defective: true
+  comment: "diastole required: liːminakweː"
 }
 verse {
   number: 92
@@ -22276,6 +22379,7 @@ verse {
   norm: "ōra famē"
   raw_pron: "oːra fameː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 219
@@ -32141,6 +32245,7 @@ verse {
   norm: "nē dubitā nam vēra vidēs"
   raw_pron: "neː dubitaː nãː weːra wideːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 317
@@ -34526,6 +34631,7 @@ verse {
   norm: "quem tibi jam troja"
   raw_pron: "kwẽː tibi jãː trojja"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 341
@@ -47816,6 +47922,7 @@ verse {
   norm: "addit equōs additque ducēs"
   raw_pron: "addit ekwoːs additkwe dukeːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 471
@@ -52570,6 +52677,7 @@ verse {
   norm: "armātumque aurō circumspicit ōriōna"
   raw_pron: "armaːtũːkwe awroː kirkumspikit oːrioːna"
   defective: true
+  comment: "diastole required: oːriːoːna"
 }
 verse {
   number: 518
@@ -53477,6 +53585,7 @@ verse {
   norm: "stāns celsā in puppī"
   raw_pron: "staːns kelsaː in puppiː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 528
@@ -64985,6 +65094,7 @@ verse {
   norm: "rumpite"
   raw_pron: "rumpite"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 641
@@ -67041,6 +67151,7 @@ verse {
   norm: "sōlāmenque malī"
   raw_pron: "soːlaːmeŋkwe maliː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 662

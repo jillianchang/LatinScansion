@@ -1,4 +1,4 @@
-name: "Aen. 1"
+name: "data/Aeneid/Aeneid01.txt"
 verse {
   number: 1
   text: "Arma virumque canō, Trojae quī prīmus ab ōris"
@@ -515,6 +515,7 @@ verse {
   norm: "īnferretque deos latio genus unde latīnum"
   raw_pron: "iːnferretkwe deos latio genus unde latiːnũː"
   defective: true
+  comment: "diastole required: latioː"
 }
 verse {
   number: 7
@@ -33856,6 +33857,7 @@ verse {
   norm: "jactēmur doceās ignārī hominumque locōrumque"
   raw_pron: "jakteːmur dokeaːs iŋnaːriː hominũːkwe lokoːrũːkwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 333
@@ -54337,6 +54339,7 @@ verse {
   norm: "hic cursus fuit"
   raw_pron: "hik kursus fuit"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 535
@@ -56944,6 +56947,7 @@ verse {
   norm: "dardanidae"
   raw_pron: "dardanidaj"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 561
@@ -64510,6 +64514,7 @@ verse {
   norm: "mūnera laetitiamque diī"
   raw_pron: "muːnera lajtitiãːkwe diiː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 637
@@ -70774,6 +70779,7 @@ verse {
   norm: "aureā composuit spondā mediamque locāvit"
   raw_pron: "awreaː komposuit spondaː mediãːkwe lokaːwit"
   defective: true
+  comment: "irregular synizesis: awrjaː"
 }
 verse {
   number: 699
