@@ -3,7 +3,7 @@ channels:
  - defaults
  - conda-forge
 dependencies:
- - black=19.10b0
+ - black=22.3.0
  - flake8=3.9.2
  - make=4.2.1
  - mypy=0.910
