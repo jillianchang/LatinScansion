@@ -513,7 +513,7 @@ verse {
   number: 6
   text: "īnferretque deos Latio---genus unde Latīnum"
   norm: "īnferretque deos latio genus unde latīnum"
-  raw_pron: "iːnferretkwe deos latio genus unde latiːnũː"
+  raw_pron: "ĩːferretkwe deos latio genus unde latiːnũː"
   defective: true
   comment: "diastole required: latioː"
 }
@@ -723,8 +723,8 @@ verse {
   number: 9
   text: "quidve dolēns rēgīna deum tot volvere cāsūs"
   norm: "quidve dolēns rēgīna deum tot volvere cāsūs"
-  raw_pron: "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs"
-  var_pron: "kwidwe doleːns reːgiːna deũː tot wolwere kaːsuːs"
+  raw_pron: "kwidwe dolẽːs reːgiːna deũː tot wolwere kaːsuːs"
+  var_pron: "kwidwe dolẽːs reːgiːna deũː tot wolwere kaːsuːs"
   foot {
     syllable {
       onset: "kw"
@@ -747,8 +747,8 @@ verse {
   foot {
     syllable {
       onset: "l"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -827,12 +827,11 @@ verse {
   number: 10
   text: "īnsignem pietāte virum, tot adīre labōrēs"
   norm: "īnsignem pietāte virum tot adīre labōrēs"
-  raw_pron: "iːnsiŋnẽː pietaːte wirũː tot adiːre laboːreːs"
-  var_pron: "iːnsiŋnẽː pietaːte wirũː to tadiːre laboːreːs"
+  raw_pron: "ĩːsiŋnẽː pietaːte wirũː tot adiːre laboːreːs"
+  var_pron: "ĩːsiŋnẽː pietaːte wirũː to tadiːre laboːreːs"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -2170,8 +2169,8 @@ verse {
   number: 23
   text: "Id metuēns, veterisque memor Sāturnia bellī,"
   norm: "id metuēns veterisque memor sāturnia bellī"
-  raw_pron: "id metueːns weteriskwe memor saːturnia belliː"
-  var_pron: "id metueːns weteriskwe memor saːturnia belliː"
+  raw_pron: "id metuẽːs weteriskwe memor saːturnia belliː"
+  var_pron: "id metuẽːs weteriskwe memor saːturnia belliː"
   foot {
     syllable {
       nucleus: "i"
@@ -2192,8 +2191,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -2792,8 +2791,8 @@ verse {
   number: 29
   text: "hīs accēnsa super jactōtōs aequore tōtō"
   norm: "hīs accēnsa super jactōtōs aequore tōtō"
-  raw_pron: "hiːs akkeːnsa super jaktoːtoːs ajkwore toːtoː"
-  var_pron: "hiːs akkeːnsa super jaktoːtoːs ajkwore toːtoː"
+  raw_pron: "hiːs akkẽːsa super jaktoːtoːs ajkwore toːtoː"
+  var_pron: "hiːs akkẽːsa super jaktoːtoːs ajkwore toːtoː"
   foot {
     syllable {
       onset: "h"
@@ -2811,8 +2810,7 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     syllable {
@@ -2892,8 +2890,104 @@ verse {
   number: 30
   text: "Trōas, relliquiās Danaum atque immītis Achillī,"
   norm: "trōas relliquiās danaum atque immītis achillī"
-  raw_pron: "troːas rellikwiaːs danawm atkwe immiːtis akilliː"
-  defective: true
+  raw_pron: "troːas rellikwiaːs danaũː atkwe immiːtis akilliː"
+  var_pron: "troːas rellikwiaːs danaatkwimmiːti sakilliː"
+  foot {
+    syllable {
+      onset: "tr"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "a"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "e"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "a"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      coda: "m"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "s"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "i"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 31
@@ -3196,8 +3290,8 @@ verse {
   number: 34
   text: "Vix ē cōnspectū Siculae tellūris in altum"
   norm: "vix ē cōnspectū siculae tellūris in altum"
-  raw_pron: "wiks eː koːnspektuː sikulaj telluːris in altũː"
-  var_pron: "wiks eː koːnspektuː sikulaj telluːri si naltũː"
+  raw_pron: "wiks eː kõːspektuː sikulaj telluːris in altũː"
+  var_pron: "wiks eː kõːspektuː sikulaj telluːri si naltũː"
   foot {
     syllable {
       onset: "w"
@@ -3214,8 +3308,8 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -3401,8 +3495,8 @@ verse {
   number: 36
   text: "cum Jūnō aeternum servāns sub pectore vulnus"
   norm: "cum jūnō aeternum servāns sub pectore vulnus"
-  raw_pron: "kũː juːnoː ajternũː serwaːns sub pektore wulnus"
-  var_pron: "kũː juːnajternũː serwaːns sub pektore wulnus"
+  raw_pron: "kũː juːnoː ajternũː serwãːs sub pektore wulnus"
+  var_pron: "kũː juːnajternũː serwãːs sub pektore wulnus"
   foot {
     syllable {
       onset: "k"
@@ -3448,8 +3542,8 @@ verse {
   foot {
     syllable {
       onset: "w"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -4208,8 +4302,8 @@ verse {
   number: 44
   text: "illum exspīrantem trānsfīxō pectore flammās"
   norm: "illum exspīrantem trānsfīxō pectore flammās"
-  raw_pron: "illũː eksspiːrantẽː traːnsfiːksoː pektore flammaːs"
-  var_pron: "illeksspiːrantẽː traːnsfiːksoː pektore flammaːs"
+  raw_pron: "illũː eksspiːrantẽː trãːsfiːksoː pektore flammaːs"
+  var_pron: "illeksspiːrantẽː trãːsfiːksoː pektore flammaːs"
   foot {
     syllable {
       nucleus: "i"
@@ -4246,8 +4340,8 @@ verse {
     }
     syllable {
       onset: "tr"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -4305,8 +4399,8 @@ verse {
   number: 45
   text: "turbine corripuit scopulōque īnfīxit acūtō;"
   norm: "turbine corripuit scopulōque īnfīxit acūtō"
-  raw_pron: "turbine korripuit skopuloːkwe iːnfiːksit akuːtoː"
-  var_pron: "turbine korripuit skopuloːkwiːnfiːksi takuːtoː"
+  raw_pron: "turbine korripuit skopuloːkwe ĩːfiːksit akuːtoː"
+  var_pron: "turbine korripuit skopuloːkwĩːfiːksi takuːtoː"
   foot {
     syllable {
       onset: "t"
@@ -4371,8 +4465,7 @@ verse {
     }
     syllable {
       onset: "kw"
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -4809,8 +4902,8 @@ verse {
   number: 50
   text: "Tālia flammātō sēcum dea corde volūtāns"
   norm: "tālia flammātō sēcum dea corde volūtāns"
-  raw_pron: "taːlia flammaːtoː seːkũː dea korde woluːtaːns"
-  var_pron: "taːlia flammaːtoː seːkũː dea korde woluːtaːns"
+  raw_pron: "taːlia flammaːtoː seːkũː dea korde woluːtãːs"
+  var_pron: "taːlia flammaːtoː seːkũː dea korde woluːtãːs"
   foot {
     syllable {
       onset: "t"
@@ -4899,8 +4992,8 @@ verse {
     }
     syllable {
       onset: "t"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -5529,8 +5622,8 @@ verse {
   number: 57
   text: "scēptra tenēns, mollitque animōs et temperat īrās;"
   norm: "scēptra tenēns mollitque animōs et temperat īrās"
-  raw_pron: "skeːptra teneːns mollitkwe animoːs et temperat iːraːs"
-  var_pron: "skeːptra teneːns mollitkwanimoːs et tempera tiːraːs"
+  raw_pron: "skeːptra tenẽːs mollitkwe animoːs et temperat iːraːs"
+  var_pron: "skeːptra tenẽːs mollitkwanimoːs et tempera tiːraːs"
   foot {
     syllable {
       onset: "sk"
@@ -5553,8 +5646,8 @@ verse {
   foot {
     syllable {
       onset: "n"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -5846,8 +5939,8 @@ verse {
   number: 60
   text: "Sed pater omnipotēns spēluncīs abdidit ātrīs"
   norm: "sed pater omnipotēns spēluncīs abdidit ātrīs"
-  raw_pron: "sed pater omnipoteːns speːluŋkiːs abdidit aːtriːs"
-  var_pron: "sed pate romnipoteːns speːluŋkiːs abdidi taːtriːs"
+  raw_pron: "sed pater omnipotẽːs speːluŋkiːs abdidit aːtriːs"
+  var_pron: "sed pate romnipotẽːs speːluŋkiːs abdidi taːtriːs"
   foot {
     syllable {
       onset: "s"
@@ -5889,8 +5982,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -5952,8 +6045,8 @@ verse {
   number: 61
   text: "hoc metuēns, mōlemque et montīs īnsuper altōs"
   norm: "hoc metuēns mōlemque et montīs īnsuper altōs"
-  raw_pron: "hok metueːns moːlẽːkwe et montiːs iːnsuper altoːs"
-  var_pron: "hok metueːns moːlẽːkwet montiːs iːnsupe raltoːs"
+  raw_pron: "hok metuẽːs moːlẽːkwe et montiːs ĩːsuper altoːs"
+  var_pron: "hok metuẽːs moːlẽːkwet montiːs ĩːsupe raltoːs"
   foot {
     syllable {
       onset: "h"
@@ -5975,8 +6068,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -6017,8 +6110,7 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -6564,13 +6656,13 @@ verse {
   number: 67
   text: "gēns inimīca mihī Tyrrhēnum nāvigat aequor,"
   norm: "gēns inimīca mihī tyrrhēnum nāvigat aequor"
-  raw_pron: "geːns inimiːka mihiː turrheːnũː naːwigat ajkwor"
-  var_pron: "geːns inimiːka mihiː turrheːnũː naːwiga tajkwor"
+  raw_pron: "gẽːs inimiːka mihiː turrheːnũː naːwigat ajkwor"
+  var_pron: "gẽːs inimiːka mihiː turrheːnũː naːwiga tajkwor"
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -6667,8 +6759,8 @@ verse {
   number: 68
   text: "Īlium in Ītaliam portāns victōsque penātīs:"
   norm: "īlium in ītaliam portāns victōsque penātīs"
-  raw_pron: "iːliũː in iːtaliãː portaːns wiktoːskwe penaːtiːs"
-  var_pron: "iːlii niːtaliãː portaːns wiktoːskwe penaːtiːs"
+  raw_pron: "iːliũː in iːtaliãː portãːs wiktoːskwe penaːtiːs"
+  var_pron: "iːlii niːtaliãː portãːs wiktoːskwe penaːtiːs"
   foot {
     syllable {
       nucleus: "iː"
@@ -6719,8 +6811,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -8620,12 +8712,11 @@ verse {
   number: 87
   text: "īnsequitur clāmorque virum strīdorque rudentum."
   norm: "īnsequitur clāmorque virum strīdorque rudentum"
-  raw_pron: "iːnsekwitur klaːmorkwe wirũː striːdorkwe rudentũː"
-  var_pron: "iːnsekwitur klaːmorkwe wirũː striːdorkwe rudentũː"
+  raw_pron: "ĩːsekwitur klaːmorkwe wirũː striːdorkwe rudentũː"
+  var_pron: "ĩːsekwitur klaːmorkwe wirũː striːdorkwe rudentũː"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -9228,8 +9319,8 @@ verse {
   number: 93
   text: "ingemit et duplicīs tendēns ad sīdera palmās"
   norm: "ingemit et duplicīs tendēns ad sīdera palmās"
-  raw_pron: "iŋgemit et duplikiːs tendeːns ad siːdera palmaːs"
-  var_pron: "iŋgemi tet duplikiːs tendeːns ad siːdera palmaːs"
+  raw_pron: "iŋgemit et duplikiːs tendẽːs ad siːdera palmaːs"
+  var_pron: "iŋgemi tet duplikiːs tendẽːs ad siːdera palmaːs"
   foot {
     syllable {
       nucleus: "i"
@@ -9285,8 +9376,8 @@ verse {
   foot {
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -9541,8 +9632,111 @@ verse {
   number: 96
   text: "contigit oppetere! Ō Danaum fortissime gentis"
   norm: "contigit oppetere ō danaum fortissime gentis"
-  raw_pron: "kontigit oppetere oː danawm fortissime gentis"
-  defective: true
+  raw_pron: "kontigit oppetere oː danaũː fortissime gentis"
+  var_pron: "kontigi toppeteroː danaũː fortissime gentis"
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "o"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "g"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "o"
+      coda: "p"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "t"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "f"
+      nucleus: "o"
+      coda: "r"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "m"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "g"
+      nucleus: "e"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 97
@@ -9754,8 +9948,8 @@ verse {
   number: 99
   text: "saevus ubi Aeacidae tēlō jacet Hector, ubi ingēns"
   norm: "saevus ubi aeacidae tēlō jacet hector ubi ingēns"
-  raw_pron: "sajwus ubi ajjakidaj teːloː jaket hektor ubi iŋgeːns"
-  var_pron: "sajwu subajjakidaj teːloː jake tekto rubiŋgeːns"
+  raw_pron: "sajwus ubi ajjakidaj teːloː jaket hektor ubi iŋgẽːs"
+  var_pron: "sajwu subajjakidaj teːloː jake tekto rubiŋgẽːs"
   foot {
     syllable {
       onset: "s"
@@ -9854,8 +10048,8 @@ verse {
     }
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -10080,8 +10274,8 @@ verse {
   number: 102
   text: "Tālia jactantī strīdēns Aquilōne procella"
   norm: "tālia jactantī strīdēns aquilōne procella"
-  raw_pron: "taːlia jaktantiː striːdeːns akwiloːne prokella"
-  var_pron: "taːlia jaktantiː striːdeːns akwiloːne prokella"
+  raw_pron: "taːlia jaktantiː striːdẽːs akwiloːne prokella"
+  var_pron: "taːlia jaktantiː striːdẽːs akwiloːne prokella"
   foot {
     syllable {
       onset: "t"
@@ -10130,8 +10324,8 @@ verse {
   foot {
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -10381,8 +10575,8 @@ verse {
   number: 105
   text: "dat latus, īnsequitur cumulō praeruptus aquae mōns."
   norm: "dat latus īnsequitur cumulō praeruptus aquae mōns"
-  raw_pron: "dat latus iːnsekwitur kumuloː prajruptus akwaj moːns"
-  var_pron: "dat latu siːnsekwitur kumuloː prajruptu sakwaj moːns"
+  raw_pron: "dat latus ĩːsekwitur kumuloː prajruptus akwaj mõːs"
+  var_pron: "dat latu sĩːsekwitur kumuloː prajruptu sakwaj mõːs"
   foot {
     syllable {
       onset: "d"
@@ -10405,8 +10599,7 @@ verse {
   foot {
     syllable {
       onset: "s"
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -10482,8 +10675,8 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -10493,8 +10686,8 @@ verse {
   number: 106
   text: "Hī summō in flūctū pendent; hīs unda dehīscēns"
   norm: "hī summō in flūctū pendent hīs unda dehīscēns"
-  raw_pron: "hiː summoː in fluːktuː pendent hiːs unda dehiːskeːns"
-  var_pron: "hiː summin fluːktuː pendent hiːs unda dehiːskeːns"
+  raw_pron: "hiː summoː in fluːktuː pendent hiːs unda dehiːskẽːs"
+  var_pron: "hiː summin fluːktuː pendent hiːs unda dehiːskẽːs"
   foot {
     syllable {
       onset: "h"
@@ -10580,8 +10773,8 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -11324,8 +11517,8 @@ verse {
   number: 114
   text: "ipsius ante oculōs ingēns ā vertice pontus"
   norm: "ipsius ante oculōs ingēns ā vertice pontus"
-  raw_pron: "ipsius ante okuloːs iŋgeːns aː wertike pontus"
-  var_pron: "ipsiu santokuloːs iŋgeːns aː wertike pontus"
+  raw_pron: "ipsius ante okuloːs iŋgẽːs aː wertike pontus"
+  var_pron: "ipsiu santokuloːs iŋgẽːs aː wertike pontus"
   foot {
     syllable {
       nucleus: "i"
@@ -11379,8 +11572,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -11639,8 +11832,8 @@ verse {
   number: 117
   text: "torquet agēns circum et rapidus vorat aequore vērtex."
   norm: "torquet agēns circum et rapidus vorat aequore vērtex"
-  raw_pron: "torkwet ageːns kirkũː et rapidus worat ajkwore weːrteks"
-  var_pron: "torkwe tageːns kirket rapidus wora tajkwore weːrteks"
+  raw_pron: "torkwet agẽːs kirkũː et rapidus worat ajkwore weːrteks"
+  var_pron: "torkwe tagẽːs kirket rapidus wora tajkwore weːrteks"
   foot {
     syllable {
       onset: "t"
@@ -11663,8 +11856,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -12463,8 +12656,8 @@ verse {
   number: 125
   text: "ēmissamque hiemem sēnsit Neptūnus, et īmīs"
   norm: "ēmissamque hiemem sēnsit neptūnus et īmīs"
-  raw_pron: "eːmissãːkwe hiemẽː seːnsit neptuːnus et iːmiːs"
-  var_pron: "eːmissãːkwiemẽː seːnsit neptuːnu se tiːmiːs"
+  raw_pron: "eːmissãːkwe hiemẽː sẽːsit neptuːnus et iːmiːs"
+  var_pron: "eːmissãːkwiemẽː sẽːsit neptuːnu se tiːmiːs"
   foot {
     syllable {
       nucleus: "eː"
@@ -12503,8 +12696,7 @@ verse {
     }
     syllable {
       onset: "s"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -12671,8 +12863,8 @@ verse {
   number: 127
   text: "prōspiciēns summā placidum caput extulit undā."
   norm: "prōspiciēns summā placidum caput extulit undā"
-  raw_pron: "proːspikieːns summaː plakidũː kaput ekstulit undaː"
-  var_pron: "proːspikieːns summaː plakidũː kapu tekstuli tundaː"
+  raw_pron: "proːspikiẽːs summaː plakidũː kaput ekstulit undaː"
+  var_pron: "proːspikiẽːs summaː plakidũː kapu tekstuli tundaː"
   foot {
     syllable {
       onset: "pr"
@@ -12694,8 +12886,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -15577,8 +15769,8 @@ verse {
   number: 155
   text: "prōspiciēns genitor caelōque invectus apertō"
   norm: "prōspiciēns genitor caelōque invectus apertō"
-  raw_pron: "proːspikieːns genitor kajloːkwe inwektus apertoː"
-  var_pron: "proːspikieːns genitor kajloːkwinwektu sapertoː"
+  raw_pron: "proːspikiẽːs genitor kajloːkwe inwektus apertoː"
+  var_pron: "proːspikiẽːs genitor kajloːkwinwektu sapertoː"
   foot {
     syllable {
       onset: "pr"
@@ -15600,8 +15792,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -15683,8 +15875,8 @@ verse {
   number: 156
   text: "flectit equōs, currūque volāns dat lōra secundō."
   norm: "flectit equōs currūque volāns dat lōra secundō"
-  raw_pron: "flektit ekwoːs kurruːkwe wolaːns dat loːra sekundoː"
-  var_pron: "flekti tekwoːs kurruːkwe wolaːns dat loːra sekundoː"
+  raw_pron: "flektit ekwoːs kurruːkwe wolãːs dat loːra sekundoː"
+  var_pron: "flekti tekwoːs kurruːkwe wolãːs dat loːra sekundoː"
   foot {
     syllable {
       onset: "fl"
@@ -15740,8 +15932,8 @@ verse {
   foot {
     syllable {
       onset: "l"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -16001,8 +16193,8 @@ verse {
   number: 159
   text: "Est in sēcessū longō locus: īnsula portum"
   norm: "est in sēcessū longō locus īnsula portum"
-  raw_pron: "est in seːkessuː loŋgoː lokus iːnsula portũː"
-  var_pron: "est in seːkessuː loŋgoː loku siːnsula portũː"
+  raw_pron: "est in seːkessuː loŋgoː lokus ĩːsula portũː"
+  var_pron: "est in seːkessuː loŋgoː loku sĩːsula portũː"
   foot {
     syllable {
       nucleus: "e"
@@ -16065,8 +16257,7 @@ verse {
   foot {
     syllable {
       onset: "s"
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -18143,8 +18334,8 @@ verse {
   number: 180
   text: "Aenēās scopulum intereā cōnscendit, et omnem"
   norm: "aenēās scopulum intereā cōnscendit et omnem"
-  raw_pron: "ajneːaːs skopulũː intereaː koːnskendit et omnẽː"
-  var_pron: "ajneːaːs skopulintereaː koːnskendi te tomnẽː"
+  raw_pron: "ajneːaːs skopulũː intereaː kõːskendit et omnẽː"
+  var_pron: "ajneːaːs skopulintereaː kõːskendi te tomnẽː"
   foot {
     syllable {
       nucleus: "a"
@@ -18202,8 +18393,8 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -18555,8 +18746,8 @@ verse {
   number: 184
   text: "Nāvem in cōnspectū nūllam, trīs lītore cervōs"
   norm: "nāvem in cōnspectū nūllam trīs lītore cervōs"
-  raw_pron: "naːwẽː in koːnspektuː nuːllãː triːs liːtore kerwoːs"
-  var_pron: "naːwin koːnspektuː nuːllãː triːs liːtore kerwoːs"
+  raw_pron: "naːwẽː in kõːspektuː nuːllãː triːs liːtore kerwoːs"
+  var_pron: "naːwin kõːspektuː nuːllãː triːs liːtore kerwoːs"
   foot {
     syllable {
       onset: "n"
@@ -18574,8 +18765,8 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -18854,13 +19045,13 @@ verse {
   number: 187
   text: "Cōnstitit hīc arcumque manū celerīsque sagittās"
   norm: "cōnstitit hīc arcumque manū celerīsque sagittās"
-  raw_pron: "koːnstitit hiːk arkũːkwe manuː keleriːskwe sagittaːs"
-  var_pron: "koːnstiti tiːk arkũːkwe manuː keleriːskwe sagittaːs"
+  raw_pron: "kõːstitit hiːk arkũːkwe manuː keleriːskwe sagittaːs"
+  var_pron: "kõːstiti tiːk arkũːkwe manuː keleriːskwe sagittaːs"
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -19276,8 +19467,8 @@ verse {
   number: 191
   text: "miscet agēns tēlīs nemora inter frondea turbam;"
   norm: "miscet agēns tēlīs nemora inter frondea turbam"
-  raw_pron: "misket ageːns teːliːs nemora inter frondea turbãː"
-  var_pron: "miske tageːns teːliːs nemorinter frondea turbãː"
+  raw_pron: "misket agẽːs teːliːs nemora inter frondea turbãː"
+  var_pron: "miske tagẽːs teːliːs nemorinter frondea turbãː"
   foot {
     syllable {
       onset: "m"
@@ -19300,8 +19491,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -21894,8 +22085,8 @@ verse {
   number: 216
   text: "Postquam exēmpta famēs epulīs mēnsaeque remōtae,"
   norm: "postquam exēmpta famēs epulīs mēnsaeque remōtae"
-  raw_pron: "postkwãː ekseːmpta fameːs epuliːs meːnsajkwe remoːtaj"
-  var_pron: "postkwekseːmpta fameːs epuliːs meːnsajkwe remoːtaj"
+  raw_pron: "postkwãː ekseːmpta fameːs epuliːs mẽːsajkwe remoːtaj"
+  var_pron: "postkwekseːmpta fameːs epuliːs mẽːsajkwe remoːtaj"
   foot {
     syllable {
       onset: "p"
@@ -21957,8 +22148,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -22710,8 +22900,8 @@ verse {
   number: 224
   text: "dispiciēns mare vēlivolum terrāsque jacentīs"
   norm: "dispiciēns mare vēlivolum terrāsque jacentīs"
-  raw_pron: "dispikieːns mare weːliwolũː terraːskwe jakentiːs"
-  var_pron: "dispikieːns mare weːliwolũː terraːskwe jakentiːs"
+  raw_pron: "dispikiẽːs mare weːliwolũː terraːskwe jakentiːs"
+  var_pron: "dispikiẽːs mare weːliwolũː terraːskwe jakentiːs"
   foot {
     syllable {
       onset: "d"
@@ -22733,8 +22923,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -22926,13 +23116,13 @@ verse {
   number: 226
   text: "cōnstitit, et Libyae dēfīxit lūmina rēgnīs."
   norm: "cōnstitit et libyae dēfīxit lūmina rēgnīs"
-  raw_pron: "koːnstitit et libuaj deːfiːksit luːmina reːŋniːs"
-  var_pron: "koːnstiti tet libuaj deːfiːksit luːmina reːŋniːs"
+  raw_pron: "kõːstitit et libuaj deːfiːksit luːmina reːŋniːs"
+  var_pron: "kõːstiti tet libuaj deːfiːksit luːmina reːŋniːs"
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -24268,8 +24458,8 @@ verse {
   number: 239
   text: "sōlābar fātīs contrāria fāta rependēns;"
   norm: "sōlābar fātīs contrāria fāta rependēns"
-  raw_pron: "soːlaːbar faːtiːs kontraːria faːta rependeːns"
-  var_pron: "soːlaːbar faːtiːs kontraːria faːta rependeːns"
+  raw_pron: "soːlaːbar faːtiːs kontraːria faːta rependẽːs"
+  var_pron: "soːlaːbar faːtiːs kontraːria faːta rependẽːs"
   foot {
     syllable {
       onset: "s"
@@ -24356,8 +24546,8 @@ verse {
     }
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -24471,12 +24661,11 @@ verse {
   number: 241
   text: "īnsequitur. Quem dās fīnem, rēx magne, labōrum?"
   norm: "īnsequitur quem dās fīnem rēx magne labōrum"
-  raw_pron: "iːnsekwitur kwẽː daːs fiːnẽː reːks maŋne laboːrũː"
-  var_pron: "iːnsekwitur kwẽː daːs fiːnẽː reːks maŋne laboːrũː"
+  raw_pron: "ĩːsekwitur kwẽː daːs fiːnẽː reːks maŋne laboːrũː"
+  var_pron: "ĩːsekwitur kwẽː daːs fiːnẽː reːks maŋne laboːrũː"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -25823,8 +26012,8 @@ verse {
   number: 254
   text: "Ollī subrīdēns hominum sator atque deōrum"
   norm: "ollī subrīdēns hominum sator atque deōrum"
-  raw_pron: "olliː subriːdeːns hominũː sator atkwe deoːrũː"
-  var_pron: "olliː subriːdeːns hominũː sato ratkwe deoːrũː"
+  raw_pron: "olliː subriːdẽːs hominũː sator atkwe deoːrũː"
+  var_pron: "olliː subriːdẽːs hominũː sato ratkwe deoːrũː"
   foot {
     syllable {
       nucleus: "o"
@@ -25855,8 +26044,8 @@ verse {
   foot {
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -26636,8 +26825,8 @@ verse {
   number: 262
   text: "longius et volvēns fātōrum arcāna movēbō)"
   norm: "longius et volvēns fātōrum arcāna movēbō"
-  raw_pron: "loŋgius et wolweːns faːtoːrũː arkaːna moweːboː"
-  var_pron: "loŋgiu set wolweːns faːtoːrarkaːna moweːboː"
+  raw_pron: "loŋgius et wolwẽːs faːtoːrũː arkaːna moweːboː"
+  var_pron: "loŋgiu set wolwẽːs faːtoːrarkaːna moweːboː"
   foot {
     syllable {
       onset: "l"
@@ -26674,8 +26863,8 @@ verse {
   foot {
     syllable {
       onset: "w"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -26735,8 +26924,8 @@ verse {
   number: 263
   text: "bellum ingēns geret Ītaliā populōsque ferōcīs"
   norm: "bellum ingēns geret ītaliā populōsque ferōcīs"
-  raw_pron: "bellũː iŋgeːns geret iːtaliaː populoːskwe feroːkiːs"
-  var_pron: "belliŋgeːns gere tiːtaliaː populoːskwe feroːkiːs"
+  raw_pron: "bellũː iŋgẽːs geret iːtaliaː populoːskwe feroːkiːs"
+  var_pron: "belliŋgẽːs gere tiːtaliaː populoːskwe feroːkiːs"
   foot {
     syllable {
       onset: "b"
@@ -26755,8 +26944,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -27048,8 +27237,8 @@ verse {
   number: 266
   text: "ternaque trānsierint Rutulīs hīberna subāctīs."
   norm: "ternaque trānsierint rutulīs hīberna subāctīs"
-  raw_pron: "ternakwe traːnsierint rutuliːs hiːberna subaːktiːs"
-  var_pron: "ternakwe traːnsierint rutuliːs hiːberna subaːktiːs"
+  raw_pron: "ternakwe trãːsierint rutuliːs hiːberna subaːktiːs"
+  var_pron: "ternakwe trãːsierint rutuliːs hiːberna subaːktiːs"
   foot {
     syllable {
       onset: "t"
@@ -27072,8 +27261,7 @@ verse {
   foot {
     syllable {
       onset: "tr"
-      nucleus: "aː"
-      coda: "n"
+      nucleus: "ãː"
       weight: HEAVY
     }
     syllable {
@@ -27368,8 +27556,8 @@ verse {
   number: 269
   text: "trīgintā magnōs volvendīs mēnsibus orbīs"
   norm: "trīgintā magnōs volvendīs mēnsibus orbīs"
-  raw_pron: "triːgintaː maŋnoːs wolwendiːs meːnsibus orbiːs"
-  var_pron: "triːgintaː maŋnoːs wolwendiːs meːnsibu sorbiːs"
+  raw_pron: "triːgintaː maŋnoːs wolwendiːs mẽːsibus orbiːs"
+  var_pron: "triːgintaː maŋnoːs wolwendiːs mẽːsibu sorbiːs"
   foot {
     syllable {
       onset: "tr"
@@ -27431,8 +27619,7 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     syllable {
@@ -27565,13 +27752,13 @@ verse {
   number: 271
   text: "trānsferet, et longam multā vī mūniet Albam."
   norm: "trānsferet et longam multā vī mūniet albam"
-  raw_pron: "traːnsferet et loŋgãː multaː wiː muːniet albãː"
-  var_pron: "traːnsfere tet loŋgãː multaː wiː muːnie talbãː"
+  raw_pron: "trãːsferet et loŋgãː multaː wiː muːniet albãː"
+  var_pron: "trãːsfere tet loŋgãː multaː wiː muːnie talbãː"
   foot {
     syllable {
       onset: "tr"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -28589,13 +28776,12 @@ verse {
   number: 281
   text: "cōnsilia in melius referet, mēcumque fovēbit"
   norm: "cōnsilia in melius referet mēcumque fovēbit"
-  raw_pron: "koːnsilia in melius referet meːkũːkwe foweːbit"
-  var_pron: "koːnsiliin melius referet meːkũːkwe foweːbit"
+  raw_pron: "kõːsilia in melius referet meːkũːkwe foweːbit"
+  var_pron: "kõːsiliin melius referet meːkũːkwe foweːbit"
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     syllable {
@@ -30033,8 +30219,8 @@ verse {
   number: 295
   text: "saeva sedēns super arma et centum vīnctus aēnīs"
   norm: "saeva sedēns super arma et centum vīnctus aēnīs"
-  raw_pron: "sajwa sedeːns super arma et kentũː wiːŋktus aeːniːs"
-  var_pron: "sajwa sedeːns supe rarmet kentũː wiːŋktu saeːniːs"
+  raw_pron: "sajwa sedẽːs super arma et kentũː wiːŋktus aeːniːs"
+  var_pron: "sajwa sedẽːs supe rarmet kentũː wiːŋktu saeːniːs"
   foot {
     syllable {
       onset: "s"
@@ -30057,8 +30243,8 @@ verse {
   foot {
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -31079,8 +31265,8 @@ verse {
   number: 305
   text: "At pius Aenēās per noctem plūrima volvēns,"
   norm: "at pius aenēās per noctem plūrima volvēns"
-  raw_pron: "at pius ajneːaːs per noktẽː pluːrima wolweːns"
-  var_pron: "at piu sajneːaːs per noktẽː pluːrima wolweːns"
+  raw_pron: "at pius ajneːaːs per noktẽː pluːrima wolwẽːs"
+  var_pron: "at piu sajneːaːs per noktẽː pluːrima wolwẽːs"
   foot {
     syllable {
       nucleus: "a"
@@ -31167,8 +31353,8 @@ verse {
     }
     syllable {
       onset: "w"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -31487,8 +31673,8 @@ verse {
   number: 309
   text: "quaerere cōnstituit sociīsque exācta referre."
   norm: "quaerere cōnstituit sociīsque exācta referre"
-  raw_pron: "kwajrere koːnstituit sokiiːskwe eksaːkta referre"
-  var_pron: "kwajrere koːnstituit sokiiːskweksaːkta referre"
+  raw_pron: "kwajrere kõːstituit sokiiːskwe eksaːkta referre"
+  var_pron: "kwajrere kõːstituit sokiiːskweksaːkta referre"
   foot {
     syllable {
       onset: "kw"
@@ -31511,8 +31697,8 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -31907,8 +32093,8 @@ verse {
   number: 313
   text: "bīna manū lātō crispāns hastīlia ferrō."
   norm: "bīna manū lātō crispāns hastīlia ferrō"
-  raw_pron: "biːna manuː laːtoː krispaːns hastiːlia ferroː"
-  var_pron: "biːna manuː laːtoː krispaːns hastiːlia ferroː"
+  raw_pron: "biːna manuː laːtoː krispãːs hastiːlia ferroː"
+  var_pron: "biːna manuː laːtoː krispãːs hastiːlia ferroː"
   foot {
     syllable {
       onset: "b"
@@ -31957,8 +32143,8 @@ verse {
   foot {
     syllable {
       onset: "p"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -32107,8 +32293,8 @@ verse {
   number: 315
   text: "virginis ōs habitumque gerēns, et virginis arma"
   norm: "virginis ōs habitumque gerēns et virginis arma"
-  raw_pron: "wirginis oːs habitũːkwe gereːns et wirginis arma"
-  var_pron: "wirgini soːs habitũːkwe gereːns et wirgini sarma"
+  raw_pron: "wirginis oːs habitũːkwe gerẽːs et wirginis arma"
+  var_pron: "wirgini soːs habitũːkwe gerẽːs et wirgini sarma"
   foot {
     syllable {
       onset: "w"
@@ -32168,8 +32354,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -32740,8 +32926,8 @@ verse {
   number: 321
   text: "Ac prior \"Heus,\" inquit, \"juvenēs, mōnstrāte, meārum"
   norm: "ac prior heus inquit juvenēs mōnstrāte meārum"
-  raw_pron: "ak prior hews iŋkwit juweneːs moːnstraːte meaːrũː"
-  var_pron: "ak prio rews iŋkwit juweneːs moːnstraːte meaːrũː"
+  raw_pron: "ak prior hews iŋkwit juweneːs mõːstraːte meaːrũː"
+  var_pron: "ak prio rews iŋkwit juweneːs mõːstraːte meaːrũː"
   foot {
     syllable {
       nucleus: "a"
@@ -32801,8 +32987,8 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -34692,8 +34878,8 @@ verse {
   number: 341
   text: "germānum fugiēns. Longa est injūria, longae"
   norm: "germānum fugiēns longa est injūria longae"
-  raw_pron: "germaːnũː fugieːns loŋga est injuːria loŋgaj"
-  var_pron: "germaːnũː fugieːns loŋgest injuːria loŋgaj"
+  raw_pron: "germaːnũː fugiẽːs loŋga est injuːria loŋgaj"
+  var_pron: "germaːnũː fugiẽːs loŋgest injuːria loŋgaj"
   foot {
     syllable {
       onset: "g"
@@ -34728,8 +34914,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -35810,8 +35996,8 @@ verse {
   number: 352
   text: "multa malus simulāns vānā spē lūsit amantem."
   norm: "multa malus simulāns vānā spē lūsit amantem"
-  raw_pron: "multa malus simulaːns waːnaː speː luːsit amantẽː"
-  var_pron: "multa malus simulaːns waːnaː speː luːsi tamantẽː"
+  raw_pron: "multa malus simulãːs waːnaː speː luːsit amantẽː"
+  var_pron: "multa malus simulãːs waːnaː speː luːsi tamantẽː"
   foot {
     syllable {
       onset: "m"
@@ -35853,8 +36039,8 @@ verse {
   foot {
     syllable {
       onset: "l"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -36016,8 +36202,8 @@ verse {
   number: 354
   text: "conjugis ōra modīs attollēns pallida mīrīs;"
   norm: "conjugis ōra modīs attollēns pallida mīrīs"
-  raw_pron: "konjugis oːra modiːs attolleːns pallida miːriːs"
-  var_pron: "konjugi soːra modiːs attolleːns pallida miːriːs"
+  raw_pron: "konjugis oːra modiːs attollẽːs pallida miːriːs"
+  var_pron: "konjugi soːra modiːs attollẽːs pallida miːriːs"
   foot {
     syllable {
       onset: "k"
@@ -36078,8 +36264,8 @@ verse {
     }
     syllable {
       onset: "l"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -37771,8 +37957,8 @@ verse {
   number: 371
   text: "suspīrāns, īmōque trahēns ā pectore vōcem:"
   norm: "suspīrāns īmōque trahēns ā pectore vōcem"
-  raw_pron: "suspiːraːns iːmoːkwe traheːns aː pektore woːkẽː"
-  var_pron: "suspiːraːns iːmoːkwe traheːns aː pektore woːkẽː"
+  raw_pron: "suspiːrãːs iːmoːkwe trahẽːs aː pektore woːkẽː"
+  var_pron: "suspiːrãːs iːmoːkwe trahẽːs aː pektore woːkẽː"
   foot {
     syllable {
       onset: "s"
@@ -37790,8 +37976,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -37821,8 +38007,8 @@ verse {
   foot {
     syllable {
       onset: "h"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -37868,8 +38054,8 @@ verse {
   number: 372
   text: "\"Ō dea, sī prīmā repetēns ab orīgine pergam"
   norm: "ō dea sī prīmā repetēns ab orīgine pergam"
-  raw_pron: "oː dea siː priːmaː repeteːns ab oriːgine pergãː"
-  var_pron: "oː dea siː priːmaː repeteːns a boriːgine pergãː"
+  raw_pron: "oː dea siː priːmaː repetẽːs ab oriːgine pergãː"
+  var_pron: "oː dea siː priːmaː repetẽːs a boriːgine pergãː"
   foot {
     syllable {
       nucleus: "oː"
@@ -37920,8 +38106,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -38788,8 +38974,8 @@ verse {
   number: 381
   text: "Bis dēnīs Phrygium cōnscendī nāvibus aequor,"
   norm: "bis dēnīs phrygium cōnscendī nāvibus aequor"
-  raw_pron: "bis deːniːs prugiũː koːnskendiː naːwibus ajkwor"
-  var_pron: "bis deːniːs prugiũː koːnskendiː naːwibu sajkwor"
+  raw_pron: "bis deːniːs prugiũː kõːskendiː naːwibus ajkwor"
+  var_pron: "bis deːniːs prugiũː kõːskendiː naːwibu sajkwor"
   foot {
     syllable {
       onset: "b"
@@ -38830,8 +39016,8 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -38888,8 +39074,8 @@ verse {
   number: 382
   text: "mātre deā mōnstrante viam data fāta secūtus;"
   norm: "mātre deā mōnstrante viam data fāta secūtus"
-  raw_pron: "maːtre deaː moːnstrante wiãː data faːta sekuːtus"
-  var_pron: "maːtre deaː moːnstrante wiãː data faːta sekuːtus"
+  raw_pron: "maːtre deaː mõːstrante wiãː data faːta sekuːtus"
+  var_pron: "maːtre deaː mõːstrante wiãː data faːta sekuːtus"
   foot {
     syllable {
       onset: "m"
@@ -38915,8 +39101,8 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -39095,8 +39281,8 @@ verse {
   number: 384
   text: "Ipse ignōtus, egēns, Libyae dēserta peragrō,"
   norm: "ipse ignōtus egēns libyae dēserta peragrō"
-  raw_pron: "ipse iŋnoːtus egeːns libuaj deːserta peragroː"
-  var_pron: "ipsiŋnoːtu segeːns libuaj deːserta peragroː"
+  raw_pron: "ipse iŋnoːtus egẽːs libuaj deːserta peragroː"
+  var_pron: "ipsiŋnoːtu segẽːs libuaj deːserta peragroː"
   foot {
     syllable {
       nucleus: "i"
@@ -39132,8 +39318,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -40931,8 +41117,8 @@ verse {
   number: 402
   text: "Dīxit et āvertēns roseā cervīce refulsit,"
   norm: "dīxit et āvertēns roseā cervīce refulsit"
-  raw_pron: "diːksit et aːwerteːns roseaː kerwiːke refulsit"
-  var_pron: "diːksi te taːwerteːns roseaː kerwiːke refulsit"
+  raw_pron: "diːksit et aːwertẽːs roseaː kerwiːke refulsit"
+  var_pron: "diːksi te taːwertẽːs roseaː kerwiːke refulsit"
   foot {
     syllable {
       onset: "d"
@@ -40969,8 +41155,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -41437,8 +41623,8 @@ verse {
   number: 407
   text: "\"Quid nātum totiēns, crūdēlis tū quoque, falsīs"
   norm: "quid nātum totiēns crūdēlis tū quoque falsīs"
-  raw_pron: "kwid naːtũː totieːns kruːdeːlis tuː kwokwe falsiːs"
-  var_pron: "kwid naːtũː totieːns kruːdeːlis tuː kwokwe falsiːs"
+  raw_pron: "kwid naːtũː totiẽːs kruːdeːlis tuː kwokwe falsiːs"
+  var_pron: "kwid naːtũː totiẽːs kruːdeːlis tuː kwokwe falsiːs"
   foot {
     syllable {
       onset: "kw"
@@ -41473,8 +41659,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -42573,8 +42759,8 @@ verse {
   number: 418
   text: "Corripuēre viam intereā, quā sēmita mōnstrat."
   norm: "corripuēre viam intereā quā sēmita mōnstrat"
-  raw_pron: "korripueːre wiãː intereaː kwaː seːmita moːnstrat"
-  var_pron: "korripueːre wiintereaː kwaː seːmita moːnstrat"
+  raw_pron: "korripueːre wiãː intereaː kwaː seːmita mõːstrat"
+  var_pron: "korripueːre wiintereaː kwaː seːmita mõːstrat"
   foot {
     syllable {
       onset: "k"
@@ -42662,8 +42848,8 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -43067,12 +43253,12 @@ verse {
   number: 423
   text: "Īnstant ardentēs Tyriī: pars dūcere mūrōs"
   norm: "īnstant ardentēs tyriī pars dūcere mūrōs"
-  raw_pron: "iːnstant ardenteːs turiiː pars duːkere muːroːs"
-  var_pron: "iːnstant ardenteːs turiiː pars duːkere muːroːs"
+  raw_pron: "ĩːstant ardenteːs turiiː pars duːkere muːroːs"
+  var_pron: "ĩːstant ardenteːs turiiː pars duːkere muːroːs"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -44688,12 +44874,11 @@ verse {
   number: 439
   text: "Īnfert sē saeptus nebulā (mīrābile dictū)"
   norm: "īnfert sē saeptus nebulā mīrābile dictū"
-  raw_pron: "iːnfert seː sajptus nebulaː miːraːbile diktuː"
-  var_pron: "iːnfert seː sajptus nebulaː miːraːbile diktuː"
+  raw_pron: "ĩːfert seː sajptus nebulaː miːraːbile diktuː"
+  var_pron: "ĩːfert seː sajptus nebulaː miːraːbile diktuː"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -45198,13 +45383,13 @@ verse {
   number: 444
   text: "mōnstrārat, caput ācris equī; sīc nam fore bellō"
   norm: "mōnstrārat caput ācris equī sīc nam fore bellō"
-  raw_pron: "moːnstraːrat kaput aːkris ekwiː siːk nãː fore belloː"
-  var_pron: "moːnstraːrat kapu taːkri sekwiː siːk nãː fore belloː"
+  raw_pron: "mõːstraːrat kaput aːkris ekwiː siːk nãː fore belloː"
+  var_pron: "mõːstraːrat kapu taːkri sekwiː siːk nãː fore belloː"
   foot {
     syllable {
       onset: "m"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -45405,8 +45590,8 @@ verse {
   number: 446
   text: "Hīc templum Jūnōnī ingēns Sīdōnia Dīdō"
   norm: "hīc templum jūnōnī ingēns sīdōnia dīdō"
-  raw_pron: "hiːk templũː juːnoːniː iŋgeːns siːdoːnia diːdoː"
-  var_pron: "hiːk templũː juːnoːniŋgeːns siːdoːnia diːdoː"
+  raw_pron: "hiːk templũː juːnoːniː iŋgẽːs siːdoːnia diːdoː"
+  var_pron: "hiːk templũː juːnoːniŋgẽːs siːdoːnia diːdoː"
   foot {
     syllable {
       onset: "h"
@@ -45452,8 +45637,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -45600,6 +45785,7 @@ verse {
   norm: "aerea cui gradibus surgēbant līmina nexaeque"
   raw_pron: "ajrea kuj gradibus surgeːbant liːmina neksajkwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided inro the next line"
 }
 verse {
   number: 449
@@ -45902,8 +46088,8 @@ verse {
   number: 452
   text: "ausus et adflīctīs melius cōnfīdere rēbus."
   norm: "ausus et adflīctīs melius cōnfīdere rēbus"
-  raw_pron: "awsus et adfliːktiːs melius koːnfiːdere reːbus"
-  var_pron: "awsu se tadfliːktiːs melius koːnfiːdere reːbus"
+  raw_pron: "awsus et adfliːktiːs melius kõːfiːdere reːbus"
+  var_pron: "awsu se tadfliːktiːs melius kõːfiːdere reːbus"
   foot {
     syllable {
       nucleus: "a"
@@ -45964,8 +46150,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -46108,8 +46293,8 @@ verse {
   number: 454
   text: "rēgīnam opperiēns, dum quae fortūna sit urbī"
   norm: "rēgīnam opperiēns dum quae fortūna sit urbī"
-  raw_pron: "reːgiːnãː opperieːns dũː kwaj fortuːna sit urbiː"
-  var_pron: "reːgiːnopperieːns dũː kwaj fortuːna si turbiː"
+  raw_pron: "reːgiːnãː opperiẽːs dũː kwaj fortuːna sit urbiː"
+  var_pron: "reːgiːnopperiẽːs dũː kwaj fortuːna si turbiː"
   foot {
     syllable {
       onset: "r"
@@ -46144,8 +46329,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -46613,13 +46798,13 @@ verse {
   number: 459
   text: "Cōnstitit, et lacrimāns, \"Quis jam locus\" inquit \"Achātē,"
   norm: "cōnstitit et lacrimāns quis jam locus inquit achātē"
-  raw_pron: "koːnstitit et lakrimaːns kwis jãː lokus iŋkwit akaːteː"
-  var_pron: "koːnstiti tet lakrimaːns kwis jãː loku siŋkwi takaːteː"
+  raw_pron: "kõːstitit et lakrimãːs kwis jãː lokus iŋkwit akaːteː"
+  var_pron: "kõːstiti tet lakrimãːs kwis jãː loku siŋkwi takaːteː"
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -46656,8 +46841,8 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -47244,8 +47429,8 @@ verse {
   number: 465
   text: "multa gemēns, largōque ūmectat flūmine vultum."
   norm: "multa gemēns largōque ūmectat flūmine vultum"
-  raw_pron: "multa gemeːns largoːkwe uːmektat fluːmine wultũː"
-  var_pron: "multa gemeːns largoːkwuːmektat fluːmine wultũː"
+  raw_pron: "multa gemẽːs largoːkwe uːmektat fluːmine wultũː"
+  var_pron: "multa gemẽːs largoːkwuːmektat fluːmine wultũː"
   foot {
     syllable {
       onset: "m"
@@ -47268,8 +47453,8 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -47557,8 +47742,8 @@ verse {
   number: 468
   text: "hāc Phryges, īnstāret currū cristātus Achillēs."
   norm: "hāc phryges īnstāret currū cristātus achillēs"
-  raw_pron: "haːk pruges iːnstaːret kurruː kristaːtus akilleːs"
-  var_pron: "haːk pruge siːnstaːret kurruː kristaːtu sakilleːs"
+  raw_pron: "haːk pruges ĩːstaːret kurruː kristaːtus akilleːs"
+  var_pron: "haːk pruge sĩːstaːret kurruː kristaːtu sakilleːs"
   foot {
     syllable {
       onset: "h"
@@ -47581,8 +47766,8 @@ verse {
   foot {
     syllable {
       onset: "s"
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -47762,8 +47947,8 @@ verse {
   number: 470
   text: "agnōscit lacrimāns, prīmō quae prōdita somnō"
   norm: "agnōscit lacrimāns prīmō quae prōdita somnō"
-  raw_pron: "aŋnoːskit lakrimaːns priːmoː kwaj proːdita somnoː"
-  var_pron: "aŋnoːskit lakrimaːns priːmoː kwaj proːdita somnoː"
+  raw_pron: "aŋnoːskit lakrimãːs priːmoː kwaj proːdita somnoː"
+  var_pron: "aŋnoːskit lakrimãːs priːmoː kwaj proːdita somnoː"
   foot {
     syllable {
       nucleus: "a"
@@ -47800,8 +47985,8 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -48161,8 +48346,8 @@ verse {
   number: 474
   text: "Parte aliā fugiēns āmissīs Trōilus armīs,"
   norm: "parte aliā fugiēns āmissīs trōilus armīs"
-  raw_pron: "parte aliaː fugieːns aːmissiːs troːilus armiːs"
-  var_pron: "partaliaː fugieːns aːmissiːs troːilu sarmiːs"
+  raw_pron: "parte aliaː fugiẽːs aːmissiːs troːilus armiːs"
+  var_pron: "partaliaː fugiẽːs aːmissiːs troːilu sarmiːs"
   foot {
     syllable {
       onset: "p"
@@ -48201,8 +48386,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -48263,12 +48448,11 @@ verse {
   number: 475
   text: "īnfēlīx puer atque impār congressus Achillī,"
   norm: "īnfēlīx puer atque impār congressus achillī"
-  raw_pron: "iːnfeːliːks puer atkwe impaːr koŋgressus akilliː"
-  var_pron: "iːnfeːliːks pue ratkwimpaːr koŋgressu sakilliː"
+  raw_pron: "ĩːfeːliːks puer atkwe impaːr koŋgressus akilliː"
+  var_pron: "ĩːfeːliːks pue ratkwimpaːr koŋgressu sakilliː"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -48469,8 +48653,8 @@ verse {
   number: 477
   text: "lōra tenēns tamen; huic cervīxque comaeque trahuntur"
   norm: "lōra tenēns tamen huic cervīxque comaeque trahuntur"
-  raw_pron: "loːra teneːns tamen hujk kerwiːkskwe komajkwe trahuntur"
-  var_pron: "loːra teneːns tame nujk kerwiːkskwe komajkwe trahuntur"
+  raw_pron: "loːra tenẽːs tamen hujk kerwiːkskwe komajkwe trahuntur"
+  var_pron: "loːra tenẽːs tame nujk kerwiːkskwe komajkwe trahuntur"
   foot {
     syllable {
       onset: "l"
@@ -48492,8 +48676,8 @@ verse {
   foot {
     syllable {
       onset: "n"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -48581,8 +48765,8 @@ verse {
   number: 478
   text: "per terram, et versā pulvis īnscrībitur hastā."
   norm: "per terram et versā pulvis īnscrībitur hastā"
-  raw_pron: "per terrãː et wersaː pulwis iːnskriːbitur hastaː"
-  var_pron: "per terret wersaː pulwis iːnskriːbitu rastaː"
+  raw_pron: "per terrãː et wersaː pulwis ĩːskriːbitur hastaː"
+  var_pron: "per terret wersaː pulwis ĩːskriːbitu rastaː"
   foot {
     syllable {
       onset: "p"
@@ -48635,8 +48819,8 @@ verse {
       weight: HEAVY
     }
     syllable {
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -48882,8 +49066,8 @@ verse {
   number: 481
   text: "suppliciter, trīstēs et tūnsae pectora palmīs;"
   norm: "suppliciter trīstēs et tūnsae pectora palmīs"
-  raw_pron: "supplikiter triːsteːs et tuːnsaj pektora palmiːs"
-  var_pron: "supplikiter triːsteːs et tuːnsaj pektora palmiːs"
+  raw_pron: "supplikiter triːsteːs et tũːsaj pektora palmiːs"
+  var_pron: "supplikiter triːsteːs et tũːsaj pektora palmiːs"
   foot {
     syllable {
       onset: "s"
@@ -48935,8 +49119,7 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "uː"
-      coda: "n"
+      nucleus: "ũː"
       weight: HEAVY
     }
     syllable {
@@ -49493,8 +49676,8 @@ verse {
   number: 487
   text: "tendentemque manūs Priamum cōnspexit inermīs."
   norm: "tendentemque manūs priamum cōnspexit inermīs"
-  raw_pron: "tendentẽːkwe manuːs priamũː koːnspeksit inermiːs"
-  var_pron: "tendentẽːkwe manuːs priamũː koːnspeksi tinermiːs"
+  raw_pron: "tendentẽːkwe manuːs priamũː kõːspeksit inermiːs"
+  var_pron: "tendentẽːkwe manuːs priamũː kõːspeksi tinermiːs"
   foot {
     syllable {
       onset: "t"
@@ -49554,8 +49737,8 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -49905,8 +50088,8 @@ verse {
   number: 491
   text: "Penthesilēa furēns mediīsque in mīlibus ardet"
   norm: "penthesilēa furēns mediīsque in mīlibus ardet"
-  raw_pron: "pentesileːa fureːns mediiːskwe in miːlibus ardet"
-  var_pron: "pentesileːa fureːns mediiːskwin miːlibu sardet"
+  raw_pron: "pentesileːa furẽːs mediiːskwe in miːlibus ardet"
+  var_pron: "pentesileːa furẽːs mediiːskwin miːlibu sardet"
   foot {
     syllable {
       onset: "p"
@@ -49946,8 +50129,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -50014,8 +50197,8 @@ verse {
   number: 492
   text: "aurea subnectēns exsertae cingula mammae"
   norm: "aurea subnectēns exsertae cingula mammae"
-  raw_pron: "awrea subnekteːns ekssertaj kiŋgula mammaj"
-  var_pron: "awrea subnekteːns ekssertaj kiŋgula mammaj"
+  raw_pron: "awrea subnektẽːs ekssertaj kiŋgula mammaj"
+  var_pron: "awrea subnektẽːs ekssertaj kiŋgula mammaj"
   foot {
     syllable {
       nucleus: "a"
@@ -50051,8 +50234,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -50920,8 +51103,8 @@ verse {
   number: 501
   text: "fert umerō gradiēnsque deās superēminet omnīs"
   norm: "fert umerō gradiēnsque deās superēminet omnīs"
-  raw_pron: "fert umeroː gradieːnskwe deaːs supereːminet omniːs"
-  var_pron: "fert umeroː gradieːnskwe deaːs supereːmine tomniːs"
+  raw_pron: "fert umeroː gradiẽːskwe deaːs supereːminet omniːs"
+  var_pron: "fert umeroː gradiẽːskwe deaːs supereːmine tomniːs"
   foot {
     syllable {
       onset: "f"
@@ -50960,8 +51143,8 @@ verse {
   }
   foot {
     syllable {
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -51232,8 +51415,8 @@ verse {
   number: 504
   text: "per mediō, īnstāns operī rēgnīsque futūrīs."
   norm: "per mediō īnstāns operī rēgnīsque futūrīs"
-  raw_pron: "per medioː iːnstaːns operiː reːŋniːskwe futuːriːs"
-  var_pron: "per medioː iːnstaːns operiː reːŋniːskwe futuːriːs"
+  raw_pron: "per medioː ĩːstãːs operiː reːŋniːskwe futuːriːs"
+  var_pron: "per medioː ĩːstãːs operiː reːŋniːskwe futuːriːs"
   foot {
     syllable {
       onset: "p"
@@ -51259,8 +51442,8 @@ verse {
       weight: HEAVY
     }
     syllable {
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -51268,8 +51451,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -53403,8 +53586,8 @@ verse {
   number: 525
   text: "ōrāmus; prohibē īnfandōs ā nāvibus ignīs,"
   norm: "ōrāmus prohibē īnfandōs ā nāvibus ignīs"
-  raw_pron: "oːraːmus prohibeː iːnfandoːs aː naːwibus iŋniːs"
-  var_pron: "oːraːmus prohibiːnfandoːs aː naːwibu siŋniːs"
+  raw_pron: "oːraːmus prohibeː ĩːfandoːs aː naːwibus iŋniːs"
+  var_pron: "oːraːmus prohibĩːfandoːs aː naːwibu siŋniːs"
   foot {
     syllable {
       nucleus: "oː"
@@ -53439,8 +53622,7 @@ verse {
   foot {
     syllable {
       onset: "b"
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -54033,8 +54215,8 @@ verse {
   number: 531
   text: "terra antīqua, potēns armīs atque ūbere glaebae;"
   norm: "terra antīqua potēns armīs atque ūbere glaebae"
-  raw_pron: "terra antiːkwa poteːns armiːs atkwe uːbere glajbaj"
-  var_pron: "terrantiːkwa poteːns armiːs atkwuːbere glajbaj"
+  raw_pron: "terra antiːkwa potẽːs armiːs atkwe uːbere glajbaj"
+  var_pron: "terrantiːkwa potẽːs armiːs atkwuːbere glajbaj"
   foot {
     syllable {
       onset: "t"
@@ -54071,8 +54253,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -54345,8 +54527,8 @@ verse {
   number: 535
   text: "cum subitō adsurgēns flūctū nimbōsus Oriōn"
   norm: "cum subitō adsurgēns flūctū nimbōsus oriōn"
-  raw_pron: "kũː subitoː adsurgeːns fluːktuː nimboːsus orioːn"
-  var_pron: "kũː subitadsurgeːns fluːktuː nimboːsus orjoːn"
+  raw_pron: "kũː subitoː adsurgẽːs fluːktuː nimboːsus orioːn"
+  var_pron: "kũː subitadsurgẽːs fluːktuː nimboːsus orjoːn"
   foot {
     syllable {
       onset: "k"
@@ -54383,8 +54565,8 @@ verse {
   foot {
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -54977,8 +55159,8 @@ verse {
   number: 541
   text: "bella cient prīmāque vetant cōnsistere terrā."
   norm: "bella cient prīmāque vetant cōnsistere terrā"
-  raw_pron: "bella kient priːmaːkwe wetant koːnsistere terraː"
-  var_pron: "bella kient priːmaːkwe wetant koːnsistere terraː"
+  raw_pron: "bella kient priːmaːkwe wetant kõːsistere terraː"
+  var_pron: "bella kient priːmaːkwe wetant kõːsistere terraː"
   foot {
     syllable {
       onset: "b"
@@ -55038,8 +55220,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -57557,8 +57738,8 @@ verse {
   number: 567
   text: "Nōn obtūnsa adeō gestāmus pectora Poenī,"
   norm: "nōn obtūnsa adeō gestāmus pectora poenī"
-  raw_pron: "noːn optuːnsa adeoː gestaːmus pektora pojniː"
-  var_pron: "noːn optuːnsadeoː gestaːmus pektora pojniː"
+  raw_pron: "noːn optũːsa adeoː gestaːmus pektora pojniː"
+  var_pron: "noːn optũːsadeoː gestaːmus pektora pojniː"
   foot {
     syllable {
       onset: "n"
@@ -57576,8 +57757,7 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "uː"
-      coda: "n"
+      nucleus: "ũː"
       weight: HEAVY
     }
     syllable {
@@ -58063,8 +58243,8 @@ verse {
   number: 572
   text: "Vultis et hīs mēcum pariter cōnsīdere rēgnīs?"
   norm: "vultis et hīs mēcum pariter cōnsīdere rēgnīs"
-  raw_pron: "wultis et hiːs meːkũː pariter koːnsiːdere reːŋniːs"
-  var_pron: "wulti se tiːs meːkũː pariter koːnsiːdere reːŋniːs"
+  raw_pron: "wultis et hiːs meːkũː pariter kõːsiːdere reːŋniːs"
+  var_pron: "wulti se tiːs meːkũː pariter kõːsiːdere reːŋniːs"
   foot {
     syllable {
       onset: "w"
@@ -58125,8 +58305,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -60617,8 +60796,8 @@ verse {
   number: 597
   text: "Ō sōlā īnfandōs Trojae miserāta labōrēs,"
   norm: "ō sōlā īnfandōs trojae miserāta labōrēs"
-  raw_pron: "oː soːlaː iːnfandoːs trojjaj miseraːta laboːreːs"
-  var_pron: "oː soːliːnfandoːs trojjaj miseraːta laboːreːs"
+  raw_pron: "oː soːlaː ĩːfandoːs trojjaj miseraːta laboːreːs"
+  var_pron: "oː soːlĩːfandoːs trojjaj miseraːta laboːreːs"
   foot {
     syllable {
       nucleus: "oː"
@@ -60634,8 +60813,7 @@ verse {
   foot {
     syllable {
       onset: "l"
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -60717,8 +60895,106 @@ verse {
   number: 598
   text: "quae nōs, relliquiās Danaum, terraeque marisque"
   norm: "quae nōs relliquiās danaum terraeque marisque"
-  raw_pron: "kwaj noːs rellikwiaːs danawm terrajkwe mariskwe"
-  defective: true
+  raw_pron: "kwaj noːs rellikwiaːs danaũː terrajkwe mariskwe"
+  var_pron: "kwaj noːs rellikwiaːs danaũː terrajkwe mariskwe"
+  foot {
+    syllable {
+      onset: "kw"
+      nucleus: "a"
+      coda: "j"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "oː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "e"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "e"
+      coda: "r"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "a"
+      coda: "j"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "m"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: TROCHEE
+  }
 }
 verse {
   number: 599
@@ -61240,8 +61516,8 @@ verse {
   number: 604
   text: "ūsquam jūstitia est et mēns sibi cōnscia rēctī,"
   norm: "ūsquam jūstitia est et mēns sibi cōnscia rēctī"
-  raw_pron: "uːskwãː juːstitia est et meːns sibi koːnskia reːktiː"
-  var_pron: "uːskwãː juːstitiest et meːns sibi koːnskia reːktiː"
+  raw_pron: "uːskwãː juːstitia est et mẽːs sibi kõːskia reːktiː"
+  var_pron: "uːskwãː juːstitiest et mẽːs sibi kõːskia reːktiː"
   foot {
     syllable {
       nucleus: "uː"
@@ -61290,8 +61566,8 @@ verse {
   foot {
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -61309,8 +61585,8 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "ns"
+      nucleus: "õː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -62463,12 +62739,11 @@ verse {
   number: 616
   text: "īnsequitur? Quae vīs immānibus applicat ōrīs?"
   norm: "īnsequitur quae vīs immānibus applicat ōrīs"
-  raw_pron: "iːnsekwitur kwaj wiːs immaːnibus applikat oːriːs"
-  var_pron: "iːnsekwitur kwaj wiːs immaːnibu sapplika toːriːs"
+  raw_pron: "ĩːsekwitur kwaj wiːs immaːnibus applikat oːriːs"
+  var_pron: "ĩːsekwitur kwaj wiːs immaːnibu sapplika toːriːs"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -63391,8 +63666,8 @@ verse {
   number: 625
   text: "Ipse hostis Teucrōs īnsignī laude ferēbat,"
   norm: "ipse hostis teucrōs īnsignī laude ferēbat"
-  raw_pron: "ipse hostis teukroːs iːnsiŋniː lawde fereːbat"
-  var_pron: "ipsostis teukroːs iːnsiŋniː lawde fereːbat"
+  raw_pron: "ipse hostis teukroːs ĩːsiŋniː lawde fereːbat"
+  var_pron: "ipsostis teukroːs ĩːsiŋniː lawde fereːbat"
   foot {
     syllable {
       nucleus: "i"
@@ -63433,8 +63708,7 @@ verse {
       weight: HEAVY
     }
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -63801,8 +64075,8 @@ verse {
   number: 629
   text: "jactātam hāc dēmum voluit cōnsistere terrā."
   norm: "jactātam hāc dēmum voluit cōnsistere terrā"
-  raw_pron: "jaktaːtãː haːk deːmũː woluit koːnsistere terraː"
-  var_pron: "jaktaːtaːk deːmũː woluit koːnsistere terraː"
+  raw_pron: "jaktaːtãː haːk deːmũː woluit kõːsistere terraː"
+  var_pron: "jaktaːtaːk deːmũː woluit kõːsistere terraː"
   foot {
     syllable {
       onset: "j"
@@ -63857,8 +64131,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -64623,12 +64896,12 @@ verse {
   number: 638
   text: "īnstruitur, mediīsque parant convīvia tēctīs:"
   norm: "īnstruitur mediīsque parant convīvia tēctīs"
-  raw_pron: "iːnstruitur mediiːskwe parant konwiːwia teːktiːs"
-  var_pron: "iːnstruitur mediiːskwe parant konwiːwia teːktiːs"
+  raw_pron: "ĩːstruitur mediiːskwe parant konwiːwia teːktiːs"
+  var_pron: "ĩːstruitur mediiːskwe parant konwiːwia teːktiːs"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -64830,8 +65103,8 @@ verse {
   number: 640
   text: "ingēns argentum mēnsīs, caelātaque in aurō"
   norm: "ingēns argentum mēnsīs caelātaque in aurō"
-  raw_pron: "iŋgeːns argentũː meːnsiːs kajlaːtakwe in awroː"
-  var_pron: "iŋgeːns argentũː meːnsiːs kajlaːtakwi nawroː"
+  raw_pron: "iŋgẽːs argentũː mẽːsiːs kajlaːtakwe in awroː"
+  var_pron: "iŋgẽːs argentũː mẽːsiːs kajlaːtakwi nawroː"
   foot {
     syllable {
       nucleus: "i"
@@ -64840,8 +65113,8 @@ verse {
     }
     syllable {
       onset: "g"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     type: SPONDEE
@@ -64868,8 +65141,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -65140,8 +65412,8 @@ verse {
   number: 643
   text: "Aenēās (neque enim patrius cōnsistere mentem"
   norm: "aenēās neque enim patrius cōnsistere mentem"
-  raw_pron: "ajneːaːs nekwe enĩː patrius koːnsistere mentẽː"
-  var_pron: "ajneːaːs nekwenĩː patrius koːnsistere mentẽː"
+  raw_pron: "ajneːaːs nekwe enĩː patrius kõːsistere mentẽː"
+  var_pron: "ajneːaːs nekwenĩː patrius kõːsistere mentẽː"
   foot {
     syllable {
       nucleus: "a"
@@ -65199,8 +65471,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -66464,8 +66735,8 @@ verse {
   number: 656
   text: "Haec celerāns ita ad nāvīs tendēbat Achātēs."
   norm: "haec celerāns ita ad nāvīs tendēbat achātēs"
-  raw_pron: "hajk keleraːns ita ad naːwiːs tendeːbat akaːteːs"
-  var_pron: "hajk keleraːns ita ad naːwiːs tendeːba takaːteːs"
+  raw_pron: "hajk kelerãːs ita ad naːwiːs tendeːbat akaːteːs"
+  var_pron: "hajk kelerãːs ita ad naːwiːs tendeːba takaːteːs"
   foot {
     syllable {
       onset: "h"
@@ -66488,8 +66759,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -66677,13 +66948,12 @@ verse {
   number: 658
   text: "cōnsilia, ut faciem mūtātus et ōra Cupīdō"
   norm: "cōnsilia ut faciem mūtātus et ōra cupīdō"
-  raw_pron: "koːnsilia ut fakiẽː muːtaːtus et oːra kupiːdoː"
-  var_pron: "koːnsiliut fakiẽː muːtaːtu se toːra kupiːdoː"
+  raw_pron: "kõːsilia ut fakiẽː muːtaːtus et oːra kupiːdoː"
+  var_pron: "kõːsiliut fakiẽː muːtaːtu se toːra kupiːdoː"
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     syllable {
@@ -67505,8 +67775,8 @@ verse {
   number: 666
   text: "ad tē cōnfugiō et supplex tua nūmina poscō."
   norm: "ad tē cōnfugiō et supplex tua nūmina poscō"
-  raw_pron: "ad teː koːnfugioː et suppleks tua nuːmina poskoː"
-  var_pron: "ad teː koːnfugiet suppleks tua nuːmina poskoː"
+  raw_pron: "ad teː kõːfugioː et suppleks tua nuːmina poskoː"
+  var_pron: "ad teː kõːfugiet suppleks tua nuːmina poskoː"
   foot {
     syllable {
       nucleus: "a"
@@ -67523,8 +67793,7 @@ verse {
   foot {
     syllable {
       onset: "k"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     syllable {
@@ -68834,8 +69103,8 @@ verse {
   number: 679
   text: "dōna ferēns, pelagō et flammīs restantia Trojae;"
   norm: "dōna ferēns pelagō et flammīs restantia trojae"
-  raw_pron: "doːna fereːns pelagoː et flammiːs restantia trojjaj"
-  var_pron: "doːna fereːns pelaget flammiːs restantia trojjaj"
+  raw_pron: "doːna ferẽːs pelagoː et flammiːs restantia trojjaj"
+  var_pron: "doːna ferẽːs pelaget flammiːs restantia trojjaj"
   foot {
     syllable {
       onset: "d"
@@ -68857,8 +69126,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -69555,8 +69824,8 @@ verse {
   number: 686
   text: "rēgālīs inter mēnsās laticemque Lyaeum,"
   norm: "rēgālīs inter mēnsās laticemque lyaeum"
-  raw_pron: "reːgaːliːs inter meːnsaːs latikẽːkwe luajjũː"
-  var_pron: "reːgaːliːs inter meːnsaːs latikẽːkwe luajjũː"
+  raw_pron: "reːgaːliːs inter mẽːsaːs latikẽːkwe luajjũː"
+  var_pron: "reːgaːliːs inter mẽːsaːs latikẽːkwe luajjũː"
   foot {
     syllable {
       onset: "r"
@@ -69593,8 +69862,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -69759,8 +70027,8 @@ verse {
   number: 688
   text: "occultum īnspīrēs ignem fallāsque venēnō.\""
   norm: "occultum īnspīrēs ignem fallāsque venēnō"
-  raw_pron: "okkultũː iːnspiːreːs iŋnẽː fallaːskwe weneːnoː"
-  var_pron: "okkultiːnspiːreːs iŋnẽː fallaːskwe weneːnoː"
+  raw_pron: "okkultũː ĩːspiːreːs iŋnẽː fallaːskwe weneːnoː"
+  var_pron: "okkultĩːspiːreːs iŋnẽː fallaːskwe weneːnoː"
   foot {
     syllable {
       nucleus: "o"
@@ -69778,8 +70046,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -69959,8 +70227,8 @@ verse {
   number: 690
   text: "exuit, et gressū gaudēns incēdit Iūlī."
   norm: "exuit et gressū gaudēns incēdit iūlī"
-  raw_pron: "eksuit et gressuː gawdeːns iŋkeːdit iuːliː"
-  var_pron: "eksui tet gressuː gawdeːns iŋkeːdi tiuːliː"
+  raw_pron: "eksuit et gressuː gawdẽːs iŋkeːdit iuːliː"
+  var_pron: "eksui tet gressuː gawdẽːs iŋkeːdi tiuːliː"
   foot {
     syllable {
       nucleus: "e"
@@ -70010,8 +70278,8 @@ verse {
   foot {
     syllable {
       onset: "d"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -70375,8 +70643,8 @@ verse {
   number: 694
   text: "flōribus et dulcī aspīrāns complectitur umbrā."
   norm: "flōribus et dulcī aspīrāns complectitur umbrā"
-  raw_pron: "floːribus et dulkiː aspiːraːns komplektitur umbraː"
-  var_pron: "floːribu set dulkaspiːraːns komplektitu rumbraː"
+  raw_pron: "floːribus et dulkiː aspiːrãːs komplektitur umbraː"
+  var_pron: "floːribu set dulkaspiːrãːs komplektitu rumbraː"
   foot {
     syllable {
       onset: "fl"
@@ -70427,8 +70695,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -70477,8 +70745,8 @@ verse {
   number: 695
   text: "Jamque ībat dictō pārēns et dōna Cupīdō"
   norm: "jamque ībat dictō pārēns et dōna cupīdō"
-  raw_pron: "jãːkwe iːbat diktoː paːreːns et doːna kupiːdoː"
-  var_pron: "jãːkwiːbat diktoː paːreːns et doːna kupiːdoː"
+  raw_pron: "jãːkwe iːbat diktoː paːrẽːs et doːna kupiːdoː"
+  var_pron: "jãːkwiːbat diktoː paːrẽːs et doːna kupiːdoː"
   foot {
     syllable {
       onset: "j"
@@ -70523,8 +70791,8 @@ verse {
   foot {
     syllable {
       onset: "r"
-      nucleus: "eː"
-      coda: "ns"
+      nucleus: "ẽː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -71100,8 +71368,8 @@ verse {
   number: 702
   text: "expediunt tōnsīsque ferunt mantēlia villīs."
   norm: "expediunt tōnsīsque ferunt mantēlia villīs"
-  raw_pron: "ekspediunt toːnsiːskwe ferunt manteːlia williːs"
-  var_pron: "ekspediunt toːnsiːskwe ferunt manteːlia williːs"
+  raw_pron: "ekspediunt tõːsiːskwe ferunt manteːlia williːs"
+  var_pron: "ekspediunt tõːsiːskwe ferunt manteːlia williːs"
   foot {
     syllable {
       nucleus: "e"
@@ -71128,8 +71396,7 @@ verse {
     }
     syllable {
       onset: "t"
-      nucleus: "oː"
-      coda: "n"
+      nucleus: "õː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -71527,8 +71794,8 @@ verse {
   number: 706
   text: "quī dapibus mēnsās onerent et pōcula pōnant."
   norm: "quī dapibus mēnsās onerent et pōcula pōnant"
-  raw_pron: "kwiː dapibus meːnsaːs onerent et poːkula poːnant"
-  var_pron: "kwiː dapibus meːnsaːs onerent et poːkula poːnant"
+  raw_pron: "kwiː dapibus mẽːsaːs onerent et poːkula poːnant"
+  var_pron: "kwiː dapibus mẽːsaːs onerent et poːkula poːnant"
   foot {
     syllable {
       onset: "kw"
@@ -71556,8 +71823,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -72740,8 +73006,8 @@ verse {
   number: 718
   text: "haeret et interdum gremiō fovet īnscia Dīdō"
   norm: "haeret et interdum gremiō fovet īnscia dīdō"
-  raw_pron: "hajret et interdũː gremioː fowet iːnskia diːdoː"
-  var_pron: "hajre te tinterdũː gremioː fowe tiːnskia diːdoː"
+  raw_pron: "hajret et interdũː gremioː fowet ĩːskia diːdoː"
+  var_pron: "hajre te tinterdũː gremioː fowe tĩːskia diːdoː"
   foot {
     syllable {
       onset: "h"
@@ -72814,8 +73080,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "iː"
-      coda: "ns"
+      nucleus: "ĩː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -72847,12 +73113,11 @@ verse {
   number: 719
   text: "īnsīdat quantus miserae deus. At memor ille"
   norm: "īnsīdat quantus miserae deus at memor ille"
-  raw_pron: "iːnsiːdat kwantus miseraj deus at memor ille"
-  var_pron: "iːnsiːdat kwantus miseraj deu sat memo rille"
+  raw_pron: "ĩːsiːdat kwantus miseraj deus at memor ille"
+  var_pron: "ĩːsiːdat kwantus miseraj deu sat memo rille"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -73261,8 +73526,8 @@ verse {
   number: 723
   text: "Postquam prīma quiēs epulīs mēnsaeque remōtae,"
   norm: "postquam prīma quiēs epulīs mēnsaeque remōtae"
-  raw_pron: "postkwãː priːma kwieːs epuliːs meːnsajkwe remoːtaj"
-  var_pron: "postkwãː priːma kwieːs epuliːs meːnsajkwe remoːtaj"
+  raw_pron: "postkwãː priːma kwieːs epuliːs mẽːsajkwe remoːtaj"
+  var_pron: "postkwãː priːma kwieːs epuliːs mẽːsajkwe remoːtaj"
   foot {
     syllable {
       onset: "p"
@@ -73321,8 +73586,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -73672,8 +73936,8 @@ verse {
   number: 727
   text: "incēnsī et noctem flammīs fūnālia vincunt."
   norm: "incēnsī et noctem flammīs fūnālia vincunt"
-  raw_pron: "iŋkeːnsiː et noktẽː flammiːs fuːnaːlia wiŋkunt"
-  var_pron: "iŋkeːnset noktẽː flammiːs fuːnaːlia wiŋkunt"
+  raw_pron: "iŋkẽːsiː et noktẽː flammiːs fuːnaːlia wiŋkunt"
+  var_pron: "iŋkẽːset noktẽː flammiːs fuːnaːlia wiŋkunt"
   foot {
     syllable {
       nucleus: "i"
@@ -73682,8 +73946,7 @@ verse {
     }
     syllable {
       onset: "k"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -74601,8 +74864,8 @@ verse {
   number: 736
   text: "Dīxit et in mēnsam laticum lībāvit honōrem"
   norm: "dīxit et in mēnsam laticum lībāvit honōrem"
-  raw_pron: "diːksit et in meːnsãː latikũː liːbaːwit honoːrẽː"
-  var_pron: "diːksi te tin meːnsãː latikũː liːbaːwi tonoːrẽː"
+  raw_pron: "diːksit et in mẽːsãː latikũː liːbaːwit honoːrẽː"
+  var_pron: "diːksi te tin mẽːsãː latikũː liːbaːwi tonoːrẽː"
   foot {
     syllable {
       onset: "d"
@@ -74631,8 +74894,7 @@ verse {
     }
     syllable {
       onset: "m"
-      nucleus: "eː"
-      coda: "n"
+      nucleus: "ẽː"
       weight: HEAVY
     }
     type: SPONDEE
@@ -74806,8 +75068,8 @@ verse {
   number: 738
   text: "tum Bitiae dedit increpitāns; ille impiger hausit"
   norm: "tum bitiae dedit increpitāns ille impiger hausit"
-  raw_pron: "tũː bitiaj dedit iŋkrepitaːns ille impiger hawsit"
-  var_pron: "tũː bitiaj dedi tiŋkrepitaːns illimpige rawsit"
+  raw_pron: "tũː bitiaj dedit iŋkrepitãːs ille impiger hawsit"
+  var_pron: "tũː bitiaj dedi tiŋkrepitãːs illimpige rawsit"
   foot {
     syllable {
       onset: "t"
@@ -74866,8 +75128,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -75948,12 +76210,11 @@ verse {
   number: 749
   text: "īnfēlix Dīdō longumque bibēbat amōrem,"
   norm: "īnfēlix dīdō longumque bibēbat amōrem"
-  raw_pron: "iːnfeːliks diːdoː loŋgũːkwe bibeːbat amoːrẽː"
-  var_pron: "iːnfeːliks diːdoː loŋgũːkwe bibeːba tamoːrẽː"
+  raw_pron: "ĩːfeːliks diːdoː loŋgũːkwe bibeːbat amoːrẽː"
+  var_pron: "ĩːfeːliks diːdoː loŋgũːkwe bibeːba tamoːrẽː"
   foot {
     syllable {
-      nucleus: "iː"
-      coda: "n"
+      nucleus: "ĩː"
       weight: HEAVY
     }
     syllable {
@@ -76045,8 +76306,8 @@ verse {
   number: 750
   text: "multa super Priamō rogitāns, super Hectore multa;"
   norm: "multa super priamō rogitāns super hectore multa"
-  raw_pron: "multa super priamoː rogitaːns super hektore multa"
-  var_pron: "multa super priamoː rogitaːns supe rektore multa"
+  raw_pron: "multa super priamoː rogitãːs super hektore multa"
+  var_pron: "multa super priamoː rogitãːs supe rektore multa"
   foot {
     syllable {
       onset: "m"
@@ -76105,8 +76366,8 @@ verse {
   foot {
     syllable {
       onset: "t"
-      nucleus: "aː"
-      coda: "ns"
+      nucleus: "ãː"
+      coda: "s"
       weight: HEAVY
     }
     syllable {
@@ -76465,8 +76726,100 @@ verse {
   number: 754
   text: "īnsidiās\" inquit \"Danaum cāsūsque tuōrum"
   norm: "īnsidiās inquit danaum cāsūsque tuōrum"
-  raw_pron: "iːnsidiaːs iŋkwit danawm kaːsuːskwe tuoːrũː"
-  defective: true
+  raw_pron: "ĩːsidiaːs iŋkwit danaũː kaːsuːskwe tuoːrũː"
+  var_pron: "ĩːsidiaːs iŋkwit danaũː kaːsuːskwe tuoːrũː"
+  foot {
+    syllable {
+      nucleus: "ĩː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "d"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "i"
+      coda: "ŋ"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "kw"
+      nucleus: "i"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "uː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "t"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "r"
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 755

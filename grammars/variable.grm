@@ -40,9 +40,6 @@ synizesis = Optimize[
 diaeresis = Optimize[
     CDRewrite[("w" : "u") <10000>,
               "k" | "g", "", sigma_star, 'ltr', 'opt'] @
-    # "aw" diphthongs preceding final m may lenite.
-    CDRewrite[("w" : "u") <10000>,
-               "", "m", sigma_star, 'ltr', 'opt'] @
     CDRewrite[("jj" : "i") <10000>,
               i.PHONEMIC_VOWEL, i.PHONEMIC_VOWEL, sigma_star, 'ltr', 'opt']
 ];

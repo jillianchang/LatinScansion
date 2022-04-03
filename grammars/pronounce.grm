@@ -146,8 +146,8 @@ rules = Optimize[
     # Diphthong exceptions.
     ei_exceptions @ eu_exceptions @ oi_exceptions @ ou_exceptions @ 
     ui_exceptions @
-    internal_nasalization @
     # Basic g2p rules.
+    internal_nasalization @
     long_monophthongs @ digraphs @ unconditioned_rewrites @
     # Rules for labiovelars.
     u_loss @ qu @ ngu @ gn @
