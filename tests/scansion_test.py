@@ -170,7 +170,7 @@ class ScansionTest(unittest.TestCase):
         text = "Ollī subrīdēns hominum sator atque deōrum"
         verse = self.scan_verse(text)
         self.assertEqual(
-            verse.var_pron, "olliː subriːdeːns hominũː sato ratkwe deoːrũː"
+            verse.var_pron, "olliː subriːdẽːs hominũː sato ratkwe deoːrũː"
         )
 
     def test_aen_1_450(self):
@@ -185,7 +185,7 @@ class ScansionTest(unittest.TestCase):
         verse = self.scan_verse(text)
         self.assertEqual(
             verse.var_pron,
-            "loːra teneːns tame nujk kerwiːkskwe komajkwe trahuntur",
+            "loːra tenẽːs tame nujk kerwiːkskwe komajkwe trahuntur",
         )
 
     def test_aen_1_593(self):
@@ -414,7 +414,7 @@ class ScansionTest(unittest.TestCase):
         text = '"Ō nimium caelō et pelagō cōnfīse serēnō'
         verse = self.scan_verse(text)
         self.assertEqual(
-            verse.var_pron, "oː nimiũː kajlet pelagoː koːnfiːse sereːnoː"
+            verse.var_pron, "oː nimiũː kajlet pelagoː kõːfiːse sereːnoː"
         )
 
     @unittest.skip("Requires synizesis, but Cj is not a valid onset.")
