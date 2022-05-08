@@ -4429,6 +4429,7 @@ verse {
   norm: "germānīque minās"
   raw_pron: "germaːniːkwe minaːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 45
@@ -14809,6 +14810,7 @@ verse {
   norm: "crētesque dryopesque fremunt pictīque agathyrsī"
   raw_pron: "kreːteskwe druopeskwe fremunt piktiːkwe agatursiː"
   defective: true
+  comment: "diastole required: kreːteskweː"
 }
 verse {
   number: 147
@@ -18403,6 +18405,7 @@ verse {
   norm: "tot vigilēs oculī subter mirābile dictū"
   raw_pron: "tot wigileːs okuliː supter miraːbile diktuː"
   defective: true
+  comment: "diastole required: miːraːbile"
 }
 verse {
   number: 183
@@ -36743,6 +36746,7 @@ verse {
   norm: "ītaliam nōn sponte sequor"
   raw_pron: "iːtaliãː noːn sponte sekwor"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 362
@@ -40709,6 +40713,7 @@ verse {
   norm: "īnfabricāta fugae studiō"
   raw_pron: "iːnfabrikaːta fugaj studioː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 401
@@ -51244,6 +51249,7 @@ verse {
   norm: "ergō jussa parat"
   raw_pron: "ergoː jussa parat"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 504
@@ -52490,6 +52496,7 @@ verse {
   norm: "et mātrī praereptus amor"
   raw_pron: "et maːtriː prajreptus amor"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 517
@@ -56746,6 +56753,7 @@ verse {
   norm: "omnia mercuriō similis vōcemque colōremque"
   raw_pron: "omnia merkurioː similis woːkẽːkwe koloːrẽːkwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 559
@@ -62742,6 +62750,7 @@ verse {
   norm: "auxilium implōret videatque indigna suorum"
   raw_pron: "awksiliũː imploːret wideatkwe indiŋna suorũː"
   defective: true
+  comment: "diastole needed: "suoːrũː"
 }
 verse {
   number: 618
@@ -63892,6 +63901,7 @@ verse {
   norm: "imprecor arma armīs pugnent ipsīque nepōtēsque"
   raw_pron: "imprekor arma armiːs puŋnent ipsiːkwe nepoːteːskwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 630

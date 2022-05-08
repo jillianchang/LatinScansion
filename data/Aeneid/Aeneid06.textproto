@@ -9647,6 +9647,7 @@ verse {
   norm: "externīque iterum thalamī"
   raw_pron: "eksterniːkwe iterũː talamiː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 95
@@ -42263,6 +42264,7 @@ verse {
   norm: "dēturbat laxatque forōs simul accipit alveō"
   raw_pron: "deːturbat laksatkwe foroːs simul akkipit alweoː"
   defective: true
+  comment: "irregular synizesis: alwjoː"
 }
 verse {
   number: 413
@@ -45732,6 +45734,7 @@ verse {
   norm: "euadnēnque et pāsiphaēn hīs lāodamīa"
   raw_pron: "euadneːŋkwe et paːsipaeːn hiːs laːodamiːa"
   defective: true
+  comment: "diastole needed (after synizesis): eːwadneːŋkwe"
 }
 verse {
   number: 448
@@ -51675,6 +51678,7 @@ verse {
   norm: "nōmen et arma locum servant tē amīce nequīvī"
   raw_pron: "noːmen et arma lokũː serwant teː amiːke nekwiːwiː"
   defective: true
+  comment: "systole needed: te"
 }
 verse {
   number: 508
@@ -61438,6 +61442,7 @@ verse {
   norm: "quō super ātra silex jam jam lāpsūra cadentīque"
   raw_pron: "kwoː super aːtra sileks jãː jãː laːpsuːra kadentiːkwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 603
@@ -64987,6 +64992,7 @@ verse {
   norm: "hīs demum exāctīs perfectō mūnere dīvae"
   raw_pron: "hiːs demũː eksaːktiːs perfektoː muːnere diːwaj"
   defective: true
+  comment: "diastole needed: deːmũː"
 }
 verse {
   number: 638
@@ -70860,6 +70866,7 @@ verse {
   norm: "ille autem tua me genitor tua trīstis imāgō"
   raw_pron: "ille awtẽː tua me genitor tua triːstis imaːgoː"
   defective: true
+  comment: "diastole needed: meː"
 }
 verse {
   number: 696
@@ -80897,6 +80904,7 @@ verse {
   norm: "saecula quī rūrsus latiō rēgnata per arva"
   raw_pron: "sajkula kwiː ruːrsus latioː reːŋnata per arwa"
   defective: true
+  comment: "diastole needed: reːŋnaːta"
 }
 verse {
   number: 794
@@ -85138,6 +85146,7 @@ verse {
   norm: "prōjice tēla manū sanguis meus"
   raw_pron: "proːjjike teːla manuː saŋgwis meus"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 836

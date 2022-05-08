@@ -1,4 +1,4 @@
-name: "Aen. 2"
+name: "data/Aeneid/Aeneid02.txt"
 verse {
   number: 1
   text: "Conticuēre omnēs intentīque ōra tenēbant."
@@ -1238,6 +1238,7 @@ verse {
   norm: "incipiam"
   raw_pron: "iŋkipiãː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 14
@@ -1245,13 +1246,107 @@ verse {
   norm: "frāctī bellō fātīsque repulsī"
   raw_pron: "fraːktiː belloː faːtiːskwe repulsiː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 15
   text: "ductōres Danaum tot jam lābentibus annīs"
   norm: "ductōres danaum tot jam lābentibus annīs"
-  raw_pron: "duktoːres danawm tot jãː laːbentibus anniːs"
-  defective: true
+  raw_pron: "duktoːres danaũː tot jãː laːbentibus anniːs"
+  var_pron: "duktoːres danaũː tot jãː laːbentibu sanniːs"
+  foot {
+    syllable {
+      onset: "d"
+      nucleus: "u"
+      coda: "k"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "e"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "o"
+      coda: "t"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "j"
+      nucleus: "ãː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "b"
+      nucleus: "e"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "b"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "a"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "iː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 16
@@ -3409,8 +3504,108 @@ verse {
   number: 37
   text: "aut pelagō Danaum īnsidiās suspectaque dōna"
   norm: "aut pelagō danaum īnsidiās suspectaque dōna"
-  raw_pron: "awt pelagoː danawm iːnsidiaːs suspektakwe doːna"
-  defective: true
+  raw_pron: "awt pelagoː danaũː iːnsidiaːs suspektakwe doːna"
+  var_pron: "awt pelagoː danaiːnsidiaːs suspektakwe doːna"
+  foot {
+    syllable {
+      nucleus: "a"
+      coda: "wt"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "l"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "g"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "iː"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "d"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "u"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      coda: "k"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "d"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: TROCHEE
+  }
 }
 verse {
   number: 38
@@ -4147,8 +4342,109 @@ verse {
   number: 45
   text: "dōna carēre dolīs Danaum? Sīc nōtus Ulixēs?"
   norm: "dōna carēre dolīs danaum sīc nōtus ulixēs"
-  raw_pron: "doːna kareːre doliːs danawm siːk noːtus ulikseːs"
-  defective: true
+  raw_pron: "doːna kareːre doliːs danaũː siːk noːtus ulikseːs"
+  var_pron: "doːna kareːre doliːs danaũː siːk noːtu sulikseːs"
+  foot {
+    syllable {
+      onset: "d"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "k"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "r"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "d"
+      nucleus: "o"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "l"
+      nucleus: "iː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "iː"
+      coda: "k"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "n"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "s"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "l"
+      nucleus: "i"
+      coda: "k"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 46
@@ -6230,8 +6526,107 @@ verse {
   number: 66
   text: "Accipe nunc Danaum īnsidiās, et crīmine ab ūnō"
   norm: "accipe nunc danaum īnsidiās et crīmine ab ūnō"
-  raw_pron: "akkipe nuŋk danawm iːnsidiaːs et kriːmine ab uːnoː"
-  defective: true
+  raw_pron: "akkipe nuŋk danaũː iːnsidiaːs et kriːmine ab uːnoː"
+  var_pron: "akkipe nuŋk danaiːnsidiaːs et kriːmina buːnoː"
+  foot {
+    syllable {
+      nucleus: "a"
+      coda: "k"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "n"
+      nucleus: "u"
+      coda: "ŋk"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "iː"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "d"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "kr"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "b"
+      nucleus: "uː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 67
@@ -6239,6 +6634,7 @@ verse {
   norm: "disce omnīs"
   raw_pron: "diske omniːs"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 68
@@ -16050,8 +16446,99 @@ verse {
   number: 163
   text: "Omnis spēs Danaum et coeptī fīdūcia bellī"
   norm: "omnis spēs danaum et coeptī fīdūcia bellī"
-  raw_pron: "omnis speːs danawm et kojptiː fiːduːkia belliː"
-  defective: true
+  raw_pron: "omnis speːs danaũː et kojptiː fiːduːkia belliː"
+  var_pron: "omnis speːs danaet kojptiː fiːduːkia belliː"
+  foot {
+    syllable {
+      nucleus: "o"
+      coda: "m"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "sp"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "o"
+      coda: "jp"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "f"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "d"
+      nucleus: "uː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "b"
+      nucleus: "e"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "l"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 164
@@ -16781,8 +17268,100 @@ verse {
   number: 171
   text: "spēs Danaum, frāctae vīrēs, āversa deae mēns."
   norm: "spēs danaum frāctae vīrēs āversa deae mēns"
-  raw_pron: "speːs danawm fraːktaj wiːreːs aːwersa deaj meːns"
-  defective: true
+  raw_pron: "speːs danaũː fraːktaj wiːreːs aːwersa deaj meːns"
+  var_pron: "speːs danaũː fraːktaj wiːreːs aːwersa deaj meːns"
+  foot {
+    syllable {
+      onset: "sp"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "fr"
+      nucleus: "aː"
+      coda: "k"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      coda: "j"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "w"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "w"
+      nucleus: "e"
+      coda: "r"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "d"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "a"
+      coda: "j"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "eː"
+      coda: "ns"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 172
@@ -23218,6 +23797,7 @@ verse {
   norm: "nūmina conclāmant"
   raw_pron: "nuːmina koŋklaːmant"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 235
@@ -27579,8 +28159,110 @@ verse {
   number: 277
   text: "vel Danaum Phrygiōs jaculātus puppibus ignīs,"
   norm: "vel danaum phrygiōs jaculātus puppibus ignīs"
-  raw_pron: "wel danawm prugioːs jakulaːtus puppibus iŋniːs"
-  defective: true
+  raw_pron: "wel danaũː prugioːs jakulaːtus puppibus iŋniːs"
+  var_pron: "wel danaũː prugioːs jakulaːtus puppibu siŋniːs"
+  foot {
+    syllable {
+      onset: "w"
+      nucleus: "e"
+      coda: "l"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "pr"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "g"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "oː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "j"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "k"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "l"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "u"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "p"
+      nucleus: "u"
+      coda: "p"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "p"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "b"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      coda: "ŋ"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "iː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 278
@@ -30899,8 +31581,109 @@ verse {
   number: 310
   text: "Tum vērō manifesta fidēs, Danaumque patēscunt"
   norm: "tum vērō manifesta fidēs danaumque patēscunt"
-  raw_pron: "tũː weːroː manifesta fideːs danawmkwe pateːskunt"
-  defective: true
+  raw_pron: "tũː weːroː manifesta fideːs danaũːkwe pateːskunt"
+  var_pron: "tũː weːroː manifesta fideːs danaũːkwe pateːskunt"
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "w"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "f"
+      nucleus: "e"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "f"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "d"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "p"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "u"
+      coda: "nt"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 311
@@ -34635,6 +35418,7 @@ verse {
   norm: "audierit"
   raw_pron: "awdierit"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 348
@@ -37035,8 +37819,104 @@ verse {
   number: 371
   text: "Prīmus sē Danaum magnā comitante catervā"
   norm: "prīmus sē danaum magnā comitante catervā"
-  raw_pron: "priːmus seː danawm maŋnaː komitante katerwaː"
-  defective: true
+  raw_pron: "priːmus seː danaũː maŋnaː komitante katerwaː"
+  var_pron: "priːmus seː danaũː maŋnaː komitante katerwaː"
+  foot {
+    syllable {
+      onset: "pr"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "u"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "a"
+      coda: "ŋ"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "n"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "o"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "m"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "k"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "e"
+      coda: "r"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "w"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 372
@@ -38890,8 +39770,103 @@ verse {
   number: 390
   text: "mūtēmus clipeōs Danaumque īnsignia nōbīs"
   norm: "mūtēmus clipeōs danaumque īnsignia nōbīs"
-  raw_pron: "muːteːmus klipeoːs danawmkwe iːnsiŋnia noːbiːs"
-  defective: true
+  raw_pron: "muːteːmus klipeoːs danaũːkwe iːnsiŋnia noːbiːs"
+  var_pron: "muːteːmus klipeoːs danaũːkwiːnsiŋnia noːbiːs"
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "uː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "u"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kl"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "oː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "kw"
+      nucleus: "iː"
+      coda: "n"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "i"
+      coda: "ŋ"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "n"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "b"
+      nucleus: "iː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 391
@@ -39729,8 +40704,106 @@ verse {
   number: 399
   text: "cōnserimus, multōs Danaum dēmittimus Orcō."
   norm: "cōnserimus multōs danaum dēmittimus orcō"
-  raw_pron: "koːnserimus multoːs danawm deːmittimus orkoː"
-  defective: true
+  raw_pron: "koːnserimus multoːs danaũː deːmittimus orkoː"
+  var_pron: "koːnserimus multoːs danaũː deːmittimu sorkoː"
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "oː"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "r"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "u"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "u"
+      coda: "l"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "oː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "m"
+      nucleus: "i"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "m"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "o"
+      coda: "r"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "k"
+      nucleus: "oː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 400
@@ -43222,8 +44295,104 @@ verse {
   number: 434
   text: "vītāvisse vicēs Danaum et, sī fāta fuissent"
   norm: "vītāvisse vicēs danaum et sī fāta fuissent"
-  raw_pron: "wiːtaːwisse wikeːs danawm et siː faːta fuissent"
-  defective: true
+  raw_pron: "wiːtaːwisse wikeːs danaũː et siː faːta fuissent"
+  var_pron: "wiːtaːwisse wikeːs danaet siː faːta fuissent"
+  foot {
+    syllable {
+      onset: "w"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "w"
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "w"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "f"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "f"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "i"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "e"
+      coda: "nt"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 435
@@ -46102,8 +47271,105 @@ verse {
   number: 463
   text: "et Danaum solitae nāvēs et Achāia castra,"
   norm: "et danaum solitae nāvēs et achāia castra"
-  raw_pron: "et danawm solitaj naːweːs et akaːia kastra"
-  defective: true
+  raw_pron: "et danaũː solitaj naːweːs et akaːia kastra"
+  var_pron: "et danaũː solitaj naːweːs e takaːia kastra"
+  foot {
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "o"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "l"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      coda: "j"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "n"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "w"
+      nucleus: "eː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "e"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "t"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    syllable {
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "a"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "tr"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: TROCHEE
+  }
 }
 verse {
   number: 464
@@ -46424,8 +47690,112 @@ verse {
   number: 467
   text: "cum sonitū trahit et Danaum super agmina lātē"
   norm: "cum sonitū trahit et danaum super agmina lātē"
-  raw_pron: "kũː sonituː trahit et danawm super agmina laːteː"
-  defective: true
+  raw_pron: "kũː sonituː trahit et danaũː super agmina laːteː"
+  var_pron: "kũː sonituː trahi tet danaũː supe ragmina laːteː"
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "o"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "uː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "tr"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "h"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "t"
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "ũː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "s"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "p"
+      nucleus: "e"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "r"
+      nucleus: "a"
+      coda: "g"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "m"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "l"
+      nucleus: "aː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 468
@@ -46540,6 +47910,7 @@ verse {
   norm: "tēlōrum intereā cessat genus"
   raw_pron: "teːloːrũː intereaː kessat genus"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 470
@@ -57048,8 +58419,101 @@ verse {
   number: 573
   text: "et poenās Danaum et dēsertī conjugis īrās"
   norm: "et poenās danaum et dēsertī conjugis īrās"
-  raw_pron: "et pojnaːs danawm et deːsertiː konjugis iːraːs"
-  defective: true
+  raw_pron: "et pojnaːs danaũː et deːsertiː konjugis iːraːs"
+  var_pron: "et pojnaːs danaet deːsertiː konjugi siːraːs"
+  foot {
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "p"
+      nucleus: "o"
+      coda: "j"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "n"
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "n"
+      nucleus: "a"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      nucleus: "e"
+      coda: "t"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "d"
+      nucleus: "eː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "e"
+      coda: "r"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "t"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
+  foot {
+    syllable {
+      onset: "k"
+      nucleus: "o"
+      coda: "n"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "j"
+      nucleus: "u"
+      weight: LIGHT
+    }
+    syllable {
+      onset: "g"
+      nucleus: "i"
+      weight: LIGHT
+    }
+    type: DACTYL
+  }
+  foot {
+    syllable {
+      onset: "s"
+      nucleus: "iː"
+      weight: HEAVY
+    }
+    syllable {
+      onset: "r"
+      nucleus: "aː"
+      coda: "s"
+      weight: HEAVY
+    }
+    type: SPONDEE
+  }
 }
 verse {
   number: 574
@@ -61298,6 +62762,7 @@ verse {
   norm: "ferrō accīncta vocat"
   raw_pron: "ferroː akkiːŋkta wokat"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 616
@@ -62130,6 +63595,7 @@ verse {
   norm: "nūmina magna deum"
   raw_pron: "nuːmina maŋna deũː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 625
@@ -63763,6 +65229,7 @@ verse {
   norm: "vōs agitāte fugam"
   raw_pron: "woːs agitaːte fugãː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 642
@@ -67212,6 +68679,7 @@ verse {
   norm: "haerebat parvumque patrī tendēbat iūlum"
   raw_pron: "hajrebat parwũːkwe patriː tendeːbat iuːlũː"
   defective: true
+  comment: "diastole required: hajreːbat"
 }
 verse {
   number: 676
@@ -71859,6 +73327,7 @@ verse {
   norm: "abluerō"
   raw_pron: "ablueroː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 722
@@ -74141,6 +75610,7 @@ verse {
   norm: "vēnimus hīc demum collēctīs omnibus ūna"
   raw_pron: "weːnimus hiːk demũː kolleːktiːs omnibus uːna"
   defective: true
+  comment: "diastole required: deːmũː"
 }
 verse {
   number: 745
@@ -74256,6 +75726,7 @@ verse {
   norm: "quem nōn incūsāvī āmēns hominumque deōrumque"
   raw_pron: "kwẽː noːn iŋkuːsaːwiː aːmeːns hominũːkwe deoːrũːkwe"
   defective: true
+  comment: "hypermetric verse: extra syllable is elided into the next line"
 }
 verse {
   number: 747
@@ -76428,6 +77899,7 @@ verse {
   norm: "stant circum"
   raw_pron: "stant kirkũː"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 769
@@ -78386,6 +79858,7 @@ verse {
   norm: "dardanis et dīvae veneris nurus"
   raw_pron: "dardanis et diːwaj weneris nurus"
   defective: true
+  comment: "incomplete line"
 }
 verse {
   number: 789

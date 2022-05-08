@@ -8,10 +8,11 @@ workflows:
       - build-python-3.8
       - build-python-3.9
       - test-python
+
 jobs:
-  build-python-3.8: &template
+  build-python-3.7: &template
     docker:
-      - image: python:3.8
+      - image: python:3.7
     steps:
       - checkout
       - run:
@@ -35,6 +36,10 @@ jobs:
           name: Runs black check
           working_directory: ~/project
           command: black --line-length 79 --check --exclude latin_scansion/scansion_pb2.py latin_scansion setup.py tests
+  build-python-3.8:
+    <<: *template
+    docker:
+      - image: python:3.8
   build-python-3.9:
     <<: *template
     docker:
@@ -75,3 +80,10 @@ jobs:
               source ~/.bashrc
               conda activate scansion
               latin_validate --help
+      - run:
+          name: Runs latin_validate on .textprotos
+          working_directory: ~/project
+          command: |
+              source ~/.bashrc
+              conda activate scansion
+              latin_validate data/*/*.textproto
